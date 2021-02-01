@@ -44,7 +44,7 @@ RUN  apt-get install -y build-essential pkg-config libssl-dev && \
 RUN cd ${ENV_PREFIX} && \
     git clone --recurse-submodules https://github.com/input-output-hk/jormungandr && \
 	cd jormungandr && \
-	git checkout master
+	git checkout change-bardecoder-for-quircs
 
 RUN cd ${ENV_PREFIX} && \
     git clone --recurse-submodules https://github.com/input-output-hk/vit-servicing-station && \
