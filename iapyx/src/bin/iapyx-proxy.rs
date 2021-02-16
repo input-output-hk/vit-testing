@@ -1,6 +1,6 @@
 use iapyx::{cli::args::proxy::IapyxProxyCommand, Protocol};
 use structopt::StructOpt;
-use warp::Filter;
+use warp::{Filter, Rejection, Reply};
 use warp_reverse_proxy::reverse_proxy_filter;
 
 #[tokio::main]
@@ -8,6 +8,10 @@ async fn main() {
     let server_stub = IapyxProxyCommand::from_args().build().unwrap();
 
     let root = warp::path!("api" / "v0" / ..);
+
+    let health = warp::path!("health")
+        .and(warp::get())
+        .and_then(check_health);
 
     let proposals = warp::path!("proposals" / ..).and(reverse_proxy_filter(
         "".to_string(),
@@ -60,6 +64,7 @@ async fn main() {
 
     let app = root.and(
         proposals
+            .or(health)
             .or(challenges)
             .or(fund)
             .or(account)
@@ -87,4 +92,8 @@ async fn main() {
             warp::serve(app).run(server_stub.base_address()).await;
         }
     }
+}
+
+pub async fn check_health() -> Result<impl Reply, Rejection> {
+    Ok(warp::reply())
 }
