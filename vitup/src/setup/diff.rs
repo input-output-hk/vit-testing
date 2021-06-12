@@ -90,7 +90,7 @@ impl DiffCommand {
         let patch = create_patch(&local_proposals_content, &remote_proposals_content);
         let f = get_formatter(self.color);
         let proposals_diff_header = format!(
-            "diff http://{}/api/v0/block0 {}/api/v0/proposals\n",
+            "diff http://{}/api/v0/proposals {}/api/v0/proposals\n",
             self.target, address
         );
         let proposals_diff = format!("{}\n", f.fmt_patch(&patch));

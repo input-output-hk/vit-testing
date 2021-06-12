@@ -11,8 +11,6 @@ pub struct Fund {
     pub fund_name: String,
     #[serde(alias = "fundGoal")]
     pub fund_goal: String,
-    #[serde(alias = "votingPowerInfo")]
-    pub voting_power_info: String,
     pub voting_power_threshold: u32,
     #[serde(alias = "rewardsInfo")]
     pub rewards_info: String,
@@ -28,10 +26,12 @@ pub struct Fund {
     #[serde(serialize_with = "crate::utils::serde::serialize_unix_timestamp_as_rfc3339")]
     #[serde(deserialize_with = "crate::utils::serde::deserialize_unix_timestamp_from_rfc3339")]
     pub next_fund_start_time: i64,
+    pub registration_snapshot_time: String,
     #[serde(alias = "chainVotePlans")]
     pub chain_vote_plans: Vec<Voteplan>,
     #[serde(alias = "chainVotePlans")]
     pub challenges: Vec<Challenge>,
+    pub voting_power_info: String,
 }
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq)]
 pub struct Voteplan {
@@ -129,6 +129,7 @@ pub struct Challenge {
     pub description: String,
     #[serde(alias = "rewardsTotal")]
     pub rewards_total: i64,
+    pub proposers_rewards: i64,
     #[serde(alias = "fundId")]
     pub fund_id: i32,
     #[serde(alias = "challengeUrl")]
