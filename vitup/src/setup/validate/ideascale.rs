@@ -108,6 +108,10 @@ impl IdeascaleValidateCommand {
                 self.check_and_eventually_fix_proposal_syntax(proposal_brief);
             }
 
+            if let Some(proposal_impact_score) = proposal.get_mut("proposal_impact_score") {
+                self.check_and_eventually_fix_proposal_score(proposal_impact_score);
+            }
+
             if let Some(proposal_goal) = proposal.get_mut("proposal_goal") {
                 self.check_and_eventually_fix_proposal_syntax(proposal_goal);
             }
@@ -128,6 +132,25 @@ impl IdeascaleValidateCommand {
 
     fn check_and_eventually_fix_proposal_syntax(&self, value: &mut Value) {
         let illegal_chars_vec = vec!["**", "\\\\*", "\\\\", "\\*\\*", "\\-"];
+        for illegal_chars in illegal_chars_vec {
+            if value.as_str().as_ref().unwrap().contains(illegal_chars) {
+                if self.fix {
+                    let before = value.as_str().unwrap();
+                    let after = value.as_str().as_mut().unwrap().replace(illegal_chars, "");
+                    println!("Fixing illegal chars {}-{}", before, after);
+                    *value = Value::String(after);
+                } else {
+                    panic!(
+                        "illegal chars detected: {}",
+                        value.as_str().as_ref().unwrap()
+                    );
+                }
+            }
+        }
+    }
+
+    fn check_and_eventually_fix_proposal_score(&self, value: &mut Value) {
+        let illegal_chars_vec = vec!["."];
         for illegal_chars in illegal_chars_vec {
             if value.as_str().as_ref().unwrap().contains(illegal_chars) {
                 if self.fix {

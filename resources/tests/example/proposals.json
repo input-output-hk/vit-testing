@@ -20,7 +20,7 @@
     "proposer_url": "http://proposer.com/start"
 =======
     "proposal_id": "352830",
-    "proposal_impact_score": "4.30",
+    "proposal_impact_score": "430",
     "proposal_solution": "Develop automated ML trading ensemble method based on following top K=100 traders centralised exchange accounts and wallets.",
     "proposal_summary": "Classic blockchain rewards focus on market making fees, PoS rewards & lending, leaving a big revenue area of automated trading untapped.",
     "proposal_title": "Democratised AlgoTrading on Cardano",
@@ -54,7 +54,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "352828",
-    "proposal_impact_score": "3.12",
+    "proposal_impact_score": "312",
     "proposal_solution": "We will create a series of video advertisements/engaging pieces of content to generate interest among new eyes! Catalyst is for everyone!",
     "proposal_summary": "To bring more entrepreneurs and new talent to the participate in the Catalyst ecosystem!",
     "proposal_title": "Chilean Leprechaun Video Campaign",
@@ -87,7 +87,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352819",
-    "proposal_impact_score": "3.90",
+    "proposal_impact_score": "390",
     "proposal_solution": "Liquidity, index, derivatives, mirrored assets, smart contracts, cutting edge stack (React.js UI, Haskell backend, GraphQL API, Kubernetes).",
     "proposal_summary": "Blockchain-agnostic decentralized exchange with liquidity staking and farming, crypto indexes, derivatives, mirrored assets, and daemons.",
     "proposal_title": "DEX, Cardano Decentralized Exchange",
@@ -120,7 +120,7 @@
 =======
     "proposal_funds": "12700",
     "proposal_id": "352818",
-    "proposal_impact_score": "3.28",
+    "proposal_impact_score": "328",
     "proposal_solution": "We will create additional treasury to fund mini-proposals, micro-work that will fund work throughout Project Catalyst.",
     "proposal_summary": "Catalyst has only 1 funding model and the time between proposals and receiving funds is not advantageous for developers of all skill levels.",
     "proposal_title": "MicroTask/Development Challenge",
@@ -155,7 +155,7 @@
     "proposal_funds": "200000",
     "proposal_goal": "Many high quality ideas will be proposed that can substantially grow Cardano's user-base, network-utility, network-value & ADA circulation.",
     "proposal_id": "352815",
-    "proposal_impact_score": "4.51",
+    "proposal_impact_score": "451",
     "proposal_importance": "NFTs have the potential to create businesses with recurring NFT use requirements which increase utilization of the Cardano blockchain.",
     "proposal_metrics": "\\* The number of proposals that directly address NFT use cases in a quantifiable manner.\r\n\r\n\\* The quality of proposals measured by community interest and engagement.\r\n\r\n\\* Results of any Fund7 funded projects significantly impacting NFT utility on the Cardano blockchain.",
     "proposal_summary": "What non-Art use cases of NFTs can distinguish Cardano as the blockchain of choice for NFT based businesses?",
@@ -187,7 +187,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "352811",
-    "proposal_impact_score": "2.53",
+    "proposal_impact_score": "253",
     "proposal_solution": "Pharo engages the public w/auto cover maker that allows buyers to protect expenses and allows crowd-sourced liquidity and rev generation.",
     "proposal_summary": "DeFi/Cryppto/Cardano is not mainstream and it is difficult to onboard new people into the crypto markets.",
     "proposal_title": "Pharo - ACM",
@@ -220,7 +220,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "352809",
-    "proposal_impact_score": "1.54",
+    "proposal_impact_score": "154",
     "proposal_solution": "We are proposing making improvements to the IdeaScale platform will allow the Cardano community to make better decisions.",
     "proposal_summary": "Obstacles prevent Fund Proposers from expressing themselves in the Cardano community and Community Advisors from reviewing proposals.",
     "proposal_title": "IdeaScale Improvements",
@@ -253,7 +253,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352808",
-    "proposal_impact_score": "3.17",
+    "proposal_impact_score": "317",
     "proposal_solution": "Create a Dapp that turns a Stakepool into a Smart-Stakepool. Instant SSO sign in, wallet creation, stakepool and charity selection and DONE!",
     "proposal_summary": "Stakepools have limited functionality for distro or rewards. It's very hard to teach the average joe in 123 how to delegate to a stake pool.",
     "proposal_title": "smartstakepool.io",
@@ -288,7 +288,7 @@
     "proposal_funds": "350000",
     "proposal_goal": "The creation of a decentralised storage solution that makes use of the Cardano blockchain, incentivised by a native token.",
     "proposal_id": "352807",
-    "proposal_impact_score": "3.93",
+    "proposal_impact_score": "393",
     "proposal_importance": "The world relies more than ever on cloud storage. The need will only increase. Yet a few corporations currently host most of that data.",
     "proposal_metrics": "Number of participants, peers, in the decentralised storage network.\r\n\r\nNumber of individual users making use of decentralised storage.\r\n\r\nVolume of data stored.\r\n\r\nNumber of organisations and platforms migrated to the decentralised storage solutions.\r\n\r\nNew applications enabled by decentralised storage.\r\n\r\nImpact on the price of storage when compared to centralised storage offerings.\r\n\r\nConsidering this is a complex task that is not likely to be accomplished, and result in a functioning decentralised storage solution, in a 3 to 6 months timeframe we fully expect that proposal would seek funds in multiple rounds of Catalyst for successful implementation. As such the proposals to this challenge would need to present a detailed timeframe and roadmap to implement a working solution.",
     "proposal_summary": "How can we create a robust, reliable, secure, and affordable decentralised, high-capacity storage network built upon the Cardano blockchain?",
@@ -320,7 +320,7 @@
 =======
     "proposal_funds": "3600",
     "proposal_id": "352804",
-    "proposal_impact_score": "3.67",
+    "proposal_impact_score": "367",
     "proposal_solution": "PCDiscord creates value, increases collaboration, provides insights to measure KPIs, and is an engagement epicenter. To reach full potential",
     "proposal_summary": "Communication is the most difficult challenge for Catalyst. Discord is an engagement epicenter and needs help to reach its full potential.",
     "proposal_title": "PCDiscord - Discord Partnership",
@@ -352,7 +352,7 @@
     "proposer_url": "http://proposer.com/start"
 =======
     "proposal_id": "352802",
-    "proposal_impact_score": "2.71",
+    "proposal_impact_score": "271",
     "proposal_solution": "Hurdle: Why Cardano? Creation of a YouTube Channel dedicated to News with a tint of Cardano, the positive impacts.  \r\nAnswer: Incentivization.",
     "proposal_summary": "How do you get entrepreneurs to develop on Cardano?",
     "proposal_title": "Why Should I Choose Cardano?",
@@ -385,7 +385,7 @@
 =======
     "proposal_funds": "900",
     "proposal_id": "352801",
-    "proposal_impact_score": "4.04",
+    "proposal_impact_score": "404",
     "proposal_solution": "Create a one-page Miro guideline board to introduce the Discord server and its members",
     "proposal_summary": "It takes time to maintain and moderate a large Discord channel",
     "proposal_title": "PCDiscord Miro board for Onboarding",
@@ -418,7 +418,7 @@
 =======
     "proposal_funds": "80000",
     "proposal_id": "352791",
-    "proposal_impact_score": "2.21",
+    "proposal_impact_score": "221",
     "proposal_solution": "1\\. Staked funds can be loaned and borrowed against in ADA.\r\n\r\nMany of us want to stake ADA, but we want to pay off our loans. Lets do both.",
     "proposal_summary": "How do we get DeFi to take off on ADA as the current barrier to entry on Ethereum is very high",
     "proposal_title": "Fund the masses",
@@ -452,7 +452,7 @@
 =======
     "proposal_funds": "10080",
     "proposal_id": "352787",
-    "proposal_impact_score": "4.07",
+    "proposal_impact_score": "407",
     "proposal_solution": "We have built a community service where we archive all IPFS data that appears on the Cardano blockchain for future generations.",
     "proposal_summary": "IPFS is widely used in the Cardano ecosystem. Data stored on IPFS is prone to disappear if not used and will be lost forever.",
     "proposal_title": "Cardano IPFS chronicles",
@@ -485,7 +485,7 @@
 =======
     "proposal_funds": "479",
     "proposal_id": "352780",
-    "proposal_impact_score": "3.96",
+    "proposal_impact_score": "396",
     "proposal_solution": "A bot what can create a channel in a correct place and give the channel full access to the creator",
     "proposal_summary": "It takes resources to maintain and moderate a large Discord channel",
     "proposal_title": "PCDiscord - Bot to create channels",
@@ -518,7 +518,7 @@
 =======
     "proposal_funds": "500",
     "proposal_id": "352779",
-    "proposal_impact_score": "4.00",
+    "proposal_impact_score": "400",
     "proposal_solution": "Integrate a bot into Discord what helps users govern ourselves",
     "proposal_summary": "It takes resources to maintain and moderate a large Discord channel",
     "proposal_title": "PCDiscord - Bot to Assign Roles",
@@ -551,7 +551,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "352777",
-    "proposal_impact_score": "2.33",
+    "proposal_impact_score": "233",
     "proposal_solution": "Have any of you used DuoLingo? It encourages language learning with reminders and rewards. Have any of used a weight loss app?",
     "proposal_summary": "How do we achieve greater involvement at multiple levels.",
     "proposal_title": "Incentivized Participation",
@@ -584,7 +584,7 @@
 =======
     "proposal_funds": "29000",
     "proposal_id": "352773",
-    "proposal_impact_score": "4.70",
+    "proposal_impact_score": "470",
     "proposal_solution": "Develop a staged approach to tokenomics that will enable a progression from simple, through intermediate to complex token incentivisation.",
     "proposal_summary": "Open-source projects need a scalable way to recognize, reward & bolster reputation of committed contributors & incent good decision-making.",
     "proposal_title": "NFT-DAO EZ-Honor contribution token",
@@ -618,7 +618,7 @@
 =======
     "proposal_funds": "9000",
     "proposal_id": "352764",
-    "proposal_impact_score": "4.60",
+    "proposal_impact_score": "460",
     "proposal_solution": "We want to build an open-source SDK (Software Development Kit - a set of tools, libraries and documentation) for C# developers.",
     "proposal_summary": "C# developers are missing (and asked for) tools to enjoy Blockfrost.io, a service that provides free and public Cardano API to developers.",
     "proposal_title": "C# SDK for Blockfrost API",
@@ -651,7 +651,7 @@
 =======
     "proposal_funds": "60000",
     "proposal_id": "352760",
-    "proposal_impact_score": "4.29",
+    "proposal_impact_score": "429",
     "proposal_solution": "MuKn's Glow language will overcome this problem by automatically proving the mathematical correctness of every interaction of a program.",
     "proposal_summary": "Catastrophic bugs keep developers from wanting to build DApps, because the risk of losing all the assets in the DApp is terrifying.",
     "proposal_title": "Glow Formal verification ",
@@ -684,7 +684,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "352759",
-    "proposal_impact_score": "3.50",
+    "proposal_impact_score": "350",
     "proposal_solution": "A native-asset storage and access protocol is needed for low-cost, hassle-free mass adoption of social media on Cardano-based networks.",
     "proposal_summary": "Decentralized Social Media must offer users low-friction control of their data, but storage on main chain is costly and controlled centrally",
     "proposal_title": "Protocol for Social Media Storage",
@@ -717,7 +717,7 @@
 =======
     "proposal_funds": "18000",
     "proposal_id": "352757",
-    "proposal_impact_score": "4.63",
+    "proposal_impact_score": "463",
     "proposal_solution": "Build a Websocket link for Blockfrost API standard to enable developers to better optimize their applications.",
     "proposal_summary": "There is a severe lack of support for WebSockets within the Cardano APIs.",
     "proposal_title": "Websocket link for Blockfrost API",
@@ -750,7 +750,7 @@
 =======
     "proposal_funds": "25400",
     "proposal_id": "352756",
-    "proposal_impact_score": "4.36",
+    "proposal_impact_score": "436",
     "proposal_solution": "Develop a Cardano blockchain module for flycode.io to allow anyone to create end-to-end apps that connect to smart contracts using no code",
     "proposal_summary": "Can we take advantage of the no-code movement in order to grow the number of developers on Cardano with a no-barrier entry platform?",
     "proposal_title": "End-to-End No-code Cardano Apps",
@@ -783,7 +783,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352752",
-    "proposal_impact_score": "3.48",
+    "proposal_impact_score": "348",
     "proposal_solution": "Viff - your crypto-friend. One and only. Stored on-chain with emotions, gadgets, goals, and look metadata. Simulated in an off-chain world.",
     "proposal_summary": "NFTs are just random and dull files. But, what if NFTs could be slimes? Be alive, independent, autonomous, emotional, and have live goals?",
     "proposal_title": "Viff.Club: Slimey Emotional NFTs",
@@ -816,7 +816,7 @@
 =======
     "proposal_funds": "46000",
     "proposal_id": "352747",
-    "proposal_impact_score": "3.81",
+    "proposal_impact_score": "381",
     "proposal_solution": "Bring in local developers on a journey to solve the IP problem among indigenous communities for them to earn more from their craft.",
     "proposal_summary": "Digital services for Intellectual Property are not available to Indigenous Communities, excluding them from fair and legal representation.",
     "proposal_title": "Indigenous Source Dev Tools +Events",
@@ -849,7 +849,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "352744",
-    "proposal_impact_score": "3.77",
+    "proposal_impact_score": "377",
     "proposal_solution": "Weekly workshops for \"Catalyst Skeptics\" in which newcomers identify barriers to entry that can be reframed as the seeds of new Proposals.",
     "proposal_summary": "People find it intimidating to start participating in Project Catalyst.",
     "proposal_title": "Barriers to Entry = Proposals",
@@ -882,7 +882,7 @@
 =======
     "proposal_funds": "45000",
     "proposal_id": "352738",
-    "proposal_impact_score": "4.63",
+    "proposal_impact_score": "463",
     "proposal_solution": "De-Fi platform leveraging stake pools to crowdfund open-source drug/medical projects, where scientific collaboration & governance is central",
     "proposal_summary": "Drug & medical funding is heavily centralised. Africa lacks investment & solutions despite native scientific talent.",
     "proposal_title": "Africa Opensource Pharma & Medicine",
@@ -915,7 +915,7 @@
 =======
     "proposal_funds": "100000",
     "proposal_id": "352730",
-    "proposal_impact_score": "2.16",
+    "proposal_impact_score": "216",
     "proposal_solution": "Incentivized referral gaming. Creating a gaming system approachable to children. It looks like a game, but they are actually developing apps",
     "proposal_summary": "How do we get developers to develop on Cardano?",
     "proposal_title": "The Game of Life",
@@ -948,7 +948,7 @@
 =======
     "proposal_funds": "4500",
     "proposal_id": "352725",
-    "proposal_impact_score": "3.37",
+    "proposal_impact_score": "337",
     "proposal_solution": "Bitbuny.io will offer a fun proof-of-concept way to experiment with new representation of blockchain assets with the goal of adding value.",
     "proposal_summary": "NFTs are not being used to their fullest potential-- As a means to represent tangible real-world assets in the blockchain.",
     "proposal_title": "BitBunny.io: Adopt animals w/ NFT",
@@ -981,7 +981,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "352723",
-    "proposal_impact_score": "1.87",
+    "proposal_impact_score": "187",
     "proposal_solution": "Give tocken NTFs the opportunity to participate in DEFI platforms by using NTFS wrap",
     "proposal_summary": "There is a great opportunity to bring NTFS tokens to the DEFI market",
     "proposal_title": "Wrap NTFs",
@@ -1015,7 +1015,7 @@
 =======
     "proposal_funds": "30000",
     "proposal_id": "352722",
-    "proposal_impact_score": "2.03",
+    "proposal_impact_score": "203",
     "proposal_solution": "Promptous will reward its plan administrators and service providers with ADA for validating claims and maintaining a \"trust rating\"",
     "proposal_summary": "Traditional insurance is built with inherent distrust, which is expensive to circumvent. This leads fraud, claim denial, and waste",
     "proposal_title": "Promptous Trust + Loyalty Program",
@@ -1049,7 +1049,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "352718",
-    "proposal_impact_score": "1.56",
+    "proposal_impact_score": "156",
     "proposal_solution": "set in motion the decentralisation of catalyst as smart contracts come online",
     "proposal_summary": "catalyst is currently centralised to a centralised company",
     "proposal_title": "[F5] REFRESH decentralise Catalyst",
@@ -1082,7 +1082,7 @@
 =======
     "proposal_funds": "24400",
     "proposal_id": "352717",
-    "proposal_impact_score": "3.89",
+    "proposal_impact_score": "389",
     "proposal_solution": "Kitty Party is challenging DeFi and the world of banking through crypto lending circles, micro DAOs to borrow across the world.",
     "proposal_summary": "Banks exploit their bargaining power over the community. DeFi currently requires %100+ collateral. We need a realistic borrowing option.",
     "proposal_title": "Kitty Party 😺  DeFi Lending Circle",
@@ -1115,7 +1115,7 @@
 =======
     "proposal_funds": "5000",
     "proposal_id": "352712",
-    "proposal_impact_score": "2.08",
+    "proposal_impact_score": "208",
     "proposal_solution": "Development of a actuarial model using industry and company-specific metadata in order to better communicate dental costs to patients",
     "proposal_summary": "Data on the utilization of dental procedures is primarily produced and held by carriers, meaning it is not used to benefit patients",
     "proposal_title": "Promptous Dental MetaData",
@@ -1148,7 +1148,7 @@
 =======
     "proposal_funds": "36200",
     "proposal_id": "352710",
-    "proposal_impact_score": "3.30",
+    "proposal_impact_score": "330",
     "proposal_solution": "Huge launch event raffle and conf with ongoing in-person or online support to the ecosystem from the Ciudad del Saber.",
     "proposal_summary": "Crypto project risks remain high for reasons. Risks can be reduced by having staffed help centers with experienced entrepreneurs.",
     "proposal_title": "Catalyst Incubation Centers",
@@ -1181,7 +1181,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "352707",
-    "proposal_impact_score": "3.29",
+    "proposal_impact_score": "329",
     "proposal_solution": "A market network empowering the yogi ecosystem, built using the best available platforms and tools.",
     "proposal_summary": "Yoga has always been too offline and out of balance. A pre-covid billion dollar industry was already wrought with a myriad of dysfunction.",
     "proposal_title": "YOGA+ on PRISM",
@@ -1214,7 +1214,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "352702",
-    "proposal_impact_score": "1.50",
+    "proposal_impact_score": "150",
     "proposal_solution": "Promptous is building a DApp providing discount schedules to individuals to reduce the cost dental services",
     "proposal_summary": "82 million people in the US are without dental insurance, meaning they lack a way to afford dental procedures",
     "proposal_title": "Promptous Dental Benefits DApp",
@@ -1247,7 +1247,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "352701",
-    "proposal_impact_score": "3.17",
+    "proposal_impact_score": "317",
     "proposal_solution": "A trading card game where each card represents a city. Players can buy and sell cards with ADA. Dynamic events to make the market move.",
     "proposal_summary": "There is a lack of casual apps/games built on Cardano which will be key in order to attract less technical crowds to the project.",
     "proposal_title": "Cardacity: a trading card game",
@@ -1280,7 +1280,7 @@
 =======
     "proposal_funds": "70000",
     "proposal_id": "352696",
-    "proposal_impact_score": "3.81",
+    "proposal_impact_score": "381",
     "proposal_solution": "To develop a stable-coin remittance system that provides a smooth user experience, utilizing Blockchain to give financial access to anyone.",
     "proposal_summary": "272M migrants around the world sending their hard earn 1.76T USD back home through underground remittance.",
     "proposal_title": "Banking The Unbanked",
@@ -1313,7 +1313,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "352689",
-    "proposal_impact_score": "1.50",
+    "proposal_impact_score": "150",
     "proposal_solution": "Create a liquidity protocol from existing credentialing invoices and allow creds to be transported amongst organizations",
     "proposal_summary": "Medical Credentialing Costs payers about $2B/year and the process is 80 to 120 days.",
     "proposal_title": "Credentialing Liquidity Dex",
@@ -1346,7 +1346,7 @@
 =======
     "proposal_funds": "75000",
     "proposal_id": "352688",
-    "proposal_impact_score": "3.86",
+    "proposal_impact_score": "386",
     "proposal_solution": "We are building micro-insurance products that are affordable, accessible, and needed.",
     "proposal_summary": "Access to many types of insurance in Nigeria is not available and unaffordable.",
     "proposal_title": "ESUSU: MicroInsurance Nigeria",
@@ -1379,7 +1379,7 @@
 =======
     "proposal_funds": "12000",
     "proposal_id": "352687",
-    "proposal_impact_score": "2.44",
+    "proposal_impact_score": "244",
     "proposal_solution": "Create a DApp to connect training organizations with participants and allow storing verified certification records.",
     "proposal_summary": "Anyone in the world should be able to store certifications obtained from training organizations in a secure, accesible and permanent manner.",
     "proposal_title": "DApp to manage certifications",
@@ -1412,7 +1412,7 @@
 =======
     "proposal_funds": "27800",
     "proposal_id": "352685",
-    "proposal_impact_score": "4.35",
+    "proposal_impact_score": "435",
     "proposal_solution": "We're building a NFT platform & marketplace that attracts new users & organizations to Cardano by providing art curated by art organizations",
     "proposal_summary": "Traditional art buyers & orgs. (museums/ galleries) don't have enough guidance to utilize NFT marketplaces leaving valuable art & buyers out",
     "proposal_title": "NFT platform for art organizations",
@@ -1445,7 +1445,7 @@
 =======
     "proposal_funds": "37500",
     "proposal_id": "352679",
-    "proposal_impact_score": "4.48",
+    "proposal_impact_score": "448",
     "proposal_solution": "Introducing MinSwap - a DEX on Cardano that supports multiple liquidity pool functions and initial token listing.",
     "proposal_summary": "Currently, there isn't any DEX on Cardano and new projects don't have a place to bootstrap their token distribution.",
     "proposal_title": "MinSwap - Multi-pool DEX",
@@ -1501,7 +1501,7 @@
 =======
     "proposal_funds": "55000",
     "proposal_id": "352678",
-    "proposal_impact_score": "3.58",
+    "proposal_impact_score": "358",
     "proposal_solution": "We will implement gender bias removal through Cardano, ID sovereignty through Atala and candidate, company and offer contracts though Plutus",
     "proposal_summary": "There are a number of areas of dissatisfaction and risk within the recruitment process, ranging from Bias, Data/ID security and Ghosting",
     "proposal_title": "UnicornHire Recruitment Platform",
@@ -1535,7 +1535,7 @@
     "internal_id": "45",
     "proposal_funds": "100000",
     "proposal_id": "352676",
-    "proposal_impact_score": "1.51",
+    "proposal_impact_score": "151",
     "proposal_solution": "Tokenize the usufruct of these unexploited cultivable land so that they could be exploited for agri business purposes",
     "proposal_summary": "Many african countries suffer from malnutrition and food insufficiency because +50% of cultivable land are unexploited",
     "proposal_title": "COINLAND",
@@ -1557,7 +1557,7 @@
     "proposal_funds": "25000",
     "proposal_goal": "Several new projects are started which deliver something usefull for the community and these people continue on to bigger projects",
     "proposal_id": "352667",
-    "proposal_impact_score": "3.97",
+    "proposal_impact_score": "397",
     "proposal_importance": "New people are coming in and are looking for a way to start contributing, but it is hard to commit to a large proposal and to form a team.",
     "proposal_metrics": " number of projects that manage to deliver before the deadline\r\n\r\n number of mergers before finalization  \r\n number of proposers that continue on in other challenges\r\n\r\n People that continue to work together after this challenge\r\n\r\n first time proposers",
     "proposal_summary": "How can we encourage new people to jump in, start contributing and help them succeed in building something meaningfull in a short time?",
@@ -1588,7 +1588,7 @@
 =======
     "proposal_funds": "60000",
     "proposal_id": "352666",
-    "proposal_impact_score": "4.18",
+    "proposal_impact_score": "418",
     "proposal_solution": "Empowa will be a unique decentralised property funding platform, empowering global communities to elevate living conditions & create wealth",
     "proposal_summary": "A severe housing backlog in Africa (50 million units) & lack of property wealth, compounded by financial exclusion & growing urbanisation",
     "proposal_title": "Introducing Empowa",
@@ -1622,7 +1622,7 @@
 =======
     "proposal_goal": "The launch of varied custom catalyst experiences, with varied affinities, unique user experiences, diverse and ambitious proposals+ voters",
     "proposal_id": "352658",
-    "proposal_impact_score": "2.25",
+    "proposal_impact_score": "225",
     "proposal_importance": "decentralising catalyst leads to custom catalyst experiences with vast and varied proposals and voters",
     "proposal_metrics": "measure number of custom catalyst experiences, quality of engagement during proposal iteration and during voting etc",
     "proposal_summary": "now that smart contracts are live(>fund7), it's now time the catalyst treasury becomes decentralised!",
@@ -1655,7 +1655,7 @@
 =======
     "proposal_funds": "9000",
     "proposal_id": "352643",
-    "proposal_impact_score": "3.78",
+    "proposal_impact_score": "378",
     "proposal_solution": "We aim to address the lack of proper games with the development of a CNFT-based RPG game, where you can fight, collect and play with CNFTs.",
     "proposal_summary": "CNFT collectibles have seen a wide success in the Cardano community but although the appeal, they can not yet be implemented in games.",
     "proposal_title": "CardanoTales: CNFTs-based RPG game.",
@@ -1688,7 +1688,7 @@
 =======
     "proposal_funds": "4950",
     "proposal_id": "352640",
-    "proposal_impact_score": "2.78",
+    "proposal_impact_score": "278",
     "proposal_solution": "Connect our own experts to grow native DeFi teams that are already bought in on the Catalyst mission.",
     "proposal_summary": "Untapped expertise already exists in Catalyst. Recruited teams might not share Cardano's vision and values.",
     "proposal_title": "Grow Our Own Teams",
@@ -1721,7 +1721,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "352623",
-    "proposal_impact_score": "4.47",
+    "proposal_impact_score": "447",
     "proposal_solution": "Publish an open-source Flutter library to encourage mobile app development in the Cardano ecosystem.",
     "proposal_summary": "Flutter is the fastest growing mobile app developer community but currently there's no Flutter library support in the Cardano ecosystem.",
     "proposal_title": "Cardano Wallet Flutter SDK",
@@ -1754,7 +1754,7 @@
 =======
     "proposal_funds": "24000",
     "proposal_id": "352612",
-    "proposal_impact_score": "2.23",
+    "proposal_impact_score": "223",
     "proposal_solution": "Toolsets and pathways to use Thunder Bay, Ontario as a pilot project for community-led self governance structre, mentoring and a sub-economy",
     "proposal_summary": "How can users find, be found, connect and realize where they fit and are needed by their neighbours? Self-govenment by data rewarding + use?",
     "proposal_title": "Quantum Collective Community Hub ",
@@ -1788,7 +1788,7 @@
 =======
     "proposal_funds": "11000",
     "proposal_id": "352611",
-    "proposal_impact_score": "3.77",
+    "proposal_impact_score": "377",
     "proposal_solution": "Diversify project catalyst inclusion through onboarding, navigation events, and resource provision for university students in West Africa",
     "proposal_summary": "University students are the future of blockchain tech but they aren't fully engaged in the Project Catalyst program.",
     "proposal_title": "WADA Uni Students Catalyst Registry",
@@ -1821,7 +1821,7 @@
 =======
     "proposal_funds": "7500",
     "proposal_id": "352606",
-    "proposal_impact_score": "4.62",
+    "proposal_impact_score": "462",
     "proposal_solution": "Cardanoscan has lots of developer-friendly insights into the Cardano blockchain. We will make the platform available for the testnet network",
     "proposal_summary": "IOHK dev explorer for testnet does not provide useful insights that developers need. Many developers are asking for a testnet Cardanoscan.",
     "proposal_title": "Testnet Cardanoscan Explorer",
@@ -1855,7 +1855,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352596",
-    "proposal_impact_score": "3.93",
+    "proposal_impact_score": "393",
     "proposal_solution": "Create a decentralized liquidity pool that acts as an insurance fund to back up parametric insurance products.",
     "proposal_summary": "Insurance is hardly present where most needed, as in developing countries, and is unavailable as an investment product for ordinary people.",
     "proposal_title": "Ensuro: A Decentralized Insurance ",
@@ -1888,7 +1888,7 @@
 =======
     "proposal_funds": "6500",
     "proposal_id": "352588",
-    "proposal_impact_score": "4.58",
+    "proposal_impact_score": "458",
     "proposal_solution": "Development of a light wallet that provides sovereignty to mint and sign non-fungible tokens (NFTs) 100% on-chain from digital assets .",
     "proposal_summary": "Minting signed assets fully on-chain , allowing creators to distribute authenticated and verifiable content with long-term availability.",
     "proposal_title": "C64 NFTs Minter(on-chain+identity)",
@@ -1921,7 +1921,7 @@
 =======
     "proposal_funds": "6000",
     "proposal_id": "352586",
-    "proposal_impact_score": "3.17",
+    "proposal_impact_score": "317",
     "proposal_solution": "Wit Crypto-Targeted promotion focused on existing people with knowledge and interest in cryptocurrency industry we will have good efficiency",
     "proposal_summary": "There is a need to encourage entrepreneurs from outside the Cardano ecosystem to submit proposals to Catalyst",
     "proposal_title": "Crypto-Targeted Promotion Campaign",
@@ -1954,7 +1954,7 @@
 =======
     "proposal_funds": "7000",
     "proposal_id": "352583",
-    "proposal_impact_score": "3.18",
+    "proposal_impact_score": "318",
     "proposal_solution": "By creating Cardano jobs & services site we encourage more meaningful participation in Project Catalyst from ADA community and beyond",
     "proposal_summary": "Catalyst is growing, we have Fund winners who need to hire implementers, and we have definitely a need for jobs & services place",
     "proposal_title": "Cardano Catalyst Jobs & Services",
@@ -1987,7 +1987,7 @@
 =======
     "proposal_funds": "100000",
     "proposal_id": "352579",
-    "proposal_impact_score": "3.82",
+    "proposal_impact_score": "382",
     "proposal_solution": "Support experienced developers to become experts in Cardano blockchain development.",
     "proposal_summary": "There are not enough Cardano blockchain developers to deliver on the tidal wave of work coming our way.",
     "proposal_title": "Turning Devs into Blockchain Devs",
@@ -2020,7 +2020,7 @@
 =======
     "proposal_funds": "44280",
     "proposal_id": "352577",
-    "proposal_impact_score": "4.22",
+    "proposal_impact_score": "422",
     "proposal_solution": "NFTDOT.IO focuses on token creation at lower cost and high utility for wider adoption: FT exchange, NFT gallery with sales & auction.",
     "proposal_summary": "Adoption of assets tokenization, goods digital receipts, digital art, digital ownership transfer is met with technical and market barriers",
     "proposal_title": "NFTDOT.IO-enable adoption of NFT&FT",
@@ -2053,7 +2053,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "352572",
-    "proposal_impact_score": "3.81",
+    "proposal_impact_score": "381",
     "proposal_solution": "An email plug-in that allows professional users to certify and verify sensitive messages, from the comfort of their own email application.",
     "proposal_summary": "Sensitive document verification should be simple, but in 2020 alone companies lost 1.8 Billion dollars in the US as a result of BEC attacks.",
     "proposal_title": "Business Email Compromise solution",
@@ -2086,7 +2086,7 @@
 =======
     "proposal_funds": "9700",
     "proposal_id": "352568",
-    "proposal_impact_score": "2.76",
+    "proposal_impact_score": "276",
     "proposal_solution": "Aregato - ebook marketplace with blogging and social media features, built on top of Cardano, with Cardano native assets and NFTs",
     "proposal_summary": "Ebooks market is highly centralized, censored, and dominated by Amazon Kindle. There is a general lack of marketplaces in the crypto world",
     "proposal_title": "Aregato - ADA ebook marketplace",
@@ -2119,7 +2119,7 @@
 =======
     "proposal_funds": "24300",
     "proposal_id": "352562",
-    "proposal_impact_score": "4.08",
+    "proposal_impact_score": "408",
     "proposal_solution": "Build a market of API gateway deployments that serves as backbone for projects; specially for DeFi ones, whose criticality is high.",
     "proposal_summary": "There are too few professional deployments of Cardano API gateways. This limits the ability of light dApps and services to operate at scale.",
     "proposal_title": "Dandelion: Cardano API market",
@@ -2152,7 +2152,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "352554",
-    "proposal_impact_score": "3.67",
+    "proposal_impact_score": "367",
     "proposal_solution": "Create a cross-platform solution with an easy to use graphical interface that would allow less technical users to mint native tokens.",
     "proposal_summary": "Ability to mint native tokens is already here for some time, but there's no user friendly way of doing it.",
     "proposal_title": "Cardmintano - Native Token Minter",
@@ -2185,7 +2185,7 @@
 =======
     "proposal_funds": "25000",
     "proposal_id": "352553",
-    "proposal_impact_score": "1.91",
+    "proposal_impact_score": "191",
     "proposal_solution": "Help Trainers Promote them self. Building a cumunity that will help contribute to a healthier world.  \r\nBringing Crypto adoption in sport",
     "proposal_summary": "Build a Ecosysteem Sport/Training App on Cardano Platform  \r\nMaking People Healthier  \r\nConnecting ADA with Sport  \r\nMore addoption in Cyrpto/ADA",
     "proposal_title": "Sport ADA Intro/adoption ",
@@ -2218,7 +2218,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352551",
-    "proposal_impact_score": "3.33",
+    "proposal_impact_score": "333",
     "proposal_solution": "Storage of medical data on blockchain safely and standardized which allows for further implementations and increases overall patient safety.",
     "proposal_summary": "Medical documentation should be safe and cost-efficient. Outdated systems makes the process ineffective, non-standardized and expensive.",
     "proposal_title": "Storage of medical metadata ",
@@ -2252,7 +2252,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "352549",
-    "proposal_impact_score": "3.54",
+    "proposal_impact_score": "354",
     "proposal_solution": "E-invoice as transaction metadata and smart contract managing inter-exchange between companies (self-invoicing, periodic invoices,...)",
     "proposal_summary": "Traditional payment between companies are opaque, human-based and complex to audit. Debtors can delay payment or not respect commercial term",
     "proposal_title": "ADAvoice: Decentralized E-invoicing",
@@ -2287,7 +2287,7 @@
     "proposal_funds": "100000",
     "proposal_goal": "Local Community Hubs across the world where the average person can take part in their own language and with their own cultural understanding",
     "proposal_id": "352534",
-    "proposal_impact_score": "4.08",
+    "proposal_impact_score": "408",
     "proposal_importance": "Without users on the ground level, we are building niche products serving mostly technical people with blockchain expertise.",
     "proposal_metrics": " How many new Hubs were launched in the next 6 months?  \r\n How many developers did this community-focused challenge bring into the Cardano ecosystem?  \r\n How many new users of Cardano were onboarded?  \r\n What was the total reach of the Hub's initial marketing launch?  \r\n How many external organizations did this community-focused challenge bring into the Cardano ecosystem?",
     "proposal_summary": "How do we encourage Local Community Hubs to drive adoption and awareness of Cardano in the next 6 months?",
@@ -2319,7 +2319,7 @@
 =======
     "proposal_funds": "12500",
     "proposal_id": "352531",
-    "proposal_impact_score": "4.79",
+    "proposal_impact_score": "479",
     "proposal_solution": "Build a provable, data-centric sidechain for DApps with Fluree immutable graph ledger/DB that leverages W3C semantic linked-data standards",
     "proposal_summary": "Off-chain DApp data storage options build silos that limit data's use across the ecosystem and lack comparable on-chain immutability/proof",
     "proposal_title": "Graph DB Sidechain with Fluree",
@@ -2352,7 +2352,7 @@
 =======
     "proposal_funds": "7000",
     "proposal_id": "352528",
-    "proposal_impact_score": "2.92",
+    "proposal_impact_score": "292",
     "proposal_solution": "1on1 weekly raw ideation sessions\r\n\r\nCommunication, Unity and Content\r\n\r\nfriendly introduction to the ecosystem - could be done as a video",
     "proposal_summary": "How can we ensure that onboarding newcomers to ecosystem feel relevant, find their path and find clarity with motivational interviewing?",
     "proposal_title": "Neona 1on1 Lunar Cycle Mentorship ",
@@ -2386,7 +2386,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "352527",
-    "proposal_impact_score": "2.69",
+    "proposal_impact_score": "269",
     "proposal_solution": "Deployment of Social housing campaigns using Plastic Waste-2-Brick proven technology, and social embedded waste collection programs.",
     "proposal_summary": "Slumdogs and plastic pollution in Ecosystems are social and environmental issues growing with the urbanization across the African continent.",
     "proposal_title": "From Plastic Waste 2 Social Housing",
@@ -2419,7 +2419,7 @@
 =======
     "proposal_funds": "55000",
     "proposal_id": "352518",
-    "proposal_impact_score": "3.25",
+    "proposal_impact_score": "325",
     "proposal_solution": "Create a decentralized social betting platform connecting people via social media & letting them set their own odds, eliminating the house.",
     "proposal_summary": "$200B betting industry lacks trust.\r\n\r\nSportsbooks control odds so they win.\r\n\r\nSocial media allows sharing experiences but not trusted betting.",
     "proposal_title": "ALLIN Social Betting Platform",
@@ -2452,7 +2452,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "352513",
-    "proposal_impact_score": "3.00",
+    "proposal_impact_score": "300",
     "proposal_solution": "Everstake is ready to create many educational materials about Cardano and distribute them among our customer base",
     "proposal_summary": "As Cardano ecosystem grows, there is a constant need for educational materials in different languages.",
     "proposal_title": "Educational materials about Cardano",
@@ -2485,7 +2485,7 @@
 =======
     "proposal_funds": "12000",
     "proposal_id": "352499",
-    "proposal_impact_score": "4.36",
+    "proposal_impact_score": "436",
     "proposal_solution": "Create engaging visual content to document proposal journey from the bottom up, and to motivate new users to come to into Project Catalyst.",
     "proposal_summary": "Many African entrepreneurs are unaware of Project Catalyst's funding opportunities and the community's support for African proposals.",
     "proposal_title": "WADA Media Funnel for Proposers",
@@ -2518,7 +2518,7 @@
 =======
     "proposal_funds": "12000",
     "proposal_id": "352497",
-    "proposal_impact_score": "3.23",
+    "proposal_impact_score": "323",
     "proposal_solution": "Build WADA a solid, scalable, distributed, proof of concept system/ Dapp from the ground up using Servant Server, Haskell, and Elm.",
     "proposal_summary": "WADA's capacity is currently limited by their web app capacity. They need their own solid integrated management system to optimize activity.",
     "proposal_title": "+WADA Capacity=Smart Catalyst Users",
@@ -2551,7 +2551,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "352495",
-    "proposal_impact_score": "2.87",
+    "proposal_impact_score": "287",
     "proposal_solution": "To build participation we need to build trust by utilizing social media and group gatherings (online and off).",
     "proposal_summary": "How do we diversify and increase participation?",
     "proposal_title": "Social Spider Web of Decision",
@@ -2584,7 +2584,7 @@
 =======
     "proposal_funds": "19000",
     "proposal_id": "352484",
-    "proposal_impact_score": "4.03",
+    "proposal_impact_score": "403",
     "proposal_solution": "A specialized developer evangelist will be supporting the local ecosystem in Japanese, and also managing multiple activities.",
     "proposal_summary": "Japanese Developers and Entrepreneurs need specialized local support to get to know the ecosystem.",
     "proposal_title": "Developer Evangelist Japan",
@@ -2617,7 +2617,7 @@
 =======
     "proposal_funds": "30000",
     "proposal_id": "352482",
-    "proposal_impact_score": "4.45",
+    "proposal_impact_score": "445",
     "proposal_solution": "A Chrome extension connector (similar to Metamask) that will enable communication between wallets and DApps.",
     "proposal_summary": "DeFi DApps require a web wallet to interact with (like Metamask)",
     "proposal_title": "Cardano Connector (Metamask-like)",
@@ -2650,7 +2650,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352480",
-    "proposal_impact_score": "4.44",
+    "proposal_impact_score": "444",
     "proposal_solution": "We will update this library for future updates to Cardano and also provide support & functionality to those who depend on it.",
     "proposal_summary": "A lot of integrations in the ecosystem depend on this library (Coinbase and Yoroi for example) and it will stop working for Alonzo",
     "proposal_title": "Cardano Rust SDK update for Alonzo",
@@ -2683,7 +2683,7 @@
 =======
     "proposal_funds": "27000",
     "proposal_id": "352469",
-    "proposal_impact_score": "2.72",
+    "proposal_impact_score": "272",
     "proposal_solution": "Create a platform where average citizens can invest in farmers, protected by smart contracts.",
     "proposal_summary": "Every farmer in America is forced to go to big banks for funding. And the average citizen is not allowed to invest in their local farms.",
     "proposal_title": "Plant Me",
@@ -2716,7 +2716,7 @@
 =======
     "proposal_funds": "27500",
     "proposal_id": "352468",
-    "proposal_impact_score": "3.81",
+    "proposal_impact_score": "381",
     "proposal_solution": "We soften the developer learning curve by providing instructional training with ADA incentives, through our Learn and Earn program.",
     "proposal_summary": "The learning curve for newcomers in the Cardano Development Ecosystem is too steep. This poses a barrier to developer adoption.",
     "proposal_title": "Learn and Earn: Developer Training",
@@ -2749,7 +2749,7 @@
 =======
     "proposal_funds": "9000",
     "proposal_id": "352466",
-    "proposal_impact_score": "3.11",
+    "proposal_impact_score": "311",
     "proposal_solution": "Carbonland Trust's DEX to trade carbon credit NFTs based on actual Forest being conserved will inspire & fund conservation efforts all over",
     "proposal_summary": "Trees are being cut down at a rapid pace, forests are disappearing, co2 is increasing, the ecosystems that clean our air are in major danger",
     "proposal_title": "Carbonland Trust Carbon Credits DEX",
@@ -2782,7 +2782,7 @@
 =======
     "proposal_funds": "9000",
     "proposal_id": "352462",
-    "proposal_impact_score": "2.50",
+    "proposal_impact_score": "250",
     "proposal_solution": "Stiff Money offers depositors of ADA and other cryptos a 10% APY. And offers homebuyers a no-down-payment lease to own smart contract loan.",
     "proposal_summary": "Getting a stable Annual Percentage Yield (APY) on the assets your holding is hard. And getting a loan to buy a home is even harder.",
     "proposal_title": "Stiff Money | Crowdlending PaaS",
@@ -2815,7 +2815,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352461",
-    "proposal_impact_score": "2.70",
+    "proposal_impact_score": "270",
     "proposal_solution": "Publishing tokenized company shares and paying dividends on Cardano Blockchain will open small businesses to trustless funding for expansion",
     "proposal_summary": "Small businesses are often funded by friends/relatives with shares informally distributed or only certified by legal founding documents.",
     "proposal_title": "Small business expansion funding",
@@ -2848,7 +2848,7 @@
 =======
     "proposal_funds": "5960",
     "proposal_id": "352436",
-    "proposal_impact_score": "4.33",
+    "proposal_impact_score": "433",
     "proposal_solution": "ALDEA Wiki is the go-to place to both find and share knowledge and information about all things Cardano in a multi-language platform.",
     "proposal_summary": "There is no place where to find all the documentation and information being produced by an ever growing Cardano community.",
     "proposal_title": "ALDEA Wiki - Cardano Encyclopedia",
@@ -2881,7 +2881,7 @@
 =======
     "proposal_funds": "30000",
     "proposal_id": "352435",
-    "proposal_impact_score": "3.86",
+    "proposal_impact_score": "386",
     "proposal_solution": "Team Burblr is connecting humans to Cardano by allowing them to collect and trade NFT audio/eBooks in a gamified way, with a credit card.",
     "proposal_summary": "NFTs are confusing. There's a need for an intuitive Dapp that can bridge the gap between mass adoption, utility, and most importantly, fun.",
     "proposal_title": "Burblr - let's make books fun.",
@@ -2914,7 +2914,7 @@
 =======
     "proposal_funds": "6000",
     "proposal_id": "352423",
-    "proposal_impact_score": "3.83",
+    "proposal_impact_score": "383",
     "proposal_solution": "Use the Friends of WADA First 50 Donor Reward Program for metadata curriculum dev't & to design a fund-tracing and accountability framework",
     "proposal_summary": "There is currently no framework to reward and trace donations on the blockchain using metadata.",
     "proposal_title": "WADA +GL +Metadata = Donor Rewards+",
@@ -2948,7 +2948,7 @@
 =======
     "proposal_funds": "9080",
     "proposal_id": "352422",
-    "proposal_impact_score": "4.10",
+    "proposal_impact_score": "410",
     "proposal_solution": "ALDEA Catalyst is a site for people to find information in Spanish about Catalyst and develop hot valuable skills for the ecosystem.",
     "proposal_summary": "There's a gap between Catalyst and a fast-growing Spanish Community, eager to participate and learn to do so in their native language.",
     "proposal_title": "ALDEA Catalyst Spanish Support Site",
@@ -2981,7 +2981,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "352411",
-    "proposal_impact_score": "3.19",
+    "proposal_impact_score": "319",
     "proposal_solution": "Jenner is a platform to collect anonymized outcomes for vaccinations and store them into metadata in return for a NFT as a reward.",
     "proposal_summary": "Centralized patient reported outcomes are often controlled and limited. This leads to systematic biases in developing patient care.",
     "proposal_title": "Jenner: Patient Reported Outcomes",
@@ -3014,7 +3014,7 @@
 =======
     "proposal_funds": "91000",
     "proposal_id": "352410",
-    "proposal_impact_score": "3.72",
+    "proposal_impact_score": "372",
     "proposal_solution": "ErgoDEX - a decentralized exchange that combines AMM with OrderBook in a single app in order to provide best user experience.",
     "proposal_summary": "We need a non-custodial decentralized exchange allowing us to transfer a liquidity over the Cardano network easy, fast and secure.",
     "proposal_title": "ErgoDex Plutus Port",
@@ -3047,7 +3047,7 @@
 =======
     "proposal_funds": "18500",
     "proposal_id": "352364",
-    "proposal_impact_score": "3.52",
+    "proposal_impact_score": "352",
     "proposal_solution": "paypixl assigns imagery collection tasks in areas needing mapping data to users with compatible devices and rewards users with ADA coin.",
     "proposal_summary": "Mapping critical resources in growing regions is critical, but difficult to do without ground truth and location-based imagery.",
     "proposal_title": "Crowdsourced map imagery w/ paypixl",
@@ -3081,7 +3081,7 @@
 =======
     "proposal_funds": "5000",
     "proposal_id": "352362",
-    "proposal_impact_score": "3.67",
+    "proposal_impact_score": "367",
     "proposal_solution": "Industry Standards Organizations develop standards for adoption across multiple vendor implementations, these are starting to form for NFTs.",
     "proposal_summary": "Mainstream adoption of NFTs require standards to give organizations confidence in their long term stability and consistency.",
     "proposal_title": "NFTDAO: Industry Standards 1 (dues)",
@@ -3114,7 +3114,7 @@
 =======
     "proposal_funds": "80000",
     "proposal_id": "352330",
-    "proposal_impact_score": "3.23",
+    "proposal_impact_score": "323",
     "proposal_solution": "DubToken allows streaming creators to both fund unique performances and mint stream-derived NFTs through a contract-directed media service.",
     "proposal_summary": "How can we rapidly deploy NFT to support performing artists that fall outside of the mold of NFT graphic artist?",
     "proposal_title": "DubT contract-driven livestream NFT",
@@ -3147,7 +3147,7 @@
 =======
     "proposal_funds": "35000",
     "proposal_id": "352327",
-    "proposal_impact_score": "3.63",
+    "proposal_impact_score": "363",
     "proposal_solution": "Increase life-saving blood supply via tokenizing Incentives for donors and API creation and integration for hospitals, creating awareness.",
     "proposal_summary": "Blood supply chain shortage, lack of infrastructures/resources needed to increase physical and financial wellness. Blood is the resource!",
     "proposal_title": "RedToken - Blood Donation Dapp",
@@ -3181,7 +3181,7 @@
 =======
     "proposal_funds": "36000",
     "proposal_id": "352326",
-    "proposal_impact_score": "3.26",
+    "proposal_impact_score": "326",
     "proposal_solution": "ADA MakerSpace will take a cohort of entrepreneurs through a 16 week Accelerator Program in which we will build their Minimal Viable Product",
     "proposal_summary": "Many people have great ideas they want to build on Cardano, but they lack DEV capabilities to get from an Idea to a MVP they can test out.",
     "proposal_title": "ADA MakerSpace Accelerator",
@@ -3214,7 +3214,7 @@
 =======
     "proposal_funds": "25000",
     "proposal_id": "352292",
-    "proposal_impact_score": "3.25",
+    "proposal_impact_score": "325",
     "proposal_solution": "Connecting Cardano to our current SDGs; how it can help create an equal and sustainable world. Creating educational content for all ages!",
     "proposal_summary": "Sustainable ADA will expand outreach and education for explaining use cases/examples of how Cardano can help create a sustainable world.",
     "proposal_title": "Sustainable ADA",
@@ -3247,7 +3247,7 @@
 =======
     "proposal_funds": "51000",
     "proposal_id": "352284",
-    "proposal_impact_score": "3.85",
+    "proposal_impact_score": "385",
     "proposal_solution": "Build a Creative Engine for Cardano, by directly connecting design applications to Cardano",
     "proposal_summary": "There are very few designers adopting blockchain into their work. How can we make Cardano the preferred choice for creatives?",
     "proposal_title": "dApps for Designers and Creatives",
@@ -3280,7 +3280,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352281",
-    "proposal_impact_score": "3.11",
+    "proposal_impact_score": "311",
     "proposal_solution": "Bands/artists are conceived as companies that emit shares (tokens). Fans can buy them, giving support and receiving rewards.",
     "proposal_summary": "Revenues of music industry amounts to $20 billion worldwide per year, but this money is not fairly distributed among bands, artists and fans",
     "proposal_title": "MUSIC STARTUPS",
@@ -3313,7 +3313,7 @@
 =======
     "proposal_funds": "5000",
     "proposal_id": "352276",
-    "proposal_impact_score": "4.38",
+    "proposal_impact_score": "438",
     "proposal_solution": "Mint fractional NFT's: Liquidity spurs price discovery, volume increases royalties, shared ownership promotes communities & accessibility.",
     "proposal_summary": "NFT's stagnate because of high prices, limiting access, artist royalties, and price discovery. Fractional NFT's democratize premium assets.",
     "proposal_title": "Mosaic: fNFT Native Token Mint",
@@ -3346,7 +3346,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "352270",
-    "proposal_impact_score": "4.03",
+    "proposal_impact_score": "403",
     "proposal_solution": "Use a hybrid blockchain + traditional data send method to send/receive images and supporting documents with blockchain metadata validation.",
     "proposal_summary": "Customers ordering drone imagery need to validate the metadata of collected drone imagery to ensure images weren't edited or modified.",
     "proposal_title": "paypixl - Validating Drone Metadata",
@@ -3379,7 +3379,7 @@
 =======
     "proposal_funds": "42720",
     "proposal_id": "352267",
-    "proposal_impact_score": "4.22",
+    "proposal_impact_score": "422",
     "proposal_solution": "Create a chain of YouTube channels bringing docutainment and a weekly edited news broadcast in native languages",
     "proposal_summary": "News about Cardano should be available in native languages in African communities. However, The crypto world is English-speaking oriented",
     "proposal_title": "ADA news in African languages",
@@ -3412,7 +3412,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "352262",
-    "proposal_impact_score": "1.73",
+    "proposal_impact_score": "173",
     "proposal_solution": "Secure Foothold will deploy an African launchpad on the Cardano blockchain, the launchpad will kickstart a business idea for Africans",
     "proposal_summary": "Africa has a high number of university graduates each year but lacks a pathway for those graduates to enter employment or start a business.",
     "proposal_title": "African launchpad ",
@@ -3445,7 +3445,7 @@
 =======
     "proposal_funds": "100000",
     "proposal_id": "352260",
-    "proposal_impact_score": "4.12",
+    "proposal_impact_score": "412",
     "proposal_solution": "Innovatio can be a commercial complement of Catalyst organized to help 100s & 1000s of proposal seeking funds.",
     "proposal_summary": "Catalyst funding levels are not sufficient to guarantee successful implementation of a medium-large projects. They need follow-on funding.",
     "proposal_title": "Crowdfunding Website for Proposals",
@@ -3479,7 +3479,7 @@
 =======
     "proposal_funds": "20500",
     "proposal_id": "352259",
-    "proposal_impact_score": "4.13",
+    "proposal_impact_score": "413",
     "proposal_solution": "An app that fulfills functionality to manage, share & sell own-created fonts by Creatives, being a single source, lean & easy to use",
     "proposal_summary": "We want to make it easy for Creatives to manage, share and sell fonts. No blockchain app yet developed that boosts scalability of Font Mgmt.",
     "proposal_title": "Font Management App",
@@ -3512,7 +3512,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352255",
-    "proposal_impact_score": "3.21",
+    "proposal_impact_score": "321",
     "proposal_solution": "Due to concerns over who has access to their DNA many people refrain from sharing it. We authorise access to specific portions with Cardano.",
     "proposal_summary": "30 million people have had their genome sequenced. Our Gene app will enable them share their DNA for money, to help medical research.",
     "proposal_title": "Genome App - Monetise your Genome ",
@@ -3545,7 +3545,7 @@
 =======
     "proposal_funds": "2500",
     "proposal_id": "352236",
-    "proposal_impact_score": "3.42",
+    "proposal_impact_score": "342",
     "proposal_solution": "Provide Yoroi with a localized Czech interface. This needs to be up to date with each new Yoroi update and coordinated with translators.",
     "proposal_summary": "Yoroi is missing Czech localization making it difficult to use on the local market.",
     "proposal_title": "Localize Yoroi for Czech market",
@@ -3578,7 +3578,7 @@
 =======
     "proposal_funds": "2500",
     "proposal_id": "352235",
-    "proposal_impact_score": "4.00",
+    "proposal_impact_score": "400",
     "proposal_solution": "Provide Yoroi with a localized Slovak interface. This needs to be up to date with each new Yoroi update and coordinated with translators.",
     "proposal_summary": "Yoroi is missing Slovak localization making it difficult to use on the local market.",
     "proposal_title": "Localize Yoroi for Slovak market",
@@ -3611,7 +3611,7 @@
 =======
     "proposal_funds": "950",
     "proposal_id": "352233",
-    "proposal_impact_score": "4.52",
+    "proposal_impact_score": "452",
     "proposal_solution": "We will implement CIP12 communications to Yoroi backend software. This proposal has been accepted in fund3, but ended up being over budget.",
     "proposal_summary": "CIP12 defines on-chain stake pool operator to delegates communication and is missing implementation in Yoroi backend.",
     "proposal_title": "Implement CIP12 to Yoroi backends",
@@ -3644,7 +3644,7 @@
 =======
     "proposal_funds": "3000",
     "proposal_id": "352231",
-    "proposal_impact_score": "4.48",
+    "proposal_impact_score": "448",
     "proposal_solution": "Periodically store performance metadata that has been appropriately signed for authenticity and provide a tool for aggregating this data.",
     "proposal_summary": "Decentralised applications and the oracles on which they depend have a need to demonstrate their reliability and utility over time.",
     "proposal_title": "Oracle Performance Metrics",
@@ -3677,7 +3677,7 @@
 =======
     "proposal_funds": "1200",
     "proposal_id": "352229",
-    "proposal_impact_score": "4.47",
+    "proposal_impact_score": "447",
     "proposal_solution": "We want to implement a Yoroi backend endpoint that will provide the metadata oracles datapoints. This proposal has been over fund3 budget.",
     "proposal_summary": "Yoroi backend doesn't have the capability for fetching metadata from oracle endpoints.",
     "proposal_title": "Metadata oracle endpoint in Yoroi",
@@ -3710,7 +3710,7 @@
 =======
     "proposal_funds": "3960",
     "proposal_id": "352206",
-    "proposal_impact_score": "3.59",
+    "proposal_impact_score": "359",
     "proposal_solution": "Create a body where existing and emergent DAOs and Project Catalyst can communicate and document DAOs. Research ways to improve them.",
     "proposal_summary": "What is a DAO? Answers to that question are being sought by multiple groups in the orbit of Catalyst without coordination or communication.",
     "proposal_title": "A Council of Catalyst DAOs",
@@ -3743,7 +3743,7 @@
 =======
     "proposal_funds": "27600",
     "proposal_id": "352183",
-    "proposal_impact_score": "4.19",
+    "proposal_impact_score": "419",
     "proposal_solution": "Get access to the entrepreneur and investor network of the biggest startup event of the year, Slush (www.slush.org).",
     "proposal_summary": "Lack of exposure in the entrepreneur networks outside crypto economy and blockchain circles.",
     "proposal_title": "Slush Collaboration",
@@ -3776,7 +3776,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "352181",
-    "proposal_impact_score": "2.92",
+    "proposal_impact_score": "292",
     "proposal_solution": "Create a bounty-based smart contract to incentivize developers to write quality open source documentation for Cardano.",
     "proposal_summary": "Cardano's growth requires quality documentation. There is no platform for community documentation and no incentives for devs to write any.",
     "proposal_title": "Incentive system for documentation",
@@ -3809,7 +3809,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "352180",
-    "proposal_impact_score": "1.88",
+    "proposal_impact_score": "188",
     "proposal_solution": "Raffles provide a solution to selling any asset type from NFT's to luxury property, from $1 to $10,000,000 +",
     "proposal_summary": "Sell any item through crowdfunding and raffles.",
     "proposal_title": "Raffly.io the simple way to raffle",
@@ -3842,7 +3842,7 @@
 =======
     "proposal_funds": "12000",
     "proposal_id": "352166",
-    "proposal_impact_score": "3.19",
+    "proposal_impact_score": "319",
     "proposal_solution": "Building a \"simple\" crafting game with dozens of tokens. Collect different resource tokens daily, refine them, make tools, things, and trade",
     "proposal_summary": "Can you build a game that exists entirely on the blockchain? How can we get users more comfortable with tokens and smart contracts?",
     "proposal_title": "Crafting game with MANY tokens",
@@ -3875,7 +3875,7 @@
 =======
     "proposal_funds": "59842",
     "proposal_id": "352159",
-    "proposal_impact_score": "3.60",
+    "proposal_impact_score": "360",
     "proposal_solution": "Improve user experience by mapping human-readable names like 'alice.ada' to machine-readable identifiers such as Cardano addresses.",
     "proposal_summary": "Machine-readable IDs like Cardano addresses, other cryptocurrency addresses, content hashes, and metadata are not human centered design.",
     "proposal_title": "NFT-DAO EZ-Name",
@@ -3908,7 +3908,7 @@
 =======
     "proposal_funds": "29842",
     "proposal_id": "352152",
-    "proposal_impact_score": "2.09",
+    "proposal_impact_score": "209",
     "proposal_solution": "With NFTs, smart tickets are verifiable, interoperable and have clear ownership. A ticket redeemed at an event lives on in digital wallets.",
     "proposal_summary": "Ticket authenticity and scalping at much higher prices make it difficult to control who is buying, selling, or redeeming a ticket.",
     "proposal_title": "NFT-DAO EZ-Ticket dispenser",
@@ -3941,7 +3941,7 @@
 =======
     "proposal_funds": "8200",
     "proposal_id": "352132",
-    "proposal_impact_score": "4.04",
+    "proposal_impact_score": "404",
     "proposal_solution": "Space Travel—standardize NFT's across chains, including whether to wrap and burn, or if we can bring them over somehow without burning them.",
     "proposal_summary": "NFTs do not travel easily between chains, use models or games; stranding their value and reducing their efficacy with poor interoperability.",
     "proposal_title": "NFT-DAO EZ-On Interop NFTs",
@@ -3974,7 +3974,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352127",
-    "proposal_impact_score": "3.13",
+    "proposal_impact_score": "313",
     "proposal_solution": "Maasai.io will be the foremost resource tailored to E. & C. African regional needs through relevant and current content and an ADA market.",
     "proposal_summary": "There aren't many resources available for the East and Central African Regions",
     "proposal_title": "Africa's Cardano Resource",
@@ -4007,7 +4007,7 @@
 =======
     "proposal_funds": "69945",
     "proposal_id": "352126",
-    "proposal_impact_score": "4.00",
+    "proposal_impact_score": "400",
     "proposal_solution": "Build extended wallet bridges to traditional systems like VISA, Venmo and a hub for things like MetaMask, Yoroi, Daedalus & exchanges.",
     "proposal_summary": "Connecting to wallets, payment gateways, exchanges & credit cards in Web3 is not as simple as it has become with Stripe-like Web2 solutions.",
     "proposal_title": "NFT-DAO EZ-Pay API wallet connector",
@@ -4040,7 +4040,7 @@
 =======
     "proposal_funds": "43827",
     "proposal_id": "352114",
-    "proposal_impact_score": "4.67",
+    "proposal_impact_score": "467",
     "proposal_solution": "Work with WW Entrepreneurial Community Builders to drive awareness of alternative funding thru Catalyst for blockchain projects.",
     "proposal_summary": "Entrepreneurs need seed funding to develop ideas into minimum viable products with marketable potential.\r\n\r\n|\r\n\r\nhttps://youtu.be/eR7Bx7hDX04",
     "proposal_title": "FREE MONEY Direct Marketing ",
@@ -4073,7 +4073,7 @@
 =======
     "proposal_funds": "135000",
     "proposal_id": "352109",
-    "proposal_impact_score": "3.46",
+    "proposal_impact_score": "346",
     "proposal_solution": "Qualify workers based on ledger documented wages. Evidence leads to a higher starting salary, reduction of bad hires or unlocking discounts.",
     "proposal_summary": "Resumes are biased. A more trustless system helps hiring & leads to targeted discounts. Advertising in 2021 $649b & a bad hire costs ~$240k.",
     "proposal_title": "Rewarding Payroll Solutions Resume",
@@ -4106,7 +4106,7 @@
 =======
     "proposal_funds": "120000",
     "proposal_id": "352108",
-    "proposal_impact_score": "3.66",
+    "proposal_impact_score": "366",
     "proposal_solution": "Create an easy-to-use API with great documentation, videos, & example games that allow Game Developers to create their own in game currency",
     "proposal_summary": "Gamers want to trade their in-game currencies between games or even between crypto or fiat currencies, but it is too hard for devs to allow.",
     "proposal_title": "Native Token API for Game Devs",
@@ -4141,7 +4141,7 @@
     "proposal_funds": "100000",
     "proposal_goal": "Several projects evaluating funded proposals, providing reports, articles and metrics on the development and implementation of the projects.",
     "proposal_id": "352101",
-    "proposal_impact_score": "4.27",
+    "proposal_impact_score": "427",
     "proposal_importance": "It's important that the funded proposals are evaluated to see if they are delivering what was established in their mission..",
     "proposal_metrics": "\\* Number of funded proposals audited  \r\nConsidering that the idea is to audit and report on the development of proposals in different challenges, it is important that success metrics are thought out in relation to each challenge.  \r\n\\* Number of reports, articles and videos/podcasts on:  \r\n Performance  \r\n Achievements  \r\n Financials  \r\n Number of onboarded developers.  \r\n Number of commits in funded proposal repositories (Github)  \r\n Indicators of: transactions, volume and unique wallets interacting with dapps.  \r\n Number of smart contracts audited.  \r\n Social media engagement indicators.",
     "proposal_summary": "How to make the auditing process of funded proposals efficient, distributed and transparent?",
@@ -4173,7 +4173,7 @@
 =======
     "proposal_funds": "25000",
     "proposal_id": "352081",
-    "proposal_impact_score": "4.65",
+    "proposal_impact_score": "465",
     "proposal_solution": "The Credmark team are DeFi experts and have worked extensively in developing risk-adjusted models for Ethereum DeFi lending protocols (Aave)",
     "proposal_summary": "Lending protocols require well-tested models to mitigate loan default risk & liquidity crunch events. This risk should be modeled/simulated.",
     "proposal_title": "Liqwid x Credmark R&D on Loan Risks",
@@ -4206,7 +4206,7 @@
 =======
     "proposal_funds": "20800",
     "proposal_id": "352064",
-    "proposal_impact_score": "3.28",
+    "proposal_impact_score": "328",
     "proposal_solution": "A touch-optimized web-based interface to allow people to construct and learn about Plutus and Marlowe code visually w/ enforced type safety.",
     "proposal_summary": "Many in nations like Malawi already have smartphones. Laptops can cost 2-3 months' wages. Cardano development could be more mobile friendly.",
     "proposal_title": "Mobile Plutus and Marlowe Dev Tools",
@@ -4239,7 +4239,7 @@
 =======
     "proposal_funds": "119000",
     "proposal_id": "352039",
-    "proposal_impact_score": "4.65",
+    "proposal_impact_score": "465",
     "proposal_solution": "We want to integrate continuous code review of Liqwid smart contracts & conduct a security audit of the protocol leading up to v1.0 launch.",
     "proposal_summary": "DeFi protocols built in Plutus are new, untested design patterns for constructing UTXO smart contracts that will soon hold billions in TVL.",
     "proposal_title": "Liqwid Protocol Security Audit",
@@ -4274,7 +4274,7 @@
     "proposal_funds": "75000",
     "proposal_goal": "A vibrant, cross-pollinating ecosystem of science-based blockchain platforms. Joint interests identified. Cooperation. New value created.",
     "proposal_id": "352036",
-    "proposal_impact_score": "4.06",
+    "proposal_impact_score": "406",
     "proposal_importance": "Fragmentation, silo mentality and lack of cooperation hamper development of the most technologically advanced blockchain platforms",
     "proposal_metrics": " Initiation or creation of new networks or structures or formal/informal groups that promote science-based blockchain platforms and their role in the entire cryptocurrency environment  \r\n Identification of joint problems, challenges and issues that face these research-oriented platforms as a whole  \r\n Greater stratification of the crypto space into categories with a more clearly delineated group of science-based, technological innovative blockchain platforms differentiated from the rest (marketing coins, hype coins, wannabe coins, deaf & dumb blockchains, centralized coins)  \r\n Cardano community-led contact with technologically sound blockchain platforms or projects (proposers can suggest and explain which ones they identify as such). Possible examples include, but not limited to: Algorand, Tezos, Avalanche, Polkadot, ZCash, SingularityNet etc..) for cooperation.  \r\n Onboarding science & research teams that work jointly on issues of significance for several platforms  \r\n Identification of research agenda that is of joint importance for several platforms and finding ways to jointly tackle/finance it  \r\n New community bridges / projects / efforts being discussed and developed between the communities  \r\n Number of new initiatives for cooperation  \r\n Number of newly established platforms for cooperation",
     "proposal_summary": "How can we initiate & establish community-led bridges to other science-based blockchains to unlock new value in the next three months?",
@@ -4306,7 +4306,7 @@
 =======
     "proposal_funds": "150000",
     "proposal_id": "352031",
-    "proposal_impact_score": "1.77",
+    "proposal_impact_score": "177",
     "proposal_solution": "Claims data is written to the ledger and the process between the parties is automated, tokens reward honesty, honest actors are rated.",
     "proposal_summary": "Insurance fraud costs the UK around £1.3bn, applying dApps and tokenisation to the insurance process this could be greatly reduced.",
     "proposal_title": "Insurance Claims Processing",
@@ -4340,7 +4340,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "352020",
-    "proposal_impact_score": "4.53",
+    "proposal_impact_score": "453",
     "proposal_solution": "We will provide a service to verify and track ownership of NFTs. Ownership info available via APIs will enable access to gated services.",
     "proposal_summary": "Cardano lacks services that will enable developers to capitalize on the interest in NFTs to drive integration, adoption, and user growth.",
     "proposal_title": "NFT Key",
@@ -4373,7 +4373,7 @@
 =======
     "proposal_funds": "135000",
     "proposal_id": "352014",
-    "proposal_impact_score": "2.46",
+    "proposal_impact_score": "246",
     "proposal_solution": "App integration of Daedalus to memory core. Important to improve app experience. Ubuntu $45,000 for dev and updates, Fedora Workstation OS",
     "proposal_summary": "2 \"Ready to mass produce\" Devices\r\n\r\nA- Aluminum unit\r\n\r\nB- Touchscreen unit\r\n\r\nCurrently dev app of Daedalus\r\n\r\nTo Fedora 5.11.12-300.fc34aarch64",
     "proposal_title": "Daedalus Wallet Node SBC Devices",
@@ -4406,7 +4406,7 @@
 =======
     "proposal_funds": "30000",
     "proposal_id": "352012",
-    "proposal_impact_score": "3.40",
+    "proposal_impact_score": "340",
     "proposal_solution": "The Million ADA Homepage will be a community art piece that will display Cardano's unique technologies while raising money for charity.",
     "proposal_summary": "To encourage people to come to the Cardano space we need to first shows off its unique technologies. Second we need a large community event.",
     "proposal_title": "The Million ADA Homepage",
@@ -4439,7 +4439,7 @@
 =======
     "proposal_funds": "6000",
     "proposal_id": "352005",
-    "proposal_impact_score": "4.46",
+    "proposal_impact_score": "446",
     "proposal_solution": "Implement a decentralised authentication mechanism that will persist on chain, secrets and permissions based on metadata and native assets.",
     "proposal_summary": "In order to ensure true decentralisation to services and dApps, a blockchain friendly authentication mechanism should be ideated.",
     "proposal_title": "Blockchain Authentication Mechanism",
@@ -4472,7 +4472,7 @@
 =======
     "proposal_funds": "30000",
     "proposal_id": "352004",
-    "proposal_impact_score": "4.00",
+    "proposal_impact_score": "400",
     "proposal_solution": "Notify delegators to delegate together as soon as enough delegators are found. Enough means who in total have ~1.5m in order to mint a block",
     "proposal_summary": "Currently, if you delegate your ADA to a small stake pool, many epochs may pass before a block is minted, and rewards will be unpredictable.",
     "proposal_title": "SPRD: Advanced delegation system ",
@@ -4505,7 +4505,7 @@
 =======
     "proposal_funds": "45000",
     "proposal_id": "352002",
-    "proposal_impact_score": "2.89",
+    "proposal_impact_score": "289",
     "proposal_solution": "We solve issue by offering an \"Account\" view on top of the UTXO model of Cardano, using malleable transactions and Node-Extractable Value.",
     "proposal_summary": "DeFi smart contracts that anyone can interact with are subject to \"DoS\" attacks by constantly racing other participants to the current UTXO.",
     "proposal_title": "AVOUM: Account View on UTXO Model",
@@ -4538,7 +4538,7 @@
 =======
     "proposal_funds": "39330",
     "proposal_id": "351980",
-    "proposal_impact_score": "3.58",
+    "proposal_impact_score": "358",
     "proposal_solution": "Our platform solves these problems through data-driven analysis and decision making by providing intelligent services and tools.",
     "proposal_summary": "People new to Cardano ecosystem are often overwhelmed when it comes to technology, pool selection for staking as well as choosing a wallet.",
     "proposal_title": "Data driven Cardano services",
@@ -4573,7 +4573,7 @@
     "proposal_funds": "400000",
     "proposal_goal": "Until 2030 more than 5.000 16 dear olds have concluded a training as Cardano DLT technicians while working in their respective companies.",
     "proposal_id": "351976",
-    "proposal_impact_score": "3.21",
+    "proposal_impact_score": "321",
     "proposal_importance": "Now we set the basis for Cardanos future now. Cardano will need a technical layer two of DLT technicians for maintainance and development.",
     "proposal_metrics": "Vocational training diplomas obtained, project items developed for the graduation, turnover for companies employing distributed ledger (DLT) technicians.",
     "proposal_summary": "How can Cardano educate and train tomorrow's developers - young tech professionals all around the world, with a special focus on training.",
@@ -4605,7 +4605,7 @@
 =======
     "proposal_funds": "4570",
     "proposal_id": "351941",
-    "proposal_impact_score": "4.33",
+    "proposal_impact_score": "433",
     "proposal_solution": "Engage community via information sessions at local tech hubs  \r\nHang posters and hand out flyers with specifics on upcoming Catalyst rounds",
     "proposal_summary": "Enormous untapped potential in Ethiopia! Many devs and entrepreneurs are unaware of Catalyst. How can we encourage them to submit proposals?",
     "proposal_title": "Hands-On Marketing in Addis Ababa",
@@ -4638,7 +4638,7 @@
 =======
     "proposal_funds": "5000",
     "proposal_id": "351877",
-    "proposal_impact_score": "3.63",
+    "proposal_impact_score": "363",
     "proposal_solution": "Atomic settlement of cash transactions using automated \"smart contract\" programs.",
     "proposal_summary": "to settle liquidity transactions intraday using available options such as repo, commercial paper and margin.",
     "proposal_title": "T0 Intraday Liquidity Management",
@@ -4671,7 +4671,7 @@
 =======
     "proposal_funds": "24000",
     "proposal_id": "351854",
-    "proposal_impact_score": "4.04",
+    "proposal_impact_score": "404",
     "proposal_solution": "Start a networking event and invite a prominent speaker to each event. These would become the first blockchain meetups in Addis Ababa.",
     "proposal_summary": "Awareness of Cardano's projects and vision are very low on the ground here among investors, young people and community leaders in Ethiopia.",
     "proposal_title": "Networking events",
@@ -4704,7 +4704,7 @@
 =======
     "proposal_funds": "33470",
     "proposal_id": "351825",
-    "proposal_impact_score": "4.26",
+    "proposal_impact_score": "426",
     "proposal_solution": "Build data pipelines off-chain to integrate proposal and community tools in a form suitable for integration by structures of accountability.",
     "proposal_summary": "The Catalyst Community cant use IdeaScale API because it holds private member data. \\[1\\]. We lose time curating data by hand each fun \\[2\\]\\[3\\].",
     "proposal_title": "Open Ideas and Data For Cooperation",
@@ -4737,7 +4737,7 @@
 =======
     "proposal_funds": "19350",
     "proposal_id": "351822",
-    "proposal_impact_score": "4.06",
+    "proposal_impact_score": "406",
     "proposal_solution": "A cardano students club and ambassadorship program will enable students to learn from each other and increase engagement in the community.",
     "proposal_summary": "A Vast majority of the Ethiopian youth have never even heard of cardano and there is no active and engaged community.",
     "proposal_title": "Cardano Student Clubs in Ethiopia",
@@ -4772,7 +4772,7 @@
     "proposal_funds": "15000",
     "proposal_goal": "A thriving ecosystem driven by active community members who are helping others without having to stress about operational costs mounting up",
     "proposal_id": "351806",
-    "proposal_impact_score": "3.39",
+    "proposal_impact_score": "339",
     "proposal_importance": "Some good projects fail to get funded while making operational cost. The community might want to fund their cost but not yet the project.",
     "proposal_metrics": " Proposals made in later rounds by funded proposals  \r\n First time proposers who get funded here but not in their full proposal\r\n\r\n Public available api's/services/apps hosted through this challenge\r\n\r\n Previously funded proposals that get (part of) their operational cost funded though this challenge",
     "proposal_summary": "How can we make sure projects that are doing good work but ran out of budget/fail to get funded are supported to continue on or try again?",
@@ -4806,7 +4806,7 @@
     "proposal_funds": "102030",
     "proposal_goal": "SDG focus heightened + progress accelerated, bridging global multi-stakeholder projects and collaboration into the Cardano ecosystem.",
     "proposal_id": "351795",
-    "proposal_impact_score": "4.21",
+    "proposal_impact_score": "421",
     "proposal_importance": "No country is on track to fulfill all 17 SDGs by 2030. The climate clock is ticking. Simple and innovative solutions are urgently needed now",
     "proposal_metrics": "\\* Number of new partnerships created between members of the Cardano ecosystem, global and local stakeholders in turn bridging new stakeholders into the Cardano ecosystem and catalysing synergy on SDGs  \r\n\\* Number of new proposals submitted that have clearly defined goals that align with SDGs  \r\n\\* Number of new projects launched with SDGs focus that are led by multidisciplinary, diverse teams made up of individuals from within the Cardano ecosystem and new to the Cardano ecosystem  \r\n\\* Number of new Hubs launched in the next 6 months?  \r\n\\* Number of developers this community-focused challenge brought into the Cardano ecosystem?  \r\n\\* Number of new users of Cardano onboarded?  \r\n\\* Number of research papers published that establish the link with Cardano and progress on SDGs using case studies from within the Cardano ecosystem  \r\n\\* Monitoring and evaluation reports are produced for each project launched (tracking their impact according to their targeted SDGs)",
     "proposal_summary": "How will you drive high impact collaborating in the Cardano and global community to achieve the 2030 Sustainable Development Goals (SDGs)?",
@@ -4838,7 +4838,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "351778",
-    "proposal_impact_score": "2.77",
+    "proposal_impact_score": "277",
     "proposal_solution": "Through accountability and early adoption this could help mitigate Cardano's energy impact, and help us steer towards a renewable society.",
     "proposal_summary": "Offset Ada's transactional energy use with an plugin that diverts a % of that transaction towards a fund that is used to reforest farmland.",
     "proposal_title": "Treda: A transactional carbon tax",
@@ -4871,7 +4871,7 @@
 =======
     "proposal_funds": "7613",
     "proposal_id": "351769",
-    "proposal_impact_score": "3.75",
+    "proposal_impact_score": "375",
     "proposal_solution": "A curated newsletter increases awareness, builds trust and drives entrepreneurs to Project Catalyst and the Cardano ecosystem.",
     "proposal_summary": "Entrepreneurs are looking for fundraising and are not aware about Cardano & Catalyst.",
     "proposal_title": "Cardano Catalyst Newsletter",
@@ -4904,7 +4904,7 @@
 =======
     "proposal_funds": "3500",
     "proposal_id": "351739",
-    "proposal_impact_score": "3.60",
+    "proposal_impact_score": "360",
     "proposal_solution": "The solution is Adaption! A platform where developers can submit Dapps and reach more users via a website. They can manage profiles easily.",
     "proposal_summary": "Soon, there will be a lot of Dapps on the network and will be too difficult to manage them transparently from the stage of development.",
     "proposal_title": "Make your Dapp visible",
@@ -4937,7 +4937,7 @@
 =======
     "proposal_funds": "5000",
     "proposal_id": "351735",
-    "proposal_impact_score": "3.88",
+    "proposal_impact_score": "388",
     "proposal_solution": "Create visual resources to continue the series of info graphics that visually describe Project Catalyst from Fund 3.",
     "proposal_summary": "Information about Project Catalyst is difficult to digest for many. There is minimal good visual resources to explain complex concepts.",
     "proposal_title": "Visual communication for community",
@@ -4970,7 +4970,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "351716",
-    "proposal_impact_score": "3.55",
+    "proposal_impact_score": "355",
     "proposal_solution": "We are creating Gero Wallet, a web browser wallet and extension for users to safely store tokens and interact with dApps built on Cardano.",
     "proposal_summary": "As Cardano is going live, users need a safe, efficient, and affordable way for their ADA tokens to interact with ADA contracts.",
     "proposal_title": "Gero Wallet: Cardano's MetaMask",
@@ -5003,7 +5003,7 @@
 =======
     "proposal_funds": "20416",
     "proposal_id": "351711",
-    "proposal_impact_score": "4.19",
+    "proposal_impact_score": "419",
     "proposal_solution": "With iGIVit, it will be easy to give and to keep track of all donations",
     "proposal_summary": "Giving to charities should be a transparent process, with the general public empowered to see exactly how their donations are used",
     "proposal_title": "iGIVit - The Future of Giving",
@@ -5036,7 +5036,7 @@
 =======
     "proposal_funds": "100000",
     "proposal_id": "351705",
-    "proposal_impact_score": "3.25",
+    "proposal_impact_score": "325",
     "proposal_solution": "sixty:forty is a directory for alternative payment and we are running a 3 month long Culture of Innovation campaign in Quarter 3.",
     "proposal_summary": "Problem is in generating awareness of Catalyst and how it can be used as well as finding people who will accept payment via ADA.",
     "proposal_title": "Collab Directory and Events",
@@ -5069,7 +5069,7 @@
 =======
     "proposal_funds": "85000",
     "proposal_id": "351698",
-    "proposal_impact_score": "3.78",
+    "proposal_impact_score": "378",
     "proposal_solution": "We propose to build the first ever MTN/Mobile Money Bridge to DeFi in Nigeria/Kenya using Mobile Merchant On-ramps and lending protocols.",
     "proposal_summary": "APY's of financial products in Africa has dropped from 20% to 2% APY in the past 5 years due to deflation, political corruption and covid-19",
     "proposal_title": "ADD.xyz's DeFi Mobile Money Bridge",
@@ -5102,7 +5102,7 @@
 =======
     "proposal_funds": "42000",
     "proposal_id": "351697",
-    "proposal_impact_score": "3.26",
+    "proposal_impact_score": "326",
     "proposal_solution": "A real-time traceable supply chain DApp for all insect related products, connecting organic waste inputs through farming to feed to fork",
     "proposal_summary": "The insects as food & feed sector can be a sustainable alt-protein solution, but fragmentation keeps consumers and farmers from connecting",
     "proposal_title": "Farm to Fork Supply Chain - Insects",
@@ -5135,7 +5135,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "351682",
-    "proposal_impact_score": "4.19",
+    "proposal_impact_score": "419",
     "proposal_solution": "An NFT marketplace that is user-driven, open to all and fraud-resistant. We want to build a community, not just a product!",
     "proposal_summary": "Many NFT marketplaces do not put users first: they have high commission fees, they are hard to navigate, heavily curated and centralized",
     "proposal_title": "Artano - The NFT Art Marketplace",
@@ -5168,7 +5168,7 @@
 =======
     "proposal_funds": "5",
     "proposal_id": "351678",
-    "proposal_impact_score": "4.25",
+    "proposal_impact_score": "425",
     "proposal_solution": "Innovative approach to open source  \r\nReform PM to distributed peer facilitation.  \r\nAdapt maturity standards to distributed organizations.",
     "proposal_summary": "A lack of advocacy for open source\r\n\r\nA need to reform Project Management techniques\r\n\r\nA need to evolve to auditable levels.",
     "proposal_title": "Quality-Assurance-DAO",
@@ -5201,7 +5201,7 @@
 =======
     "proposal_funds": "100000",
     "proposal_id": "351663",
-    "proposal_impact_score": "4.58",
+    "proposal_impact_score": "458",
     "proposal_solution": "We will offer the whole fantasy gaming experience, story, exclusively hand-drawn artworks, world and game design will be fully hand-made!",
     "proposal_summary": "Building the first mobile classic fantasy MRPG Game in a world called ADA. Fully related game design to Cardano´s blockchain technology.",
     "proposal_title": "The Quest for ADA ",
@@ -5234,7 +5234,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "351653",
-    "proposal_impact_score": "4.22",
+    "proposal_impact_score": "422",
     "proposal_solution": "We want to expand nft-maker.io to a point where it's not only a minting tool but also a decentralized market place for multi-media NFTs.",
     "proposal_summary": "There's high demand for user-friendly NFT platforms & marketplaces on Cardano.",
     "proposal_title": "nft-maker.io -> Full NFT platform",
@@ -5266,7 +5266,7 @@
     "proposer_url": "http://proposer.com/start"
 =======
     "proposal_id": "351624",
-    "proposal_impact_score": "3.18",
+    "proposal_impact_score": "318",
     "proposal_solution": "Understand SPO diversity/representation  \r\nStaking decision prototype  \r\nWork with communities and SPO information services to drive African SPO",
     "proposal_summary": "The staking experience does not make it easy to contribute to Cardano's goals of societal decentralization and support African SPO.",
     "proposal_title": "Decentralization at Societal Level.",
@@ -5299,7 +5299,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "351579",
-    "proposal_impact_score": "4.19",
+    "proposal_impact_score": "419",
     "proposal_solution": "Project Hours will provide a global framework for time tracking and payments that will greatly improve trust between workers and companies",
     "proposal_summary": "Time tracking and billing of work is currently a messy and time-consuming process that often requires manual input and approval steps.",
     "proposal_title": "Trusted time-tracking and billing",
@@ -5332,7 +5332,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "351502",
-    "proposal_impact_score": "4.25",
+    "proposal_impact_score": "425",
     "proposal_solution": "Make the African Continent the go-to place for No-Code development then upmarket",
     "proposal_summary": "Lack of a Pan-Africa strategy to gain a piece of the 4.07 trillion IT service Market or to meets its growing IT needs.",
     "proposal_title": "No-Code For Creative Africa",
@@ -5365,7 +5365,7 @@
 =======
     "proposal_funds": "80000",
     "proposal_id": "351501",
-    "proposal_impact_score": "4.07",
+    "proposal_impact_score": "407",
     "proposal_solution": "The immutable ledger and transparency of the public blockchain will provide the decentralised, trusted solution AI and ML desperately needs.",
     "proposal_summary": "Apps for training AI & ML algorithms tend to be centralized, with no transparency. This can bring biased results as the algorithm learn",
     "proposal_title": "Artificial Intelligence/ML API",
@@ -5398,7 +5398,7 @@
 =======
     "proposal_funds": "29000",
     "proposal_id": "351489",
-    "proposal_impact_score": "3.81",
+    "proposal_impact_score": "381",
     "proposal_solution": "2-screen wallet - hyper-localizable, skeuomorphic (no text), minimum network traffic, text 2FA, network retry, lock NFT for KYC",
     "proposal_summary": "Diverse personas, languages (2000+), TELCO SLAs, threat metrics, customer budgets, devices..",
     "proposal_title": "Hyper-Localizable Wallet for Africa",
@@ -5431,7 +5431,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "351487",
-    "proposal_impact_score": "4.11",
+    "proposal_impact_score": "411",
     "proposal_solution": "WooCommerce plugin to allow users to pay ADA directly to merchants without the need for a third party.\r\n\r\nInstall, configure, accept ADA.",
     "proposal_summary": "Peer to peer ADA payments via open source e-commerce platforms such as WooCommerce for low volume/value merchants.",
     "proposal_title": "WooCommerce Payments Plugin",
@@ -5464,7 +5464,7 @@
 =======
     "proposal_funds": "161645",
     "proposal_id": "351471",
-    "proposal_impact_score": "2.83",
+    "proposal_impact_score": "283",
     "proposal_solution": "Propose to develop a billing smart contract solution targeting use cases around initially Utilities billing. Calling it \"adabillr\" or Billr",
     "proposal_summary": "Consider the vast number of utilities & other Gov orgs that bill customers on a regular basis using expensive inflexible insecure solutions.",
     "proposal_title": "DEFI billing - an untapped market?",
@@ -5497,7 +5497,7 @@
 =======
     "proposal_funds": "20000",
     "proposal_id": "351435",
-    "proposal_impact_score": "1.44",
+    "proposal_impact_score": "144",
     "proposal_solution": "Simple step by step video instructions.",
     "proposal_summary": "With everything Cardano is creating. It would be awesome to have video guides to go with them.",
     "proposal_title": "Video guides",
@@ -5530,7 +5530,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "351403",
-    "proposal_impact_score": "3.44",
+    "proposal_impact_score": "344",
     "proposal_solution": "Smart grid pontoon recharge electric boat by using kinetic energy of water. Customer pay with token to local entrepreneur and get rewarded.",
     "proposal_summary": "Millions of people are commuting daily in Africa using fossil energies which makes the cost of transport high, second expense per household.",
     "proposal_title": "E-ROW waterways transportation",
@@ -5563,7 +5563,7 @@
 =======
     "proposal_funds": "35000",
     "proposal_id": "351387",
-    "proposal_impact_score": "3.56",
+    "proposal_impact_score": "356",
     "proposal_solution": "A DAO which will have audit projects chosen by the community and funded entirely through their treasury with zero conflict of interest.",
     "proposal_summary": "Consumers have trouble trusting DeFi Dapps with their money. Dapps can be audited, but how can you trust a paid auditor to act impartially?",
     "proposal_title": "Smart Contract Audit Token SCAT DAO",
@@ -5596,7 +5596,7 @@
 =======
     "proposal_funds": "9000",
     "proposal_id": "351380",
-    "proposal_impact_score": "3.92",
+    "proposal_impact_score": "392",
     "proposal_solution": "A service where people can buy and cash out ADA in local currency to enjoy thier investment returns and pay with thier ADA.",
     "proposal_summary": "In Ethiopia, people can't buy or cash out ADA easily. There is also no ADA payment ways and cardano users in Ethiopia, only few in Africa",
     "proposal_title": "Cashout and Buy ADA in Ethiopia",
@@ -5629,7 +5629,7 @@
 =======
     "proposal_funds": "6000",
     "proposal_id": "351359",
-    "proposal_impact_score": "4.30",
+    "proposal_impact_score": "430",
     "proposal_solution": "Smart Paper Wallets linked to a Plutus smart contract which requires merchant validation.",
     "proposal_summary": "Paper wallets are essential for growing Cardano, but security at point-of-sale is lacking.",
     "proposal_title": "Smart Contract-Based Paper Wallets",
@@ -5664,7 +5664,7 @@
     "proposal_funds": "200000",
     "proposal_goal": "New statistical indexes can be voted in and extracted on demand via user friendly interface without need to program each time.",
     "proposal_id": "351307",
-    "proposal_impact_score": "3.74",
+    "proposal_impact_score": "374",
     "proposal_importance": "Building robust on demand statistical data customization platform into multi-asset foundation will give Cardano a competitive advantage.",
     "proposal_metrics": "*   Number of proposals for infrastructure  \r\n    \r\n*   Number of proposals for development  \r\n    \r\n*   Number of proposals for user experience / user interface (UXUI)  \r\n    \r\n*   Number of proposals for data analysis  \r\n    \r\n*   Survey of distribution of user background interested in challenge (common user, data scientist, graphic designers, developers…)",
     "proposal_summary": "How can we bake data services like Etherscan directly into Cardano governance network to easily extract new statistics and index on demand?",
@@ -5696,7 +5696,7 @@
 =======
     "proposal_funds": "250000",
     "proposal_id": "351295",
-    "proposal_impact_score": "2.00",
+    "proposal_impact_score": "200",
     "proposal_solution": "Create a decentralized marketplace for consumer products. Just like Ebay but completely decentralized.",
     "proposal_summary": "With the centralized nature of Ebay and Amazon. They have a bit of a monopoly on online shopping.",
     "proposal_title": "Decentralized version of ebay",
@@ -5731,7 +5731,7 @@
     "proposal_funds": "200000",
     "proposal_goal": "Arouse the interest and curiosity of the Brazilian people to get to know the cardano project, participating in the community and investing",
     "proposal_id": "351294",
-    "proposal_impact_score": "2.50",
+    "proposal_impact_score": "250",
     "proposal_importance": "Teaching people how to use a computer and how to access the internet will increase our community",
     "proposal_metrics": "projects that after being implemented with the resources can remain alone.\r\n\r\nProjects that impact the lives of people living in areas of great social vulnerability",
     "proposal_summary": "Many people around the world do not have access to the internet or computers",
@@ -5763,7 +5763,7 @@
 =======
     "proposal_funds": "140000",
     "proposal_id": "351284",
-    "proposal_impact_score": "2.31",
+    "proposal_impact_score": "231",
     "proposal_solution": "Developing bindings for other languages that do not force developers to move from the comfort of their usual development environments.",
     "proposal_summary": "Cardano's software is written in Haskell. This represents a great learning curve for many developers who use other more popular languages",
     "proposal_title": "Bind to other Prog.Languages",
@@ -5796,7 +5796,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "351263",
-    "proposal_impact_score": "2.70",
+    "proposal_impact_score": "270",
     "proposal_solution": "Provide free exchange of Ethiopian Birr for ADA via in person and mobile transactions.",
     "proposal_summary": "For those in Ethiopia without access to traditional exchanges, purchasing ADA is prohibitively difficult and expensive.",
     "proposal_title": "ADA Liquidity for Ethiopia",
@@ -5829,7 +5829,7 @@
 =======
     "proposal_funds": "16500",
     "proposal_id": "351262",
-    "proposal_impact_score": "3.46",
+    "proposal_impact_score": "346",
     "proposal_solution": "We will build a poll dapp that gathers the political preferences and wishes of people. Parties can use the data to represent people better.",
     "proposal_summary": "Political parties represent the people without really knowing much about the people. How can parties collect and use info about the people?",
     "proposal_title": "Prsona: Dapp for political personas",
@@ -5862,7 +5862,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "351236",
-    "proposal_impact_score": "3.33",
+    "proposal_impact_score": "333",
     "proposal_solution": "Blockchain Metadata Time/Date and Concept Validation Stamp/Hash, would eliminate standard high cost and help inventors to validate idea.",
     "proposal_summary": "iNVENT is a blockchain application that eliminates extensive cost and creates a time/date stamp validation of concepts for inventors.",
     "proposal_title": "iNVENT ",
@@ -5895,7 +5895,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "351232",
-    "proposal_impact_score": "1.63",
+    "proposal_impact_score": "163",
     "proposal_solution": "By using Artificial intelligence and Machine learning to scan Audio and image files for authenticity.",
     "proposal_summary": "Bakground stands to disrupt and legitimize the NFT space.",
     "proposal_title": " Bakground",
@@ -5928,7 +5928,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "351225",
-    "proposal_impact_score": "3.03",
+    "proposal_impact_score": "303",
     "proposal_solution": "A tokenized platform for real estate investment and bookings, connecting people to a global community of nomads living this lifestyle.",
     "proposal_summary": "The housing industry doesn't cater to people living as digital nomads.",
     "proposal_title": "Decentralized real estate ",
@@ -5961,7 +5961,7 @@
 =======
     "proposal_funds": "75000",
     "proposal_id": "351203",
-    "proposal_impact_score": "3.07",
+    "proposal_impact_score": "307",
     "proposal_solution": "\"Cardano Marketplace is building a freelance exchange by connecting IBO's & DEF's across Cardano as a Multi-Vendor Marketplace.\"",
     "proposal_summary": "Blockchain solutions for IBO's are extremely hard to find and understand.\r\n\r\nA dev and freelance blockchain-focused platform doesn't exist.",
     "proposal_title": "Cardano Marketplace",
@@ -5994,7 +5994,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "351202",
-    "proposal_impact_score": "2.42",
+    "proposal_impact_score": "242",
     "proposal_solution": "Use Cardano to develop a tamper resistant system, which can be used by the whole world and eases travelling, visiting restaurants etc.",
     "proposal_summary": "While travelling, how can every country trust each others Vaccination certificate (in local language) - an APP or a simple piece of paper.",
     "proposal_title": "Corona Immunity Passport",
@@ -6027,7 +6027,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "351200",
-    "proposal_impact_score": "3.76",
+    "proposal_impact_score": "376",
     "proposal_solution": "Create a decentralized freelancer marketplace using Cardano blockchain that offers instance payment, low fees and fair dispute settlement",
     "proposal_summary": "Existing freelancer marketplaces struggle with high fees and low payments as well as delivering consistent quality of work",
     "proposal_title": "ADALancer",
@@ -6060,7 +6060,7 @@
 =======
     "proposal_funds": "12800",
     "proposal_id": "351198",
-    "proposal_impact_score": "2.87",
+    "proposal_impact_score": "287",
     "proposal_solution": "I created a workspace to develop my own projects while contributing to open source libraries and other developers can use it too.",
     "proposal_summary": "Allow developers to work on their projects while contributing to open source libraries at the same time.",
     "proposal_title": "Workspace for JavaScript Developers",
@@ -6093,7 +6093,7 @@
 =======
     "proposal_funds": "33000",
     "proposal_id": "351183",
-    "proposal_impact_score": "3.64",
+    "proposal_impact_score": "364",
     "proposal_solution": "I propose a crowdfunding platform based on Cardano which implements a staged-funding model to protect backer's investments.",
     "proposal_summary": "Backers of a crowdfunding campaign should be able to ensure their funds are used correctly, however 9% of Kickstarters fail to deliver\\[1\\]\\[2\\]",
     "proposal_title": "Crowdano Crowdfunding Platform",
@@ -6129,7 +6129,7 @@
     "proposal_funds": "150000",
     "proposal_goal": "More groups joining all segments of the Cardano ecosystem. Faster growth. Development in new directions. New ideas.",
     "proposal_id": "351148",
-    "proposal_impact_score": "4.08",
+    "proposal_impact_score": "408",
     "proposal_importance": "If we do not widen the net, we won't capture talent. Women are 50% of the world's population and a major source of available talent.",
     "proposal_metrics": "Key Metrics to measure  \r\n a positive trend towards greater diversity of proposers, Community Advisors, Veteran Community Advisors in Ideascale  \r\n increased female presence in the Cardano ecosystem and promotion of positive communication among all participants\r\n\r\n enhanced communication between women and connecting women in the space  \r\n a positive trend towards greater diversity of teams implementing proposals  \r\n a positive trend towards a greater diversity among stakepool operators\r\n\r\n emergence of female role models in the Cardano ecosystem, clear information on returns and access to a female network\r\n\r\n a positive trend towards greater diversity among Plutus, Marlowe course attendants  \r\n continued fair-mindedness in Catalyst communications and respectful communications in all forums and across communication platforms  \r\n continued efforts to build up Cardano's reputation as the foremost science-based and fair-minded blockchain ecosystem",
     "proposal_summary": "How can we increase the overall participation of women in the Cardano ecosystem across all entities, functions, roles & overall community?",
@@ -6161,7 +6161,7 @@
 =======
     "proposal_funds": "16000",
     "proposal_id": "351137",
-    "proposal_impact_score": "3.57",
+    "proposal_impact_score": "357",
     "proposal_solution": "Short, precisely articulated educational videos will work as a gateway to Cardano attracting developers / ada holders. Watch trailer below.",
     "proposal_summary": "Most people don't understand what Cardano is about.\r\n\r\nHow can we explain the system and the vision to newcomers using real world use cases?",
     "proposal_title": "Educational videos (adatruth)",
@@ -6195,7 +6195,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "351135",
-    "proposal_impact_score": "3.80",
+    "proposal_impact_score": "380",
     "proposal_solution": "Create a community standard that tokenization of physical assets must conform to, to help improve quality, security and ultimately adoption",
     "proposal_summary": "Physical assets (like artwork, real estate, businesses etc) lack a standard for representation on the blockchain as tokens",
     "proposal_title": "Native tokens for physical assets",
@@ -6228,7 +6228,7 @@
 =======
     "proposal_funds": "30000",
     "proposal_id": "351134",
-    "proposal_impact_score": "3.43",
+    "proposal_impact_score": "343",
     "proposal_solution": "Organize a summer Bootcamp for teenagers between the ages of (13 - 19 years old) in order to begin to introduce them to Blockchain.",
     "proposal_summary": "\"In most parts of Africa, ignorance and poor education about Blockchain technology has led to a lot of misconceptions\"",
     "proposal_title": "Teens Blockchain Summer Bootcamp ",
@@ -6261,7 +6261,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "351119",
-    "proposal_impact_score": "3.15",
+    "proposal_impact_score": "315",
     "proposal_solution": "NFT's of digitalized graffiti artworks with smart contract compensation connected to signature if owner can verify it.",
     "proposal_summary": "Graffiti artists don't get compensated for their art, lack of profitability for graffiti art.",
     "proposal_title": "graffiti NFT marketplace",
@@ -6294,7 +6294,7 @@
 =======
     "proposal_funds": "4000",
     "proposal_id": "351116",
-    "proposal_impact_score": "2.87",
+    "proposal_impact_score": "287",
     "proposal_solution": "We propose a mechanism to make the benefits of data analytics solutions available to broader society using Cardano blockchain technology.",
     "proposal_summary": "Data Analytics solutions in decision-making are not accessible to many sectors in society,specially the 'common man' in the developing world",
     "proposal_title": "Euclid Net-Cardano-Data Analytics",
@@ -6327,7 +6327,7 @@
 =======
     "proposal_funds": "250000",
     "proposal_id": "351112",
-    "proposal_impact_score": "1.91",
+    "proposal_impact_score": "191",
     "proposal_solution": "Instamo - A cross-chain DEX aggregator attracts other startups and businesses building the other DEXs on Cardano to grow global communities",
     "proposal_summary": "There is a shortage of DEXs, Dapps building on Cardano's Ecosystems",
     "proposal_title": "A DEX aggregator on Cardano",
@@ -6360,7 +6360,7 @@
 =======
     "proposal_funds": "250000",
     "proposal_id": "351108",
-    "proposal_impact_score": "2.63",
+    "proposal_impact_score": "263",
     "proposal_solution": "DEX aggregators have emerged to pool that fragmented liquidity together into a single platform like Instamo to solve the problem.",
     "proposal_summary": "The marketplace remains fragmented, however, with liquidity still lacking on individual DEXes compared to their CEX counterparts.",
     "proposal_title": "A DEX aggregator built on Cardano",
@@ -6393,7 +6393,7 @@
 =======
     "proposal_funds": "24000",
     "proposal_id": "351102",
-    "proposal_impact_score": "2.60",
+    "proposal_impact_score": "260",
     "proposal_solution": "Build a payment system that can be used on the Magento platform. We plan on building a plugin that any website on Magento can use.",
     "proposal_summary": "Currently, there are no plugins for ADA on the Magento marketplace. Over 170k websites use the Magento platform.",
     "proposal_title": "Magento 2 ada payments plugin",
@@ -6426,7 +6426,7 @@
 =======
     "proposal_funds": "5000",
     "proposal_id": "351093",
-    "proposal_impact_score": "2.64",
+    "proposal_impact_score": "264",
     "proposal_solution": "Lack of knowledge is resolved with quality information and easy language. I will produce content weekly to clarify the Brazilians",
     "proposal_summary": "A large part of the Brazilian population does not know what blockchain, crypto and cardano are.",
     "proposal_title": "Sponsorship for Brazilian youtuber ",
@@ -6460,7 +6460,7 @@
 =======
     "proposal_funds": "250000",
     "proposal_id": "351088",
-    "proposal_impact_score": "2.06",
+    "proposal_impact_score": "206",
     "proposal_solution": "I want to create a a platform that anyone can join, buy crypto and actively transact on the blockchain (maybe without even knowing it)",
     "proposal_summary": "Most low level users in crypto's first and only experience with crypto is on Coinbase and then nothing after that.",
     "proposal_title": "Kingdom Builder",
@@ -6495,7 +6495,7 @@
     "proposal_funds": "150000",
     "proposal_goal": "Likely points of failure identified. Disaster communication channels set up. Recovery procedures identified. Testing procedures developed.",
     "proposal_id": "351012",
-    "proposal_impact_score": "4.36",
+    "proposal_impact_score": "436",
     "proposal_importance": "A system that aspires to become a global financial operating system, must be stress tested. Running nodes should be prepared for disaster.",
     "proposal_metrics": " has a methodology for decentralized stress testing of the main network been developed - by and for stakepool operators?  \r\n are participating stakepools being rewarded for taking part in mainnet disaster recovery tests?\r\n\r\n Are there enough incentives in place for participating in the Cardano testnet?  \r\n are stakepool operators able to conduct limited network stress testing (overload, disconnection, bad actor, DDoS … scenarios) and are they rewarded for participating in these tests (instead of being punished by losing slots)?  \r\n have new guidelines, recommendations and emergency communication channels been established for stakepool operators who wish to take part in these emergency preparations?  \r\n has a a dedicated risk-assessment and risk-management team been set up?  \r\n have protocols been developed for recovering from an emergency situation that could take most of the main network offline?  \r\n have proposals been developed for building in different kinds of redundancies?  \r\n have new benchmarks been developed to measure whether the Cardano stake pool network is safer, more stable, more resilient and more decentralized?  \r\n have wider screening of risk sources been performed: CyberSecurity, political and regulatory risks, internet-related risks etc.",
     "proposal_summary": "How can we help SPOs tackle risks & plan, develop and participate in disaster recovery tests in a safe hiccup-free and decentralized manner?",
@@ -6527,7 +6527,7 @@
 =======
     "proposal_funds": "150000",
     "proposal_id": "351008",
-    "proposal_impact_score": "2.33",
+    "proposal_impact_score": "233",
     "proposal_solution": "It's time to bring simple concepts about taking care of the earth to the forefront.  \r\nHealthy activities, sustainable jobs, earth renewal, etc",
     "proposal_summary": "Climate has changed.\r\n\r\nBiodiversity is suffering.\r\n\r\nTopsoil reserves dwindling.\r\n\r\nPoverty.\r\n\r\nHumanity is out of sync with nature, spirit & self.",
     "proposal_title": "Make DApp for Worldwide Gardening!",
@@ -6560,7 +6560,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "351004",
-    "proposal_impact_score": "2.63",
+    "proposal_impact_score": "263",
     "proposal_solution": "Youbiquitor allows contractors to customize their business profile, personalize fee structures and offer various types of services.",
     "proposal_summary": "Apps like Uber, Doordash and others take advantage of independent contractors under the false promise that you can \"be your own boss\".",
     "proposal_title": "Youbiquitor Dapp for gig workers",
@@ -6593,7 +6593,7 @@
 =======
     "proposal_funds": "150000",
     "proposal_id": "351002",
-    "proposal_impact_score": "1.58",
+    "proposal_impact_score": "158",
     "proposal_solution": "Users could buy areas on the map in the form of NFTs. Users can advertise on area they own.",
     "proposal_summary": "With NFTs being a hot topic, I'd like to integrate NFTs into maps/navigation.",
     "proposal_title": "Decentralised maps and nfts",
@@ -6626,7 +6626,7 @@
 =======
     "proposal_funds": "150000",
     "proposal_id": "350998",
-    "proposal_impact_score": "2.30",
+    "proposal_impact_score": "230",
     "proposal_solution": "Claims data is written to the ledger and the process between the parties is automated, tokens reward honesty, honest actors are rated.",
     "proposal_summary": "Insurance fraud costs the UK around £1.3bn, applying dApps and tokenisation to the insurance process this could be greatly reduced.",
     "proposal_title": "Insurance Claims Processing",
@@ -6659,7 +6659,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "350984",
-    "proposal_impact_score": "1.53",
+    "proposal_impact_score": "153",
     "proposal_solution": "i am looking to solve this by setting up a youtube channel, and take the time to interview as many small stake pool operators as i can.",
     "proposal_summary": "Not many small pools have the funds to market and get set up with a website, or any other barriers that are keeping them from being known.",
     "proposal_title": "Small SPO awareness ",
@@ -6692,7 +6692,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "350982",
-    "proposal_impact_score": "1.60",
+    "proposal_impact_score": "160",
     "proposal_solution": "I intend to rent a space and finance, a t-shirts/mugs printing press. Eventually as i grow, look to purchase new machines for new products.",
     "proposal_summary": "There is no single spot to find good gear 2 market for SPO's, or anything cardano. A central hub to Cardano gear for all! With deals 4 SPO's",
     "proposal_title": "Online cardano store for SPO's",
@@ -6725,7 +6725,7 @@
 =======
     "proposal_funds": "4600",
     "proposal_id": "350981",
-    "proposal_impact_score": "4.51",
+    "proposal_impact_score": "451",
     "proposal_solution": "Build tools to improve the efficiency of Proposers and Community Advisors work during Catalyst proposals' assessment and review phases.",
     "proposal_summary": "Community Advisors spend countless hours shuffling around IdeaScale and spreadsheets to fulfill their role. Time to automate some?",
     "proposal_title": "Catalyst Community Tools",
@@ -6758,7 +6758,7 @@
 =======
     "proposal_funds": "27000",
     "proposal_id": "350968",
-    "proposal_impact_score": "3.91",
+    "proposal_impact_score": "391",
     "proposal_solution": "Trust is a transmedia project - both a graphic novel and motion comic - that teaches African teens and young adults about blockchain.",
     "proposal_summary": "Blockchain education isn't Africa-focused and often portrays Africans as the beneficiaries instead of the drivers of change.",
     "proposal_title": "Trust Graphic Novel & Motion Comic",
@@ -6791,7 +6791,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "350964",
-    "proposal_impact_score": "3.64",
+    "proposal_impact_score": "364",
     "proposal_solution": "Adaptation of the Uniswap smart contracts (which is distributed under the GNU license) for the Plutus platform.",
     "proposal_summary": "Cardano ecosystem needs more competitive AMM exchange tools.",
     "proposal_title": "RAY Swap",
@@ -6824,7 +6824,7 @@
 =======
     "proposal_funds": "150000",
     "proposal_id": "350931",
-    "proposal_impact_score": "3.65",
+    "proposal_impact_score": "365",
     "proposal_solution": "We intend to custody assets (both blockchain and real) with custody services, then provide a representation of those assets on Cardano.",
     "proposal_summary": "The users of Cardano products wish to utilize assets which are not native to Cardano for lending, trading, marketplaces, and more.",
     "proposal_title": "WrapAssets.io",
@@ -6857,7 +6857,7 @@
 =======
     "proposal_funds": "40000",
     "proposal_id": "350923",
-    "proposal_impact_score": "4.73",
+    "proposal_impact_score": "473",
     "proposal_solution": "CW lets the authors anonymously prove the authorship of PoE. It also encrypts files in a browser and stores a copy in the CW public storage.",
     "proposal_summary": "Content creators or businesses need an ability to prove \"Proof of Existence\" authorship and avoid losing/altering the original file.",
     "proposal_title": "CardanoWall, new levels of PoE",
@@ -6890,7 +6890,7 @@
 =======
     "proposal_funds": "60000",
     "proposal_id": "350911",
-    "proposal_impact_score": "2.37",
+    "proposal_impact_score": "237",
     "proposal_solution": "This onboarding tool will establish member profile, orientation, Catalyst understanding and funnel common projects into working communities.",
     "proposal_summary": "Wow this is overwhelming! Where do start? How do I find collaborators? Navigate platform? What ideas are already presented? How am I doing?",
     "proposal_title": "Catalyst Common Idea Funnel ",
@@ -6923,7 +6923,7 @@
 =======
     "proposal_funds": "10850",
     "proposal_id": "350904",
-    "proposal_impact_score": "4.45",
+    "proposal_impact_score": "445",
     "proposal_solution": "A Tutorial to onboard and teach new/existing Community Advisors to ensure high-quality assessments which help voters to make good decisions",
     "proposal_summary": "The rapid growth in Catalyst increases the need for good Community Advisors, otherwise poor assessments will affect the quality of Catalyst",
     "proposal_title": "Tutorial for Community Advisors",
@@ -6956,7 +6956,7 @@
 =======
     "proposal_funds": "8000",
     "proposal_id": "350886",
-    "proposal_impact_score": "3.67",
+    "proposal_impact_score": "367",
     "proposal_solution": "Standardized property management on the Cardano. Buy and sell property as equity tokens on Cardano.",
     "proposal_summary": "Lack of liquidity in real-world investment properties. Buying, selling and managing them is a struggle.",
     "proposal_title": "On-Chain Trust",
@@ -6989,7 +6989,7 @@
 =======
     "proposal_funds": "25000",
     "proposal_id": "350883",
-    "proposal_impact_score": "3.25",
+    "proposal_impact_score": "325",
     "proposal_solution": "Develop a cost effective dApp platform to validate certificate credentials using transaction metadata and a native token.",
     "proposal_summary": "India has an increasing problem of counterfeit degrees with no reliable way for recruiters to verify an applicant's educational credentials.",
     "proposal_title": "Deqree: Certificate Validation 🎓",
@@ -7022,7 +7022,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "350878",
-    "proposal_impact_score": "3.21",
+    "proposal_impact_score": "321",
     "proposal_solution": "We intend to incubate interest in the blockchain by educating them with daily zooms and assisting in proposal development with targets.",
     "proposal_summary": "We need to reach out to university and college students and graduates to raise awareness of Cardano and the opportunities that exist.",
     "proposal_title": "University/College Outreach",
@@ -7057,7 +7057,7 @@
     "proposal_funds": "30000",
     "proposal_goal": "Contrarian, radical and bold ideas welcomed and explored. The system tests to see if the majority is wrong. Unexpected evolution occurs.",
     "proposal_id": "350877",
-    "proposal_impact_score": "3.92",
+    "proposal_impact_score": "392",
     "proposal_importance": "Ideas go through renewal, change. Minority ideas can develop & bloom and bring new value. Ouroboros is and endless return to beginnings.",
     "proposal_metrics": " Existence of contrarian, unpopular, radical and potentially controversial (not illegal!) ideas that are continuously tested and examined in early stages. This does not include wild guesses, poorly prepared proposals and joke suggestions.  \r\n New established sandbox environments or tools or networks that allow for the testing, exploration, discussion or development of such new ideas or concepts even if they collide with existing Cardano orthodoxy.  \r\n Number of active communication channels devoted to non-traditional brainstorming about the different futures and uses and evolutionary paths of Cardano  \r\n Number of new and completely novel proposals or challenges submitted to Cardano community for testing or review, based on the new frameworks for inviting revolutionary ideas  \r\n Examples of new visionaries or people of non-traditional blockchain backgrounds who enter the Cardano ecosystem from other outside systems through the new sandbox environments, idea playgrounds and novel tools or networks that are set up - or via other channels, attracted by the diversity of the ecosystem.\r\n\r\n a general sense of a widening, not narrowing, of the community's views, discussions, ideas, projects, focus.",
     "proposal_summary": "How can we ensure that the Cardano system nurtures bold minority contrarian views on KEY elements of ADA ecosystem in the next 6 months?",
@@ -7088,7 +7088,7 @@
     "proposer_url": "http://proposer.com/start"
 =======
     "proposal_id": "350869",
-    "proposal_impact_score": "2.67",
+    "proposal_impact_score": "267",
     "proposal_solution": "Incentivising interaction among people of different backgrounds (the greater the difference, the bigger the reward) brings about innovations",
     "proposal_summary": "Much-needed breakthrough innovations can be achieved by incentivizing interactions among people from different backgrounds.",
     "proposal_title": "Incentivizing Interaction (Phase 2)",
@@ -7121,7 +7121,7 @@
 =======
     "proposal_funds": "27900",
     "proposal_id": "350844",
-    "proposal_impact_score": "4.09",
+    "proposal_impact_score": "409",
     "proposal_solution": "Online Marketing Campaign as a fast and efficient way to attract entrepreneurs to increase diversity and quality of proposals in Catalyst",
     "proposal_summary": "Low awareness of Catalyst among entrepreneurs outside our community, and thus a lot of untapped potential for Cardano development",
     "proposal_title": "60-Day Online Marketing Campaign",
@@ -7154,7 +7154,7 @@
 =======
     "proposal_funds": "12000",
     "proposal_id": "350836",
-    "proposal_impact_score": "4.30",
+    "proposal_impact_score": "430",
     "proposal_solution": "A terminal at a shop where a customer can give the shop owner paper money. The customer gets an ADA wallet with the deposited amount",
     "proposal_summary": "People need a way to transfer fiat currency to ADA when they don't have access to a phone, electricity or bank account.",
     "proposal_title": "Paper wallet terminal for in a shop",
@@ -7187,7 +7187,7 @@
 =======
     "proposal_funds": "6500",
     "proposal_id": "350835",
-    "proposal_impact_score": "3.85",
+    "proposal_impact_score": "385",
     "proposal_solution": "Translate in Russian Charles Hoskinson's YouTube videos (3 months period) to promote Cardano philosophy to 3% population.",
     "proposal_summary": "There is low penetration of Cardano philosophy and vision in non-English speaking countries, that constitute 83% of world population.",
     "proposal_title": "Charles Hoskinson in Russian",
@@ -7220,7 +7220,7 @@
 =======
     "proposal_funds": "21000",
     "proposal_id": "350824",
-    "proposal_impact_score": "4.06",
+    "proposal_impact_score": "406",
     "proposal_solution": "Continue development a community driven Community Landing Page that links to the various material relating to Project Catalyst.",
     "proposal_summary": "A central place for new and existing community members of Project Catalyst to find information, make connections, obtain guides.",
     "proposal_title": "cardanocataly.st Community Page",
@@ -7253,7 +7253,7 @@
 =======
     "proposal_funds": "12000",
     "proposal_id": "350809",
-    "proposal_impact_score": "3.58",
+    "proposal_impact_score": "358",
     "proposal_solution": "Create a white-label decentralized food app which directly connects consumers to restaurants.",
     "proposal_summary": "Uber Eats takes advantage of restaurants and delivery drivers with 30-60% commission fees.",
     "proposal_title": "Food Delivery App + Low Commissions",
@@ -7287,7 +7287,7 @@
 =======
     "proposal_funds": "35000",
     "proposal_id": "350808",
-    "proposal_impact_score": "2.00",
+    "proposal_impact_score": "200",
     "proposal_solution": "All-in-one ecosystem from activating a project community to token launch and swap. We offer a inclusive, transparent, secure solution.",
     "proposal_summary": "New projects lack initial liquidity and fail to compete based on the value they generate.",
     "proposal_title": "Community Launchpad & DEX ",
@@ -7323,7 +7323,7 @@
     "proposal_funds": "800000",
     "proposal_goal": "Success is increased participation in Project Catalyst through exposure to OUR NFT. 🌅💧🌈",
     "proposal_id": "350798",
-    "proposal_impact_score": "2.11",
+    "proposal_impact_score": "211",
     "proposal_importance": "Project Catalyst is the star 🌅 of cryptocurrency, \"not only because I see it, but because by it I see everything else.\" (C.S. Lewis)",
     "proposal_metrics": "*   participation in the creation of Project Catalyst's NFT through the Project Catalyst funded NFT-DAO\r\n*   sale price and media attention on Project Catalyst's first NFT Art\r\n*   exponential participation in Project Catalyst as a whole\r\n*   viability of NFT showcase functionality\r\n*   rewards for completing smaller parts of the larger work in NFT and ADA",
     "proposal_summary": "Can Project Catalyst's first NFT art draw a worldwide Declaration of Independence?🌎🌍🌏",
@@ -7355,7 +7355,7 @@
 =======
     "proposal_funds": "150000",
     "proposal_id": "350781",
-    "proposal_impact_score": "4.06",
+    "proposal_impact_score": "406",
     "proposal_solution": "Khepera SCA has developed a new industry to solve both problems - Sanitation Microfarming(tm) PBC (Proved By Cryptography)",
     "proposal_summary": "In Ethiopia few people have access to clean sanitation and water. At the same time Ethiopia and the rest of Africa need blockchain tech.",
     "proposal_title": "Sanitation Microfarming (tm) PBC",
@@ -7388,7 +7388,7 @@
 =======
     "proposal_funds": "12000",
     "proposal_id": "350780",
-    "proposal_impact_score": "3.64",
+    "proposal_impact_score": "364",
     "proposal_solution": "An extension on GitHub that allow any project owner to tokenised the PR (Pull request) and reward contributors with ADA.",
     "proposal_summary": "Developers want to contribute to projects but at the same time they want to be rewarded either by token of appreciation or recognition.",
     "proposal_title": "Tokenizing GitHub Pull request",
@@ -7422,7 +7422,7 @@
 =======
     "proposal_funds": "54600",
     "proposal_id": "350773",
-    "proposal_impact_score": "4.23",
+    "proposal_impact_score": "423",
     "proposal_solution": "DaPassword is a password manager that stores all your website passwords in the blockchain, along with bookmarks or anything important.",
     "proposal_summary": "Your credentials stored securely on the cardano blockchain forever. No recurring fees. No central server controlling your data.",
     "proposal_title": "DaPassword - a password manager ",
@@ -7456,7 +7456,7 @@
 =======
     "proposal_funds": "52500",
     "proposal_id": "350766",
-    "proposal_impact_score": "3.81",
+    "proposal_impact_score": "381",
     "proposal_solution": "To build an intermediary & commission-free payment gateway where native tokens (esp. stablecoins) & ADA flow directly from buyer to seller.",
     "proposal_summary": "Enabling the sales of goods and services for crypto requires intermediaries who control the seller's money and charge fees/commissions.",
     "proposal_title": "Free Commerce payment gateway",
@@ -7489,7 +7489,7 @@
 =======
     "proposal_funds": "125695",
     "proposal_id": "350764",
-    "proposal_impact_score": "4.31",
+    "proposal_impact_score": "431",
     "proposal_solution": "Funding basic infrastructure in African hubs will allow us to collaborate, coordinate, educate and initiate building out local use cases.",
     "proposal_summary": "Best solutions will come from the ground, but African devs lack infrastructure to push Cardano forward. Cardano community support is needed.",
     "proposal_title": "Planting Roots In Africa",
@@ -7523,7 +7523,7 @@
 =======
     "proposal_funds": "52500",
     "proposal_id": "350761",
-    "proposal_impact_score": "3.30",
+    "proposal_impact_score": "330",
     "proposal_solution": "To build a decentralized network that maps names and other information to wallet addresses, much like the internet's DNS but for wallets.",
     "proposal_summary": "Any cryptocurrency user should be able to send funds to human readable names instead of wallet addresses, and know if recipient is legit",
     "proposal_title": "Wallet Name System (WNS) ",
@@ -7556,7 +7556,7 @@
 =======
     "proposal_funds": "200000",
     "proposal_id": "350758",
-    "proposal_impact_score": "2.40",
+    "proposal_impact_score": "240",
     "proposal_solution": "DeeditForward is a tool that crowdsources the act of helping; connecting a person in need with those ++willing++ to help in their own community.",
     "proposal_summary": "What is our GREATEST untapped resource? ++We are!++ Pay it forward is great concept, but how can we do more to actively help our fellow humans?",
     "proposal_title": "DEED IT FORWARD ",
@@ -7591,7 +7591,7 @@
     "proposal_funds": "50000",
     "proposal_goal": "Challenges for ADA monetary policy identified. Full monetary transparency for future partners. Expert monetary debate and research underway.",
     "proposal_id": "350751",
-    "proposal_impact_score": "4.21",
+    "proposal_impact_score": "421",
     "proposal_importance": "Research and modelling of key pillars of monetary policy is essential for a global financial operating system to become successful.",
     "proposal_metrics": "*   Number of new Cardano monetary policy white paper proposals published by people with relevant expertise taking into account elements of existing ADA monetary policy (treasury growth, staking rewards, rewards for SPOs, etc…) and analysis of other blockchain monetary policies\r\n*   Number of computer simulation models developed to analyze future monetary scenarios for Cardano blockchain depending on key factors that influence system\r\n*   Number of websites or interactive online tools that allow stakeholders and future users to explore short-term, mid-term and long-term implications of Cardano monetary policy modifications - depending on input factors such as size of user base, value of ADA in relation to USD/EUR/Gold/Yen, rate of circulation, system growth, rewards, interest rate (reward) changes,\r\n*   Number of research papers published about blockchain monetary policies - specifically including ADA and elements of its existing monetary policy (treasury growth, staking rewards, rewards for SPOs, etc…)\r\n*   Number of media and scientific references to ADA's growing body of research and knowledge of ADA monetary policy\r\n*   Number of economists and research institutions entering the Cardano ecosystem to explore this blockchain monetary field\r\n*   Number of future proposals addressing monetary policy issues funded in future Catalyst funds and then implemented\r\n*   New systems or tools developed for easy comparison of Cardano monetary policy implications for users - with specific comparison to existing fiat, gold and other cryptocurrency monetary systems",
     "proposal_summary": "Can ADA's monetary policy be explored and modeled to inspire confidence among new users, organizations and experts, in the next six months?",
@@ -7622,7 +7622,7 @@
     "proposer_name": "Balbublock"
 =======
     "proposal_id": "350742",
-    "proposal_impact_score": "3.03",
+    "proposal_impact_score": "303",
     "proposal_solution": "Fit Minibus taxis with a 4g router with shared folder for offline content this will provide the foundation for marketing and tokenization.",
     "proposal_summary": "There is next to zero awareness of Cardano in South Africa.\r\n\r\nThe cost of Mobile data in South Africa is amongst the highest in the world.",
     "proposal_title": "Free WIFI For Minibus Taxis",
@@ -7655,7 +7655,7 @@
 =======
     "proposal_funds": "7000",
     "proposal_id": "350741",
-    "proposal_impact_score": "3.17",
+    "proposal_impact_score": "317",
     "proposal_solution": "Create a standardized NFT re-minter that can fix policy errors, create partially owned NFTs and trace NFT heritage",
     "proposal_summary": "All NFTs are currently created as a custom asset with 1 coin. This dissuades partial ownership and introduces reminting policy problems",
     "proposal_title": "NFT re-minting service",
@@ -7688,7 +7688,7 @@
 =======
     "proposal_funds": "36000",
     "proposal_id": "350736",
-    "proposal_impact_score": "4.00",
+    "proposal_impact_score": "400",
     "proposal_solution": "Adapting the use of Cardano crypto services by combining them into a multifunctional wallet - RAY Wallet.",
     "proposal_summary": "Interacting with various cryptoservices requires a lot of different actions and movement of funds. It has to be in one place!",
     "proposal_title": "RAY Wallet",
@@ -7721,7 +7721,7 @@
 =======
     "proposal_funds": "14550",
     "proposal_id": "350731",
-    "proposal_impact_score": "3.63",
+    "proposal_impact_score": "363",
     "proposal_solution": "Create a bridge from Cardano to Filecoin to ensure storage of tokens.",
     "proposal_summary": "Cardano (NFT\\*) Projects rely on IPFS to store asset data. IPFS does NOT guarantee storage. Most projects are at risk of losing that data.",
     "proposal_title": "NFT Guaranteed Storage",
@@ -7753,7 +7753,7 @@
     "proposer_url": "http://proposer.com/start"
 =======
     "proposal_id": "350723",
-    "proposal_impact_score": "2.67",
+    "proposal_impact_score": "267",
     "proposal_solution": "Implement the NFT generation function in the Cardano MARLOWE platform so that each Financial Smart Contract created has its respective NFT",
     "proposal_summary": "Cardano needs to implement the NFTs to its technology and to Smart Financial Contracts of its MARLOWE platform to be a leader in said market",
     "proposal_title": "NFT for each CARDANO Smart Contract",
@@ -7786,7 +7786,7 @@
 =======
     "proposal_funds": "9500",
     "proposal_id": "350720",
-    "proposal_impact_score": "3.17",
+    "proposal_impact_score": "317",
     "proposal_solution": "Low-stakes laboratory to experiment with novel organizational structures and processes, free from highly technical considerations.",
     "proposal_summary": "On-chain governance presents novel challenges and remains difficult to change. How might we make and learn from our mistakes together?",
     "proposal_title": "Governance Co-Laboratory",
@@ -7819,7 +7819,7 @@
 =======
     "proposal_funds": "15000",
     "proposal_id": "350707",
-    "proposal_impact_score": "4.22",
+    "proposal_impact_score": "422",
     "proposal_solution": "Develop library on top of cardano-graphql and cardano-serilazation-lib, with transparent methods to work with Cardano cryptography & data.",
     "proposal_summary": "At this point, only an in-depth study of how Cardano works allows you to make the simplest Javascript web application.",
     "proposal_title": "Cardano JS API",
@@ -7852,7 +7852,7 @@
 =======
     "proposal_funds": "10000",
     "proposal_id": "350704",
-    "proposal_impact_score": "3.23",
+    "proposal_impact_score": "323",
     "proposal_solution": "Community onboarding engine sustained by incentivized stewardship and paying it forward - let's create conversational experiences together.",
     "proposal_summary": "Siloed onboarding efforts lack a unified voice and vision. One-way content educates without engaging. We can't sustain on unpaid volunteers.",
     "proposal_title": "Catalyst Catapult",
@@ -7885,7 +7885,7 @@
 =======
     "proposal_funds": "100000",
     "proposal_id": "350701",
-    "proposal_impact_score": "2.50",
+    "proposal_impact_score": "250",
     "proposal_solution": "Develop an industry app, like Uber for music. Crew, merch people, venues etc can all promote themselves in one place, with Cardano payment",
     "proposal_summary": "Musicians / crew can't track/recieve royalties and touring payments all over the world. Centralised systems have never changed since the 60s",
     "proposal_title": "Music Industry Money Made Fair ",
@@ -7918,7 +7918,7 @@
 =======
     "proposal_funds": "8400",
     "proposal_id": "350699",
-    "proposal_impact_score": "4.16",
+    "proposal_impact_score": "416",
     "proposal_solution": "Provide all funding history for projects and linking projects to their products / websites.",
     "proposal_summary": "There is a lack of visibility on the execution of the proposal winners and their total amount of funded proposals.",
     "proposal_title": "Catalyst Site: Project tracking",
@@ -7953,7 +7953,7 @@
     "proposal_funds": "400000",
     "proposal_goal": "Cardano + SinguarityNet is known for\r\n\r\n*   Beneficial AI\r\n*   Innovation\r\n*   Improving lives\r\n*   Improving human potential\r\n*   Efficiency",
     "proposal_id": "350697",
-    "proposal_impact_score": "3.83",
+    "proposal_impact_score": "383",
     "proposal_importance": "The SingularityNet/Cardano partnership can make a beneficial powerhouse that drives this century's innovations in Artificial Intelligence",
     "proposal_metrics": "*   Return on intention\r\n*   Number of proposals submitted\r\n*   Number of proposals with teams composed of both Cardanao and SingularityNet community members\r\n*   Number of proposals with new and innovative solutions\r\n*   Number of proposals with ongoing development envisioned",
     "proposal_summary": "How can we create a mutually beneficial partnership with SingularityNet and other A.I. developers and researchers?",
@@ -7987,7 +7987,7 @@
     "proposal_funds": "200000",
     "proposal_goal": "After 12 months, Cardano stake pools operating in 100 countries which did not have stake pools prior to the challenge.",
     "proposal_id": "350694",
-    "proposal_impact_score": "3.82",
+    "proposal_impact_score": "382",
     "proposal_importance": "Cardano shines when adoption is global. Ideally, Cardano stake pool nodes should be running in every country.",
     "proposal_metrics": "*   Number of unique countries with stake pools operating after 1 year, compared to the number operating before the challenge.\r\n*   Increase in community members from countries with new stake pools\r\n*   Increase in Project Catalyst submissions from countries with new stake pools\r\n*   Total number of new block producing stake pools\r\n*   Number of countries where there are no stake pools (so we can then ask the question: \"why?\" and possibly search for solutions to other problems in the future)",
     "proposal_summary": "How can we enable stake pool operators in 100 new countries in the next 12 months?",
@@ -8021,7 +8021,7 @@
     "proposal_funds": "200000",
     "proposal_goal": "Cardano NFTs are\r\n\r\n*   Widely used\r\n*   Well known\r\n*   Used by high volume projects\r\n*   Used by high-value projects\r\n\r\nin a variety of cases",
     "proposal_id": "350691",
-    "proposal_impact_score": "3.64",
+    "proposal_impact_score": "364",
     "proposal_importance": "NFTs have clear use cases for high-volume/value items such as event tickets, collectible sports cards, etc. They are ready for mass adoption",
     "proposal_metrics": "Number of NFT projects proposed during the challenge\r\n\r\nVariety of NFT types proposed for use (tickets, art-works, collectibles, creative, novel & new)\r\n\r\nSuccess of the winning proposals",
     "proposal_summary": "How can we establish Cardano's native tokens as the best solution for NFT projects?",
@@ -8055,7 +8055,7 @@
     "proposal_funds": "10000",
     "proposal_goal": "Research projects are started with a goal to write peer reviewed papers relevant to this field and to create insightfull models open source",
     "proposal_id": "350688",
-    "proposal_impact_score": "3.88",
+    "proposal_impact_score": "388",
     "proposal_importance": "Cryptography, Tokenomics, Dapps, Distributed systems; these are all difficult topics that need proper research, without reinventing wheels.",
     "proposal_metrics": " number of papers submitted for peer review  \r\n number of cites of papers resulting from the challenge  \r\n number of independent researchers invloved (each organisation counted as one, for sake of decentralisation)  \r\n number of proposals (in other challenges) referencing these papers\r\n\r\n number of models produced and made available",
     "proposal_summary": "How can we ensure creative productivity in the decentralised space is backed by sound science, research & models, equally available to all?",
@@ -8088,7 +8088,7 @@
 =======
     "proposal_funds": "8400",
     "proposal_id": "350686",
-    "proposal_impact_score": "3.83",
+    "proposal_impact_score": "383",
     "proposal_solution": "Expand & improve team profile information.\r\n\r\nEnable categorization of projects.\r\n\r\nCreate links between multiple proposals.",
     "proposal_summary": "Proposals lack depth for team profiles, have poor categorization & search. Proposals cannot be easily viewed as single projects.",
     "proposal_title": "Catalyst Site:Improve proposal data",
@@ -8121,7 +8121,7 @@
 =======
     "proposal_funds": "19200",
     "proposal_id": "350680",
-    "proposal_impact_score": "4.28",
+    "proposal_impact_score": "428",
     "proposal_solution": "People use Profila's App to learn + exercise data rights; the privacy metadata ledger then provides legal proof = \"unsubscribe on steroids\"",
     "proposal_summary": "People can control (use of) their data via (legal) data rights. However, people don't know how to use/exercise them to their advantage",
     "proposal_title": "Control your data – privacy ledger ",
@@ -8154,7 +8154,7 @@
 =======
     "proposal_funds": "65000",
     "proposal_id": "350676",
-    "proposal_impact_score": "3.47",
+    "proposal_impact_score": "347",
     "proposal_solution": "We would like to launch a fully decentralized exchange that would run on the Cardano Blockchain, swap Cardano tokens and reward users.",
     "proposal_summary": "Token holders want to be able to trade their tokens and easily earn from like they would in a high-yield saving account.",
     "proposal_title": "Decentralized exchange on Cardano",
@@ -8187,7 +8187,7 @@
 =======
     "proposal_funds": "5200",
     "proposal_id": "350675",
-    "proposal_impact_score": "3.68",
+    "proposal_impact_score": "368",
     "proposal_solution": "Create a user friendly calendar page and aggregated resources for learning about Catalyst.",
     "proposal_summary": "The educational resources, links and calendar dates for Catalyst are scattered and don't have a friendly user interface.",
     "proposal_title": "Catalyst Site: Education resources",
@@ -8220,7 +8220,7 @@
 =======
     "proposal_funds": "32000",
     "proposal_id": "350674",
-    "proposal_impact_score": "3.77",
+    "proposal_impact_score": "377",
     "proposal_solution": "Develop a Staking Rewards Distribution System via a Smart Contract to support these Organizations and the Supporters with NFTs",
     "proposal_summary": "Animals in Africa and other countries are being killed to extinction by poachers, climate change and deforestation.",
     "proposal_title": "Animal Conservation - NFT Rewards",
@@ -8253,7 +8253,7 @@
 =======
     "proposal_funds": "8900",
     "proposal_id": "350672",
-    "proposal_impact_score": "4.42",
+    "proposal_impact_score": "442",
     "proposal_solution": "Produce a video series of entry level interviews discussing Project Catalyst with its members & build a foundation of knowledge to grow from",
     "proposal_summary": "Blockchain technology & the true potential of Cardano is not easy to understand for new members of this ecosystem, limiting their engagement",
     "proposal_title": "Inner-View with KEWW Video Series",
@@ -8286,7 +8286,7 @@
 =======
     "proposal_funds": "19000",
     "proposal_id": "350670",
-    "proposal_impact_score": "3.81",
+    "proposal_impact_score": "381",
     "proposal_solution": "We will start the first Cardano stake pool in Ethiopia and use the rewards to sustain the operation & seed additional local Cardano ventures",
     "proposal_summary": "There are very few stake pools in Africa and none in Ethiopia today.",
     "proposal_title": "First Ethiopian Stake Pool",
@@ -8319,7 +8319,7 @@
 =======
     "proposal_funds": "42400",
     "proposal_id": "350667",
-    "proposal_impact_score": "4.07",
+    "proposal_impact_score": "407",
     "proposal_solution": "Consent-based customer data (D)app, using smart contracts to record personal data licenses; compensating people for their data & attention",
     "proposal_summary": "$300B surveillance capitalism market broke the customer relationship. People should control & benefit from the use of their personal data",
     "proposal_title": "Dapp to control/monetize your data",
@@ -8352,7 +8352,7 @@
 =======
     "proposal_funds": "7000",
     "proposal_id": "350662",
-    "proposal_impact_score": "3.44",
+    "proposal_impact_score": "344",
     "proposal_solution": "Create a side treasure that explores different funding models. In this case, a co-funding model exploring funding for low cost proposals.",
     "proposal_summary": "Obtaining funding through the existing Project Catalyst funding model is slow and overbearing. How can we explore options to make it faster?",
     "proposal_title": "Co-participation fund: adafund.io",
@@ -8385,7 +8385,7 @@
 =======
     "proposal_funds": "8000",
     "proposal_id": "350661",
-    "proposal_impact_score": "4.08",
+    "proposal_impact_score": "408",
     "proposal_solution": "Create a simple yet powerful escrow dApp on Cardano which will enable the onchain exchange of goods and services in a trustless manner",
     "proposal_summary": "Exchanging goods and services always require the parties to have some kind of trust in each other, sometimes causing unexpected outcomes",
     "proposal_title": "ChainEscrow - On-chain escrow dApp",
@@ -8418,7 +8418,7 @@
 =======
     "proposal_funds": "45000",
     "proposal_id": "350654",
-    "proposal_impact_score": "3.49",
+    "proposal_impact_score": "349",
     "proposal_solution": "A reusable module (money legos) of economic protocols based on bonding curves to scale up continuous project financing and investment.",
     "proposal_summary": "Financing innovation, science, and culture need complex economic protocols but developing these financial primitives is difficult.",
     "proposal_title": "AMM for Continuous Financing",
@@ -8451,7 +8451,7 @@
 =======
     "proposal_funds": "11600",
     "proposal_id": "350653",
-    "proposal_impact_score": "4.47",
+    "proposal_impact_score": "447",
     "proposal_solution": "A list of potential collaborators and their skills that want to take part in proposals.",
     "proposal_summary": "It's difficult for newcomers and proposers to find people for collaboration on a proposal or get advice on engaging in Project Catalyst.",
     "proposal_title": "Catalyst Site: Collaborators list",
@@ -8484,7 +8484,7 @@
 =======
     "proposal_funds": "52500",
     "proposal_id": "350652",
-    "proposal_impact_score": "3.43",
+    "proposal_impact_score": "343",
     "proposal_solution": "Stage 1: Recruit, train and equip a team of African devs to build the tech infrastructure needed for a Treasure Hunt event in West Africa.",
     "proposal_summary": "People need to discover Cardano in West Africa. Attract users to the ecosystem by organising a unique, fun & rewarding Treasure Hunt event.",
     "proposal_title": "Devs for Awarenes Event West Africa",
@@ -8517,7 +8517,7 @@
 =======
     "proposal_funds": "12000",
     "proposal_id": "350635",
-    "proposal_impact_score": "4.60",
+    "proposal_impact_score": "460",
     "proposal_solution": "Create an SDK that implements modules to make Elixir developers able to use Wallets, Addresses, Keys, Transactions, etc",
     "proposal_summary": "Right now you can access the cardano-wallet using the built in REST API but Elixir does not have a higher-level library to use the wallet.",
     "proposal_title": "Elixir SDK",
@@ -8550,7 +8550,7 @@
 =======
     "proposal_funds": "75000",
     "proposal_id": "350634",
-    "proposal_impact_score": "3.77",
+    "proposal_impact_score": "377",
     "proposal_solution": "SoMee.social combines a powerful social DeFi, NFT enabled, monetized platform that will attract millions of new users to Cardano at scale.",
     "proposal_summary": "Cardano is seeking Social DApps that will grow it's user base at scale and offer features like DeFi , NFTs, monetization, and data control.",
     "proposal_title": "Integrate SoMee.social onto Cardano",
@@ -8583,7 +8583,7 @@
 =======
     "proposal_funds": "35000",
     "proposal_id": "350629",
-    "proposal_impact_score": "3.63",
+    "proposal_impact_score": "363",
     "proposal_solution": "Develop a web based tax solution that can easily manage both the on chain activity of Cardano, as well as the staking reward activity.",
     "proposal_summary": "Tax compliance obligations under US tax policy are difficult to track correctly, especially when on chain transactions are involved.",
     "proposal_title": "Back to Basis - Tax compliance tool",
@@ -8616,7 +8616,7 @@
 =======
     "proposal_funds": "50000",
     "proposal_id": "350627",
-    "proposal_impact_score": "1.63",
+    "proposal_impact_score": "163",
     "proposal_solution": "Dapp that automatically converts a percentage of holdings (ada) to a stable coin when your crypto increases by a specified percentage.",
     "proposal_summary": "Securing gains from crypto investments takes discipline, precision, and consistency. Something a lot of us lack in this space!",
     "proposal_title": "Responsible Investing Dapp",
@@ -8649,7 +8649,7 @@
 =======
     "proposal_funds": "12980",
     "proposal_id": "350625",
-    "proposal_impact_score": "4.37",
+    "proposal_impact_score": "437",
     "proposal_solution": "Create a software development kit (SDK) in Swift. Lay a foundation for building mobile Cardano apps without knowing cryptographic internals.",
     "proposal_summary": "Mobile devs who want to integrate Cardano, have to build their own replica of tools, which requires knowledge of cryptography.",
     "proposal_title": "Arnot - iOS SDK",
@@ -8682,7 +8682,7 @@
 =======
     "proposal_funds": "85000",
     "proposal_id": "350616",
-    "proposal_impact_score": "3.23",
+    "proposal_impact_score": "323",
     "proposal_solution": "Adding Cardano support to BTCPay Server would enable easy web payments for ecommerce websites and online services.",
     "proposal_summary": "Cardano has no easy Point-of-Sale software integration, and therefore requires expensive custom solutions for website payments.",
     "proposal_title": "Cardano Support for Point of Sale",
@@ -8717,7 +8717,7 @@
     "proposal_funds": "250000",
     "proposal_goal": "Many high quality ideas will be proposed that can substantially grow Cardano's user-base, network-utility, network-value & ADA circulation.",
     "proposal_id": "350613",
-    "proposal_impact_score": "4.33",
+    "proposal_impact_score": "433",
     "proposal_importance": "Atala PRISM DID is a gateway to the Cardano blockchain and ecosystem. Building technology and marketecture that on-boards users is crucial.",
     "proposal_metrics": "\\* The number of proposals that directly address DID use cases in a quantifiable manner.  \r\n\\* The quality of proposals measured by community interest and engagement.  \r\n\\* Results of any Fund7 funded projects significantly impacting mass-scale adoption of DID's and their utility on the Cardano blockchain.",
     "proposal_summary": "What will drive mass-scale adoption of decentralized IDs on Cardano?",
@@ -8749,7 +8749,7 @@
 =======
     "proposal_funds": "30000",
     "proposal_id": "350612",
-    "proposal_impact_score": "3.13",
+    "proposal_impact_score": "313",
     "proposal_solution": "Create a decentralized content platform (Tokenized).\r\n\r\nUsers - pay only for usage\r\n\r\nCreators - rewarding based on the usage",
     "proposal_summary": "Content Platforms (Netflix) are making Billions as the profit as the middleman.  \r\nUnfair rewarding for creators  \r\nHigh fees for end users",
     "proposal_title": "Decentralized Content Platform",
@@ -8782,7 +8782,7 @@
 =======
     "proposal_funds": "18000",
     "proposal_id": "350610",
-    "proposal_impact_score": "2.90",
+    "proposal_impact_score": "290",
     "proposal_solution": "Prepaid card could be a link between today's analog world and digital payment future that we all strive for.",
     "proposal_summary": "We can use QR codes to send ADA to each other, but can we buy a cup of coffee with ADA?",
     "proposal_title": "Prepaid Debit Card",
@@ -8872,7 +8872,7 @@
 =======
     "proposal_funds": "8000",
     "proposal_id": "350609",
-    "proposal_impact_score": "2.37",
+    "proposal_impact_score": "237",
     "proposal_solution": "As we deal with increasing aspects of secure financial data, we need an Encrypted NFT and Metadata Label standard for accessing secure data.",
     "proposal_summary": "No Standard in the Cardano Transaction Metadata Label Registry to call on a Standard for secure financial data on-chain.",
     "proposal_title": "UniCloak",
@@ -8966,7 +8966,7 @@
     "internal_id": "266",
     "proposal_funds": "30000",
     "proposal_id": "350608",
-    "proposal_impact_score": "3.45",
+    "proposal_impact_score": "345",
     "proposal_solution": "Tool for restaurants & gig workers collaborate, be profitable, improve their cash flow, & compete with big corporations, not barely survive.",
     "proposal_summary": "Small businesses are shutting down or barely surviving while Amazon & UberEats breaking records, setting them up to utter market domination.",
     "proposal_title": "Valorem: Thriving local economy",
@@ -9022,7 +9022,7 @@
     "proposal_funds": "400000",
     "proposal_goal": "Wide user adoption of ADA, Spending ADA at stores, broader audience served.",
     "proposal_id": "350604",
-    "proposal_impact_score": "3.29",
+    "proposal_impact_score": "329",
     "proposal_importance": "For Cardano to become a World FinOS, the integration b/w ADA and FIAT must be seamless.",
     "proposal_metrics": "Monthly user transaction volumes, Number of users onboarded monthly, number of accounts, number of international transactions issued monthly, etc.",
     "proposal_summary": "How can we create an environment for seamless (no extra fee/delay) integration b/w ADA and FIAT?",
@@ -9055,7 +9055,7 @@
     "internal_id": "268",
     "proposal_funds": "30000",
     "proposal_id": "350601",
-    "proposal_impact_score": "4.10",
+    "proposal_impact_score": "410",
     "proposal_solution": "Creating an economic toolkit on Cardano so that MetaVerse users can earn, mint, and trade digital assets.",
     "proposal_summary": "A MetaVerse is forming, yet it does not have an economic backbone that allows its users to own the digital assets they interact with.",
     "proposal_title": "PlayerMint P2: MetaVerse Toolkit",
@@ -9147,7 +9147,7 @@
     "internal_id": "269",
     "proposal_funds": "5000",
     "proposal_id": "350599",
-    "proposal_impact_score": "4.03",
+    "proposal_impact_score": "403",
     "proposal_solution": "Create an amazing guide for off-chain computation in Plutus that has working templates and a step-by-step walk-through for creating dApps.",
     "proposal_summary": "A detailed, step-by-step, and thorough guide with usable templates for off-chain computation using Plutus does not exist at this moment.",
     "proposal_title": "Step-by-Step Guide: Off-Chain Code",
