@@ -1,19 +1,19 @@
 {   
    "initials": [
     {
-      "above_threshold": 10,
+      "above_threshold": 5,
       "pin": "1234"
     }
   ], 
   "vote_start": 0,
-  "vote_tally": 22,
+  "vote_tally": 5,
   "tally_end": 32,
-  "refresh_time": "2021-06-11T11:00:00",
-  "next_vote_start_time": "2021-07-05T16:00:00",
+  "refresh_time": "2021-06-30T14:00:00",
+  "next_vote_start_time": "2021-06-30T10:00:00",
   "proposals": 270,
   "challenges": 9,
-  "slot_duration": 20,
-  "slots_per_epoch": 4320,
+  "slot_duration": 1,
+  "slots_per_epoch": 1800,
   "voting_power": 450,
   "fund_name": "Fund5",
   "private": false,
