@@ -1,0 +1,26 @@
+{   
+  "vote_start": 4,
+  "vote_tally": 58,
+  "tally_end": 92,
+  "refresh_time": "2021-07-19T11:00:00",
+  "next_vote_start_time": "2021-08-12T11:00:00",
+  "proposals": 270,
+  "challenges": 9,
+  "slot_duration": 10,
+  "slots_per_epoch": 1800,
+  "voting_power": 450,
+  "fund_name": "Fund5",
+  "private": false,
+  "fund_id": 5,
+  "linear_fees": {
+    "constant": 0,
+    "coefficient": 0,
+    "certificate": 0
+  },
+  "consensus_leader_ids": [
+    "ed25519_pk1qylzvajzrkdlmrmq943vnefew6wtqcd59lm033fsc9spm0qcp7hqt7vdqa",
+    "ed25519_pk14fwxgqy0thup60equ06wmdhg87ut8vjumcr59lgeg23mjjgp50dst60xvu",
+    "ed25519_pk1gxkygz77apau05dpwljv0knzukjsvtwcn0zcf8h5ge6zwakdg0uszg7jqu"
+  ],
+  "version":"3.1"
+}
