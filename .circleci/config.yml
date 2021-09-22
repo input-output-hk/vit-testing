@@ -159,10 +159,6 @@ commands:
           command: |
             cargo install --path iapyx --locked
       - run:
-          name: install proxy
-          command: |
-            cargo install --path valgrind --locked
-      - run:
           name: Run tests
           no_output_timeout: 60m
           environment:
