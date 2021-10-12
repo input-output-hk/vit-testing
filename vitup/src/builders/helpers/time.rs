@@ -4,24 +4,55 @@ use crate::config::VoteTime;
 use chrono::NaiveDateTime;
 use chrono::Utc;
 use jormungandr_lib::time::SecondsSinceUnixEpoch;
+use std::collections::HashSet;
 
 pub fn convert_to_blockchain_date(
     parameters: &VitStartParameters,
-    _block0_date: SecondsSinceUnixEpoch,
+    block0_date: SecondsSinceUnixEpoch,
 ) -> VoteBlockchainTime {
     match parameters.vote_time {
         VoteTime::Blockchain(blockchain_date) => blockchain_date,
-        // TODO Implement proper conversion.
-        // Right now it's not used.
         VoteTime::Real {
-            vote_start_timestamp: _,
-            tally_start_timestamp: _,
-            tally_end_timestamp: _,
+            vote_start_timestamp,
+            tally_start_timestamp,
+            tally_end_timestamp,
             find_best_match: _,
         } => {
-            unimplemented!()
+            let block0_date = NaiveDateTime::from_timestamp(block0_date.to_secs() as i64, 0);
+            let from_block0_till_vote_start = (vote_start_timestamp - block0_date).num_seconds();
+            let from_vote_start_till_tally_start =
+                (tally_start_timestamp - block0_date).num_seconds();
+            let from_tally_start_till_tally_end = (tally_end_timestamp - block0_date).num_seconds();
+
+            let mut block0_to_start = count_divisors(from_block0_till_vote_start, 90, 60);
+            let start_to_end = count_divisors(from_vote_start_till_tally_start, 90, 60);
+
+            block0_to_start.extend(&start_to_end);
+            let max = block0_to_start.iter().max();
+            if max.is_none() {
+                panic!("bad data");
+            }
+
+            let max: i64 = *max.unwrap();
+
+            VoteBlockchainTime {
+                vote_start: (from_block0_till_vote_start / max) as u32,
+                tally_start: (from_vote_start_till_tally_start / max) as u32,
+                tally_end: (from_tally_start_till_tally_end / max) as u32,
+                slots_per_epoch: max as u32,
+            }
         }
     }
+}
+
+fn count_divisors(n: i64, grace: i64, start: i64) -> HashSet<i64> {
+    let mut output = HashSet::new();
+    for i in start..=n {
+        if n % i <= grace {
+            output.insert(i);
+        }
+    }
+    output
 }
 
 pub fn convert_to_human_date(
