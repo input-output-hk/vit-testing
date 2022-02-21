@@ -47,7 +47,7 @@ pub enum IapyxStatsCommandError {
     #[error("io error")]
     Io(#[from] std::io::Error),
     #[error("read error")]
-    Read(#[from] chain_core::mempack::ReadError),
+    Read(#[from] chain_core::property::ReadError),
     #[error("bech32 error")]
     Bech32(#[from] bech32::Error),
     #[error("csv error")]

@@ -1,7 +1,9 @@
 use bip39::{dictionary, Entropy, Type};
 use chain_addr::{AddressReadable, Discrimination};
-use chain_core::property::Deserialize;
-use chain_core::property::Fragment as _;
+use chain_core::{
+    packer::Codec,
+    property::{Deserialize, Fragment as _},
+};
 use chain_impl_mockchain::{
     block::BlockDate,
     fragment::{Fragment, FragmentId},
@@ -89,7 +91,7 @@ impl Wallet {
             .transactions()
             .iter()
             .map(|x| {
-                let fragment = Fragment::deserialize(x.as_slice()).unwrap();
+                let fragment = Fragment::deserialize(&mut Codec::new(x.as_slice())).unwrap();
                 self.remove_pending_transaction(&fragment.id());
                 fragment.id()
             })

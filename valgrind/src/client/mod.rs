@@ -10,9 +10,11 @@ use vit_servicing_station_lib::db::models::community_advisors_reviews::AdvisorRe
 use vit_servicing_station_lib::db::models::funds::Fund;
 use vit_servicing_station_lib::db::models::proposals::Proposal;
 
-use chain_core::property::Fragment as _;
+use chain_core::{
+    packer::Codec,
+    property::{Deserialize, Fragment as _},
+};
 use chain_impl_mockchain::fragment::{Fragment, FragmentId};
-use chain_ser::deser::Deserialize;
 use jormungandr_lib::interfaces::AccountVotes;
 use jormungandr_lib::interfaces::Address;
 use jormungandr_lib::interfaces::FragmentStatus;
@@ -91,7 +93,7 @@ impl ValgrindClient {
 
     pub fn send_fragment(&self, transaction: Vec<u8>) -> Result<FragmentId, Error> {
         self.node_client.send_fragment(transaction.clone())?;
-        let fragment = Fragment::deserialize(transaction.as_slice())?;
+        let fragment = Fragment::deserialize(&mut Codec::new(transaction.as_slice()))?;
         Ok(fragment.id())
     }
 
@@ -101,7 +103,11 @@ impl ValgrindClient {
         }
         Ok(transactions
             .iter()
-            .map(|tx| Fragment::deserialize(tx.as_slice()).unwrap().id())
+            .map(|tx| {
+                Fragment::deserialize(&mut Codec::new(tx.as_slice()))
+                    .unwrap()
+                    .id()
+            })
             .collect())
     }
 
@@ -114,7 +120,11 @@ impl ValgrindClient {
             .send_fragments(transactions.clone(), use_v1)?;
         Ok(transactions
             .iter()
-            .map(|tx| Fragment::deserialize(tx.as_slice()).unwrap().id())
+            .map(|tx| {
+                Fragment::deserialize(&mut Codec::new(tx.as_slice()))
+                    .unwrap()
+                    .id()
+            })
             .collect())
     }
 
@@ -228,7 +238,7 @@ pub enum Error {
     #[error("io error")]
     IoError(#[from] std::io::Error),
     #[error("block0 retrieve error")]
-    Block0Read(#[from] chain_core::mempack::ReadError),
+    Block0Read(#[from] chain_core::property::ReadError),
     #[error("block0 retrieve error")]
     SettingsRead(#[from] Box<chain_impl_mockchain::ledger::Error>),
     #[error("cannot convert hash")]

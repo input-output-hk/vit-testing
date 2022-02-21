@@ -28,7 +28,7 @@ pub enum Error {
     #[error(transparent)]
     Reqwest(#[from] reqwest::Error),
     #[error(transparent)]
-    BlockFormatError(#[from] chain_core::mempack::ReadError),
+    BlockFormatError(#[from] chain_core::property::ReadError),
     #[error(transparent)]
     WalletProxyController(#[from] WalletProxyControllerError),
     #[error(transparent)]

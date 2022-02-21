@@ -8,29 +8,29 @@ edition = "2021"
 
 [dependencies]
 bech32 = "0.7"
-wallet-core = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "fix_comp_issue_windows"}
-wallet = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "fix_comp_issue_windows"}
-hdkeygen = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "fix_comp_issue_windows"}
-bip39 = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "fix_comp_issue_windows"}
-chain-crypto = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
-chain-core = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master"  }
-chain-addr = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
-chain-ser = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master"  }
-chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master"  }
-chain-time = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
-chain-vote = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
+wallet-core = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "update-new-serde"}
+wallet = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "update-new-serde"}
+hdkeygen = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "update-new-serde"}
+bip39 = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "update-new-serde"}
+chain-crypto = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "remove-deserialize-trait" }
+chain-core = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "remove-deserialize-trait"  }
+chain-addr = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "remove-deserialize-trait" }
+chain-ser = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "remove-deserialize-trait"  }
+chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "remove-deserialize-trait"  }
+chain-time = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "remove-deserialize-trait" }
+chain-vote = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "remove-deserialize-trait" }
 hex = "0.4"
 rand = "0.8"
 rand_core = "0.6"
 itertools = "0.9.0"
 cryptoxide = "0.3.2"
 ed25519-bip32 = "^0.3.1"
-jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
+jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "update-chain-libs" }
+jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "update-chain-libs" }
+thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "update-chain-libs" }
+hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "update-chain-libs" }
 jortestkit = { git = "https://github.com/input-output-hk/jortestkit.git", branch = "master" }
-catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "switch_chain_wallet_libs"}
+catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "update-new-serde"}
 valgrind = { path = "../valgrind"}
 hyper = "0.13.6"
 thiserror = "1.0"

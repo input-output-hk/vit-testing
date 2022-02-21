@@ -3,8 +3,10 @@ use super::{Configuration, Context, ContextLock};
 use crate::config::VitStartParameters;
 use crate::mode::mock::NetworkCongestionMode;
 use crate::mode::service::manager::file_lister::dump_json;
-use chain_core::property::Deserialize as _;
-use chain_core::property::Fragment as _;
+use chain_core::{
+    packer::Codec,
+    property::{Deserialize, Fragment as _},
+};
 use chain_crypto::PublicKey;
 use chain_impl_mockchain::account::Identifier;
 use chain_impl_mockchain::account::{self, AccountAlg};
@@ -734,7 +736,7 @@ pub async fn post_message(
     message: warp::hyper::body::Bytes,
     context: ContextLock,
 ) -> Result<impl Reply, Rejection> {
-    let fragment = match Fragment::deserialize(message.as_ref()) {
+    let fragment = match Fragment::deserialize(&mut Codec::new(message.as_ref())) {
         Ok(fragment) => fragment,
         Err(err) => {
             let code = context.lock().unwrap().state().error_code;
