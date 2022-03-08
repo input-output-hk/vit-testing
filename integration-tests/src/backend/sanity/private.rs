@@ -1,5 +1,6 @@
 use crate::common::iapyx_from_qr;
-use crate::common::{wait_until_folder_contains_all_qrs, Error, Vote};
+use crate::common::{wait_until_folder_contains_all_qrs, Error};
+use crate::Vote;
 use assert_fs::TempDir;
 use chain_impl_mockchain::block::BlockDate;
 use chain_impl_mockchain::key::Hash;

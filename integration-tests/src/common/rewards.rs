@@ -6,6 +6,8 @@ use crate::Vote;
 use assert_fs::TempDir;
 use catalyst_toolbox::testing::ProposerRewardsExecutor;
 use chain_addr::{Address, AddressReadable, Discrimination, Kind};
+use catalyst_toolbox::testing::ProposerRewardsExecutor;
+use jormungandr_automation::testing::block0;
 use jormungandr_automation::testing::block0;
 use jormungandr_lib::crypto::key::Identifier;
 use std::path::PathBuf;
