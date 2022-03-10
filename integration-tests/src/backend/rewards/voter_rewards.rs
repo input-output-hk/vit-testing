@@ -2,11 +2,9 @@ use crate::Vote;
 
 use crate::common::funded_proposals;
 use assert_fs::TempDir;
-use vit_servicing_station_tests::common::data::ProposalTemplate;
 use vit_servicing_station_tests::common::data::ValidVotePlanGenerator;
-use vit_servicing_station_tests::common::data::ValidVotingTemplateGenerator;
 use vit_servicing_station_tests::common::data::{
-    ArbitraryValidVotePlanConfig, ChallengeConfig, ChallengeTemplate, ProposalConfig,
+    ArbitraryValidVotePlanConfig, ChallengeConfig, ProposalConfig,
 };
 use vitup::config::{ConfigBuilder, InitialEntry, Initials};
 use vitup::testing::vitup_setup;
@@ -40,10 +38,10 @@ pub fn sanity_block0() {
     let mut generator = ValidVotePlanGenerator::new(parameters);
     let snapshot = generator.build(&mut template);
 
-    let mut votes = vec![(
+    let votes = vec![(
         snapshot.proposals()[0].clone(),
         vec![(Vote::Yes, voters_funds[0]), (Vote::No, voters_funds[1])],
     )];
 
-    let funded_proposal_file = funded_proposals(&testing_directory.into(), snapshot, votes);
+    let _funded_proposal_file = funded_proposals(&testing_directory, snapshot, votes);
 }

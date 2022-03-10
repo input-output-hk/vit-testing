@@ -16,7 +16,6 @@ use jormungandr_automation::testing::block0;
 use jormungandr_lib::crypto::key::Identifier;
 use std::path::PathBuf;
 use vit_servicing_station_lib::db::models::proposals::FullProposalInfo;
-use vit_servicing_station_lib::db::models::proposals::Proposal;
 use vit_servicing_station_tests::common::data::Snapshot;
 use vitup::builders::utils::DeploymentTree;
 
@@ -33,18 +32,17 @@ pub fn funded_proposals(
 
     let proposals_json = testing_directory.path().join("proposals.json");
     let challenges_json = testing_directory.path().join("challenges.json");
-    snapshot.dump_proposals(&proposals_json);
-    snapshot.dump_challenges(&challenges_json);
+    snapshot.dump_proposals(&proposals_json).unwrap();
+    snapshot.dump_challenges(&challenges_json).unwrap();
 
     let votes = registry
         .iter()
-        .map(|(proposal, votes)| {
+        .flat_map(|(proposal, votes)| {
             votes
                 .iter()
                 .map(|vote| CastedVote::from_proposal(proposal, vote.0, vote.1))
                 .collect::<Vec<CastedVote>>()
         })
-        .flatten()
         .collect();
 
     let active_vote_plan = block0_configuration.vote_plan_statuses(votes);
@@ -68,7 +66,7 @@ pub fn funded_proposals(
         .collect();
 
     let vote_plan_json = testing_directory.path().join("vote_plan.json");
-    active_vote_plan.dump(&vote_plan_json);
+    active_vote_plan.dump(&vote_plan_json).unwrap();
     let output = testing_directory.path().join("rewards.csv");
 
     let committee_yaml = testing_directory.path().join("committee.yaml");
@@ -86,11 +84,11 @@ pub fn funded_proposals(
         .output_format("csv".to_string())
         .proposals_path(proposals_json.to_str().unwrap().to_string())
         .active_voteplan_path(vote_plan_json.to_str().unwrap().to_string())
-        .committee_file_path(committee_yaml.to_str().unwrap().to_string())
+        .committee_keys_path(committee_yaml.to_str().unwrap().to_string())
         .challenges_path(challenges_json.to_str().unwrap().to_string());
 
     println!("{:?}", rewards);
     rewards.proposers_rewards().unwrap();
 
-    output.to_path_buf()
+    output
 }
