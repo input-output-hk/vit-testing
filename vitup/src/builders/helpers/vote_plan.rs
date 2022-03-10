@@ -27,7 +27,7 @@ impl Default for VitVotePlanDefBuilder {
             proposals_count: 0,
             fund_name: "undefined".to_string(),
             committee_wallet: "undefined".to_string(),
-            parameters: Default::default(),            options: 0,
+            options: 0,
             private: false,
             voting_token: TestGen::token_id().into(),
         }
@@ -69,7 +69,6 @@ impl VitVotePlanDefBuilder {
         self.committee_wallet = committe_wallet;
         self
     }
-
 
     pub fn voting_token(mut self, voting_token: TokenIdentifier) -> Self {
         self.voting_token = voting_token;
@@ -134,7 +133,7 @@ mod tests {
     #[quickcheck]
     pub fn external_proposal_ids_are_unique(proposal_count: usize) -> TestResult {
         let vote_plans_defs = VitVotePlanDefBuilder::default()
-            .proposals_count(proposal_count)            
+            .proposals_count(proposal_count)
             .build();
 
         let mut uniq = HashSet::new();
