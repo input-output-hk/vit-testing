@@ -71,7 +71,6 @@ impl VitVotePlanDefBuilder {
         self
     }
 
-
     pub fn voting_token(mut self, voting_token: TokenIdentifier) -> Self {
         self.voting_token = voting_token;
         self
@@ -135,7 +134,7 @@ mod tests {
     #[quickcheck]
     pub fn external_proposal_ids_are_unique(proposal_count: usize) -> TestResult {
         let vote_plans_defs = VitVotePlanDefBuilder::default()
-            .proposals_count(proposal_count)            
+            .proposals_count(proposal_count)
             .build();
 
         let mut uniq = HashSet::new();
