@@ -7,13 +7,7 @@ use assert_cmd::assert::OutputAssertExt;
 use assert_fs::TempDir;
 use catalyst_toolbox::testing::ProposerRewardsCommand;
 use chain_addr::{Address, AddressReadable, Discrimination, Kind};
-<<<<<<< HEAD
-use catalyst_toolbox::testing::ProposerRewardsExecutor;
 use jormungandr_automation::testing::block0;
-use jormungandr_automation::testing::block0;
-=======
-use jormungandr_automation::testing::block0;
->>>>>>> 1671805... replace chrono to time in vitup
 use jormungandr_lib::crypto::key::Identifier;
 use jortestkit::prelude::{enhance_exe_name, find_exec};
 use serde::Deserialize;

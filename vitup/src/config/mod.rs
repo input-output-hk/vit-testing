@@ -18,10 +18,7 @@ pub use initials::{Initial as InitialEntry, Initials};
 pub use service::Service;
 pub use static_data::StaticData;
 use time::format_description::{self, FormatItem};
-<<<<<<< HEAD
 use valgrind::Protocol;
-=======
->>>>>>> 1671805... replace chrono to time in vitup
 pub use vote_plan::VotePlan;
 pub use vote_time::{VoteBlockchainTime, VoteTime, FORMAT as VOTE_TIME_FORMAT};
 
