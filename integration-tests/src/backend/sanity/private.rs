@@ -108,22 +108,8 @@ pub fn private_vote_e2e_flow() -> std::result::Result<(), Error> {
     };
     time::wait_for_date(target_date.into(), leader_1.rest());
     let settings = wallet_node.rest().settings().unwrap();
-    let block_date_generator = BlockDateGenerator::rolling(
-        &settings,
-        BlockDate {
-            epoch: 1,
-            slot_id: 0,
-        },
-        false,
-    );
-
-    let fragment_sender = FragmentSender::new(
-        Hash::from_str(&settings.block0_hash).unwrap().into(),
-        settings.fees,
-        block_date_generator,
-        FragmentSenderSetup::resend_3_times(),
-    );
-
+    let fragment_sender = FragmentSender::from(&settings);
+    
     let active_vote_plans = leader_1.rest().vote_plan_statuses().unwrap();
     let vote_plan_status = active_vote_plans
         .iter()

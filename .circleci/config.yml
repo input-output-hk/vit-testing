@@ -36,7 +36,7 @@ jobs:
             sudo apt-get update
             sudo apt-get install python3-distutils
             sudo apt-get install python3-dev
-            sudo apt-get install python3.8
+            sudo apt-get install python
             wget https://bootstrap.pypa.io/get-pip.py
             sudo python3.8 get-pip.py
             sudo python3.8 -m pip install --upgrade pip setuptools wheel
@@ -75,7 +75,7 @@ jobs:
           command: |
             sudo add-apt-repository --yes ppa:deadsnakes/ppa
             sudo apt-get update
-            sudo apt-get install python3.8
+            sudo apt-get install python
             sudo apt-get install python3-dev
             sudo apt-get install python3-distutils
             wget https://bootstrap.pypa.io/get-pip.py
@@ -166,9 +166,13 @@ commands:
             pip install pydantic
             pip install typer
             pip install pyaml
+            alias python=python3
       - run:
           name: Print version information
           command: rustc --version; cargo --version
+      - run:
+          name: Print python version
+          command: python --version
       - run:
           name: checkout jormungandr
           command: |
