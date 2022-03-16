@@ -168,7 +168,6 @@ commands:
             pip install pydantic
             pip install typer
             pip install pyaml
-            alias python=python3
       - run:
           name: Print version information
           command: rustc --version; cargo --version
