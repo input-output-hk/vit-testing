@@ -9,7 +9,7 @@ use vitup::config::{ConfigBuilder, InitialEntry, Initials};
 use vitup::testing::vitup_setup;
 
 #[test]
-pub fn sanity_block0() {
+pub fn single_proposal_in_single_challenge_got_funded() {
     let testing_directory = TempDir::new().unwrap().into_persistent();
 
     let voters_funds: Vec<u64> = vec![1_000_000, 10];
