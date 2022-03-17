@@ -6,8 +6,6 @@ use chain_impl_mockchain::block::BlockDate;
 use jormungandr_automation::testing::asserts::VotePlanStatusAssert;
 use jormungandr_automation::testing::time;
 use std::path::Path;
-use std::str::FromStr;
-use thor::BlockDateGenerator;
 use thor::FragmentSender;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vitup::config::ConfigBuilder;
