@@ -24,7 +24,7 @@
   #inputs.naersk.url = "github:nix-community/naersk";
   inputs.naersk.url = "github:yusdacra/naersk/feat/cargolock-git-deps";
   inputs.naersk.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.voting-tools.url = "github:input-output-hk/voting-tools?rev=6da7c45cbd1c756285ca2a1db99f82dd1a8cc16b";
+  inputs.voting-tools_.url = "github:input-output-hk/voting-tools?rev=6da7c45cbd1c756285ca2a1db99f82dd1a8cc16b";
   inputs.vit-kedqr.url = "github:input-output-hk/vit-kedqr";
   inputs.vit-servicing-station.url = "github:input-output-hk/vit-servicing-station/master";
   inputs.jormungandr_.url = "github:input-output-hk/jormungandr/master";
@@ -38,7 +38,7 @@
     pre-commit-hooks,
     rust-overlay,
     naersk,
-    voting-tools,
+    voting-tools_,
     vit-kedqr,
     vit-servicing-station,
     jormungandr_,
@@ -59,7 +59,7 @@
           overlays = [(import rust-overlay)];
         };
 
-        inherit (voting-tools.packages.${system}) voting-tools voter-registration;
+        inherit (voting-tools_.packages.${system}) voting-tools voter-registration;
         inherit (jormungandr_.packages.${system}) jormungandr jcli;
         inherit (vit-servicing-station.legacyPackages.${system}) vit-servicing-station-server;
         inherit (cardano-node.packages.${system}) cardano-cli;
@@ -98,9 +98,8 @@
 
         mkPackage = name: let
           pkgCargo = readTOML ./${name}/Cargo.toml;
-          cargoOptions = [ "--package" name ];
-        in
-          naersk-lib.buildPackage {
+          cargoOptions = ["--package" name];
+          unwrapped = naersk-lib.buildPackage {
             root = gitignore.lib.gitignoreSource self;
 
             cargoBuildOptions = x: x ++ cargoOptions;
@@ -113,27 +112,27 @@
               pkg-config
               protobuf
               rustfmt
-            ] ++ (pkgs.lib.optional
-              (builtins.elem name [ "snapshot-trigger-service"
-                                    "registration-service"
-                                    "registration-verify-service"
-                                  ])
-              pkgs.makeWrapper);
+            ];
 
             buildInputs = with pkgs; [
               openssl
             ];
-
-            postInstall =
-              if name == "snapshot-trigger-service" then
-                "wrapProgram $out/bin/${name} --prefix PATH : ${pkgs.lib.makeBinPath [ voting-tools ]}"
-              else if name == "registration-service" then
-                "wrapProgram $out/bin/${name} --prefix PATH : ${pkgs.lib.makeBinPath [ vit-kedqr jcli cardano-cli ]}"
-              else if name == "registration-verify-service" then
-                "wrapProgram $out/bin/${name} --prefix PATH : ${pkgs.lib.makeBinPath [ jcli ]}"
-              else
-                "";
           };
+          wrapPackage = packages:
+            pkgs.runCommand "${name}-wrapped" {nativeBuildInputs = [pkgs.makeWrapper];}
+            ''
+              mkdir -p $out/bin
+              ln -s ${unwrapped}/bin/${name} $out/bin/${name}
+              wrapProgram $out/bin/${name} --prefix PATH : ${pkgs.lib.makeBinPath packages}
+            '';
+        in
+          if name == "snapshot-trigger-service"
+          then wrapPackage [voting-tools]
+          else if name == "registration-service"
+          then wrapPackage [vit-kedqr jcli cardano-cli]
+          else if name == "registration-verify-service"
+          then wrapPackage [jcli]
+          else unwrapped;
 
         workspace =
           builtins.listToAttrs
@@ -162,13 +161,15 @@
         warnToUpdateNix = pkgs.lib.warn "Consider updating to Nix > 2.7 to remove this warning!";
       in rec {
         packages = {
-          inherit (workspace)
-              iapyx
-              vitup
-              integration-tests
-              snapshot-trigger-service
-              registration-service
-              registration-verify-service;
+          inherit
+            (workspace)
+            iapyx
+            vitup
+            integration-tests
+            snapshot-trigger-service
+            registration-service
+            registration-verify-service
+            ;
           inherit voting-tools;
           default = workspace.vitup;
         };
