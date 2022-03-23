@@ -9,9 +9,10 @@ use catalyst_toolbox::testing::ProposerRewardsCommand;
 use chain_addr::{Address, AddressReadable, Discrimination, Kind};
 use jormungandr_automation::testing::block0;
 use jormungandr_lib::crypto::key::Identifier;
+use jortestkit::prelude::{enhance_exe_name, find_exec};
 use serde::Deserialize;
 use std::fs::File;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use thiserror::Error;
 use vit_servicing_station_lib::db::models::proposals::FullProposalInfo;
 use vit_servicing_station_tests::common::data::Snapshot;
@@ -78,6 +79,7 @@ pub fn funded_proposals(
     )?;
 
     let mut rewards_command = ProposerRewardsCommand::default()
+        .python_exec(find_python_exec())
         .output_file(output.clone())
         .block0_path(deployment.genesis_path())
         .total_stake_threshold(0.01)
@@ -111,6 +113,16 @@ pub fn funded_proposals(
 
     rewards_command.assert().success();
     Ok(ProposerRewardsResult::from(output))
+}
+
+pub fn find_python_exec() -> PathBuf {
+    let proposals = ["python3", "python3.8", "python3.10"];
+    for proposal in proposals {
+        if let Some(path) = find_exec(enhance_exe_name(Path::new(proposal))) {
+            return path;
+        }
+    }
+    panic!("cannot find python executable. Tried: {:?}", proposals);
 }
 
 pub struct ProposerRewards(Vec<ProposerReward>);
@@ -177,7 +189,6 @@ impl ProposerRewardsResult {
         challenge_title: S,
     ) -> Result<ProposerRewards, Error> {
         let file_path = self.file_path(challenge_title);
-        println!("{:?}", file_path);
         let file = File::open(file_path)?;
         let mut rdr = csv::Reader::from_reader(file);
         let mut records = Vec::new();

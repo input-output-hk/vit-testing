@@ -109,7 +109,7 @@ pub fn private_vote_e2e_flow() -> std::result::Result<(), Error> {
     time::wait_for_date(target_date.into(), leader_1.rest());
     let settings = wallet_node.rest().settings().unwrap();
     let fragment_sender = FragmentSender::from(&settings);
-    
+
     let active_vote_plans = leader_1.rest().vote_plan_statuses().unwrap();
     let vote_plan_status = active_vote_plans
         .iter()
