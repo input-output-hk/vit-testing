@@ -1,15 +1,16 @@
 use crate::Vote;
 
-use crate::common::iapyx_from_secret_key;
+use crate::common::iapyx_from_mainnet;
 use assert_fs::TempDir;
-use catalyst_toolbox::rewards::voters::calculate_rewards;
-use catalyst_toolbox::rewards::voters::vote_count_with_addresses;
+use crate::common::MainnetWallet;
+use catalyst_toolbox::snapshot::Snapshot;
+use catalyst_toolbox::rewards::voters::calc_voter_rewards;
 use chain_impl_mockchain::block::BlockDate;
 use jormungandr_automation::testing::time;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vitup::builders::utils::DeploymentTree;
 use vitup::config::VoteBlockchainTime;
-use vitup::config::{ConfigBuilder, InitialEntry, Initials};
+use vitup::config::{ConfigBuilder, Initials};
 use vitup::testing::spawn_network;
 use vitup::testing::vitup_setup;
 
@@ -20,8 +21,21 @@ const CLARICE: &str = "clarice";
 
 #[test]
 pub fn voters_with_at_least_one_vote() {
-    let testing_directory = TempDir::new().unwrap().into_persistent();
     let stake = 10_000;
+
+    let alice_wallet = MainnetWallet::new(stake);
+    let bob_wallet =  MainnetWallet::new(stake);
+    let clarice_wallet =  MainnetWallet::new(stake);
+
+    let raw_snapshot = vec![
+        alice_wallet.as_catalyst_registration(),
+        bob_wallet.as_catalyst_registration(),
+        clarice_wallet.as_catalyst_registration()
+    ];
+    
+    let snapshot = Snapshot::from_raw_snapshot(raw_snapshot.into(),450.into());
+    let testing_directory = TempDir::new().unwrap().into_persistent();
+   
     let vote_timing = VoteBlockchainTime {
         vote_start: 0,
         tally_start: 1,
@@ -30,24 +44,9 @@ pub fn voters_with_at_least_one_vote() {
     };
     let config = ConfigBuilder::default()
         .initials(Initials(vec![
-            InitialEntry::Wallet {
-                name: ALICE.to_string(),
-                funds: stake,
-                pin: PIN.to_string(),
-                role: Default::default(),
-            },
-            InitialEntry::Wallet {
-                name: BOB.to_string(),
-                funds: stake,
-                pin: PIN.to_string(),
-                role: Default::default(),
-            },
-            InitialEntry::Wallet {
-                name: CLARICE.to_string(),
-                funds: stake,
-                pin: PIN.to_string(),
-                role: Default::default(),
-            },
+            alice_wallet.as_initial_entry(),
+            bob_wallet.as_initial_entry(),
+            clarice_wallet.as_initial_entry()
         ]))
         .vote_timing(vote_timing.into())
         .slot_duration_in_seconds(2)
@@ -71,8 +70,9 @@ pub fn voters_with_at_least_one_vote() {
     let deployment_tree = DeploymentTree::new(testing_directory.path());
 
     let mut alice =
-        iapyx_from_secret_key(deployment_tree.wallet_secret(ALICE), &wallet_proxy).unwrap();
-    let mut bob = iapyx_from_secret_key(deployment_tree.wallet_secret(BOB), &wallet_proxy).unwrap();
+    iapyx_from_mainnet(alice_wallet, &wallet_proxy).unwrap();
+    let mut bob = iapyx_from_mainnet(bob_wallet, &wallet_proxy).unwrap();
+    let mut clarice = iapyx_from_mainnet(clarice_wallet, &wallet_proxy).unwrap();
 
     let fund1_vote_plan = &controller.defined_vote_plans()[0];
 
@@ -93,32 +93,28 @@ pub fn voters_with_at_least_one_vote() {
     time::wait_for_date(target_date.into(), nodes[0].rest());
 
     let block0 = &controller.settings().block0;
-    let records = calculate_rewards(
-        vote_count_with_addresses(nodes[0].rest().account_votes_count().unwrap(), block0),
-        block0,
+    let records = calc_voter_rewards(
+        nodes[0].rest().account_votes_count().unwrap(),
         1,
-        100,
+        block0,
+        snapshot,
+        100u32.into(),
     )
     .unwrap();
 
-    let alice_reward_record = records
+    assert_eq!(records
         .iter()
-        .find(|x| x.address = alice.address())
-        .unwrap();
+        .find(|(x,y)| **x == alice_wallet.reward_address())
+        .unwrap().1,0.into());
 
-    assert_eq!(alice_reward_record.stake, stake);
-    assert_eq!(alice_reward_record.voter_reward_lovelace, "33");
 
-    let bob_reward_record = records.iter().find(|x| x.address = bob.address()).unwrap();
-
-    assert_eq!(alice_reward_record.stake, stake);
-    assert_eq!(alice_reward_record.voter_reward_lovelace, "33");
-
-    let clarice_reward_record = records
+    assert_eq!(records
         .iter()
-        .find(|x| x.address = clarice.address())
-        .unwrap();
+        .find(|(x,y)| **x == bob_wallet.reward_address())
+        .unwrap().1,0.into());
 
-    assert_eq!(clarice_reward_record.stake, stake);
-    assert_eq!(clarice_reward_record.voter_reward_lovelace, "0");
+    assert_eq!(records
+        .iter()
+        .find(|(x,y)| **x == clarice_wallet.reward_address())
+        .unwrap().1,0.into());
 }

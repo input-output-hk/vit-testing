@@ -6,13 +6,15 @@ pub mod snapshot;
 mod static_data;
 mod vote_plan_status;
 mod wallet;
+mod mainnet;
 
+pub use mainnet::MainnetWallet;
 pub use assert::*;
 pub use rewards::{funded_proposals, VotesRegistry};
 pub use static_data::SnapshotExtensions;
 use thiserror::Error;
 pub use vote_plan_status::{CastedVote, VotePlanStatusProvider};
-pub use wallet::{iapyx_from_qr, iapyx_from_secret_key};
+pub use wallet::{iapyx_from_qr, iapyx_from_secret_key, iapyx_from_mainnet};
 
 #[derive(Debug, Error)]
 pub enum Error {
