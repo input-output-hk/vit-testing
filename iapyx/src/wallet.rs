@@ -14,7 +14,6 @@ use jormungandr_lib::interfaces::AccountIdentifier;
 use std::str::FromStr;
 use thiserror::Error;
 use wallet::Settings;
-use wallet_core::Conversion;
 use wallet_core::Proposal;
 use wallet_core::Wallet as Inner;
 use wallet_core::{Choice, Value};
