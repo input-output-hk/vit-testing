@@ -1,8 +1,7 @@
-use super::config::Configuration;
-use super::LedgerState;
+use super::{Configuration as MockConfig, LedgerState};
 use crate::builders::utils::SessionSettingsExtension;
 use crate::builders::VitBackendSettingsBuilder;
-use crate::config::VitStartParameters;
+use crate::config::Config;
 use crate::mode::mock::NetworkCongestion;
 use crate::mode::mock::NetworkCongestionMode;
 use chain_impl_mockchain::testing::TestGen;
@@ -20,20 +19,21 @@ pub struct MockState {
     version: VitVersion,
     ledger_state: LedgerState,
     vit_state: Snapshot,
+    block0_bin: Vec<u8>,
     network_congestion: NetworkCongestion,
 }
 
 impl MockState {
-    pub fn new(params: VitStartParameters, config: Configuration) -> Result<Self, Error> {
+    pub fn new(params: Config, config: MockConfig) -> Result<Self, Error> {
         if config.working_dir.exists() {
             std::fs::remove_dir_all(&config.working_dir)?;
         }
-        let mut quick_setup = VitBackendSettingsBuilder::new();
         let session_settings = SessionSettings::from_dir(&config.working_dir);
-        quick_setup.upload_parameters(params);
-
         let mut template_generator = ArbitraryValidVotingTemplateGenerator::new();
-        let (controller, vit_parameters, version) = quick_setup.build(session_settings).unwrap();
+        let (controller, vit_parameters) = VitBackendSettingsBuilder::default()
+            .config(&params)
+            .session_settings(session_settings)
+            .build()?;
 
         let mut generator = ValidVotePlanGenerator::new(vit_parameters);
         let mut snapshot = generator.build(&mut template_generator);
@@ -51,12 +51,13 @@ impl MockState {
         Ok(Self {
             available: true,
             error_code: 400,
-            ledger_state: LedgerState::new(controller.settings().block0, controller.block0_file())?,
+            ledger_state: LedgerState::new(controller.settings().block0)?,
             network_congestion: NetworkCongestion::new(&snapshot),
             vit_state: snapshot,
             version: VitVersion {
-                service_version: version,
+                service_version: params.service.version,
             },
+            block0_bin: jortestkit::file::get_file_as_byte_vec(controller.block0_file()),
         })
     }
 
@@ -64,6 +65,10 @@ impl MockState {
         VitVersion {
             service_version: self.version.service_version.clone(),
         }
+    }
+
+    pub fn block0_bin(&self) -> Vec<u8> {
+        self.block0_bin.clone()
     }
 
     pub fn set_congestion(&mut self, network_congestion_mode: NetworkCongestionMode) {
@@ -154,8 +159,10 @@ impl MockState {
 #[derive(Error, Debug)]
 #[allow(clippy::large_enum_variant)]
 pub enum Error {
-    #[error("ledger error")]
-    LedgerError(#[from] super::ledger_state::Error),
-    #[error("IO error")]
-    IoError(#[from] std::io::Error),
+    #[error(transparent)]
+    Builder(#[from] crate::builders::Error),
+    #[error(transparent)]
+    Ledger(#[from] super::ledger_state::Error),
+    #[error(transparent)]
+    Io(#[from] std::io::Error),
 }

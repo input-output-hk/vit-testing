@@ -20,10 +20,10 @@ chain-addr           = { git = "https://github.com/input-output-hk/chain-libs.gi
 chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master", features = [ "property-test-api" ] }
 chain-time           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
 chain-vote           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
-jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
+jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "update-chain-lib" }
+jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "update-chain-lib" }
+thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "update-chain-lib" }
+hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "update-chain-lib" }
 jortestkit = { git = "https://github.com/input-output-hk/jortestkit.git", branch = "master" }
 vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "master" }
 vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "master" }
@@ -31,6 +31,7 @@ catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.
 valgrind = { path = "../valgrind" }
 poldercast = { git = "https://github.com/primetype/poldercast.git", rev = "8305f1560392a9d26673ca996e7646c8834533ef" }
 rand = "0.8"
+time = "0.3.7"
 fake = { version = "2.2", features=['chrono','http']}
 strum = "0.21.0"
 strum_macros = "0.21.0"
@@ -38,7 +39,6 @@ rand_core = "0.6"
 rand_chacha = "0.3"
 tempdir = "0.3.7"
 function_name = "0.2.0"
-chrono = "0.4"
 diffy = "0.2.1"
 regex = "1.4"
 structopt = "0.3"
@@ -62,6 +62,15 @@ uuid = { version = "0.8", features = ["serde", "v4"] }
 tracing-subscriber = "0.2.16"
 tracing = "0.1"
 tracing-appender = "0.1.2"
+hyper = { version = "0.14.17", features = ["server"] }
+rustls = "0.20.4"
+rustls-pemfile = "0.2.1"
+tokio-rustls = "0.23.2"
+tokio-stream = { version = "0.1.8", features = ["net"] }
+
+[dev-dependencies]
+quickcheck = "0.9"
+quickcheck_macros = "0.9"
 
 [dependencies.reqwest]
 version = "0.10.10"

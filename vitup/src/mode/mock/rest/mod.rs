@@ -1,6 +1,7 @@
 use super::FragmentRecieveStrategy;
-use super::{Configuration, Context, ContextLock};
-use crate::config::VitStartParameters;
+use super::{Context, ContextLock};
+use crate::config::Config;
+use crate::mode::mock::LedgerState;
 use crate::mode::mock::NetworkCongestionMode;
 use crate::mode::service::manager::file_lister::dump_json;
 use chain_core::{
@@ -11,18 +12,24 @@ use chain_crypto::PublicKey;
 use chain_impl_mockchain::account::Identifier;
 use chain_impl_mockchain::account::{self, AccountAlg};
 use chain_impl_mockchain::fragment::{Fragment, FragmentId};
+use futures::StreamExt;
 use itertools::Itertools;
 use jormungandr_lib::crypto::hash::Hash;
 use jormungandr_lib::interfaces::AccountVotes;
 use jormungandr_lib::interfaces::{FragmentsBatch, VotePlanId, VotePlanStatus};
 use jortestkit::web::api_token::TokenError;
 use jortestkit::web::api_token::{APIToken, APITokenManager, API_TOKEN_HEADER};
+use rustls::KeyLogFile;
 use serde::{Deserialize as SerdeDeserialize, Serialize as SerdeSerialize};
 use std::collections::HashMap;
-use std::fs::File;
+use std::convert::Infallible;
+use std::fs::{self, File};
+use std::path::Path;
 use std::str::FromStr;
 use std::sync::Arc;
 use thiserror::Error;
+use tokio::net::TcpListener;
+use tokio_rustls::TlsAcceptor;
 use tracing_subscriber::fmt::format::FmtSpan;
 use valgrind::Protocol;
 use vit_servicing_station_lib::db::models::challenges::Challenge;
@@ -32,6 +39,7 @@ use vit_servicing_station_lib::v0::endpoints::proposals::ProposalsByVoteplanIdAn
 use vit_servicing_station_lib::v0::errors::HandleError;
 use vit_servicing_station_lib::v0::result::HandlerResult;
 use warp::http::header::{HeaderMap, HeaderValue};
+use warp::hyper::service::make_service_fn;
 use warp::{reject::Reject, Filter, Rejection, Reply};
 mod reject;
 
@@ -42,13 +50,26 @@ use reject::{report_invalid, ForcedErrorCode, GeneralException, InvalidBatch};
 pub enum Error {
     #[error("cannot parse uuid")]
     CannotParseUuid(#[from] uuid::Error),
+    #[error(transparent)]
+    IO(#[from] std::io::Error),
+    #[error(transparent)]
+    Hyper(#[from] hyper::Error),
+    #[error(transparent)]
+    Rusls(#[from] rustls::Error),
+
+    #[error("invalid tls certificate")]
+    InvalidCertificate,
+
+    #[error("invalid tls key")]
+    InvalidKey,
 }
 
 impl Reject for Error {}
 
-pub async fn start_rest_server(context: ContextLock, config: Configuration) {
+pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
     let is_token_enabled = context.lock().unwrap().api_token().is_some();
     let address = *context.lock().unwrap().address();
+    let protocol = context.lock().unwrap().protocol();
     let working_dir = context.lock().unwrap().working_dir();
     let with_context = warp::any().map(move || context.clone());
 
@@ -161,7 +182,46 @@ pub async fn start_rest_server(context: ContextLock, config: Configuration) {
                     .and(with_context.clone())
                     .and_then(command_reset);
 
-                root.and(reject.or(accept).or(pending).or(reset)).boxed()
+                let forget = warp::path!("forget")
+                    .and(warp::post())
+                    .and(with_context.clone())
+                    .and_then(command_forget);
+
+                let update = {
+                    let root = warp::path!("update" / ..);
+
+                    let reject = warp::path!(String / "reject")
+                        .and(warp::post())
+                        .and(with_context.clone())
+                        .and_then(command_update_reject);
+
+                    let accept = warp::path!(String / "accept")
+                        .and(warp::post())
+                        .and(with_context.clone())
+                        .and_then(command_update_accept);
+
+                    let pending = warp::path!(String / "pending")
+                        .and(warp::post())
+                        .and(with_context.clone())
+                        .and_then(command_update_pending);
+
+                    let forget = warp::path!(String / "forget")
+                        .and(warp::post())
+                        .and(with_context.clone())
+                        .and_then(command_update_forget);
+
+                    root.and(reject.or(accept).or(pending).or(forget)).boxed()
+                };
+
+                root.and(
+                    reject
+                        .or(accept)
+                        .or(pending)
+                        .or(reset)
+                        .or(update)
+                        .or(forget),
+                )
+                .boxed()
             };
 
             let network_strategy = {
@@ -431,26 +491,88 @@ pub async fn start_rest_server(context: ContextLock, config: Configuration) {
     let api = root
         .and(health.or(control).or(v0).or(v1).or(version))
         .recover(report_invalid)
-        .with(cors)
-        .boxed();
+        .with(cors);
 
-    match &config.protocol {
-        Protocol::Https {
-            key_path,
-            cert_path,
-        } => {
+    match protocol {
+        Protocol::Https(certs) => {
+            let tls_cfg = {
+                let cert = load_cert(&certs.cert_path)?;
+                let key = load_private_key(&certs.key_path)?;
+                let mut cfg = rustls::ServerConfig::builder()
+                    .with_safe_defaults()
+                    .with_no_client_auth()
+                    .with_single_cert(cert, key)?;
+
+                cfg.key_log = Arc::new(KeyLogFile::new());
+                cfg.alpn_protocols = vec![b"h2".to_vec(), b"http/1.1".to_vec()];
+                Arc::new(cfg)
+            };
+
+            let tls_acceptor = TlsAcceptor::from(tls_cfg);
+            let arc_acceptor = Arc::new(tls_acceptor);
+
+            let listener =
+                tokio_stream::wrappers::TcpListenerStream::new(TcpListener::bind(&address).await?);
+
+            let incoming =
+                hyper::server::accept::from_stream(listener.filter_map(|socket| async {
+                    match socket {
+                        Ok(stream) => match arc_acceptor.clone().accept(stream).await {
+                            Ok(val) => Some(Ok::<_, hyper::Error>(val)),
+                            Err(e) => {
+                                tracing::warn!("handshake failed {}", e);
+                                None
+                            }
+                        },
+                        Err(e) => {
+                            tracing::error!("tcp socket outer err: {}", e);
+                            None
+                        }
+                    }
+                }));
+
+            let svc = warp::service(api);
+            let service = make_service_fn(move |_| {
+                let svc = svc.clone();
+                async move { Ok::<_, Infallible>(svc) }
+            });
+
+            let server = hyper::Server::builder(incoming).serve(service);
+
             println!("serving at: https://{}", address);
-            warp::serve(api)
-                .tls()
-                .cert_path(cert_path)
-                .key_path(key_path)
-                .bind(address)
-                .await;
+            Ok(server.await?)
         }
         Protocol::Http => {
             println!("serving at: http://{}", address);
             warp::serve(api).bind(address).await;
+            Ok(())
         }
+    }
+}
+
+fn load_cert(filename: &Path) -> Result<Vec<rustls::Certificate>, Error> {
+    let certfile = fs::File::open(filename)?;
+    let mut reader = std::io::BufReader::new(certfile);
+
+    match rustls_pemfile::read_one(&mut reader)? {
+        Some(rustls_pemfile::Item::X509Certificate(cert)) => Ok(vec![rustls::Certificate(cert)]),
+        Some(rustls_pemfile::Item::RSAKey(_)) | Some(rustls_pemfile::Item::PKCS8Key(_)) => {
+            // TODO: a more specific error could be useful (ExpectedCertFoundKey?)
+            Err(Error::InvalidCertificate)
+        }
+        // not a pemfile
+        None => Err(Error::InvalidCertificate),
+    }
+}
+
+fn load_private_key(filename: &Path) -> Result<rustls::PrivateKey, Error> {
+    let keyfile = File::open(filename)?;
+    let mut reader = std::io::BufReader::new(keyfile);
+
+    match rustls_pemfile::read_one(&mut reader)? {
+        Some(rustls_pemfile::Item::RSAKey(key)) => Ok(rustls::PrivateKey(key)),
+        Some(rustls_pemfile::Item::PKCS8Key(key)) => Ok(rustls::PrivateKey(key)),
+        None | Some(rustls_pemfile::Item::X509Certificate(_)) => Err(Error::InvalidKey),
     }
 }
 
@@ -619,9 +741,9 @@ pub async fn debug_message(
 
 pub async fn command_reset_mock(
     context: ContextLock,
-    parameters: VitStartParameters,
+    config: Config,
 ) -> Result<impl Reply, Rejection> {
-    context.lock().unwrap().reset(parameters)?;
+    context.lock().unwrap().reset(config)?;
     Ok(warp::reply())
 }
 
@@ -631,6 +753,60 @@ pub async fn command_available(
 ) -> Result<impl Reply, Rejection> {
     context.lock().unwrap().state_mut().available = available;
     Ok(warp::reply())
+}
+
+fn update_fragment_id(
+    fragment_id: String,
+    ledger_state: &mut LedgerState,
+    fragment_strategy: FragmentRecieveStrategy,
+) -> Result<impl Reply, Rejection> {
+    if fragment_id.to_uppercase() == *"LAST".to_string() {
+        ledger_state.set_status_for_recent_fragment(fragment_strategy);
+    } else {
+        ledger_state
+            .set_status_for_fragment_id(fragment_id, fragment_strategy)
+            .map_err(|err| GeneralException {
+                summary: err.to_string(),
+                code: 404,
+            })?;
+    }
+    Ok(warp::reply())
+}
+
+pub async fn command_update_forget(
+    fragment_id: String,
+    context: ContextLock,
+) -> Result<impl Reply, Rejection> {
+    let mut context_lock = context.lock().unwrap();
+    let ledger = context_lock.state_mut().ledger_mut();
+    update_fragment_id(fragment_id, ledger, FragmentRecieveStrategy::Forget)
+}
+
+pub async fn command_update_reject(
+    fragment_id: String,
+    context: ContextLock,
+) -> Result<impl Reply, Rejection> {
+    let mut context_lock = context.lock().unwrap();
+    let ledger = context_lock.state_mut().ledger_mut();
+    update_fragment_id(fragment_id, ledger, FragmentRecieveStrategy::Reject)
+}
+
+pub async fn command_update_accept(
+    fragment_id: String,
+    context: ContextLock,
+) -> Result<impl Reply, Rejection> {
+    let mut context_lock = context.lock().unwrap();
+    let ledger = context_lock.state_mut().ledger_mut();
+    update_fragment_id(fragment_id, ledger, FragmentRecieveStrategy::Accept)
+}
+
+pub async fn command_update_pending(
+    fragment_id: String,
+    context: ContextLock,
+) -> Result<impl Reply, Rejection> {
+    let mut context_lock = context.lock().unwrap();
+    let ledger = context_lock.state_mut().ledger_mut();
+    update_fragment_id(fragment_id, ledger, FragmentRecieveStrategy::Pending)
 }
 
 pub async fn command_error_code(
@@ -729,6 +905,16 @@ pub async fn command_reset(context: ContextLock) -> Result<impl Reply, Rejection
         .state_mut()
         .ledger_mut()
         .set_fragment_strategy(FragmentRecieveStrategy::None);
+    Ok(warp::reply())
+}
+
+pub async fn command_forget(context: ContextLock) -> Result<impl Reply, Rejection> {
+    context
+        .lock()
+        .unwrap()
+        .state_mut()
+        .ledger_mut()
+        .set_fragment_strategy(FragmentRecieveStrategy::Forget);
     Ok(warp::reply())
 }
 
@@ -1130,7 +1316,6 @@ pub async fn get_account(
     account_bech32: String,
     context: ContextLock,
 ) -> Result<impl Reply, Rejection> {
-    dbg!(&account_bech32);
     context
         .lock()
         .unwrap()
