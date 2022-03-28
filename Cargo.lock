@@ -521,7 +521,7 @@ dependencies = [
 [[package]]
 name = "catalyst-toolbox"
 version = "0.3.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=swtich_stake_from_funds_to_token#7ba2f89f742917f606ea3005e704e47d8357290b"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=swtich_stake_from_funds_to_token#faef4b62f01e38b968a1c293d340a0b14a80ac10"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -2629,7 +2629,7 @@ version = "0.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7baab56125e25686df467fe470785512329883aab42696d661247aca2a2896e4"
 dependencies = [
- "console 0.15.0",
+ "console 0.11.3",
  "lazy_static",
  "number_prefix",
  "regex",
