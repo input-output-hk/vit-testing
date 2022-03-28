@@ -27,7 +27,6 @@ impl Default for VitVotePlanDefBuilder {
             proposals_count: 0,
             fund_name: "undefined".to_string(),
             committee_wallet: "undefined".to_string(),
-            parameters: Default::default(),            
             options: 0,
             private: false,
             voting_token: TestGen::token_id().into(),

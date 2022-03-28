@@ -46,9 +46,3 @@ impl From<&TempDir> for DeploymentTree {
         Self::new(temp_dir.path())
     }
 }
-
-impl From<&TempDir> for DeploymentTree {
-    fn from(temp_dir: &TempDir) -> Self {
-        Self::new(temp_dir.path())
-    }
-}
