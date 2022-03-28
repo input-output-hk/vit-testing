@@ -116,7 +116,7 @@ pub fn funded_proposals(
 }
 
 pub fn find_python_exec() -> PathBuf {
-    let proposals = ["python","python3", "python3.8", "python3.10"];
+    let proposals = ["python", "python3", "python3.8", "python3.10"];
     for proposal in proposals {
         if let Some(path) = find_exec(enhance_exe_name(Path::new(proposal))) {
             return path;
