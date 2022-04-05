@@ -44,17 +44,17 @@ RUN  apt-get install -y build-essential pkg-config libssl-dev && \
 RUN cd ${ENV_PREFIX} && \
     git clone https://github.com/input-output-hk/jormungandr && \
 	cd jormungandr && \
-	git checkout master
+	git checkout catalyst-fund8
 
 RUN cd ${ENV_PREFIX} && \
     git clone https://github.com/input-output-hk/vit-servicing-station && \
 	cd vit-servicing-station && \
-	git checkout add_build_db_to_path
+	git checkout catalyst-fund8
 	
  RUN cd ${ENV_PREFIX} && \
     git clone https://github.com/input-output-hk/vit-testing && \
 	cd vit-testing && \
-	git checkout main
+	git checkout catalyst-fund8
     
 # install the node and jcli from source
 RUN cd ${ENV_PREFIX}/vit-servicing-station && \
