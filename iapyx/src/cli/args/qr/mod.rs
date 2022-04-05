@@ -35,5 +35,5 @@ pub enum IapyxQrCommandError {
     #[error("bech32 error")]
     Bech32Error(#[from] bech32::Error),
     #[error(transparent)]
-    Read(#[from] chain_core::property::ReadError),
+    Read(#[from] chain_ser::mempack::ReadError),
 }

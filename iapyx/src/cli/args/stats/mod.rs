@@ -57,5 +57,5 @@ pub enum IapyxStatsCommandError {
     #[error(transparent)]
     Serde(#[from] serde_json::Error),
     #[error(transparent)]
-    Read(#[from] chain_core::property::ReadError),
+    Read(#[from] chain_ser::mempack::ReadError),
 }

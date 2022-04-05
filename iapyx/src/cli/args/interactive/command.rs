@@ -353,7 +353,7 @@ pub enum IapyxCommandError {
     #[error(transparent)]
     Key(#[from] jcli_lib::key::Error),
     #[error(transparent)]
-    Read(#[from] chain_core::property::ReadError),
+    Read(#[from] chain_core::mempack::ReadError),
     #[error(transparent)]
     Io(#[from] std::io::Error),
 }

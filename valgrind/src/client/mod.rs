@@ -6,7 +6,7 @@ use chain_core::packer::Codec;
 use chain_core::property::Fragment as _;
 use chain_impl_mockchain::fragment::{Fragment, FragmentId};
 use chain_ser::deser::Deserialize;
-use chain_ser::deser::ReadError;
+use chain_ser::mempack::ReadError;
 pub use jormungandr_automation::jormungandr::RestSettings as ValgrindSettings;
 use jormungandr_lib::interfaces::AccountVotes;
 use jormungandr_lib::interfaces::Address;
