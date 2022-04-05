@@ -185,6 +185,12 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                     .and(with_context.clone())
                     .and_then(command_forget);
 
+                let custom = warp::path!("custom")
+                    .and(warp::post())
+                    .and(with_context.clone())
+                    .and(warp::body::json())
+                    .and_then(command_custom);
+
                 let update = {
                     let root = warp::path!("update" / ..);
 
@@ -217,7 +223,8 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                         .or(pending)
                         .or(reset)
                         .or(update)
-                        .or(forget),
+                        .or(forget)
+                        .or(custom),
                 )
                 .boxed()
             };
@@ -913,6 +920,19 @@ pub async fn command_forget(context: ContextLock) -> Result<impl Reply, Rejectio
         .state_mut()
         .ledger_mut()
         .set_fragment_strategy(FragmentRecieveStrategy::Forget);
+    Ok(warp::reply())
+}
+
+pub async fn command_custom(
+    context: ContextLock,
+    fragment_strategy: Vec<FragmentRecieveStrategy>,
+) -> Result<impl Reply, Rejection> {
+    context
+        .lock()
+        .unwrap()
+        .state_mut()
+        .ledger_mut()
+        .set_chain_fragment_strategy(fragment_strategy);
     Ok(warp::reply())
 }
 

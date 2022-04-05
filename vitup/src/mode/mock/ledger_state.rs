@@ -1,3 +1,4 @@
+use crate::mode::mock::{FragmentRecieveStrategy, FragmentRecieveStrategyChain};
 use chain_addr::Discrimination;
 use chain_core::property::Block;
 use chain_core::property::Fragment as _;
@@ -16,21 +17,12 @@ use jormungandr_lib::interfaces::{FragmentRejectionReason, FragmentsProcessingSu
 use jormungandr_lib::time::SystemTime;
 use std::collections::HashMap;
 use std::collections::HashSet;
+use std::collections::VecDeque;
 use thiserror::Error;
 use thor::BlockDateGenerator;
 
-#[derive(Copy, Clone, Debug)]
-pub enum FragmentRecieveStrategy {
-    Reject,
-    Accept,
-    Pending,
-    None,
-    //For cases when we want to implement mempool cleaning
-    Forget,
-}
-
 pub struct LedgerState {
-    fragment_strategy: FragmentRecieveStrategy,
+    fragment_strategy: FragmentRecieveStrategyChain,
     fragment_logs: Vec<FragmentLog>,
     received_fragments: Vec<Fragment>,
     ledger: Ledger,
@@ -42,7 +34,7 @@ impl LedgerState {
         let block = block0_configuration.to_block();
 
         Ok(Self {
-            fragment_strategy: FragmentRecieveStrategy::None,
+            fragment_strategy: Default::default(),
             fragment_logs: Vec::new(),
             received_fragments: Vec::new(),
             block0_configuration,
@@ -59,8 +51,9 @@ impl LedgerState {
             .ledger
             .apply_fragment(&parameters, &fragment, date.into());
         let mut fragment_log = FragmentLog::new(fragment.id(), FragmentOrigin::Rest);
-        self.set_fragment_status(&mut fragment_log, self.fragment_strategy, result);
-        if !(matches!(self.fragment_strategy, FragmentRecieveStrategy::Forget)) {
+        let fragment_strategy = self.fragment_strategy.pop();
+        self.set_fragment_status(&mut fragment_log, fragment_strategy, result);
+        if !(matches!(fragment_strategy, FragmentRecieveStrategy::Forget)) {
             self.fragment_logs.push(fragment_log);
         }
         fragment_id
@@ -135,7 +128,15 @@ impl LedgerState {
     }
 
     pub fn set_fragment_strategy(&mut self, fragment_strategy: FragmentRecieveStrategy) {
-        self.fragment_strategy = fragment_strategy;
+        self.fragment_strategy.set_default(fragment_strategy);
+    }
+
+    pub fn set_chain_fragment_strategy(
+        &mut self,
+        fragment_strategy_chain: Vec<FragmentRecieveStrategy>,
+    ) {
+        self.fragment_strategy
+            .set_chain(VecDeque::from(fragment_strategy_chain));
     }
 
     pub fn accounts(&self) -> &chain_impl_mockchain::account::Ledger {
@@ -371,17 +372,12 @@ pub enum Error {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::mode::mock::FragmentRecieveStrategy;
     use jormungandr_automation::testing::configuration::Block0ConfigurationBuilder;
     use jormungandr_lib::interfaces::Initial;
     use jormungandr_lib::interfaces::InitialUTxO;
     use quickcheck_macros::quickcheck;
     use thor::FragmentBuilder;
-
-    pub fn block0_configuration(initials: Vec<InitialUTxO>) -> Block0Configuration {
-        Block0ConfigurationBuilder::new()
-            .with_funds(vec![Initial::Fund(initials)])
-            .build()
-    }
 
     use quickcheck::{Arbitrary, Gen};
 
@@ -395,6 +391,12 @@ mod tests {
                 _ => unreachable!(),
             }
         }
+    }
+
+    pub fn block0_configuration(initials: Vec<InitialUTxO>) -> Block0Configuration {
+        Block0ConfigurationBuilder::new()
+            .with_funds(vec![Initial::Fund(initials)])
+            .build()
     }
 
     #[test]
@@ -473,5 +475,40 @@ mod tests {
                 assert_eq!(ledger_state.received_fragments().len(), 1);
             }
         }
+    }
+
+    #[test]
+    pub fn fragment_strategy_chain_test() {
+        let alice = thor::Wallet::default();
+        let bob = thor::Wallet::default();
+
+        let mut ledger_state = LedgerState::new(block0_configuration(vec![
+            alice.to_initial_fund(1_000),
+            bob.to_initial_fund(1_000),
+        ]))
+        .unwrap();
+
+        ledger_state.set_fragment_strategy(FragmentRecieveStrategy::Pending);
+        ledger_state.set_chain_fragment_strategy(vec![
+            FragmentRecieveStrategy::Accept,
+            FragmentRecieveStrategy::Reject,
+        ]);
+
+        let fragment_builder = FragmentBuilder::new(
+            &ledger_state.block0_hash().into(),
+            &ledger_state.fees(),
+            ledger_state.expiry_date().block_date(),
+        );
+        let fragment = fragment_builder
+            .transaction(&alice, bob.address(), 1u64.into())
+            .unwrap();
+
+        assert_eq!(fragment.id(), ledger_state.message(fragment.clone()));
+        assert_eq!(fragment.id(), ledger_state.message(fragment.clone()));
+        assert_eq!(fragment.id(), ledger_state.message(fragment));
+
+        assert!(ledger_state.fragment_logs()[0].is_in_a_block());
+        assert!(ledger_state.fragment_logs()[1].is_rejected());
+        assert!(ledger_state.fragment_logs()[2].is_pending());
     }
 }
