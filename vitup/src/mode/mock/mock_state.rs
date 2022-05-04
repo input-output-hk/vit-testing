@@ -12,6 +12,7 @@ use jormungandr_lib::interfaces::{NodeState, NodeStats, NodeStatsDto};
 use thiserror::Error;
 use thor::WalletAlias;
 use valgrind::VitVersion;
+use vit_servicing_station_lib::db::models::funds::Fund;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vit_servicing_station_tests::common::data::Snapshot;
 use vit_servicing_station_tests::common::data::ValidVotePlanGenerator;
@@ -136,27 +137,13 @@ impl MockState {
         &mut self.ledger_state
     }
 
-    pub fn set_fund_id(&mut self, id: i32) {
-        let funds = self.vit_state.funds_mut();
-        let mut fund = funds.last_mut().unwrap();
-
-        fund.id = id;
-
-        for challenge in fund.challenges.iter_mut() {
-            challenge.fund_id = id;
-        }
-
-        for vote_plan in fund.chain_vote_plans.iter_mut() {
-            vote_plan.fund_id = id;
-        }
-
-        for challenge in self.vit_state.challenges_mut() {
-            challenge.fund_id = id;
-        }
-
-        for proposal in self.vit_state.proposals_mut() {
-            proposal.proposal.fund_id = id;
-        }
+    pub fn update_fund(&mut self, new_fund: Fund) {
+        println!("sss");
+        self.vit_state
+            .funds_mut()
+            .retain(|fund| fund.id != new_fund.id);
+        self.vit_state.funds_mut().push(new_fund);
+        self.vit_state.funds_mut().sort_by(|a, b| a.id.cmp(&b.id))
     }
 
     pub fn node_stats(&self) -> NodeStatsDto {
