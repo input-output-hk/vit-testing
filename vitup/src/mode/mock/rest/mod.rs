@@ -40,6 +40,7 @@ use warp::http::header::{HeaderMap, HeaderValue};
 use warp::hyper::service::make_service_fn;
 use warp::{reject::Reject, Filter, Rejection, Reply};
 mod reject;
+mod search;
 
 use reject::{report_invalid, ForcedErrorCode, GeneralException, InvalidBatch};
 
