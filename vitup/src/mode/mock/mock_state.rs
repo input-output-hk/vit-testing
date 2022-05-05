@@ -165,10 +165,15 @@ impl MockState {
     }
 
     pub fn update_fund(&mut self, new_fund: Fund) {
-        self.vit_state
-            .funds_mut()
-            .retain(|fund| fund.id != new_fund.id);
+        let old = self
+            .vit_state
+            .funds()
+            .iter()
+            .position(|f| f.id == new_fund.id);
         self.vit_state.funds_mut().push(new_fund);
+        if let Some(pos) = old {
+            self.vit_state.funds_mut().swap_remove(pos);
+        }
     }
 
     pub fn node_stats(&self) -> NodeStatsDto {
