@@ -11,7 +11,7 @@ use std::fmt;
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Initials {
     #[serde(default)]
-    pub snapshot: SnapshotInitials,
+    pub snapshot: Option<SnapshotInitials>,
     #[serde(default)]
     pub block0: Block0Initials,
 }
@@ -25,7 +25,7 @@ pub enum Role {
 impl fmt::Display for Role {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
-            Role::Representative => write!(f, "rep"),
+            Role::Representative => write!(f, "dreps"),
             Role::Voter => write!(f, "direct"),
         }
     }

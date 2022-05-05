@@ -18,9 +18,9 @@ pub struct VoterSnapshot {
 impl VoterSnapshot {
     pub fn from_config_or_default(
         defined_wallets: Vec<(&WalletAlias, &WalletSettings)>,
-        snapshot_config: &SnapshotInitials,
+        snapshot_config: &Option<SnapshotInitials>,
     ) -> Result<Self, SnapshotError> {
-        if !snapshot_config.is_empty() {
+        if let Some(snapshot_config) = snapshot_config {
             let mut snapshot = Self::default();
             snapshot.update_tag(
                 snapshot_config.tag.clone(),

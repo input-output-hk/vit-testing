@@ -23,10 +23,6 @@ impl Default for Initials {
 }
 
 impl Initials {
-    pub fn is_empty(&self) -> bool {
-        self.content.is_empty()
-    }
-
     pub fn as_voters_hirs(
         &self,
         defined_wallets: Vec<(&WalletAlias, &WalletSettings)>,
@@ -48,7 +44,9 @@ impl Initials {
                     let wallet = defined_wallets
                         .iter()
                         .cloned()
-                        .find(|(x, _)| *x == name)
+                        .find(|(x, _)| {
+                            *x.to_lowercase() == format!("wallet_{}", name).to_lowercase()
+                        })
                         .map(|(_, y)| y.clone())
                         .ok_or_else(|| Error::CannotFindAlias(name.to_string()))?;
                     voter_hirs.push(VoterHIR {
