@@ -34,6 +34,7 @@ use valgrind::Protocol;
 use vit_servicing_station_lib::db::models::challenges::Challenge;
 use vit_servicing_station_lib::db::models::funds::Fund;
 use vit_servicing_station_lib::db::models::proposals::Proposal;
+use vit_servicing_station_lib::db::queries::funds::{FundNextInfo, FundWithNext};
 use vit_servicing_station_lib::v0::endpoints::proposals::ProposalsByVoteplanIdAndIndex;
 use vit_servicing_station_lib::v0::errors::HandleError;
 use vit_servicing_station_lib::v0::result::HandlerResult;
@@ -1408,7 +1409,6 @@ pub async fn get_fund(context: ContextLock) -> Result<impl Reply, Rejection> {
         return Err(warp::reject::custom(ForcedErrorCode { code }));
     }
 
-    use vit_servicing_station_lib::db::queries::funds::{FundNextInfo, FundWithNext};
     let funds: Vec<Fund> = context.lock().unwrap().state().vit().funds().to_vec();
     let next = funds.get(1).map(|f| FundNextInfo {
         id: f.id,
