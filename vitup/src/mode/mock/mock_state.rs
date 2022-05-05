@@ -137,8 +137,30 @@ impl MockState {
         &mut self.ledger_state
     }
 
+    pub fn set_fund_id(&mut self, id: i32) {
+        let funds = self.vit_state.funds_mut();
+        let mut fund = funds.last_mut().unwrap();
+
+        fund.id = id;
+
+        for challenge in fund.challenges.iter_mut() {
+            challenge.fund_id = id;
+        }
+
+        for vote_plan in fund.chain_vote_plans.iter_mut() {
+            vote_plan.fund_id = id;
+        }
+
+        for challenge in self.vit_state.challenges_mut() {
+            challenge.fund_id = id;
+        }
+
+        for proposal in self.vit_state.proposals_mut() {
+            proposal.proposal.fund_id = id;
+        }
+    }
+
     pub fn update_fund(&mut self, new_fund: Fund) {
-        println!("sss");
         self.vit_state
             .funds_mut()
             .retain(|fund| fund.id != new_fund.id);

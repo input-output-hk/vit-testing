@@ -33,10 +33,15 @@ curl --location --request GET 'http://{mock_address}/api/control/files/get/{path
 curl --location --request GET 'http://{mock_address}/api/health'
 ```
 
+##### Change Fund Id
+
+```
+curl --location --request POST 'http://{mock_address}/api/control/command/fund/id/{new_fund_id}'
+
 ##### Add new fund
 
 ```
-curl --location --request PUT 'http://{mock_address}/api/control/command/fund' \
+curl --location --request PUT 'http://{mock_address}/api/control/command/fund/update' \
 --header 'Content-Type: application/json' \
 --data-raw '
 {

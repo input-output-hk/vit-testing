@@ -149,11 +149,22 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                 .and(with_context.clone())
                 .and_then(command_error_code);
 
-            let fund = warp::path!("fund" / "update")
-                .and(warp::put())
-                .and(warp::body::json())
-                .and(with_context.clone())
-                .and_then(command_update_fund);
+            let fund = {
+                let root = warp::path!("fund");
+
+                let fund_id = warp::path!("fund" / "id" / i32)
+                    .and(warp::post())
+                    .and(with_context.clone())
+                    .and_then(command_fund_id);
+
+                let fund_update = warp::path!("update")
+                    .and(warp::put())
+                    .and(warp::body::json())
+                    .and(with_context.clone())
+                    .and_then(command_update_fund);
+
+                root.and(fund_id.or(fund_update))
+            };
 
             let version = warp::path!("version" / String)
                 .and(warp::post())
@@ -909,11 +920,15 @@ pub async fn command_error_code(
     Ok(warp::reply())
 }
 
+pub async fn command_fund_id(id: i32, context: ContextLock) -> Result<impl Reply, Rejection> {
+    context.lock().unwrap().state_mut().set_fund_id(id);
+    Ok(warp::reply())
+}
+
 pub async fn command_update_fund(
     fund: Fund,
     context: ContextLock,
 ) -> Result<impl Reply, Rejection> {
-    context.lock().unwrap().log(&format!("fund: {:?}", fund));
     context.lock().unwrap().state_mut().update_fund(fund);
     Ok(warp::reply())
 }
