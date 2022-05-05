@@ -152,7 +152,7 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
             let fund = {
                 let root = warp::path!("fund");
 
-                let fund_id = warp::path!("fund" / "id" / i32)
+                let fund_id = warp::path!("id" / i32)
                     .and(warp::post())
                     .and(with_context.clone())
                     .and_then(command_fund_id);
