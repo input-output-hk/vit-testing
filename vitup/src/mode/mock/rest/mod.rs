@@ -1408,9 +1408,19 @@ pub async fn get_fund(context: ContextLock) -> Result<impl Reply, Rejection> {
         return Err(warp::reject::custom(ForcedErrorCode { code }));
     }
 
+    use vit_servicing_station_lib::db::queries::funds::{FundNextInfo, FundWithNext};
     let funds: Vec<Fund> = context.lock().unwrap().state().vit().funds().to_vec();
+    let next = funds.get(1).map(|f| FundNextInfo {
+        id: f.id,
+        fund_name: f.fund_name.clone(),
+        stage_dates: f.stage_dates.clone(),
+    });
+    let fund_with_next = FundWithNext {
+        fund: funds.first().unwrap().clone(),
+        next,
+    };
 
-    Ok(HandlerResult(Ok(funds.first().unwrap().clone())))
+    Ok(HandlerResult(Ok(fund_with_next)))
 }
 
 pub async fn get_all_funds(context: ContextLock) -> Result<impl Reply, Rejection> {

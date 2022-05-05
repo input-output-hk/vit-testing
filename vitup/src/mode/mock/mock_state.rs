@@ -13,6 +13,7 @@ use thiserror::Error;
 use thor::WalletAlias;
 use valgrind::VitVersion;
 use vit_servicing_station_lib::db::models::funds::Fund;
+use vit_servicing_station_tests::common::data::ArbitrarySnapshotGenerator;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vit_servicing_station_tests::common::data::Snapshot;
 use vit_servicing_station_tests::common::data::ValidVotePlanGenerator;
@@ -45,6 +46,9 @@ impl MockState {
 
         let mut generator = ValidVotePlanGenerator::new(vit_parameters);
         let mut vit_state = generator.build(&mut template_generator);
+        vit_state
+            .funds_mut()
+            .extend(ArbitrarySnapshotGenerator::default().funds());
 
         let reviews = vit_state.advisor_reviews();
 
