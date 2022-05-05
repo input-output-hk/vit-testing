@@ -143,7 +143,7 @@ impl MockState {
 
     pub fn set_fund_id(&mut self, id: i32) {
         let funds = self.vit_state.funds_mut();
-        let mut fund = funds.last_mut().unwrap();
+        let mut fund = funds.first_mut().unwrap();
 
         fund.id = id;
 
@@ -169,7 +169,6 @@ impl MockState {
             .funds_mut()
             .retain(|fund| fund.id != new_fund.id);
         self.vit_state.funds_mut().push(new_fund);
-        self.vit_state.funds_mut().sort_by(|a, b| a.id.cmp(&b.id))
     }
 
     pub fn node_stats(&self) -> NodeStatsDto {
