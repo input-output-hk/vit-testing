@@ -94,19 +94,6 @@ Supported syntax:
 
 ##### random
 
-Amount of wallets which receive specified amount of voting power
-
-Example: 
-
-```
-  {
-    "count": 2,
-    "level": 5000
-  },
-```
-
-##### random
-
 Some number of random allets which receive specified amount of voting power
 
 Example: 
