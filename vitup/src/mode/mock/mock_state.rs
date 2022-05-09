@@ -1,14 +1,19 @@
-use super::{Configuration as MockConfig, LedgerState};
+use super::{snapshot::VoterSnapshot, Configuration as MockConfig, LedgerState};
 use crate::builders::utils::SessionSettingsExtension;
 use crate::builders::VitBackendSettingsBuilder;
 use crate::config::Config;
+use crate::config::SnapshotError;
 use crate::mode::mock::NetworkCongestion;
 use crate::mode::mock::NetworkCongestionMode;
+use crate::mode::standard::VitController;
 use chain_impl_mockchain::testing::TestGen;
-use hersir::config::SessionSettings;
+use hersir::{builder::Wallet as WalletSettings, config::SessionSettings};
 use jormungandr_lib::interfaces::{NodeState, NodeStats, NodeStatsDto};
 use thiserror::Error;
+use thor::WalletAlias;
 use valgrind::VitVersion;
+use vit_servicing_station_lib::db::models::funds::Fund;
+use vit_servicing_station_tests::common::data::ArbitrarySnapshotGenerator;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vit_servicing_station_tests::common::data::Snapshot;
 use vit_servicing_station_tests::common::data::ValidVotePlanGenerator;
@@ -19,8 +24,12 @@ pub struct MockState {
     version: VitVersion,
     ledger_state: LedgerState,
     vit_state: Snapshot,
+    // ATTENTION: this is not in sync with the ledger
+    voters: VoterSnapshot,
     block0_bin: Vec<u8>,
     network_congestion: NetworkCongestion,
+    block_account_endpoint_counter: u32,
+    controller: VitController,
 }
 
 impl MockState {
@@ -36,12 +45,15 @@ impl MockState {
             .build()?;
 
         let mut generator = ValidVotePlanGenerator::new(vit_parameters);
-        let mut snapshot = generator.build(&mut template_generator);
+        let mut vit_state = generator.build(&mut template_generator);
+        vit_state
+            .funds_mut()
+            .extend(ArbitrarySnapshotGenerator::default().funds());
 
-        let reviews = snapshot.advisor_reviews();
+        let reviews = vit_state.advisor_reviews();
 
         //perform db view operations
-        for proposal in snapshot.proposals_mut().iter_mut() {
+        for proposal in vit_state.proposals_mut().iter_mut() {
             proposal.proposal.reviews_count = reviews
                 .iter()
                 .filter(|review| review.proposal_id.to_string() == proposal.proposal.proposal_id)
@@ -52,13 +64,41 @@ impl MockState {
             available: true,
             error_code: 400,
             ledger_state: LedgerState::new(controller.settings().block0)?,
-            network_congestion: NetworkCongestion::new(&snapshot),
-            vit_state: snapshot,
+            network_congestion: NetworkCongestion::new(&vit_state),
+            vit_state,
             version: VitVersion {
                 service_version: params.service.version,
             },
+            voters: VoterSnapshot::from_config_or_default(
+                controller.defined_wallets(),
+                &params.initials.snapshot,
+            )?,
             block0_bin: jortestkit::file::get_file_as_byte_vec(controller.block0_file())?,
+            block_account_endpoint_counter: 0,
+            controller,
         })
+    }
+
+    pub fn set_block_account_endpoint(&mut self, block_account_endpoint_counter: u32) {
+        self.block_account_endpoint_counter = block_account_endpoint_counter;
+    }
+
+    pub fn decrement_block_account_endpoint(&mut self) {
+        if self.block_account_endpoint_counter > 0 {
+            self.block_account_endpoint_counter -= 1;
+        }
+    }
+
+    pub fn defined_wallets(&self) -> Vec<(&WalletAlias, &WalletSettings)> {
+        self.controller.defined_wallets()
+    }
+
+    pub fn reset_block_account_endpoint(&mut self) {
+        self.block_account_endpoint_counter = 0;
+    }
+
+    pub fn block_account_endpoint(&self) -> u32 {
+        self.block_account_endpoint_counter
     }
 
     pub fn version(&self) -> VitVersion {
@@ -85,6 +125,14 @@ impl MockState {
         &self.vit_state
     }
 
+    pub fn voters(&self) -> &VoterSnapshot {
+        &self.voters
+    }
+
+    pub fn voters_mut(&mut self) -> &mut VoterSnapshot {
+        &mut self.voters
+    }
+
     pub fn ledger(&self) -> &LedgerState {
         &self.ledger_state
     }
@@ -95,7 +143,7 @@ impl MockState {
 
     pub fn set_fund_id(&mut self, id: i32) {
         let funds = self.vit_state.funds_mut();
-        let mut fund = funds.last_mut().unwrap();
+        let mut fund = funds.first_mut().unwrap();
 
         fund.id = id;
 
@@ -113,6 +161,18 @@ impl MockState {
 
         for proposal in self.vit_state.proposals_mut() {
             proposal.proposal.fund_id = id;
+        }
+    }
+
+    pub fn update_fund(&mut self, new_fund: Fund) {
+        let old = self
+            .vit_state
+            .funds()
+            .iter()
+            .position(|f| f.id == new_fund.id);
+        self.vit_state.funds_mut().push(new_fund);
+        if let Some(pos) = old {
+            self.vit_state.funds_mut().swap_remove(pos);
         }
     }
 
@@ -165,4 +225,6 @@ pub enum Error {
     Ledger(#[from] super::ledger_state::Error),
     #[error(transparent)]
     Io(#[from] std::io::Error),
+    #[error(transparent)]
+    Snapshot(#[from] SnapshotError),
 }

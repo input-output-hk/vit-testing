@@ -1,6 +1,7 @@
 use super::FragmentRecieveStrategy;
 use super::{Context, ContextLock};
 use crate::config::Config;
+use crate::config::SnapshotInitials;
 use crate::mode::mock::LedgerState;
 use crate::mode::mock::NetworkCongestionMode;
 use crate::mode::service::manager::file_lister::dump_json;
@@ -33,9 +34,11 @@ use valgrind::Protocol;
 use vit_servicing_station_lib::db::models::challenges::Challenge;
 use vit_servicing_station_lib::db::models::funds::Fund;
 use vit_servicing_station_lib::db::models::proposals::Proposal;
+use vit_servicing_station_lib::db::queries::funds::{FundNextInfo, FundWithNext};
 use vit_servicing_station_lib::v0::endpoints::proposals::ProposalsByVoteplanIdAndIndex;
 use vit_servicing_station_lib::v0::errors::HandleError;
 use vit_servicing_station_lib::v0::result::HandlerResult;
+use voting_hir::VoterHIR;
 use warp::http::header::{HeaderMap, HeaderValue};
 use warp::hyper::service::make_service_fn;
 use warp::{reject::Reject, Filter, Rejection, Reply};
@@ -147,15 +150,43 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                 .and(with_context.clone())
                 .and_then(command_error_code);
 
-            let fund_id = warp::path!("fund" / "id" / i32)
-                .and(warp::post())
-                .and(with_context.clone())
-                .and_then(command_fund_id);
+            let fund = {
+                let root = warp::path!("fund");
+
+                let fund_id = warp::path!("id" / i32)
+                    .and(warp::post())
+                    .and(with_context.clone())
+                    .and_then(command_fund_id);
+
+                let fund_update = warp::path!("update")
+                    .and(warp::put())
+                    .and(warp::body::json())
+                    .and(with_context.clone())
+                    .and_then(command_update_fund);
+
+                root.and(fund_id.or(fund_update))
+            };
 
             let version = warp::path!("version" / String)
                 .and(warp::post())
                 .and(with_context.clone())
                 .and_then(command_version);
+
+            let block_account = {
+                let root = warp::path!("block-account" / ..);
+
+                let block_counter = warp::path!(u32)
+                    .and(warp::post())
+                    .and(with_context.clone())
+                    .and_then(command_block_account);
+
+                let reset = warp::path!("reset")
+                    .and(warp::post())
+                    .and(with_context.clone())
+                    .and_then(command_reset_block_account);
+
+                root.and(block_counter.or(reset)).boxed()
+            };
 
             let fragment_strategy = {
                 let root = warp::path!("fragments" / ..);
@@ -217,7 +248,8 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                         .or(pending)
                         .or(reset)
                         .or(update)
-                        .or(forget),
+                        .or(forget)
+                        .or(block_account),
                 )
                 .boxed()
             };
@@ -248,14 +280,33 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                 root.and(normal.or(jammed).or(moderate).or(reset)).boxed()
             };
 
+            let snapshot_service = {
+                let root = warp::path!("snapshot" / ..);
+
+                let add = warp::path!("add" / String)
+                    .and(warp::post())
+                    .and(warp::body::json())
+                    .and(with_context.clone())
+                    .and_then(command_add_snapshot);
+
+                let create = warp::path!("create")
+                    .and(warp::post())
+                    .and(warp::body::json())
+                    .and(with_context.clone())
+                    .and_then(command_create_snapshot);
+
+                root.and(add.or(create)).boxed()
+            };
+
             root.and(
                 reset
                     .or(availability)
                     .or(set_error_code)
-                    .or(fund_id)
+                    .or(fund)
                     .or(fragment_strategy)
                     .or(network_strategy)
-                    .or(version),
+                    .or(version)
+                    .or(snapshot_service),
             )
             .boxed()
         };
@@ -345,7 +396,12 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                 .with(warp::reply::with::headers(default_headers.clone()))
                 .boxed();
 
-            root.and(fund_by_id.or(fund)).boxed()
+            let all_funds = warp::path!("funds")
+                .and(warp::get())
+                .and(with_context.clone())
+                .and_then(get_all_funds);
+
+            root.and(fund_by_id.or(fund)).or(all_funds).boxed()
         };
 
         let settings = warp::path!("settings")
@@ -412,6 +468,30 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
             })
             .with(warp::reply::with::headers(default_headers.clone()));
 
+        let snapshot = {
+            let root = warp::path!("snapshot" / ..);
+
+            let voting_power = warp::path!(String / String)
+                .and(warp::get())
+                .and(with_context.clone())
+                .and_then(get_voting_power)
+                .boxed();
+
+            let tags = warp::path::end()
+                .and(warp::get())
+                .and(with_context.clone())
+                .and_then(get_tags)
+                .boxed();
+
+            let dump = warp::path!(String)
+                .and(warp::get())
+                .and(with_context.clone())
+                .and_then(get_snapshot)
+                .boxed();
+
+            root.and(tags.or(voting_power).or(dump))
+        };
+
         root.and(
             proposals
                 .or(challenges)
@@ -423,7 +503,8 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                 .or(account)
                 .or(fragment)
                 .or(votes)
-                .or(message),
+                .or(message)
+                .or(snapshot),
         )
         .boxed()
     };
@@ -753,6 +834,27 @@ pub async fn command_available(
     Ok(warp::reply())
 }
 
+pub async fn command_block_account(
+    block_account_endpoint_counter: u32,
+    context: ContextLock,
+) -> Result<impl Reply, Rejection> {
+    context
+        .lock()
+        .unwrap()
+        .state_mut()
+        .set_block_account_endpoint(block_account_endpoint_counter);
+    Ok(warp::reply())
+}
+
+pub async fn command_reset_block_account(context: ContextLock) -> Result<impl Reply, Rejection> {
+    context
+        .lock()
+        .unwrap()
+        .state_mut()
+        .reset_block_account_endpoint();
+    Ok(warp::reply())
+}
+
 fn update_fragment_id(
     fragment_id: String,
     ledger_state: &mut LedgerState,
@@ -821,6 +923,14 @@ pub async fn command_error_code(
 
 pub async fn command_fund_id(id: i32, context: ContextLock) -> Result<impl Reply, Rejection> {
     context.lock().unwrap().state_mut().set_fund_id(id);
+    Ok(warp::reply())
+}
+
+pub async fn command_update_fund(
+    fund: Fund,
+    context: ContextLock,
+) -> Result<impl Reply, Rejection> {
+    context.lock().unwrap().state_mut().update_fund(fund);
     Ok(warp::reply())
 }
 
@@ -914,6 +1024,39 @@ pub async fn command_forget(context: ContextLock) -> Result<impl Reply, Rejectio
         .ledger_mut()
         .set_fragment_strategy(FragmentRecieveStrategy::Forget);
     Ok(warp::reply())
+}
+
+async fn command_add_snapshot(
+    tag: String,
+    new_snapshot: Vec<VoterHIR>,
+    context: ContextLock,
+) -> Result<impl Reply, Rejection> {
+    context
+        .lock()
+        .unwrap()
+        .state_mut()
+        .voters_mut()
+        .update_tag(tag, new_snapshot);
+    Ok(warp::reply())
+}
+
+async fn command_create_snapshot(
+    config: SnapshotInitials,
+    context: ContextLock,
+) -> Result<impl Reply, Rejection> {
+    let context_lock = context.lock().unwrap();
+    let state = context_lock.state();
+
+    let voters_hirs = config
+        .as_voters_hirs(state.defined_wallets())
+        .map_err(|err| {
+            warp::reject::custom(GeneralException {
+                summary: err.to_string(),
+                code: 500,
+            })
+        })?;
+
+    Ok(HandlerResult(Ok(voters_hirs)))
 }
 
 pub async fn post_message(
@@ -1267,8 +1410,34 @@ pub async fn get_fund(context: ContextLock) -> Result<impl Reply, Rejection> {
     }
 
     let funds: Vec<Fund> = context.lock().unwrap().state().vit().funds().to_vec();
+    let next = funds.get(1).map(|f| FundNextInfo {
+        id: f.id,
+        fund_name: f.fund_name.clone(),
+        stage_dates: f.stage_dates.clone(),
+    });
+    let fund_with_next = FundWithNext {
+        fund: funds.first().unwrap().clone(),
+        next,
+    };
 
-    Ok(HandlerResult(Ok(funds.first().unwrap().clone())))
+    Ok(HandlerResult(Ok(fund_with_next)))
+}
+
+pub async fn get_all_funds(context: ContextLock) -> Result<impl Reply, Rejection> {
+    context.lock().unwrap().log("get_all_fund ...");
+
+    if !context.lock().unwrap().available() {
+        let code = context.lock().unwrap().state().error_code;
+        context.lock().unwrap().log(&format!(
+            "unavailability mode is on. Rejecting with error code: {}",
+            code
+        ));
+        return Err(warp::reject::custom(ForcedErrorCode { code }));
+    }
+
+    let funds: Vec<Fund> = context.lock().unwrap().state().vit().funds().to_vec();
+
+    Ok(warp::reply::json(&funds))
 }
 
 pub async fn get_node_stats(context: ContextLock) -> Result<impl Reply, Rejection> {
@@ -1328,6 +1497,20 @@ pub async fn get_account(
         ));
         return Err(warp::reject::custom(ForcedErrorCode { code }));
     }
+
+    let mut context_lock = context.lock().unwrap();
+    let state = context_lock.state_mut();
+
+    if state.block_account_endpoint() != 0 {
+        state.decrement_block_account_endpoint();
+        let code = state.error_code;
+        context_lock.log(&format!(
+            "block account endpoint mode is on. Rejecting with error code: {}",
+            code
+        ));
+        return Err(warp::reject::custom(ForcedErrorCode { code }));
+    }
+
     let account_state: jormungandr_lib::interfaces::AccountState = context
         .lock()
         .unwrap()
@@ -1362,4 +1545,54 @@ pub async fn authorize_token(
         return Err(warp::reject::custom(TokenError::UnauthorizedToken));
     }
     Ok(())
+}
+
+async fn get_voting_power(
+    tag: String,
+    key_hex: String,
+    context: Arc<std::sync::Mutex<Context>>,
+) -> Result<impl Reply, Rejection> {
+    let entries = context
+        .lock()
+        .unwrap()
+        .state()
+        .voters()
+        .get_voting_power(&tag, &parse_account_id(&key_hex)?.into())
+        .into_iter()
+        .map(
+            |VoterHIR {
+                 voting_group,
+                 voting_power,
+                 ..
+             }| serde_json::json!({"voting_power": voting_power, "voting_group": voting_group}),
+        )
+        .collect::<Vec<_>>();
+    Ok(warp::reply::json(&entries))
+}
+
+async fn get_snapshot(
+    tag: String,
+    context: Arc<std::sync::Mutex<Context>>,
+) -> Result<impl Reply, Rejection> {
+    let entries = context
+        .lock()
+        .unwrap()
+        .state()
+        .voters()
+        .get_snapshot(&tag)
+        .into_iter()
+        .map(
+            |VoterHIR {
+                 voting_group,
+                 voting_power,
+                 voting_key,
+             }| serde_json::json!({"voting_key": voting_key.to_hex(), "voting_power": voting_power, "voting_group": voting_group}),
+        )
+        .collect::<Vec<_>>();
+    Ok(warp::reply::json(&entries))
+}
+
+async fn get_tags(context: Arc<std::sync::Mutex<Context>>) -> Result<impl Reply, Rejection> {
+    let entries = context.lock().unwrap().state().voters().tags();
+    Ok(warp::reply::json(&entries))
 }
