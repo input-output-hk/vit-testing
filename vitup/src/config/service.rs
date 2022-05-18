@@ -9,7 +9,7 @@ impl Default for Service {
     fn default() -> Self {
         Self {
             version: "3.6".to_string(),
-            https: false,
+            https: true,
         }
     }
 }
