@@ -2721,8 +2721,8 @@ dependencies = [
  "thor",
  "tokio 1.18.2",
  "valgrind",
- "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master)",
- "vit-servicing-station-tests 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master)",
+ "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
+ "vit-servicing-station-tests",
  "vitup",
 ]
 
@@ -6531,7 +6531,7 @@ dependencies = [
  "tokio 1.18.2",
  "url",
  "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
- "vit-servicing-station-tests 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
+ "vit-servicing-station-tests",
  "wallet",
  "wallet-core",
  "warp",
@@ -6633,46 +6633,6 @@ dependencies = [
  "tracing-subscriber 0.3.6",
  "voting-hir",
  "warp",
-]
-
-[[package]]
-name = "vit-servicing-station-tests"
-version = "0.3.4-dev"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#0528a03b724105eef0f41db8e82134f011ea079f"
-dependencies = [
- "assert_cmd 2.0.4",
- "assert_fs",
- "base64 0.12.3",
- "cfg-if 0.1.10",
- "chain-addr",
- "chain-crypto",
- "chain-impl-mockchain",
- "diesel",
- "diesel_migrations",
- "dyn-clone",
- "fake",
- "hyper 0.14.18",
- "itertools 0.10.3",
- "jortestkit",
- "lazy_static",
- "libsqlite3-sys",
- "predicates",
- "pretty_assertions",
- "quickcheck",
- "quickcheck_macros",
- "rand 0.7.3",
- "rand_core 0.5.1",
- "reqwest 0.11.10",
- "serde",
- "serde_json",
- "structopt",
- "tempfile",
- "thiserror",
- "time 0.3.9",
- "tokio 1.18.2",
- "url",
- "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master)",
- "voting-hir",
 ]
 
 [[package]]
@@ -6780,7 +6740,7 @@ dependencies = [
  "uuid",
  "valgrind",
  "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
- "vit-servicing-station-tests 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
+ "vit-servicing-station-tests",
  "voting-hir",
  "walkdir",
  "warp",
