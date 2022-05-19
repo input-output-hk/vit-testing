@@ -27,8 +27,8 @@ jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr
 thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
 hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
 jortestkit = { git = "https://github.com/input-output-hk/jortestkit.git", branch = "master" }
-vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "expose_fund_dates" }
-vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "expose_fund_dates" }
+vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "master" }
+vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "master" }
 catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "main"}
 voting-hir = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "main", features = ["serde"] }
 valgrind = { path = "../valgrind" }
