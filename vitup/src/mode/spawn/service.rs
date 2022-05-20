@@ -15,7 +15,7 @@ pub fn spawn_network(
     let working_dir = network_params.session_settings().root;
     let control_context = Arc::new(Mutex::new(ControlContext::new(
         working_dir.path(),
-        config.clone(),
+        config,
         network_params.token(),
     )));
 
@@ -31,19 +31,17 @@ pub fn spawn_network(
             manager.clear_requests();
             single_run(
                 control_context.clone(),
-                &config,
                 network_params.clone(),
                 template_generator,
             )?;
         }
 
-        std::thread::sleep(std::time::Duration::from_secs(30));
+        std::thread::sleep(std::time::Duration::from_secs(10));
     }
 }
 
 pub fn single_run(
     control_context: ControlContextLock,
-    config: &Config,
     network_params: NetworkSpawnParams,
     template_generator: &mut dyn ValidVotingTemplateGenerator,
 ) -> Result<()> {
@@ -53,8 +51,9 @@ pub fn single_run(
         *state = State::Starting;
     }
 
+    let config = control_context.lock().unwrap().setup().clone();
     let (vit_controller, vit_parameters) = VitBackendSettingsBuilder::default()
-        .config(config)
+        .config(&config)
         .session_settings(network_params.session_settings())
         .build()?;
 
@@ -74,7 +73,7 @@ pub fn single_run(
     let vit_station = monitor_controller.spawn_vit_station(
         vit_parameters,
         template_generator,
-        config.service.version.clone(),
+        config.service.version,
     )?;
     let mut wallet_proxy =
         monitor_controller.spawn_wallet_proxy_custom(&mut network_params.proxy_params())?;

@@ -7,6 +7,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Deserialize, Serialize, Default)]
 pub struct StaticData {
+    #[serde(default)]
     pub current_fund: CurrentFund,
+    #[serde(default)]
     pub next_funds: Vec<NextFund>,
 }
