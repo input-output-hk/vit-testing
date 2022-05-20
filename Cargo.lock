@@ -563,7 +563,7 @@ dependencies = [
  "tokio 1.18.2",
  "url",
  "versionisator",
- "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master)",
+ "vit-servicing-station-lib",
  "wallet",
 ]
 
@@ -2721,7 +2721,7 @@ dependencies = [
  "thor",
  "tokio 1.18.2",
  "valgrind",
- "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
+ "vit-servicing-station-lib",
  "vit-servicing-station-tests",
  "vitup",
 ]
@@ -2933,7 +2933,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-lib"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#04e2143115fc6f7d25aa8fe50759fd71389c83c5"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#69132bda6b489e395f53954e148b915fc5977e34"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -5410,24 +5410,7 @@ checksum = "f2dd574626839106c320a323308629dcb1acfc96e32a8cba364ddc61ac23ee83"
 [[package]]
 name = "snapshot-service"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#0528a03b724105eef0f41db8e82134f011ea079f"
-dependencies = [
- "jormungandr-lib",
- "notify",
- "serde",
- "serde_json",
- "sled",
- "thiserror",
- "tokio 1.18.2",
- "tracing",
- "voting-hir",
- "warp",
-]
-
-[[package]]
-name = "snapshot-service"
-version = "0.1.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test#03e93f471456f5701c013023d1693f9541afc493"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#77b2ba9940665415b8f0303146a61961dd33b50a"
 dependencies = [
  "jormungandr-lib",
  "notify",
@@ -6530,7 +6513,7 @@ dependencies = [
  "thiserror",
  "tokio 1.18.2",
  "url",
- "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
+ "vit-servicing-station-lib",
  "vit-servicing-station-tests",
  "wallet",
  "wallet-core",
@@ -6574,7 +6557,7 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-lib"
 version = "0.3.4-dev"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#0528a03b724105eef0f41db8e82134f011ea079f"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#77b2ba9940665415b8f0303146a61961dd33b50a"
 dependencies = [
  "async-trait",
  "base64 0.12.3",
@@ -6589,39 +6572,7 @@ dependencies = [
  "serde",
  "serde_json",
  "simplelog",
- "snapshot-service 0.1.0 (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master)",
- "structopt",
- "strum 0.21.0",
- "strum_macros 0.21.1",
- "thiserror",
- "time 0.3.9",
- "tokio 1.18.2",
- "tracing",
- "tracing-futures",
- "tracing-subscriber 0.3.6",
- "voting-hir",
- "warp",
-]
-
-[[package]]
-name = "vit-servicing-station-lib"
-version = "0.3.4-dev"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test#03e93f471456f5701c013023d1693f9541afc493"
-dependencies = [
- "async-trait",
- "base64 0.12.3",
- "diesel",
- "diesel_migrations",
- "dotenv",
- "http-zipkin",
- "itertools 0.9.0",
- "libsqlite3-sys",
- "log",
- "notify",
- "serde",
- "serde_json",
- "simplelog",
- "snapshot-service 0.1.0 (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
+ "snapshot-service",
  "structopt",
  "strum 0.21.0",
  "strum_macros 0.21.1",
@@ -6638,7 +6589,7 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-tests"
 version = "0.3.4-dev"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test#03e93f471456f5701c013023d1693f9541afc493"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#77b2ba9940665415b8f0303146a61961dd33b50a"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -6671,7 +6622,7 @@ dependencies = [
  "time 0.3.9",
  "tokio 1.18.2",
  "url",
- "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
+ "vit-servicing-station-lib",
  "voting-hir",
 ]
 
@@ -6739,7 +6690,7 @@ dependencies = [
  "tracing-subscriber 0.2.25",
  "uuid",
  "valgrind",
- "vit-servicing-station-lib 0.3.4-dev (git+https://github.com/input-output-hk/vit-servicing-station.git?branch=multiple_funds_test)",
+ "vit-servicing-station-lib",
  "vit-servicing-station-tests",
  "voting-hir",
  "walkdir",
@@ -6757,7 +6708,7 @@ checksum = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"
 [[package]]
 name = "voting-hir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=main#f540007b055ca5aea84837f6219b5079118fff27"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=main#eaf0c3b0409ae237d0dcffd5e82ddadd52f344a1"
 dependencies = [
  "jormungandr-lib",
  "serde",
