@@ -28,7 +28,7 @@ impl WalletProxySettings {
     }
 
     pub fn address(&self) -> String {
-        format!("http://{}", self.base_address())
+        format!("https://{}", self.base_address())
     }
 
     pub fn vit_address(&self) -> String {
