@@ -141,6 +141,11 @@ impl ConfigBuilder {
         self
     }
 
+    pub fn use_https(mut self) -> Self {
+        self.config.service.https = true;
+        self
+    }
+
     pub fn build(self) -> Config {
         self.config
     }
