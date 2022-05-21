@@ -1498,17 +1498,19 @@ pub async fn get_account(
         return Err(warp::reject::custom(ForcedErrorCode { code }));
     }
 
-    let mut context_lock = context.lock().unwrap();
-    let state = context_lock.state_mut();
+    {
+        let mut context_lock = context.lock().unwrap();
+        let state = context_lock.state_mut();
 
-    if state.block_account_endpoint() != 0 {
-        state.decrement_block_account_endpoint();
-        let code = state.error_code;
-        context_lock.log(&format!(
-            "block account endpoint mode is on. Rejecting with error code: {}",
-            code
-        ));
-        return Err(warp::reject::custom(ForcedErrorCode { code }));
+        if state.block_account_endpoint() != 0 {
+            state.decrement_block_account_endpoint();
+            let code = state.error_code;
+            context_lock.log(&format!(
+                "block account endpoint mode is on. Rejecting with error code: {}",
+                code
+            ));
+            return Err(warp::reject::custom(ForcedErrorCode { code }));
+        }
     }
 
     let account_state: jormungandr_lib::interfaces::AccountState = context
