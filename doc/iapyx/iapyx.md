@@ -75,11 +75,11 @@ The purpose of this configuration is to store wallet lists as well as secret key
 Full list of commands is available on `iapyx --help` command.
 
 ```
-thor 0.1.0
-Command line wallet for testing Jormungandr
+iapyx 0.0.1
+Command line wallet for testing Catalyst
 
 USAGE:
-    thor <SUBCOMMAND>
+    iapyx.exe <SUBCOMMAND>
 
 FLAGS:
     -h, --help       Prints help information
@@ -87,15 +87,18 @@ FLAGS:
 
 SUBCOMMANDS:
     address                 Gets address of wallet in bech32 format
-    clear-tx                Clears pending transactions to confirm. In case if expiration occured
+    clear-tx                Clears pending transactions to confirm. In case if expiration occurred
     confirm-tx              Confirms successful transaction
     connect                 Sets node rest API address. Verifies connection on set
+    funds                   Prints information about voting funds
     help                    Prints this message or the help of the given subcommand(s)
     logs                    Prints entire fragment logs from the node
     pending-transactions    Prints pending transactions (not confirmed)
-    refresh                 Pulls wallet data from the node
-    send                    Sends fragments to nodes
+    proposals               Prints proposals available to vote on
+    refresh                 Pulls wallet data from the catalyst backend
     status                  Prints wallet status (balance/spending counters/tokens)
     statuses                Prints pending or already sent fragments statuses
+    vote                    Sends votes to backend
+    votes                   Prints history of votes
     wallets                 Allows to manage wallets: add/remove/select operations
 ```
