@@ -6,11 +6,12 @@ use crate::mode::service::manager::{ControlContext, ControlContextLock, ManagerS
 use crate::mode::standard::ValidVotingTemplateGenerator;
 use crate::Result;
 use std::sync::{Arc, Mutex};
+use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 
 pub fn spawn_network(
     network_params: NetworkSpawnParams,
     config: Config,
-    template_generator: &mut dyn ValidVotingTemplateGenerator,
+    _template_generator: &mut dyn ValidVotingTemplateGenerator,
 ) -> Result<()> {
     let working_dir = network_params.session_settings().root;
     let control_context = Arc::new(Mutex::new(ControlContext::new(
@@ -23,6 +24,9 @@ pub fn spawn_network(
     manager.spawn();
 
     loop {
+        //TODO: remove this dirty fix and implement CLONE for ValidVotingTemplateGenerator
+        let mut template_generator = ArbitraryValidVotingTemplateGenerator::new();
+
         if manager.request_to_start() {
             if working_dir.path().exists() {
                 std::fs::remove_dir_all(working_dir.path())?;
@@ -32,7 +36,7 @@ pub fn spawn_network(
             single_run(
                 control_context.clone(),
                 network_params.clone(),
-                template_generator,
+                &mut template_generator,
             )?;
         }
 
