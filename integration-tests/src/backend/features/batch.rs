@@ -3,11 +3,13 @@ use assert_fs::TempDir;
 use chain_impl_mockchain::vote::Choice;
 use jormungandr_automation::testing::time;
 use jormungandr_lib::interfaces::FragmentStatus;
+use vit_servicing_station_tests::common::clients::RawRestClient;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vitup::config::VoteBlockchainTime;
 use vitup::config::{Block0Initial, Block0Initials, ConfigBuilder};
 use vitup::testing::spawn_network;
 use vitup::testing::vitup_setup;
+
 const PIN: &str = "1234";
 const ALICE: &str = "alice";
 
@@ -50,6 +52,10 @@ pub fn transactions_are_send_between_nodes_with_correct_order() {
 
     let secret = testing_directory.path().join("wallet_alice");
     let mut alice = iapyx_from_secret_key(secret, &wallet_proxy).unwrap();
+
+    let raw_rest_client: RawRestClient = alice.backend.vit_client().into();
+
+    println!("DEBUG: {:?}", raw_rest_client.proposals().unwrap().text());
 
     let proposals = alice.proposals().unwrap();
     let votes_data = proposals

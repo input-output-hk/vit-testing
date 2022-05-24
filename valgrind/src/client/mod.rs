@@ -84,6 +84,10 @@ impl ValgrindClient {
         self.node_client.clone()
     }
 
+    pub fn vit_client(&self) -> VitRestClient {
+        self.vit_client.clone()
+    }
+
     pub fn send_fragment(&self, transaction: Vec<u8>) -> Result<FragmentId, Error> {
         self.node_client.send_fragment(transaction.clone())?;
         let fragment = Fragment::deserialize(&mut Codec::new(transaction.as_slice()))?;
