@@ -51,7 +51,7 @@ pub enum IapyxCommand {
     /// Prints pending transactions (not confirmed)
     PendingTransactions,
     /// Allows to manage wallets: add/remove/select operations
-    Wallets(Wallets)
+    Wallets(Wallets),
 }
 
 const DELIMITER: &str = "===================";
@@ -456,7 +456,7 @@ pub enum WalletAddSubcommand {
         #[structopt(name = "SECRET")]
         secret: PathBuf,
 
-        /// Pin to protect you wallet. 
+        /// Pin to protect you wallet.
         #[structopt(short, long)]
         pin: String,
 

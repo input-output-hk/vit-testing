@@ -76,8 +76,3 @@ Example:
 ```
 
 NOTE: see [cardano cli guide](https://developers.cardano.org/docs/stake-pool-course/handbook/keys-addresses/) for information how to create payment and stake files.
-
-## Configuration
-
-Iapyx api doesn't use any configuration files. However cli uses small cache folder on filesystem (located in: `~/.iapyx`).
-The purpose of this configuration is to store wallet lists as well as secret keys guarded by pass phrase.

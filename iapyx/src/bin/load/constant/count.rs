@@ -13,7 +13,7 @@ pub struct ConstantCountIapyxLoadCommand {
     /// Prints nodes related data, like stats,fragments etc.
     #[structopt(short = "t", long = "threads", default_value = "3")]
     pub threads: usize,
-    
+
     /// Address in format:
     /// 127.0.0.1:8000
     #[structopt(short = "a", long = "address", default_value = "127.0.0.1:8000")]

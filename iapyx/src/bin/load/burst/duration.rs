@@ -22,7 +22,7 @@ pub struct BurstDurationIapyxLoadCommand {
     #[structopt(short = "d", long = "delay", default_value = "10000")]
     pub delay: u64,
 
-    /// Number of votes sent in single batch 
+    /// Number of votes sent in single batch
     #[structopt(short = "b", long = "batch-size", default_value = "100")]
     pub batch_size: usize,
 
