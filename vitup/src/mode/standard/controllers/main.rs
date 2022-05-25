@@ -260,13 +260,13 @@ impl VitController {
 }
 
 fn wait_for_bootstrap(controller: &VitStationController) -> std::result::Result<(), Error> {
-    std::thread::sleep(std::time::Duration::from_secs(5_000));
+    std::thread::sleep(std::time::Duration::from_secs(5));
 
     for _ in 0..5 {
         if controller.check_running() {
             return Ok(());
         }
-        std::thread::sleep(std::time::Duration::from_secs(1_000));
+        std::thread::sleep(std::time::Duration::from_secs(1));
     }
     Err(Error::CannotBootstrap)
 }
