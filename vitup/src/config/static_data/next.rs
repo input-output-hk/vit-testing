@@ -1,19 +1,19 @@
+use super::FundInfo;
 use serde::{Deserialize, Serialize};
 use time::{ext::NumericalDuration, OffsetDateTime};
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct NextFund {
-    pub fund_name: String,
-    pub fund_id: i32,
+    #[serde(flatten)]
+    pub fund_info: FundInfo,
     pub dates: NextFundDates,
 }
 
 impl Default for NextFund {
     fn default() -> Self {
         Self {
-            fund_name: "Fund10".to_owned(),
-            fund_id: 10,
             dates: Default::default(),
+            fund_info: 10i32.into(),
         }
     }
 }

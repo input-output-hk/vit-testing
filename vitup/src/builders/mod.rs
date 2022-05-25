@@ -220,7 +220,14 @@ impl VitBackendSettingsBuilder {
                     .map_err(|_| Error::TooManyOptions)?,
             )
             .split_by(255)
-            .fund_name(self.config.data.current_fund.fund_name.to_string())
+            .fund_name(
+                self.config
+                    .data
+                    .current_fund
+                    .fund_info
+                    .fund_name
+                    .to_string(),
+            )
             .committee(self.committee_wallet.clone())
             .private(self.config.vote_plan.private)
             .proposals_count(self.config.data.current_fund.proposals as usize)

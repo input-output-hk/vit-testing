@@ -26,7 +26,7 @@ pub fn private_vote_test_scenario(
     batch_size: usize,
 ) {
     let testing_directory = TempDir::new().unwrap().into_persistent();
-    let fund_name = config.data.current_fund.fund_name.clone();
+    let fund_name = config.data.current_fund.fund_info.fund_name.clone();
     let wallet_count = config.initials.block0.count();
 
     let (mut controller, vit_parameters, network_params) =

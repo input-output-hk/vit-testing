@@ -92,7 +92,7 @@ impl Config {
         let (vote_start_timestamp, tally_start_timestamp, tally_end_timestamp) =
             convert_to_human_date(self);
 
-        println!("Fund id: {}", self.data.current_fund.fund_id);
+        println!("Fund id: {}", self.data.current_fund.fund_info.fund_id);
         println!(
             "block0 date:\t\t(block0_date):\t\t\t\t\t{}",
             jormungandr_lib::time::SystemTime::from_secs_since_epoch(

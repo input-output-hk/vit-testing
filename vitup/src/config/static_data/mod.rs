@@ -1,7 +1,9 @@
 mod current;
+mod info;
 mod next;
 
 pub use current::CurrentFund;
+use info::FundInfo;
 pub use next::NextFund;
 use serde::{Deserialize, Serialize};
 

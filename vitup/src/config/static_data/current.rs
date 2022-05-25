@@ -1,3 +1,4 @@
+use super::FundInfo;
 use serde::{Deserialize, Serialize};
 use time::{ext::NumericalDuration, OffsetDateTime};
 use vit_servicing_station_lib::db::models::vote_options::VoteOptions;
@@ -12,22 +13,21 @@ pub struct CurrentFund {
     pub challenges: usize,
     pub reviews: usize,
     pub voting_power: u64,
-    pub fund_name: String,
-    pub fund_id: i32,
+    #[serde(flatten)]
+    pub fund_info: FundInfo,
     pub dates: CurrentFundDates,
 }
 
 impl Default for CurrentFund {
     fn default() -> Self {
         Self {
-            fund_name: "Fund9".to_owned(),
-            fund_id: 9,
             proposals: 100,
             challenges: 9,
             reviews: 3,
             voting_power: 8000,
             options: VoteOptions::parse_coma_separated_value("yes,no"),
             dates: Default::default(),
+            fund_info: 9i32.into(),
         }
     }
 }

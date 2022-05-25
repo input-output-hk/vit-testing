@@ -132,7 +132,7 @@ impl ConfigBuilder {
     }
 
     pub fn fund_id(mut self, id: i32) -> Self {
-        self.config.data.current_fund.fund_id = id;
+        self.config.data.current_fund.fund_info.fund_id = id;
         self
     }
 
