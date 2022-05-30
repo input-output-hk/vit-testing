@@ -31,7 +31,7 @@ RUN cd ${ENV_PREFIX} && \
  RUN cd ${ENV_PREFIX} && \
     git clone https://github.com/input-output-hk/vit-testing && \
 	cd vit-testing && \
-	git checkout mulitple_funds
+	git checkout main
     
 # install the vit-servicing-station-server from source
 RUN cd ${ENV_PREFIX}/vit-servicing-station && \
