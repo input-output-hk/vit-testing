@@ -75,7 +75,7 @@ jobs:
           command: |
             git clone https://github.com/input-output-hk/vit-servicing-station.git
             cd vit-servicing-station
-            git checkout master
+            git checkout voting-groups-api
       - run:
           name: install vit-station-service
           command: |
@@ -166,7 +166,7 @@ commands:
           command: |
             git clone https://github.com/input-output-hk/vit-servicing-station.git
             cd vit-servicing-station
-            git checkout master
+            git checkout voting-groups-api
       - run:
           name: install vit-station-service
           command: |
