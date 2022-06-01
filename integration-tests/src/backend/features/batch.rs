@@ -52,7 +52,7 @@ pub fn transactions_are_send_between_nodes_with_correct_order() {
     let secret = testing_directory.path().join("wallet_alice");
     let mut alice = iapyx_from_secret_key(secret, &wallet_proxy).unwrap();
 
-    let proposals = alice.proposals().unwrap();
+    let proposals = alice.proposals("dreps").unwrap();
     let votes_data = proposals
         .iter()
         .take(batch_size)

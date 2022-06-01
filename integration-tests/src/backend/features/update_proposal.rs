@@ -17,7 +17,8 @@ use std::str::FromStr;
 use thor::BlockDateGenerator;
 use thor::FragmentSender;
 use thor::Wallet;
-use valgrind::Proposal;
+
+use vit_servicing_station_lib::db::models::proposals::FullProposalInfo;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vitup::config::VoteBlockchainTime;
 use vitup::config::{Block0Initial, Block0Initials, ConfigBuilder};
@@ -159,8 +160,8 @@ pub fn increase_max_block_content_size_during_voting() {
     );
 
     //send batch of votes just to be sure everything is ok
-    let proposals = alice.proposals().unwrap();
-    let votes_data: Vec<(&Proposal, Choice)> = proposals
+    let proposals = alice.proposals("dreps").unwrap();
+    let votes_data: Vec<(&FullProposalInfo, Choice)> = proposals
         .iter()
         .take(batch_size)
         .map(|proposal| (proposal, Choice::new(0)))
