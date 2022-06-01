@@ -25,9 +25,9 @@
   inputs.naersk.url = "github:nix-community/naersk";
   inputs.naersk.inputs.nixpkgs.follows = "nixpkgs";
   inputs.voting-tools_.url = "github:input-output-hk/voting-tools?rev=98a46754f822689b136ea8ae9049af535309bf87";
-  inputs.vit-kedqr.url = "github:input-output-hk/vit-kedqr";
   inputs.vit-servicing-station.url = "github:input-output-hk/vit-servicing-station/master";
   inputs.jormungandr_.url = "github:input-output-hk/jormungandr/master";
+  inputs.catalyst_toolbox_.url = "github:input-output-hk/catalyst-toolbox/master";
   inputs.cardano-node.url = "github:input-output-hk/cardano-node/1.33.0";
 
   outputs = {
@@ -40,9 +40,9 @@
     rust-overlay,
     naersk,
     voting-tools_,
-    vit-kedqr,
     vit-servicing-station,
     jormungandr_,
+    catalyst_toolbox_
     cardano-node,
   }:
     flake-utils.lib.eachSystem
@@ -60,6 +60,7 @@
         };
 
         inherit (voting-tools_.packages.${system}) voting-tools voter-registration;
+        inherit catalyst_toolbox_.packages.${system}) catalyst-toolbox;
         inherit (jormungandr_.packages.${system}) jormungandr jcli;
         inherit (vit-servicing-station.packages.${system}) vit-servicing-station-server;
         inherit (cardano-node.packages.${system}) cardano-cli;
@@ -125,7 +126,7 @@
           };
           extraBinPath = {
             snapshot-trigger-service = [voting-tools];
-            registration-service = [vit-kedqr jcli cardano-cli];
+            registration-service = [catalyst-toolbox jcli cardano-cli voting-tools];
             registration-verify-service = [jcli];
           };
         in
