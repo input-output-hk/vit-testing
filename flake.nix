@@ -27,7 +27,7 @@
   inputs.voting-tools_.url = "github:input-output-hk/voting-tools?rev=98a46754f822689b136ea8ae9049af535309bf87";
   inputs.vit-servicing-station.url = "github:input-output-hk/vit-servicing-station/master";
   inputs.jormungandr_.url = "github:input-output-hk/jormungandr/master";
-  inputs.catalyst_toolbox_.url = "github:input-output-hk/catalyst-toolbox/master";
+  inputs.catalyst_toolbox_.url = "github:input-output-hk/catalyst-toolbox/main";
   inputs.cardano-node.url = "github:input-output-hk/cardano-node/1.33.0";
 
   outputs = {
@@ -42,8 +42,8 @@
     voting-tools_,
     vit-servicing-station,
     jormungandr_,
-    catalyst_toolbox_
-    cardano-node,
+    catalyst_toolbox_,
+    cardano-node
   }:
     flake-utils.lib.eachSystem
     [
@@ -60,7 +60,7 @@
         };
 
         inherit (voting-tools_.packages.${system}) voting-tools voter-registration;
-        inherit catalyst_toolbox_.packages.${system}) catalyst-toolbox;
+        inherit (catalyst_toolbox_.packages.${system}) catalyst-toolbox;
         inherit (jormungandr_.packages.${system}) jormungandr jcli;
         inherit (vit-servicing-station.packages.${system}) vit-servicing-station-server;
         inherit (cardano-node.packages.${system}) cardano-cli;
