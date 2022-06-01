@@ -2,7 +2,7 @@
 
 [Introduction](./introduction.md)
 
-- [Iapyx] (./iapyx/iapyx.md)
+- [Iapyx](./iapyx/iapyx.md)
   - [Load Tool](./iapyx/load.md)
 - [Registration Service](./registration-service/introduction.md)
   - [CLI](./registration-service/cli.md)
