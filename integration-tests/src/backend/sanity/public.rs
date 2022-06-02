@@ -81,7 +81,7 @@ pub fn public_vote_multiple_vote_plans() -> std::result::Result<(), Error> {
     let mut david = iapyx_from_qr(&david_qr_code, PIN, &wallet_proxy).unwrap();
 
     let fund1_vote_plan = &controller.defined_vote_plans()[0];
-    let fund2_vote_plan = &controller.defined_vote_plans()[1];
+    let fund2_vote_plan = &controller.defined_vote_plans()[2];
     let settings = wallet_node.rest().settings().unwrap();
 
     // start voting
