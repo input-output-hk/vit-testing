@@ -29,12 +29,13 @@ pub fn votes_history_reflects_casted_votes() {
         slots_per_epoch: 30,
     };
 
+    let role = Default::default();
     let config = ConfigBuilder::default()
         .block0_initials(Block0Initials(vec![Block0Initial::Wallet {
             name: ALICE.to_string(),
             funds: 10_000,
             pin: PIN.to_string(),
-            role: Default::default(),
+            role,
         }]))
         .vote_timing(vote_timing.into())
         .slot_duration_in_seconds(2)
@@ -58,7 +59,7 @@ pub fn votes_history_reflects_casted_votes() {
     let secret = testing_directory.path().join("wallet_alice");
     let mut alice = iapyx_from_secret_key(secret, &wallet_proxy).unwrap();
 
-    let proposals = alice.proposals("dreps").unwrap();
+    let proposals = alice.proposals(&role.to_string()).unwrap();
     let votes_data: Vec<(&FullProposalInfo, Choice)> = proposals
         .iter()
         .take(batch_size)
