@@ -5428,7 +5428,7 @@ dependencies = [
 [[package]]
 name = "snapshot-service"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=voting-groups-api#a3a02931996b10bbeecdd34c36ab8a923f6383c0"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=voting-groups-api#f23f85ad3d9ef1d677046233145baf31ad331235"
 dependencies = [
  "jormungandr-lib",
  "notify",
@@ -6607,7 +6607,7 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-lib"
 version = "0.3.4-dev"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=voting-groups-api#a3a02931996b10bbeecdd34c36ab8a923f6383c0"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=voting-groups-api#f23f85ad3d9ef1d677046233145baf31ad331235"
 dependencies = [
  "async-trait",
  "base64 0.12.3",
@@ -6639,7 +6639,7 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-tests"
 version = "0.3.4-dev"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=voting-groups-api#a3a02931996b10bbeecdd34c36ab8a923f6383c0"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=voting-groups-api#f23f85ad3d9ef1d677046233145baf31ad331235"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
