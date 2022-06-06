@@ -178,21 +178,24 @@ impl VitBackendSettingsBuilder {
         std::fs::create_dir_all(&root)?;
         let policy = MintingPolicy::new();
 
-        let token_list: Vec<TokenIdentifier> = vec![
-            TokenIdentifier {
-                policy_hash: policy.hash(),
-                token_name: TestGen::token_name(),
-            },
-            TokenIdentifier {
-                policy_hash: policy.hash(),
-                token_name: TestGen::token_name(),
-            },
-        ];
+        let token_list: HashMap<Role, TokenIdentifier> = HashMap::from_iter([
+            (
+                Role::Representative,
+                TokenIdentifier {
+                    policy_hash: policy.hash(),
+                    token_name: TestGen::token_name(),
+                },
+            ),
+            (
+                Role::Voter,
+                TokenIdentifier {
+                    policy_hash: policy.hash(),
+                    token_name: TestGen::token_name(),
+                },
+            ),
+        ]);
 
-        let tokens_map = |role: &Role| match *role {
-            Role::Representative => token_list[0].clone().into(),
-            Role::Voter => token_list[1].clone().into(),
-        };
+        let tokens_map = |role: &Role| token_list[role].clone().into();
 
         let mut file = std::fs::File::create(root.join("voting_token.txt"))?;
         writeln!(file, "{:?}", token_list)?;
@@ -238,7 +241,7 @@ impl VitBackendSettingsBuilder {
             .committee(self.committee_wallet.clone())
             .private(self.config.vote_plan.private)
             .proposals_count(self.config.data.current_fund.proposals as usize)
-            .voting_tokens(token_list.into_iter().map(Into::into).collect())
+            .voting_tokens(token_list.into_iter().map(|(a, b)| (a, b.into())).collect())
             .build()
             .into_iter()
         {

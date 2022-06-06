@@ -1,4 +1,4 @@
-use crate::config::VoteBlockchainTime;
+use crate::config::{Role, VoteBlockchainTime};
 use chain_impl_mockchain::testing::scenario::template::VotePlanDef;
 use chain_impl_mockchain::testing::scenario::template::{ProposalDefBuilder, VotePlanDefBuilder};
 use chain_impl_mockchain::testing::TestGen;
@@ -16,7 +16,7 @@ pub struct VitVotePlanDefBuilder {
     proposals_count: usize,
     options: u8,
     private: bool,
-    voting_tokens: Vec<TokenIdentifier>,
+    voting_tokens: Vec<(Role, TokenIdentifier)>,
 }
 
 impl Default for VitVotePlanDefBuilder {
@@ -29,7 +29,7 @@ impl Default for VitVotePlanDefBuilder {
             committee_wallet: "undefined".to_string(),
             options: 0,
             private: false,
-            voting_tokens: vec![TestGen::token_id().into()],
+            voting_tokens: vec![(Default::default(), TestGen::token_id().into())],
         }
     }
 }
@@ -71,11 +71,11 @@ impl VitVotePlanDefBuilder {
     }
 
     pub fn voting_token(mut self, voting_token: TokenIdentifier) -> Self {
-        self.voting_tokens = vec![voting_token];
+        self.voting_tokens = vec![(Default::default(), voting_token)];
         self
     }
 
-    pub fn voting_tokens(mut self, voting_tokens: Vec<TokenIdentifier>) -> Self {
+    pub fn voting_tokens(mut self, voting_tokens: Vec<(Role, TokenIdentifier)>) -> Self {
         self.voting_tokens = voting_tokens;
         self
     }
@@ -107,12 +107,9 @@ impl VitVotePlanDefBuilder {
 
             self.voting_tokens
                 .iter()
-                .zip(
-                    std::iter::repeat(vote_plan_name)
-                        .enumerate()
-                        .map(|(vote_plan_name, i)| format!("{vote_plan_name}-group{i}")),
-                )
-                .map(|(voting_token, vote_plan_name)| {
+                .zip(std::iter::repeat(vote_plan_name))
+                .map(|((role, voting_token), vote_plan_name)| {
+                    let vote_plan_name = format!("{vote_plan_name}-{role}");
                     let mut vote_plan_builder = VotePlanDefBuilder::new(&vote_plan_name);
 
                     vote_plan_builder
