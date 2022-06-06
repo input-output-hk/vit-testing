@@ -306,7 +306,7 @@ dependencies = [
 [[package]]
 name = "bip39"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-wallet-libs.git?branch=master#cd1d4e0a61836c50e193ee140ec74579115de056"
+source = "git+https://github.com/enzoc4/chain-wallet-libs.git?branch=upgrade-chain-libs-to-1b01f0d#bb3a049e2b8c93b2383cbf0409c1342d9a228949"
 dependencies = [
  "cryptoxide 0.4.2",
  "thiserror",
@@ -556,7 +556,7 @@ dependencies = [
  "stderrlog",
  "stopwatch",
  "structopt",
- "symmetric-cipher",
+ "symmetric-cipher 0.5.0 (git+https://github.com/input-output-hk/chain-wallet-libs.git?branch=master)",
  "thiserror",
  "thor",
  "time 0.3.9",
@@ -726,7 +726,7 @@ dependencies = [
 [[package]]
 name = "chain-path-derivation"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-wallet-libs.git?branch=master#cd1d4e0a61836c50e193ee140ec74579115de056"
+source = "git+https://github.com/enzoc4/chain-wallet-libs.git?branch=upgrade-chain-libs-to-1b01f0d#bb3a049e2b8c93b2383cbf0409c1342d9a228949"
 dependencies = [
  "thiserror",
 ]
@@ -742,7 +742,7 @@ dependencies = [
 [[package]]
 name = "chain-storage"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#b6590318da760d223022bf4e3b1c42e1ee697242"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "criterion",
  "data-pile",
@@ -2177,7 +2177,7 @@ dependencies = [
 [[package]]
 name = "hdkeygen"
 version = "0.2.0"
-source = "git+https://github.com/input-output-hk/chain-wallet-libs.git?branch=master#cd1d4e0a61836c50e193ee140ec74579115de056"
+source = "git+https://github.com/enzoc4/chain-wallet-libs.git?branch=upgrade-chain-libs-to-1b01f0d#bb3a049e2b8c93b2383cbf0409c1342d9a228949"
 dependencies = [
  "bip39",
  "cardano-legacy-address",
@@ -2238,7 +2238,7 @@ dependencies = [
 [[package]]
 name = "hersir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#26000281078521c7a40985f331040a628393fcc4"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#23b428a17f885b7b3767344b1fee4b01dbdb4ed4"
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -2775,7 +2775,7 @@ checksum = "112c678d4050afce233f4f2852bb2eb519230b3cf12f33585275537d7e41578d"
 [[package]]
 name = "jcli"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#26000281078521c7a40985f331040a628393fcc4"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#23b428a17f885b7b3767344b1fee4b01dbdb4ed4"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -2818,7 +2818,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-automation"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#26000281078521c7a40985f331040a628393fcc4"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#23b428a17f885b7b3767344b1fee4b01dbdb4ed4"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -2882,7 +2882,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-integration-tests"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#26000281078521c7a40985f331040a628393fcc4"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#23b428a17f885b7b3767344b1fee4b01dbdb4ed4"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -2934,7 +2934,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-lib"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#450e4eb85ecfa2af9303269d2f8b31d9cbbd922b"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#23b428a17f885b7b3767344b1fee4b01dbdb4ed4"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -3186,7 +3186,7 @@ dependencies = [
 [[package]]
 name = "loki"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#26000281078521c7a40985f331040a628393fcc4"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#23b428a17f885b7b3767344b1fee4b01dbdb4ed4"
 dependencies = [
  "chain-addr",
  "chain-core",
@@ -3398,7 +3398,7 @@ dependencies = [
 [[package]]
 name = "mjolnir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#26000281078521c7a40985f331040a628393fcc4"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#23b428a17f885b7b3767344b1fee4b01dbdb4ed4"
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -5672,6 +5672,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "symmetric-cipher"
+version = "0.5.0"
+source = "git+https://github.com/enzoc4/chain-wallet-libs.git?branch=upgrade-chain-libs-to-1b01f0d#bb3a049e2b8c93b2383cbf0409c1342d9a228949"
+dependencies = [
+ "cryptoxide 0.4.2",
+ "rand 0.8.5",
+ "thiserror",
+ "zeroize",
+]
+
+[[package]]
 name = "syn"
 version = "1.0.94"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5843,7 +5854,7 @@ dependencies = [
 [[package]]
 name = "thor"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#26000281078521c7a40985f331040a628393fcc4"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#23b428a17f885b7b3767344b1fee4b01dbdb4ed4"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -6787,7 +6798,7 @@ dependencies = [
 [[package]]
 name = "wallet"
 version = "0.6.0-pre.1"
-source = "git+https://github.com/input-output-hk/chain-wallet-libs.git?branch=master#cd1d4e0a61836c50e193ee140ec74579115de056"
+source = "git+https://github.com/enzoc4/chain-wallet-libs.git?branch=upgrade-chain-libs-to-1b01f0d#bb3a049e2b8c93b2383cbf0409c1342d9a228949"
 dependencies = [
  "bip39",
  "cardano-legacy-address",
@@ -6811,7 +6822,7 @@ dependencies = [
 [[package]]
 name = "wallet-core"
 version = "0.7.0-pre4"
-source = "git+https://github.com/input-output-hk/chain-wallet-libs.git?branch=master#cd1d4e0a61836c50e193ee140ec74579115de056"
+source = "git+https://github.com/enzoc4/chain-wallet-libs.git?branch=upgrade-chain-libs-to-1b01f0d#bb3a049e2b8c93b2383cbf0409c1342d9a228949"
 dependencies = [
  "bech32 0.7.3",
  "bip39",
@@ -6825,7 +6836,7 @@ dependencies = [
  "chain-vote",
  "hdkeygen",
  "rand 0.8.5",
- "symmetric-cipher",
+ "symmetric-cipher 0.5.0 (git+https://github.com/enzoc4/chain-wallet-libs.git?branch=upgrade-chain-libs-to-1b01f0d)",
  "thiserror",
  "wallet",
 ]
