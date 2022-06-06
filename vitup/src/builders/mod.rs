@@ -178,7 +178,7 @@ impl VitBackendSettingsBuilder {
         std::fs::create_dir_all(&root)?;
         let policy = MintingPolicy::new();
 
-        let token_list: HashMap<Role, TokenIdentifier> = HashMap::from_iter([
+        let token_list = vec![
             (
                 Role::Representative,
                 TokenIdentifier {
@@ -193,9 +193,15 @@ impl VitBackendSettingsBuilder {
                     token_name: TestGen::token_name(),
                 },
             ),
-        ]);
+        ];
 
-        let tokens_map = |role: &Role| token_list[role].clone().into();
+        let tokens_map = |role: &Role| {
+            token_list
+                .iter()
+                .find(|(a, _)| a == role)
+                .map(|(_, b)| b.clone().into())
+                .unwrap()
+        };
 
         let mut file = std::fs::File::create(root.join("voting_token.txt"))?;
         writeln!(file, "{:?}", token_list)?;
