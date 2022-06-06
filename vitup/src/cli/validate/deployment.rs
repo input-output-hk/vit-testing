@@ -57,7 +57,7 @@ impl Check {
                 .map(|_| started.elapsed())
                 .map_err(Into::into),
             Self::Proposals => wallet_backend
-                .proposals("dreps")
+                .proposals("direct")
                 .map(|_| started.elapsed())
                 .map_err(Into::into),
             Self::Settings => wallet_backend
@@ -69,7 +69,7 @@ impl Check {
                 .map(|_| started.elapsed())
                 .map_err(Into::into),
             Self::Reviews => {
-                let proposals = wallet_backend.proposals("dreps")?;
+                let proposals = wallet_backend.proposals("direct")?;
                 started = Instant::now();
                 wallet_backend
                     .review(&proposals[0].proposal.proposal_id)

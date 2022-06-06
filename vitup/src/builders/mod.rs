@@ -180,14 +180,14 @@ impl VitBackendSettingsBuilder {
 
         let token_list = vec![
             (
-                Role::Representative,
+                Role::Voter,
                 TokenIdentifier {
                     policy_hash: policy.hash(),
                     token_name: TestGen::token_name(),
                 },
             ),
             (
-                Role::Voter,
+                Role::Representative,
                 TokenIdentifier {
                     policy_hash: policy.hash(),
                     token_name: TestGen::token_name(),

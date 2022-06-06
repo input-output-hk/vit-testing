@@ -41,19 +41,20 @@ pub fn increase_max_block_content_size_during_voting() {
         slots_per_epoch: 30,
     };
 
+    let role = Default::default();
     let config = ConfigBuilder::default()
         .block0_initials(Block0Initials(vec![
             Block0Initial::Wallet {
                 name: ALICE.to_string(),
                 funds: 10_000,
                 pin: PIN.to_string(),
-                role: Default::default(),
+                role,
             },
             Block0Initial::Wallet {
                 name: COMMITTEE.to_string(),
                 funds: 10_000,
                 pin: PIN.to_string(),
-                role: Default::default(),
+                role,
             },
         ]))
         .vote_timing(vote_timing.into())
@@ -160,7 +161,7 @@ pub fn increase_max_block_content_size_during_voting() {
     );
 
     //send batch of votes just to be sure everything is ok
-    let proposals = alice.proposals("dreps").unwrap();
+    let proposals = alice.proposals(&role.to_string()).unwrap();
     let votes_data: Vec<(&FullProposalInfo, Choice)> = proposals
         .iter()
         .take(batch_size)
