@@ -33,7 +33,8 @@ impl BatchWalletRequestGen {
         use_v1: bool,
         update_account_before_vote: bool,
     ) -> Result<Self, MultiControllerError> {
-        let proposals = multi_controller.proposals("group")?;
+        // FIXME: de-hardcode the group here
+        let proposals = multi_controller.proposals("direct")?;
         let vote_plans = multi_controller.backend().vote_plan_statuses()?;
         let settings = multi_controller.backend().settings()?;
 
