@@ -137,6 +137,8 @@ pub struct Votes {
     /// Print title, otherwise only id would be print out
     #[structopt(long = "print-title")]
     pub print_proposal_title: bool,
+    #[structopt(default_value = "direct", long)]
+    pub voting_group: String,
 }
 
 impl Votes {
@@ -158,7 +160,7 @@ impl Votes {
                 let vote_plan_id_hash = Hash::from_str(&vote_plan_id)?;
                 if self.print_proposal_title {
                     let history = model.vote_plan_history(vote_plan_id_hash)?;
-                    let proposals = model.proposals("direct")?;
+                    let proposals = model.proposals(&self.voting_group)?;
 
                     if let Some(history) = history {
                         let history: Vec<String> = history
@@ -185,7 +187,7 @@ impl Votes {
             None => {
                 if self.print_proposal_title {
                     let history = model.votes_history()?;
-                    let proposals = model.proposals("direct")?;
+                    let proposals = model.proposals(&self.voting_group)?;
 
                     if let Some(history) = history {
                         let history: Vec<String> = history
@@ -250,11 +252,13 @@ pub struct SingleVote {
     /// Pin
     #[structopt(long, short)]
     pub pin: String,
+    #[structopt(default_value = "direct", long)]
+    pub voting_group: String,
 }
 
 impl SingleVote {
     pub fn exec(self, mut model: CliController) -> Result<(), IapyxCommandError> {
-        let proposals = model.proposals("direct")?;
+        let proposals = model.proposals(&self.voting_group)?;
         /*   let block_date_generator = expiry::from_block_or_shift(
             self.valid_until_fixed,
             self.valid_until_shift,
@@ -291,13 +295,15 @@ pub struct BatchOfVotes {
     /// Pin
     #[structopt(long, short)]
     pub pin: String,
+    #[structopt(default_value = "direct", long)]
+    pub voting_group: String,
 }
 
 impl BatchOfVotes {
     pub fn exec(self, mut model: CliController) -> Result<(), IapyxCommandError> {
         let choices = self.zip_into_batch_input_data(
             serde_json::from_str(&self.choices)?,
-            model.proposals("direct")?,
+            model.proposals(&self.voting_group)?,
         )?;
         model.votes_batch(choices.iter().map(|(p, c)| (p, *c)).collect(), &self.pin)?;
         model.save_config()?;
@@ -402,11 +408,13 @@ pub struct Proposals {
     /// Limit output entries
     #[structopt(short, long)]
     pub limit: Option<usize>,
+    #[structopt(default_value = "direct", long)]
+    pub voting_group: String,
 }
 impl Proposals {
     pub fn exec(self, model: CliController) -> Result<(), IapyxCommandError> {
         print_delim();
-        for (id, proposal) in model.proposals("direct")?.iter().enumerate() {
+        for (id, proposal) in model.proposals(&self.voting_group)?.iter().enumerate() {
             if let Some(limit) = self.limit {
                 if id >= limit {
                     break;

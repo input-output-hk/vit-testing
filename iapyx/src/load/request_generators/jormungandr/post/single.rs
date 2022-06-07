@@ -29,8 +29,9 @@ impl WalletRequestGen {
     pub fn new(
         multi_controller: MultiController,
         update_account_before_vote: bool,
+        group: &str,
     ) -> Result<Self, super::RequestGenError> {
-        let proposals = multi_controller.proposals("direct")?;
+        let proposals = multi_controller.proposals(group)?;
         let vote_plans = multi_controller.backend().vote_plan_statuses()?;
         let settings = multi_controller.backend().settings()?;
         let options = proposals[0]
