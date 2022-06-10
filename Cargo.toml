@@ -9,8 +9,3 @@ members = [
   "snapshot-trigger-service",
   "signals-handler",
 ]
-
-[patch."https://github.com/input-output-hk/chain-wallet-libs.git"]
-wallet-core = { git = "https://github.com/enzoc4/chain-wallet-libs.git", branch = "upgrade-chain-libs-to-1b01f0d"}
-wallet = { git = "https://github.com/enzoc4/chain-wallet-libs.git", branch = "upgrade-chain-libs-to-1b01f0d"}
-hdkeygen = { git = "https://github.com/enzoc4/chain-wallet-libs.git", branch = "upgrade-chain-libs-to-1b01f0d"}
