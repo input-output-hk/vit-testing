@@ -1,8 +1,8 @@
-# Simple dockerfile example to build a catalyst voting backend 
+# Simple dockerfile example to build a catalyst backend mock
 
 FROM ubuntu:18.04
 LABEL MAINTAINER IOHK
-LABEL description="Catalyst Disruption backend"
+LABEL description="Catalyst backend mock"
 
 ARG PREFIX=/app
 ENV ENV_PREFIX=${PREFIX}
@@ -21,7 +21,7 @@ RUN  apt-get install -y build-essential pkg-config libssl-dev && \
 RUN cd ${ENV_PREFIX} && \
     git clone https://github.com/input-output-hk/vit-testing && \
 	cd vit-testing && \
-	git checkout mulitple_funds
+	git checkout catalyst-fund9
     
 RUN cd ${ENV_PREFIX}/vit-testing/vitup && \
     ~/.cargo/bin/cargo install --locked --path . 

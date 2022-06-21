@@ -15,22 +15,22 @@ ctrlc = "3.2.1"
 walkdir = "2.3.1"
 csv = "1.1"
 itertools = "0.10.3"
-chain-core           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
-chain-crypto         = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master", features = [ "property-test-api" ] }
-chain-addr           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master", features = [ "property-test-api" ] }
-chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master", features = [ "property-test-api" ] }
-chain-time           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
-chain-vote           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master" }
+chain-core           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
+chain-crypto         = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9", features = [ "property-test-api" ] }
+chain-addr           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9", features = [ "property-test-api" ] }
+chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9", features = [ "property-test-api" ] }
+chain-time           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
+chain-vote           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
 proptest = { git = "https://github.com/input-output-hk/proptest.git" }
-jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
-hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
+jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
+jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
+thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
+hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
 jortestkit = { git = "https://github.com/input-output-hk/jortestkit.git", branch = "master" }
-vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "master" }
-vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "master" }
-catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "main"}
-voting-hir = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "main", features = ["serde"] }
+vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "catalyst-fund9" }
+vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "catalyst-fund9" }
+catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "catalyst-fund9"}
+voting-hir = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "catalyst-fund9", features = ["serde"] }
 valgrind = { path = "../valgrind" }
 poldercast = { git = "https://github.com/primetype/poldercast.git", rev = "8305f1560392a9d26673ca996e7646c8834533ef" }
 rand = "0.8"
