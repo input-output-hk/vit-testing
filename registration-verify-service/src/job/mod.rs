@@ -204,6 +204,7 @@ impl RegistrationVerifyJob {
 
                 get_snapshot_from_history_by_id(
                     job_id,
+                    &request.tag.clone().unwrap_or_else(|| "".to_string()),
                     self.snapshot_token.to_string(),
                     self.snapshot_address.to_string(),
                 )?

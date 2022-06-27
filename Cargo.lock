@@ -516,7 +516,7 @@ dependencies = [
 [[package]]
 name = "catalyst-toolbox"
 version = "0.5.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=catalyst-fund9#3ff3e5fed70f5a8adb400a6764945b250d1599e3"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=catalyst-fund9#9abbf7e3a259ca79433976859ad9b2e0d503b4e9"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -2793,6 +2793,7 @@ dependencies = [
  "chain-ser",
  "chrono",
  "csv",
+ "fraction",
  "hersir",
  "iapyx",
  "jcli",
@@ -2800,6 +2801,7 @@ dependencies = [
  "jormungandr-lib",
  "jortestkit",
  "libmath",
+ "mainnet-tools",
  "rand 0.8.5",
  "rand_chacha 0.2.2",
  "registration-service",
@@ -2813,6 +2815,7 @@ dependencies = [
  "vit-servicing-station-lib",
  "vit-servicing-station-tests",
  "vitup",
+ "voting-hir",
 ]
 
 [[package]]
@@ -3312,6 +3315,29 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8015d95cb7b2ddd3c0d32ca38283ceb1eea09b4713ee380bceb942d85a244228"
 dependencies = [
  "hashbrown",
+]
+
+[[package]]
+name = "mainnet-tools"
+version = "0.1.0"
+dependencies = [
+ "assert_fs",
+ "bech32 0.8.1",
+ "catalyst-toolbox",
+ "chain-addr",
+ "chain-crypto",
+ "futures",
+ "hex",
+ "jormungandr-lib",
+ "rand 0.8.5",
+ "serde",
+ "serde_json",
+ "signals-handler",
+ "structopt",
+ "tempdir",
+ "thiserror",
+ "thor",
+ "tokio 1.19.2",
 ]
 
 [[package]]
@@ -5551,11 +5577,13 @@ name = "snapshot-trigger-service"
 version = "0.1.0"
 dependencies = [
  "assert_fs",
+ "catalyst-toolbox",
  "chain-addr",
  "chrono",
  "futures",
  "jormungandr-lib",
  "jortestkit",
+ "mainnet-tools",
  "reqwest 0.10.10",
  "serde",
  "serde_json",
@@ -6824,7 +6852,7 @@ checksum = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"
 [[package]]
 name = "voting-hir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=catalyst-fund9#3ff3e5fed70f5a8adb400a6764945b250d1599e3"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=catalyst-fund9#9abbf7e3a259ca79433976859ad9b2e0d503b4e9"
 dependencies = [
  "jormungandr-lib",
  "serde",

@@ -21,7 +21,7 @@ pub fn do_snapshot<S: Into<String>, P: Into<String>>(
         SnapshotRestClient::new_with_token(snapshot_token.into(), snapshot_address.into());
 
     println!("Snapshot params: {:?}", job_params);
-    let snapshot_job_id = snapshot_client.job_new(job_params).unwrap();
+    let snapshot_job_id = snapshot_client.job_new(job_params.clone()).unwrap();
     let wait = WaitBuilder::new().tries(10).sleep_between_tries(10).build();
 
     println!("waiting for snapshot job");
@@ -29,7 +29,10 @@ pub fn do_snapshot<S: Into<String>, P: Into<String>>(
         snapshot_client.wait_for_job_finish(snapshot_job_id.clone(), wait)?;
 
     println!("Snapshot done: {:?}", snapshot_jobs_status);
-    let snapshot = snapshot_client.get_snapshot(snapshot_job_id)?;
+    let snapshot = snapshot_client.get_snapshot(
+        snapshot_job_id,
+        job_params.tag.unwrap_or_else(|| "".to_string()),
+    )?;
 
     Ok(SnapshotResult {
         status: snapshot_jobs_status,
@@ -39,6 +42,7 @@ pub fn do_snapshot<S: Into<String>, P: Into<String>>(
 
 pub fn get_snapshot_by_id<Q: Into<String>, S: Into<String>, P: Into<String>>(
     job_id: Q,
+    tag: Q,
     snapshot_token: S,
     snapshot_address: P,
 ) -> Result<SnapshotResult, Error> {
@@ -46,7 +50,7 @@ pub fn get_snapshot_by_id<Q: Into<String>, S: Into<String>, P: Into<String>>(
         SnapshotRestClient::new_with_token(snapshot_token.into(), snapshot_address.into());
     let job_id = job_id.into();
 
-    let snapshot = snapshot_client.get_snapshot(job_id.clone())?;
+    let snapshot = snapshot_client.get_snapshot(job_id.clone(), tag.into())?;
     let status = snapshot_client.job_status(job_id)?;
 
     Ok(SnapshotResult {
@@ -57,6 +61,7 @@ pub fn get_snapshot_by_id<Q: Into<String>, S: Into<String>, P: Into<String>>(
 
 pub fn get_snapshot_from_history_by_id<Q: Into<String>, S: Into<String>, P: Into<String>>(
     job_id: Q,
+    tag: Q,
     snapshot_token: S,
     snapshot_address: P,
 ) -> Result<SnapshotResult, Error> {
@@ -64,7 +69,7 @@ pub fn get_snapshot_from_history_by_id<Q: Into<String>, S: Into<String>, P: Into
         SnapshotRestClient::new_with_token(snapshot_token.into(), snapshot_address.into());
     let job_id = job_id.into();
 
-    let snapshot = snapshot_client.get_snapshot(job_id.clone())?;
+    let snapshot = snapshot_client.get_snapshot(job_id.clone(), tag.into())?;
     let status = snapshot_client.get_status(job_id)?;
 
     Ok(SnapshotResult {
@@ -137,4 +142,6 @@ pub enum Error {
     ChainError(#[from] chain_addr::Error),
     #[error("serialization error")]
     SerdeError(#[from] serde_json::Error),
+    #[error(transparent)]
+    Config(#[from] crate::config::Error),
 }
