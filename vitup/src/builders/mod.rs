@@ -221,7 +221,7 @@ impl VitBackendSettingsBuilder {
                 blockchain = blockchain.with_wallet(wallet.clone());
             }
         }
-        println!("building voteplan..");
+        println!("building direct voteplan..");
 
         for vote_plan_def in VitVotePlanDefBuilder::default()
             .vote_phases(vote_blockchain_time)

@@ -121,7 +121,7 @@ impl VitVotePlanDefBuilder {
                             self.vote_phases.tally_end,
                         );
 
-                    if self.private {
+                    if *role == Role::Voter && self.private {
                         vote_plan_builder.payload_type(PayloadType::Private);
                     }
 

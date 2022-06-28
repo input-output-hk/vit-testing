@@ -7,6 +7,7 @@ pub use snapshot::{
     Error as SnapshotError, Initial as SnapshotInitial, Initials as SnapshotInitials,
 };
 use std::fmt;
+use std::str::FromStr;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Initials {
@@ -27,6 +28,17 @@ impl fmt::Display for Role {
         match self {
             Role::Representative => write!(f, "dreps"),
             Role::Voter => write!(f, "direct"),
+        }
+    }
+}
+
+impl FromStr for Role {
+    type Err = std::convert::Infallible;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        if s.to_lowercase() == "direct" {
+            Ok(Role::Voter)
+        } else {
+            Ok(Role::Representative)
         }
     }
 }
