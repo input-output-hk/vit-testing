@@ -39,11 +39,6 @@ impl VoteRegistrationJobBuilder {
         self
     }
 
-    pub fn with_catalyst_toolbox<P: AsRef<Path>>(mut self, catalyst_toolbox: P) -> Self {
-        self.job.catalyst_toolbox = catalyst_toolbox.as_ref().to_path_buf();
-        self
-    }
-
     pub fn with_voter_registration<P: AsRef<Path>>(mut self, voter_registration: P) -> Self {
         self.job.voter_registration = voter_registration.as_ref().to_path_buf();
         self
@@ -68,7 +63,6 @@ pub struct VoteRegistrationJob {
     jcli: PathBuf,
     cardano_cli: PathBuf,
     voter_registration: PathBuf,
-    catalyst_toolbox: PathBuf,
     network: NetworkType,
     working_dir: PathBuf,
 }
@@ -85,7 +79,6 @@ impl Default for VoteRegistrationJob {
             jcli: PathBuf::from_str("jcli").unwrap(),
             cardano_cli: PathBuf::from_str("cardano-cli").unwrap(),
             voter_registration: PathBuf::from_str("voter-registration").unwrap(),
-            catalyst_toolbox: PathBuf::from_str("catalyst-toolbox").unwrap(),
             network: NetworkType::Mainnet,
             working_dir: PathBuf::from_str(".").unwrap(),
         }
@@ -249,24 +242,6 @@ impl VoteRegistrationJob {
         println!("Running cardano_cli: {:?}", command);
         command.status()?;
         println!("cardano_cli finished");
-
-        let qrcode = Path::new(&self.working_dir).join(format!("qrcode_pin_{}.png", PIN));
-
-        let mut command = Command::new(&self.catalyst_toolbox);
-        command
-            .arg("qr-code")
-            .arg("encode")
-            .arg("--pin")
-            .arg(PIN)
-            .arg("--input")
-            .arg(private_key_path)
-            .arg("--output")
-            .arg(qrcode)
-            .arg("img");
-        println!("Running catalyst-toolbox: {:?}", command);
-        command.status()?;
-        println!("catalyst-toolbox finished");
-
         Ok(JobOutputInfo { slot_no, funds })
     }
 }
