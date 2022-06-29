@@ -16,8 +16,6 @@ pub struct Configuration {
     pub cardano_cli: PathBuf,
     #[serde(rename = "voter-registration")]
     pub voter_registration: PathBuf,
-    #[serde(rename = "catalyst-toolbox")]
-    pub catalyst_toolbox: PathBuf,
     pub network: NetworkType,
     pub token: Option<String>,
 }

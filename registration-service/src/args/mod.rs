@@ -48,7 +48,6 @@ impl RegistrationServiceCommand {
                         .with_cardano_cli(&configuration.cardano_cli)
                         .with_voter_registration(&configuration.voter_registration)
                         .with_network(configuration.network)
-                        .with_catalyst_toolbox(&configuration.catalyst_toolbox)
                         .with_working_dir(&job_result_dir)
                         .build();
 
