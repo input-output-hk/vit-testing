@@ -43,7 +43,7 @@
     vit-servicing-station,
     jormungandr_,
     catalyst_toolbox_,
-    cardano-node
+    cardano-node,
   }:
     flake-utils.lib.eachSystem
     [
@@ -79,7 +79,7 @@
           pkgs.buildEnv {
             name = _rust.name;
             inherit (_rust) meta;
-            buildInputs = [pkgs.makeWrapper];
+            buildInputs = [pkgs.makeWrapper pkgs.openssl];
             paths = [_rust];
             pathsToLink = ["/" "/bin"];
             # XXX: This is needed because cargo and clippy commands need to
