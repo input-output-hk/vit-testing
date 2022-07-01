@@ -70,8 +70,8 @@ impl VitVotePlanDefBuilder {
         self
     }
 
-    pub fn voting_token(mut self, voting_token: TokenIdentifier) -> Self {
-        self.voting_tokens = vec![(Default::default(), voting_token)];
+    pub fn voting_token(mut self, role: Role, voting_token: TokenIdentifier) -> Self {
+        self.voting_tokens = vec![(role, voting_token)];
         self
     }
 

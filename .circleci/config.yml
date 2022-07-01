@@ -90,10 +90,6 @@ jobs:
           command: |
             cargo install --path valgrind --locked
       - run:
-          name: install snapshot-trigger-service
-          command: |
-            cargo install --path snapshot-trigger-service --locked                  
-      - run:
           name: Run tests
           no_output_timeout: 60m
           environment:
@@ -184,6 +180,10 @@ commands:
           name: install proxy
           command: |
             cargo install --path valgrind --locked
+      - run:
+          name: install snapshot-trigger-service
+          command: |
+            cargo install --path snapshot-trigger-service --locked       
       - run:
           name: Run Integration tests
           no_output_timeout: 60m

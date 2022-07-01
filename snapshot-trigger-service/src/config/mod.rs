@@ -100,7 +100,7 @@ impl ConfigurationBuilder {
 impl Default for Configuration {
     fn default() -> Self {
         Self {
-            port: 3030,
+            port: 7070,
             voting_tools: VotingToolsParams {
                 bin: None,
                 nix_branch: None,

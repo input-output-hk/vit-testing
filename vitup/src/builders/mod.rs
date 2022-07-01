@@ -28,6 +28,7 @@ pub use reviews::ReviewGenerator;
 use std::collections::HashMap;
 use std::io::Write;
 use std::path::Path;
+use std::str::FromStr;
 use thiserror::Error;
 use vit_servicing_station_tests::common::data::ValidVotePlanParameters;
 
@@ -177,23 +178,23 @@ impl VitBackendSettingsBuilder {
         let root = self.session_settings.root.path().to_path_buf();
         std::fs::create_dir_all(&root)?;
         let policy = MintingPolicy::new();
-
-        let token_list = vec![
-            (
-                Role::Voter,
-                TokenIdentifier {
-                    policy_hash: policy.hash(),
-                    token_name: TestGen::token_name(),
-                },
-            ),
-            (
-                Role::Representative,
-                TokenIdentifier {
-                    policy_hash: policy.hash(),
-                    token_name: TestGen::token_name(),
-                },
-            ),
-        ];
+        let token_list: Vec<(Role, TokenIdentifier)> = self
+            .config
+            .data
+            .current_fund
+            .fund_info
+            .groups
+            .iter()
+            .map(|role| {
+                (
+                    Role::from_str(role).unwrap(),
+                    TokenIdentifier {
+                        policy_hash: policy.hash(),
+                        token_name: TestGen::token_name(),
+                    },
+                )
+            })
+            .collect();
 
         let tokens_map = |role: &Role| {
             token_list
@@ -247,7 +248,13 @@ impl VitBackendSettingsBuilder {
             .committee(self.committee_wallet.clone())
             .private(self.config.vote_plan.private)
             .proposals_count(self.config.data.current_fund.proposals as usize)
-            .voting_tokens(token_list.into_iter().map(|(a, b)| (a, b.into())).collect())
+            .voting_tokens(
+                token_list
+                    .iter()
+                    .cloned()
+                    .map(|(a, b)| (a, b.into()))
+                    .collect(),
+            )
             .build()
             .into_iter()
         {
