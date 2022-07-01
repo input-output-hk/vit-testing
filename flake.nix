@@ -27,7 +27,7 @@
   inputs.voting-tools_.url = "github:input-output-hk/voting-tools?rev=c492a1853c4db060d598e740452a97c49618f0bd";
   inputs.vit-servicing-station.url = "github:input-output-hk/vit-servicing-station/master";
   inputs.jormungandr_.url = "github:input-output-hk/jormungandr/master";
-  inputs.catalyst_toolbox_.url = "github:input-output-hk/catalyst-toolbox/main";
+  inputs.catalyst_toolbox_.url = "github:input-output-hk/catalyst-toolbox/dc51bc70e336794c2613456341c3b727300545d1";
   inputs.cardano-node.url = "github:input-output-hk/cardano-node/1.33.0";
 
   outputs = {

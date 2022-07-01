@@ -318,8 +318,8 @@
       },
       "original": {
         "owner": "input-output-hk",
-        "ref": "main",
         "repo": "catalyst-toolbox",
+        "rev": "dc51bc70e336794c2613456341c3b727300545d1",
         "type": "github"
       }
     },
