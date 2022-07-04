@@ -507,7 +507,7 @@ dependencies = [
 [[package]]
 name = "catalyst-toolbox"
 version = "0.3.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=rewards-script-rewrite-it-in-rust#90f2d36215aaa31a7cbdcaa69e00e5ee0d581a3f"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=rewards-script-rewrite-it-in-rust#ea078eb828560a436bb35a474253526ebaf5afe3"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -764,7 +764,7 @@ name = "chain-vote"
 version = "0.1.0"
 source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
 dependencies = [
- "cfg-if 0.1.10",
+ "cfg-if 1.0.0",
  "chain-core",
  "chain-crypto",
  "const_format",
@@ -6725,7 +6725,7 @@ dependencies = [
 [[package]]
 name = "voting-hir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=rewards-script-rewrite-it-in-rust#90f2d36215aaa31a7cbdcaa69e00e5ee0d581a3f"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=rewards-script-rewrite-it-in-rust#ea078eb828560a436bb35a474253526ebaf5afe3"
 dependencies = [
  "jormungandr-lib",
  "serde",
