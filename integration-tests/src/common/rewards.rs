@@ -3,9 +3,10 @@ use crate::common::vote_plan_status::VotePlanStatusExtension;
 use crate::common::vote_plan_status::VotePlanStatusProvider;
 use crate::common::CastedVote;
 use crate::Vote;
-use assert_cmd::assert::OutputAssertExt;
 use assert_fs::TempDir;
-use catalyst_toolbox::testing::ProposerRewardsCommand;
+use catalyst_toolbox::rewards::proposers::OutputFormat;
+use catalyst_toolbox::rewards::proposers::ProposerRewards as ProposerRewardsCommand;
+use catalyst_toolbox::rewards::proposers::proposer_rewards;
 use chain_addr::{Address, AddressReadable, Discrimination, Kind};
 use jormungandr_automation::testing::block0;
 use jormungandr_lib::crypto::key::Identifier;
@@ -78,40 +79,21 @@ pub fn funded_proposals(
         serde_json::to_string(&committee_addresses)?,
     )?;
 
-    let mut rewards_command = ProposerRewardsCommand::default()
-        .python_exec(find_python_exec())
-        .output_file(output.clone())
-        .block0_path(deployment.genesis_path())
-        .total_stake_threshold(0.01)
-        .approval_threshold(0.05)
-        .output_format("csv".to_string())
-        .proposals_path(
-            proposals_json
-                .to_str()
-                .ok_or(Error::InvalidProposalJsonPath)?
-                .to_string(),
-        )
-        .active_voteplan_path(
-            vote_plan_json
-                .to_str()
-                .ok_or(Error::InvalidVotePlanJsonPath)?
-                .to_string(),
-        )
-        .committee_keys_path(
-            committee_yaml
-                .to_str()
-                .ok_or(Error::InvalidCommitteeKeysPath)?
-                .to_string(),
-        )
-        .challenges_path(
-            challenges_json
-                .to_str()
-                .ok_or(Error::InvalidChallengesJsonPath)?
-                .to_string(),
-        )
-        .cmd(testing_directory)?;
+    let proposer_rewards_inputs = ProposerRewardsCommand {
+        output,
+        block0: deployment.genesis_path(),
+        total_stake_threshold: 0.01,
+        approval_threshold: 0.05,
+        output_format: OutputFormat::Csv,
+        proposals: Some(proposals_json),
+        active_voteplans: Some(vote_plan_json),
+        challenges: Some(vote_plan_json),
+        committee_keys: None,
+        excluded_proposals: None,
+        vit_station_url: "not used".to_string(),
+    };
 
-    rewards_command.assert().success();
+    proposer_rewards(proposer_rewards_inputs);
     Ok(ProposerRewardsResult::from(output))
 }
 
