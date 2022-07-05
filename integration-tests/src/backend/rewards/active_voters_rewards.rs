@@ -8,6 +8,7 @@ use catalyst_toolbox::snapshot::RawSnapshot;
 use catalyst_toolbox::snapshot::Snapshot;
 use chain_impl_mockchain::block::BlockDate;
 use jormungandr_automation::testing::time;
+use jormungandr_lib::crypto::account::Identifier;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vitup::config::VoteBlockchainTime;
 use vitup::config::{Block0Initials, ConfigBuilder};
@@ -28,7 +29,12 @@ pub fn voters_with_at_least_one_vote() {
         clarice_wallet.as_voting_registration(),
     ];
 
-    let snapshot = Snapshot::from_raw_snapshot(RawSnapshot::from(raw_snapshot), 450.into());
+    let snapshot = Snapshot::from_raw_snapshot(
+        RawSnapshot::from(raw_snapshot),
+        450.into(),
+        1.into(),
+        &|_: &Identifier| String::new(),
+    );
     let testing_directory = TempDir::new().unwrap().into_persistent();
 
     let vote_timing = VoteBlockchainTime {

@@ -488,7 +488,7 @@ dependencies = [
 [[package]]
 name = "cardano-legacy-address"
 version = "0.1.1"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "cbor_event",
  "cryptoxide 0.4.2",
@@ -507,7 +507,7 @@ dependencies = [
 [[package]]
 name = "catalyst-toolbox"
 version = "0.3.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=rewards-script-rewrite-it-in-rust#8cdbf0e2e3bcca5b52739b45bbd9dcd840270cf4"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=rewards-script-rewrite-it-in-rust#05e668c9e5fb66994d91358ac3600273c6db5eac"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -616,7 +616,7 @@ dependencies = [
 [[package]]
 name = "chain-addr"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "bech32 0.8.1",
  "chain-core",
@@ -630,7 +630,7 @@ dependencies = [
 [[package]]
 name = "chain-core"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "chain-ser",
 ]
@@ -638,7 +638,7 @@ dependencies = [
 [[package]]
 name = "chain-crypto"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "bech32 0.8.1",
  "cryptoxide 0.4.2",
@@ -660,7 +660,7 @@ dependencies = [
 [[package]]
 name = "chain-evm"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "aurora-bn",
  "base64 0.13.0",
@@ -689,7 +689,7 @@ dependencies = [
 [[package]]
 name = "chain-impl-mockchain"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "cardano-legacy-address",
  "chain-addr",
@@ -729,7 +729,7 @@ dependencies = [
 [[package]]
 name = "chain-ser"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "thiserror",
 ]
@@ -737,7 +737,7 @@ dependencies = [
 [[package]]
 name = "chain-storage"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "criterion",
  "data-pile",
@@ -750,7 +750,7 @@ dependencies = [
 [[package]]
 name = "chain-time"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "chain-core",
  "chain-ser",
@@ -762,7 +762,7 @@ dependencies = [
 [[package]]
 name = "chain-vote"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "cfg-if 1.0.0",
  "chain-core",
@@ -2649,7 +2649,7 @@ dependencies = [
 [[package]]
 name = "imhamt"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 dependencies = [
  "proptest",
  "rustc_version",
@@ -5485,7 +5485,7 @@ dependencies = [
 [[package]]
 name = "sparse-array"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 
 [[package]]
 name = "spin"
@@ -6363,7 +6363,7 @@ dependencies = [
 [[package]]
 name = "typed-bytes"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#ebaf75a79489ced9d120f5330e0e13748b6aec53"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#f7a05921f2091ae8f130d392eccb4f625b10c767"
 
 [[package]]
 name = "typenum"
@@ -6725,7 +6725,7 @@ dependencies = [
 [[package]]
 name = "voting-hir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=rewards-script-rewrite-it-in-rust#8cdbf0e2e3bcca5b52739b45bbd9dcd840270cf4"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=rewards-script-rewrite-it-in-rust#05e668c9e5fb66994d91358ac3600273c6db5eac"
 dependencies = [
  "jormungandr-lib",
  "serde",
