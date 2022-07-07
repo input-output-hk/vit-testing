@@ -4,6 +4,7 @@ use crate::common::iapyx_from_mainnet;
 use crate::common::MainnetWallet;
 use assert_fs::TempDir;
 use catalyst_toolbox::rewards::voters::calc_voter_rewards;
+use catalyst_toolbox::rewards::Rewards;
 use catalyst_toolbox::snapshot::RawSnapshot;
 use catalyst_toolbox::snapshot::Snapshot;
 use chain_impl_mockchain::block::BlockDate;
@@ -34,7 +35,8 @@ pub fn voters_with_at_least_one_vote() {
         450.into(),
         1.into(),
         &|_: &Identifier| String::new(),
-    );
+    )
+    .unwrap();
     let testing_directory = TempDir::new().unwrap().into_persistent();
 
     let vote_timing = VoteBlockchainTime {
@@ -89,13 +91,11 @@ pub fn voters_with_at_least_one_vote() {
     };
     time::wait_for_date(target_date.into(), nodes[0].rest());
 
-    let block0 = &controller.settings().block0;
     let records = calc_voter_rewards(
         nodes[0].rest().account_votes_count().unwrap(),
         1,
-        block0,
-        snapshot,
-        100u32.into(),
+        snapshot.to_full_snapshot_info(),
+        Rewards::ONE,
     )
     .unwrap();
 

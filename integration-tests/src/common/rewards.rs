@@ -4,14 +4,15 @@ use crate::common::vote_plan_status::VotePlanStatusProvider;
 use crate::common::CastedVote;
 use crate::Vote;
 use assert_fs::TempDir;
-use catalyst_toolbox::rewards::proposers::OutputFormat;
-use catalyst_toolbox::rewards::proposers::ProposerRewards as ProposerRewardsCommand;
+use catalyst_toolbox::rewards::proposers::io::write_csv;
 use catalyst_toolbox::rewards::proposers::proposer_rewards;
+use catalyst_toolbox::rewards::proposers::ProposerRewardsInputs;
 use chain_addr::{Address, AddressReadable, Discrimination, Kind};
 use jormungandr_automation::testing::block0;
 use jormungandr_lib::crypto::key::Identifier;
 use jortestkit::prelude::{enhance_exe_name, find_exec};
 use serde::Deserialize;
+use std::collections::HashSet;
 use std::fs::File;
 use std::path::{Path, PathBuf};
 use thiserror::Error;
@@ -27,7 +28,7 @@ pub fn funded_proposals(
     registry: VotesRegistry,
 ) -> Result<ProposerRewardsResult, Error> {
     let deployment = DeploymentTree::from(testing_directory);
-    let block0_configuration = block0::get_block(
+    let block0_config = block0::get_block(
         deployment
             .block0_path()
             .to_str()
@@ -39,23 +40,29 @@ pub fn funded_proposals(
     snapshot.dump_proposals(&proposals_json)?;
     snapshot.dump_challenges(&challenges_json)?;
 
+    let challenges = snapshot.challenges();
+    let proposals = snapshot
+        .proposals()
+        .into_iter()
+        .map(|f| f.proposal)
+        .collect();
+
     let votes = registry
         .iter()
         .flat_map(|(proposal, votes)| {
             votes
                 .iter()
                 .map(|vote| CastedVote::from_proposal(proposal, vote.0, vote.1))
-                .collect::<Vec<CastedVote>>()
         })
         .collect();
 
-    let active_vote_plan = block0_configuration.vote_plan_statuses(votes);
-    let discrimination = block0_configuration.blockchain_configuration.discrimination;
+    let voteplans = block0_config.vote_plan_statuses(votes);
+    let discrimination = block0_config.blockchain_configuration.discrimination;
     let prefix = match discrimination {
         Discrimination::Test => "ta",
         Discrimination::Production => "ca",
     };
-    let committee_addresses: Vec<String> = block0_configuration
+    let committee_keys: Vec<String> = block0_config
         .blockchain_configuration
         .committees
         .iter()
@@ -70,41 +77,29 @@ pub fn funded_proposals(
         .collect();
 
     let vote_plan_json = testing_directory.path().join("vote_plan.json");
-    active_vote_plan.dump(&vote_plan_json)?;
+    voteplans.dump(&vote_plan_json)?;
     let output = testing_directory.path().join("rewards.csv");
 
     let committee_yaml = testing_directory.path().join("committee.yaml");
-    std::fs::write(
-        &committee_yaml,
-        serde_json::to_string(&committee_addresses)?,
-    )?;
+    std::fs::write(&committee_yaml, serde_json::to_string(&committee_keys)?)?;
 
-    let proposer_rewards_inputs = ProposerRewardsCommand {
-        output,
-        block0: deployment.genesis_path(),
+    let committee_keys = committee_keys.iter().map(|s| s.parse().unwrap()).collect();
+
+    let proposer_rewards_inputs = ProposerRewardsInputs {
+        block0_config,
         total_stake_threshold: 0.01,
         approval_threshold: 0.05,
-        output_format: OutputFormat::Csv,
-        proposals: Some(proposals_json),
-        active_voteplans: Some(vote_plan_json),
-        challenges: Some(vote_plan_json),
-        committee_keys: None,
-        excluded_proposals: None,
-        vit_station_url: "not used".to_string(),
+        proposals,
+        voteplans,
+        challenges,
+        committee_keys,
+        excluded_proposals: HashSet::new(),
     };
 
-    proposer_rewards(proposer_rewards_inputs);
+    let results = proposer_rewards(proposer_rewards_inputs)?;
+    let results: Vec<_> = results.into_iter().flat_map(|c| c.1).collect();
+    write_csv(&output, &results)?;
     Ok(ProposerRewardsResult::from(output))
-}
-
-pub fn find_python_exec() -> PathBuf {
-    let proposals = ["python", "python3", "python3.8", "python3.10"];
-    for proposal in proposals {
-        if let Some(path) = find_exec(enhance_exe_name(Path::new(proposal))) {
-            return path;
-        }
-    }
-    panic!("cannot find python executable. Tried: {:?}", proposals);
 }
 
 pub struct ProposerRewards(Vec<ProposerReward>);
@@ -201,9 +196,9 @@ pub enum Error {
     #[error("invalid challenges json path")]
     InvalidChallengesJsonPath,
     #[error(transparent)]
-    ProposerRewardsCmd(#[from] catalyst_toolbox::testing::Error),
-    #[error(transparent)]
     Csv(#[from] csv::Error),
     #[error("cannot find proposal entry: {0}")]
     CannotFindProposal(String),
+    #[error("other: {0}")]
+    Other(#[from] color_eyre::Report),
 }

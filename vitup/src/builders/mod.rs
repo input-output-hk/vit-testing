@@ -144,8 +144,9 @@ impl VitBackendSettingsBuilder {
 
         println!("building blockchain parameters..");
 
+        let fees = self.config.blockchain.linear_fees.clone();
         blockchain = blockchain
-            .with_linear_fee(self.config.blockchain.linear_fees)
+            .with_linear_fee(fees)
             .with_tx_max_expiry_epochs(self.config.blockchain.tx_max_expiry_epochs)
             .with_discrimination(chain_addr::Discrimination::Production)
             .with_block_content_max_size(self.config.blockchain.block_content_max_size.into())
