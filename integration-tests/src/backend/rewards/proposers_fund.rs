@@ -2,6 +2,7 @@ use crate::Vote;
 
 use crate::common::funded_proposals;
 use assert_fs::TempDir;
+use log::{Level, LevelFilter};
 use vit_servicing_station_tests::common::data::{
     ArbitraryValidVotePlanConfig, ChallengeConfig, ProposalConfig, Snapshot, ValidVotePlanGenerator,
 };
@@ -10,6 +11,11 @@ use vitup::testing::vitup_setup;
 
 #[test]
 pub fn single_proposal_in_single_challenge_got_funded() {
+    env_logger::builder()
+        // .is_test(true)
+        .filter_level(LevelFilter::Debug)
+        .init();
+
     let testing_directory = TempDir::new().unwrap().into_persistent();
 
     let voters_funds: Vec<u64> = vec![1_000_000, 10];
@@ -35,6 +41,8 @@ pub fn single_proposal_in_single_challenge_got_funded() {
     let results = funded_proposals(&testing_directory, &snapshot, votes).unwrap();
     let first_challenge = &snapshot.challenges()[0];
     let first_challenge_results = results.challenge_results(&first_challenge.title).unwrap();
+    println!("{:#?}", first_challenge);
+    println!("{:#?}", first_challenge_results);
     let first_proposal = &snapshot.proposals()[0];
     assert!(first_challenge_results
         .is_funded(&first_proposal.proposal.proposal_title)

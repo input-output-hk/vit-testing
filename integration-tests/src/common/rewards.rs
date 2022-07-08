@@ -4,17 +4,18 @@ use crate::common::vote_plan_status::VotePlanStatusProvider;
 use crate::common::CastedVote;
 use crate::Vote;
 use assert_fs::TempDir;
-use catalyst_toolbox::rewards::proposers::io::write_csv;
+use catalyst_toolbox::rewards::proposers::io::write_results;
 use catalyst_toolbox::rewards::proposers::proposer_rewards;
+use catalyst_toolbox::rewards::proposers::Calculation;
+use catalyst_toolbox::rewards::proposers::FundedStatus;
+use catalyst_toolbox::rewards::proposers::OutputFormat;
 use catalyst_toolbox::rewards::proposers::ProposerRewardsInputs;
 use chain_addr::{Address, AddressReadable, Discrimination, Kind};
 use jormungandr_automation::testing::block0;
 use jormungandr_lib::crypto::key::Identifier;
-use jortestkit::prelude::{enhance_exe_name, find_exec};
-use serde::Deserialize;
 use std::collections::HashSet;
 use std::fs::File;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use thiserror::Error;
 use vit_servicing_station_lib::db::models::proposals::FullProposalInfo;
 use vit_servicing_station_tests::common::data::Snapshot;
@@ -97,11 +98,11 @@ pub fn funded_proposals(
     };
 
     let results = proposer_rewards(proposer_rewards_inputs)?;
-    let results: Vec<_> = results.into_iter().flat_map(|c| c.1).collect();
-    write_csv(&output, &results)?;
+    write_results(&output, OutputFormat::Csv, results)?;
     Ok(ProposerRewardsResult::from(output))
 }
 
+#[derive(Debug)]
 pub struct ProposerRewards(Vec<ProposerReward>);
 
 impl From<Vec<ProposerReward>> for ProposerRewards {
@@ -118,26 +119,28 @@ impl ProposerRewards {
             .iter()
             .find(|r| r.proposal == proposal_title)
             .ok_or(Error::CannotFindProposal(proposal_title))?;
-        Ok(proposal_record.status == "FUNDED")
+        Ok(matches!(proposal_record.status, FundedStatus::Funded))
     }
 }
 
-#[derive(Debug, Deserialize)]
-pub struct ProposerReward {
-    pub internal_id: u32,
-    pub proposal_id: String,
-    pub proposal: String,
-    pub overall_score: f32,
-    pub yes: u32,
-    pub no: u32,
-    pub result: u32,
-    pub meets_approval_threshold: String,
-    pub requested_dollars: u32,
-    pub status: String,
-    pub fund_depletion: u32,
-    pub not_funded_reason: String,
-    pub link_to_ideascale: String,
-}
+// #[derive(Debug, Deserialize)]
+// pub struct ProposerReward {
+//     pub internal_id: u32,
+//     pub proposal_id: String,
+//     pub proposal: String,
+//     pub overall_score: f32,
+//     pub yes: u32,
+//     pub no: u32,
+//     pub result: u32,
+//     pub meets_approval_threshold: String,
+//     pub requested_dollars: u32,
+//     pub status: String,
+//     pub fund_depletion: u32,
+//     pub not_funded_reason: String,
+//     pub link_to_ideascale: String,
+// }
+
+pub type ProposerReward = Calculation;
 
 pub struct ProposerRewardsResult {
     template: PathBuf,
@@ -166,7 +169,7 @@ impl ProposerRewardsResult {
         challenge_title: S,
     ) -> Result<ProposerRewards, Error> {
         let file_path = self.file_path(challenge_title);
-        let file = File::open(file_path)?;
+        let file = File::open(&file_path)?;
         let mut rdr = csv::Reader::from_reader(file);
         let mut records = Vec::new();
         for result in rdr.deserialize() {
