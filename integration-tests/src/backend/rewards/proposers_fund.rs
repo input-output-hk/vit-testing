@@ -2,7 +2,7 @@ use crate::Vote;
 
 use crate::common::funded_proposals;
 use assert_fs::TempDir;
-use log::{Level, LevelFilter};
+use log::LevelFilter;
 use vit_servicing_station_tests::common::data::{
     ArbitraryValidVotePlanConfig, ChallengeConfig, ProposalConfig, Snapshot, ValidVotePlanGenerator,
 };
