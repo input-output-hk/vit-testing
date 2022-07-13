@@ -42,7 +42,7 @@ use voting_hir::VoterHIR;
 use warp::http::header::{HeaderMap, HeaderValue};
 use warp::hyper::service::make_service_fn;
 use warp::{reject::Reject, Filter, Rejection, Reply};
-mod reject;
+pub mod reject;
 
 use reject::{report_invalid, ForcedErrorCode, GeneralException, InvalidBatch};
 

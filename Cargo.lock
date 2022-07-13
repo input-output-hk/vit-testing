@@ -6805,6 +6805,7 @@ dependencies = [
  "jortestkit",
  "json",
  "lazy_static",
+ "netstat2",
  "poldercast 0.14.0-dev",
  "proptest",
  "quickcheck",
