@@ -1,7 +1,8 @@
-use futures::future::FutureExt;
 use std::fs::File;
 use std::io::Write;
 use std::path::{Path, PathBuf};
+
+use futures::future::FutureExt;
 use structopt::StructOpt;
 use thiserror::Error;
 

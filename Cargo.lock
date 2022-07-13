@@ -516,7 +516,7 @@ dependencies = [
 [[package]]
 name = "catalyst-toolbox"
 version = "0.5.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=catalyst-fund9#9abbf7e3a259ca79433976859ad9b2e0d503b4e9"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=catalyst-fund9#3ff3e5fed70f5a8adb400a6764945b250d1599e3"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -2793,7 +2793,6 @@ dependencies = [
  "chain-ser",
  "chrono",
  "csv",
- "fraction",
  "hersir",
  "iapyx",
  "jcli",
@@ -2801,7 +2800,6 @@ dependencies = [
  "jormungandr-lib",
  "jortestkit",
  "libmath",
- "mainnet-tools",
  "rand 0.8.5",
  "rand_chacha 0.2.2",
  "registration-service",
@@ -2815,7 +2813,6 @@ dependencies = [
  "vit-servicing-station-lib",
  "vit-servicing-station-tests",
  "vitup",
- "voting-hir",
 ]
 
 [[package]]
@@ -3315,29 +3312,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8015d95cb7b2ddd3c0d32ca38283ceb1eea09b4713ee380bceb942d85a244228"
 dependencies = [
  "hashbrown",
-]
-
-[[package]]
-name = "mainnet-tools"
-version = "0.1.0"
-dependencies = [
- "assert_fs",
- "bech32 0.8.1",
- "catalyst-toolbox",
- "chain-addr",
- "chain-crypto",
- "futures",
- "hex",
- "jormungandr-lib",
- "rand 0.8.5",
- "serde",
- "serde_json",
- "signals-handler",
- "structopt",
- "tempdir",
- "thiserror",
- "thor",
- "tokio 1.19.2",
 ]
 
 [[package]]
@@ -5558,7 +5532,7 @@ checksum = "f2dd574626839106c320a323308629dcb1acfc96e32a8cba364ddc61ac23ee83"
 [[package]]
 name = "snapshot-service"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#90e434f2445c47010b141a8a49b7df6e4eaeceec"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#d9ff489af48946781535e8c1a9c8f8cad7589c1b"
 dependencies = [
  "jormungandr-lib",
  "notify",
@@ -5577,13 +5551,11 @@ name = "snapshot-trigger-service"
 version = "0.1.0"
 dependencies = [
  "assert_fs",
- "catalyst-toolbox",
  "chain-addr",
  "chrono",
  "futures",
  "jormungandr-lib",
  "jortestkit",
- "mainnet-tools",
  "reqwest 0.10.10",
  "serde",
  "serde_json",
@@ -6701,7 +6673,7 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-lib"
 version = "0.5.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#90e434f2445c47010b141a8a49b7df6e4eaeceec"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#d9ff489af48946781535e8c1a9c8f8cad7589c1b"
 dependencies = [
  "async-trait",
  "base64 0.12.3",
@@ -6733,7 +6705,7 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-tests"
 version = "0.5.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#6076317d85f20870e28317efc32661b94ff1fe06"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#d9ff489af48946781535e8c1a9c8f8cad7589c1b"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -6853,7 +6825,7 @@ checksum = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"
 [[package]]
 name = "voting-hir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=catalyst-fund9#9abbf7e3a259ca79433976859ad9b2e0d503b4e9"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=catalyst-fund9#839821ac7c6a774ff06a1ba34df9b5a126e5293c"
 dependencies = [
  "jormungandr-lib",
  "serde",

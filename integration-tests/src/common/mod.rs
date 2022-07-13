@@ -1,6 +1,6 @@
 mod assert;
 pub mod load;
-pub mod mainnet_wallet_ext;
+mod mainnet;
 pub mod registration;
 mod rewards;
 pub mod snapshot;
@@ -9,7 +9,7 @@ mod vote_plan_status;
 mod wallet;
 
 pub use assert::*;
-pub use mainnet_tools::wallet::MainnetWallet;
+pub use mainnet::MainnetWallet;
 pub use rewards::{funded_proposals, VotesRegistry};
 pub use static_data::SnapshotExtensions;
 use thiserror::Error;

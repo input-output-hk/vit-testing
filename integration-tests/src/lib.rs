@@ -1,10 +1,11 @@
 cfg_if::cfg_if! {
     if #[cfg(test)] {
         pub mod common;
-        pub mod component;
+        pub mod backend;
         pub mod non_functional;
-        pub mod integration;
+        pub mod registration;
         pub mod e2e;
+        pub mod snapshot;
     }
 }
 
