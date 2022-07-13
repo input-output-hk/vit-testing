@@ -5532,7 +5532,7 @@ checksum = "f2dd574626839106c320a323308629dcb1acfc96e32a8cba364ddc61ac23ee83"
 [[package]]
 name = "snapshot-service"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#d9ff489af48946781535e8c1a9c8f8cad7589c1b"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#68484d80cc738d952a72e773a22b4aa5b9c21259"
 dependencies = [
  "jormungandr-lib",
  "notify",
@@ -6673,7 +6673,7 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-lib"
 version = "0.5.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#d9ff489af48946781535e8c1a9c8f8cad7589c1b"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#68484d80cc738d952a72e773a22b4aa5b9c21259"
 dependencies = [
  "async-trait",
  "base64 0.12.3",
@@ -6705,7 +6705,7 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-tests"
 version = "0.5.0"
-source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#d9ff489af48946781535e8c1a9c8f8cad7589c1b"
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=catalyst-fund9#68484d80cc738d952a72e773a22b4aa5b9c21259"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
