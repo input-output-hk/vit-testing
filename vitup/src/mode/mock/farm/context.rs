@@ -87,6 +87,10 @@ impl Context {
     }
 
     pub fn start_mock_on_random_port(&mut self, id: MockId) -> Result<u16, Error> {
+        if self.state.contains_key(&id) {
+            return Err(Error::EnvironmentAlreadyExist(id));
+        }
+
         let mock_controller = MockBootstrap::new(id.clone())
             .https()
             .working_directory(self.config.working_directory.clone())
@@ -116,4 +120,6 @@ pub enum Error {
     Controller(#[from] super::ControllerError),
     #[error("cannot find mock env with id: {0}")]
     CannotFindMock(MockId),
+    #[error("mock env with name: '{0}' already exist, please choose another name")]
+    EnvironmentAlreadyExist(MockId),
 }

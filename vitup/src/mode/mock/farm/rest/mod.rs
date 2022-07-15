@@ -80,14 +80,7 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                 .with(warp::reply::with::headers(default_headers.clone()))
                 .boxed();
 
-            let start_mock = warp::path!(String / u16)
-                .and(warp::post())
-                .and(with_context.clone())
-                .and_then(start_mock)
-                .with(warp::reply::with::headers(default_headers.clone()))
-                .boxed();
-
-            root.and(start_mock_on_random_port.or(start_mock)).boxed()
+            root.and(start_mock_on_random_port).boxed()
         };
 
         root.and(active.or(shutdown).or(start)).boxed()
@@ -219,16 +212,6 @@ pub async fn start_mock_on_random_port(
 ) -> Result<impl Reply, Rejection> {
     let mut context_lock = context.lock().unwrap();
     let port = context_lock.start_mock_on_random_port(id)?;
-    Ok(HandlerResult(Ok(port)))
-}
-
-pub async fn start_mock(
-    id: MockId,
-    port: u16,
-    context: ContextLock,
-) -> Result<impl Reply, Rejection> {
-    let mut context_lock = context.lock().unwrap();
-    let port = context_lock.start_mock(id, port)?;
     Ok(HandlerResult(Ok(port)))
 }
 

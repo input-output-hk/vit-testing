@@ -85,6 +85,7 @@ impl MockBootstrap {
             self.configuration.protocol = certs.into();
         }
 
+        self.configuration.working_dir = self.working_directory.join(&self.mock_id).join("data");
         let mut config_path = self.working_directory.join(&self.mock_id);
         std::fs::create_dir_all(&config_path)?;
         config_path = config_path.join("config.yaml");

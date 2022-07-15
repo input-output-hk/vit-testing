@@ -22,7 +22,7 @@ pub fn read_config<P: AsRef<Path>>(config: P) -> Result<Configuration, Error> {
 }
 
 pub fn write_config<P: AsRef<Path>>(configuration: &Configuration, path: P) -> Result<(), Error> {
-    let content = serde_json::to_string(&configuration)?;
+    let content = serde_json::to_string_pretty(&configuration)?;
     use std::io::Write;
     let mut file = std::fs::File::create(&path)?;
     file.write_all(content.as_bytes()).map_err(Into::into)

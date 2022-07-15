@@ -1,6 +1,5 @@
 use crate::Result;
 use assert_fs::TempDir;
-use core::ops::Range;
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use std::path::PathBuf;
@@ -9,8 +8,6 @@ use valgrind::Protocol;
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Config {
     pub port: u16,
-    #[serde(alias = "mocks-port-range")]
-    pub mocks_port_range: Range<u16>,
     pub token: Option<String>,
     pub working_directory: PathBuf,
     pub protocol: Protocol,
@@ -20,8 +17,7 @@ pub struct Config {
 impl Default for Config {
     fn default() -> Self {
         Self {
-            port: 8080,
-            mocks_port_range: 8080..9090,
+            port: 7070,
             token: None,
             working_directory: TempDir::new().unwrap().into_persistent().to_path_buf(),
             protocol: Default::default(),
