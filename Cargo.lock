@@ -4067,6 +4067,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "path-slash"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c54014ba3c1880122928735226f78b6f5bf5bd1fed15e41e92cf7aa20278ce28"
+
+[[package]]
 name = "pbkdf2"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6778,6 +6784,7 @@ dependencies = [
  "json",
  "lazy_static",
  "netstat2",
+ "path-slash",
  "poldercast 0.14.0-dev",
  "proptest",
  "quickcheck",

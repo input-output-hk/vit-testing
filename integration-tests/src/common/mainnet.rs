@@ -1,4 +1,4 @@
-use catalyst_toolbox::snapshot::registration::{Delegations, VotingRegistration};
+use catalyst_toolbox::snapshot::CatalystRegistration;
 use chain_addr::Discrimination;
 use jormungandr_lib::crypto::account::SigningKey;
 use vitup::config::Block0Initial;
@@ -39,13 +39,12 @@ impl MainnetWallet {
         self.inner.secret_key()
     }
 
-    pub fn as_voting_registration(&self) -> VotingRegistration {
-        VotingRegistration {
+    pub fn as_voting_registration(&self) -> CatalystRegistration {
+        CatalystRegistration {
             stake_public_key: self.stake_public_key(),
             voting_power: self.stake.into(),
             reward_address: self.reward_address(),
-            delegations: Delegations::Legacy(self.inner.identifier().into()),
-            voting_purpose: 0,
+            voting_public_key: self.inner.identifier().into(),
         }
     }
 
