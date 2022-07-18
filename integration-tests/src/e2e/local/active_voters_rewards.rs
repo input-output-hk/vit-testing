@@ -16,12 +16,10 @@ use mainnet_tools::voting_tools::VotingToolsMock;
 use snapshot_trigger_service::config::ConfigurationBuilder;
 use snapshot_trigger_service::config::JobParameters;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
-use catalyst_toolbox::snapshot::voting_group::RepsVotersAssigner;
 use vitup::config::VoteBlockchainTime;
 use vitup::config::{Block0Initials, ConfigBuilder};
 use vitup::testing::spawn_network;
 use vitup::testing::vitup_setup;
-use fraction::Fraction;
 
 #[test]
 pub fn voters_with_at_least_one_vote() {
@@ -37,14 +35,6 @@ pub fn voters_with_at_least_one_vote() {
     let mut db_sync_instance = DbSyncInstance::default();
 
     mainnet_network.sync_with(&mut db_sync_instance);
-    let voters_assigner = RepsVotersAssigner::new(
-            VotingGroup,
-            VotingGroup,
-            "https://drep.io",
-        );
-
-    let snapshot = Snapshot::from_raw_snapshot(RawSnapshot::from(raw_snapshot), 450.into(), Fraction::new(1u8, 2u8),&voters_assigner).unwrap();
-    let testing_directory = TempDir::new().unwrap().into_persistent();
 
     alice_wallet
         .send_direct_voting_registration()
