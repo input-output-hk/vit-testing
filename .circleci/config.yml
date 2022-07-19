@@ -63,7 +63,7 @@ jobs:
           command: |
             git clone https://github.com/input-output-hk/jormungandr.git
             cd jormungandr
-            git checkout merge_tally_e2e
+            git checkout master
       - run:
           name: install jormungandr
           command: |
@@ -154,7 +154,7 @@ commands:
           command: |
             git clone https://github.com/input-output-hk/jormungandr.git
             cd jormungandr
-            git checkout merge_tally_e2e
+            git checkout master
       - run:
           name: install jormungandr
           command: |
