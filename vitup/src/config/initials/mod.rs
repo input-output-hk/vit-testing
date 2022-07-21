@@ -8,6 +8,7 @@ pub use snapshot::{
 };
 use std::fmt;
 use std::str::FromStr;
+use thiserror::Error;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Initials {
@@ -33,14 +34,22 @@ impl fmt::Display for Role {
 }
 
 impl FromStr for Role {
-    type Err = std::convert::Infallible;
+    type Err = Error;
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         if s.to_lowercase() == "direct" {
             Ok(Role::Voter)
-        } else {
+        } else if s.to_lowercase() == "dreps" {
             Ok(Role::Representative)
+        } else {
+            Err(Error::UnknownRole(s.to_string()))
         }
     }
+}
+
+#[derive(Error, Debug)]
+pub enum Error {
+    #[error("unknown type of role: {0}")]
+    UnknownRole(String),
 }
 
 impl Default for Role {

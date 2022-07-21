@@ -72,7 +72,7 @@ pub fn cip36_mixed_delegation() {
 
     let voter_hir = SnapshotServiceStarter::default()
         .with_configuration(configuration)
-        .start(&testing_directory)
+        .start_on_available_port(&testing_directory)
         .unwrap()
         .snapshot(
             JobParameters::fund("fund9"),
@@ -163,7 +163,7 @@ pub fn voting_power_cap_for_reps() {
 
     let voter_hir = SnapshotServiceStarter::default()
         .with_configuration(configuration)
-        .start(&testing_directory)
+        .start_on_available_port(&testing_directory)
         .unwrap()
         .snapshot(
             JobParameters::fund("fund9"),
@@ -220,7 +220,7 @@ pub fn voting_power_cap_for_direct() {
 
     let voter_hir = SnapshotServiceStarter::default()
         .with_configuration(configuration)
-        .start(&testing_directory)
+        .start_on_available_port(&testing_directory)
         .unwrap()
         .snapshot(
             JobParameters::fund("fund9"),
@@ -283,10 +283,12 @@ pub fn voting_power_cap_for_mix() {
     )
     .unwrap();
 
-    let voter_hir = SnapshotServiceStarter::default()
+    let snapshot_service = SnapshotServiceStarter::default()
         .with_configuration(configuration)
-        .start(&testing_directory)
-        .unwrap()
+        .start_on_available_port(&testing_directory)
+        .unwrap();
+
+    let voter_hir = snapshot_service
         .snapshot(
             JobParameters::fund("fund9"),
             450u64,

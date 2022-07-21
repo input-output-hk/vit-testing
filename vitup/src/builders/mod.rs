@@ -285,6 +285,7 @@ impl VitBackendSettingsBuilder {
 
         let parameters = build_servicing_station_parameters(
             &self.config,
+            token_list,
             controller.defined_vote_plans(),
             &controller.settings(),
         );

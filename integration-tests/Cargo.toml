@@ -31,7 +31,9 @@ chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.gi
 catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "test_api_for_snapshot", features=["test-api"]}
 voting-hir = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "test_api_for_snapshot"}
 thiserror = "1.0"
+netstat2 = "0.9"
 rand = "0.8"
+lazy_static = "1"
 libmath = "0.2.1"
 cfg-if = "1.0.0"
 assert_fs = "1.0"

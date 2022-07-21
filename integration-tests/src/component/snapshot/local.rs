@@ -72,7 +72,7 @@ pub fn mixed_registration_transactions() {
 
     let voters_hir = SnapshotServiceStarter::default()
         .with_configuration(configuration)
-        .start(&testing_directory)
+        .start_on_available_port(&testing_directory)
         .unwrap()
         .snapshot(
             JobParameters::fund("fund9"),

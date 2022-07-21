@@ -56,7 +56,7 @@ pub fn voters_with_at_least_one_vote() {
 
     let snapshot = SnapshotServiceStarter::default()
         .with_configuration(configuration)
-        .start(&testing_directory)
+        .start_on_available_port(&testing_directory)
         .unwrap()
         .snapshot(
             JobParameters::fund("fund9"),

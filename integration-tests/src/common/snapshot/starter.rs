@@ -1,3 +1,4 @@
+use crate::common::get_available_port;
 use crate::common::snapshot::SnapshotServiceController;
 use assert_fs::fixture::PathChild;
 use assert_fs::TempDir;
@@ -32,6 +33,14 @@ impl SnapshotServiceStarter {
     pub fn with_path_to_bin<P: AsRef<Path>>(mut self, path: P) -> Self {
         self.path_to_bin = path.as_ref().to_path_buf();
         self
+    }
+
+    pub fn start_on_available_port(
+        mut self,
+        temp_dir: &TempDir,
+    ) -> Result<SnapshotServiceController, Error> {
+        self.configuration.port = get_available_port();
+        self.start(temp_dir)
     }
 
     pub fn start(self, temp_dir: &TempDir) -> Result<SnapshotServiceController, Error> {

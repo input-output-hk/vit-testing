@@ -85,10 +85,12 @@ pub fn cip36_and_voting_group_merge() {
     )
     .unwrap();
 
-    let voter_hir = SnapshotServiceStarter::default()
+    let snapshot_service = SnapshotServiceStarter::default()
         .with_configuration(configuration)
-        .start(&testing_directory)
-        .unwrap()
+        .start_on_available_port(&testing_directory)
+        .unwrap();
+
+    let voter_hir = snapshot_service
         .snapshot(
             JobParameters::fund("fund9"),
             450u64,
