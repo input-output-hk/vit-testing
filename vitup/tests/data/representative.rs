@@ -1,10 +1,10 @@
 use assert_fs::TempDir;
 use chain_addr::Discrimination;
+use chain_crypto::bech32::Bech32;
 use chain_impl_mockchain::tokens::identifier::TokenIdentifier as ChainTokenId;
-use jormungandr_lib::interfaces::Block0Configuration;
-use jormungandr_lib::interfaces::Destination;
-use jormungandr_lib::interfaces::Initial;
+use itertools::Itertools;
 use jormungandr_lib::interfaces::TokenIdentifier;
+use std::collections::HashMap;
 use std::path::PathBuf;
 use std::str::FromStr;
 use valgrind::ValgrindClient;
@@ -63,7 +63,7 @@ pub fn representative_multiple_vote_plans() {
                 role: Role::Voter,
             },
             Block0Initial::External {
-                address: alice.address().to_string(),
+                address: bob.address().to_string(),
                 funds,
                 role: Role::Representative,
             },
@@ -82,43 +82,84 @@ pub fn representative_multiple_vote_plans() {
 
     let files_tree = DeploymentTree::new(testing_directory.path());
 
-    let contents = std::fs::read_to_string(&files_tree.voting_token()).unwrap();
-    let voting_tokens: Vec<(Role, TokenIdentifier)> = serde_json::from_str(&contents).unwrap();
-
-    println!("{:?}", voting_tokens.iter().cloned().map(|(r, t)| (r, t)));
-
-    let contents = std::fs::read_to_string(&files_tree.genesis_path()).unwrap();
-    let block_configuration: Block0Configuration = serde_json::from_str(&contents).unwrap();
+    let (voter_token, drep_token) = get_expected_tokens(&files_tree);
 
     let backend_client = ValgrindClient::new(wallet_proxy.address(), Default::default()).unwrap();
 
-    println!("{:?}", backend_client.vit_client().proposals("direct"));
-    println!("{:?}", backend_client.vit_client().proposals("dreps"));
+    let direct_vote_plans_ids = vote_plans_ids_for_group(&Role::Voter.to_string(), &backend_client);
+    let drep_vote_plans_ids =
+        vote_plans_ids_for_group(&Role::Representative.to_string(), &backend_client);
 
-    for initial in block_configuration.initial {
-        if let Initial::Token(token) = initial {
-            let chain_token: ChainTokenId = token.token_id.into();
+    let vote_plan_statuses = backend_client.node_client().vote_plan_statuses().unwrap();
 
-            if token.to.contains(&Destination {
-                address: alice.address(),
-                value: funds.into(),
-            }) {
-                println!(
-                    "alice: {} -> {} ",
-                    alice.address(),
-                    hex::encode(&chain_token.token_name)
-                );
-            }
-            if token.to.contains(&Destination {
-                address: bob.address(),
-                value: funds.into(),
-            }) {
-                println!(
-                    "bob: {} -> {} ",
-                    bob.address(),
-                    hex::encode(&chain_token.token_name)
-                );
-            }
-        }
-    }
+    assert_eq!(
+        vec![voter_token.clone()],
+        vote_plan_statuses
+            .iter()
+            .filter(|v| direct_vote_plans_ids.contains(&v.id.to_string()))
+            .map(|v| voting_token_to_string(&v.voting_token))
+            .unique()
+            .collect::<Vec<String>>()
+    );
+    assert_eq!(
+        vec![drep_token.clone()],
+        vote_plan_statuses
+            .iter()
+            .filter(|v| drep_vote_plans_ids.contains(&v.id.to_string()))
+            .map(|v| voting_token_to_string(&v.voting_token))
+            .unique()
+            .collect::<Vec<String>>()
+    );
+
+    let alice_state = backend_client
+        .node_client()
+        .account_state_by_pk(alice.public_key().to_bech32_str())
+        .unwrap();
+    let bob_state = backend_client
+        .node_client()
+        .account_state_by_pk(bob.public_key().to_bech32_str())
+        .unwrap();
+
+    assert_eq!(
+        vec![voter_token],
+        alice_state
+            .tokens()
+            .iter()
+            .map(|(t, _)| voting_token_to_string(t))
+            .collect::<Vec<String>>()
+    );
+    assert_eq!(
+        vec![drep_token],
+        bob_state
+            .tokens()
+            .iter()
+            .map(|(t, _)| voting_token_to_string(t))
+            .collect::<Vec<String>>()
+    );
+}
+
+fn get_expected_tokens(files_tree: &DeploymentTree) -> (String, String) {
+    let contents = std::fs::read_to_string(&files_tree.voting_token()).unwrap();
+    let voting_tokens: Vec<(Role, TokenIdentifier)> = serde_json::from_str(&contents).unwrap();
+    let tokens: HashMap<Role, _> = voting_tokens.iter().cloned().map(|(r, t)| (r, t)).collect();
+    (
+        voting_token_to_string(tokens.get(&Role::Voter).unwrap()),
+        voting_token_to_string(tokens.get(&Role::Representative).unwrap()),
+    )
+}
+
+fn vote_plans_ids_for_group(group: &str, backend_client: &ValgrindClient) -> Vec<String> {
+    backend_client
+        .vit_client()
+        .proposals(group)
+        .unwrap()
+        .iter()
+        .map(|p| p.voteplan.chain_voteplan_id.clone())
+        .unique()
+        .collect::<Vec<String>>()
+}
+
+fn voting_token_to_string(voting_token: &TokenIdentifier) -> String {
+    let token: ChainTokenId = voting_token.clone().into();
+    hex::encode(token.token_name)
 }
