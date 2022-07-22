@@ -112,8 +112,8 @@ pub fn proposals_eq(
     }
 
     let mut expected_list: Vec<_> = expected_list.iter().cloned().collect();
-    expected_list.sort_by_key(|p| p.internal_id.clone());
-    actual_list.sort_by_key(|p| p.proposal.internal_id);
+    expected_list.sort_by_key(|p| p.proposal_id.clone());
+    actual_list.sort_by_key(|p| p.proposal.proposal_id.clone());
 
     for (expected, actual) in expected_list.iter().zip(actual_list.iter()) {
         assert_eq!(
