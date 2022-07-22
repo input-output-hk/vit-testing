@@ -46,11 +46,11 @@ impl SnapshotServiceStarter {
     pub fn start(self, temp_dir: &TempDir) -> Result<SnapshotServiceController, Error> {
         let config_file = temp_dir.child("snapshot_trigger_service_config.yaml");
         write_config(self.configuration.clone(), config_file.path())?;
+        let mut command = Command::new(self.path_to_bin);
+        command.arg("--config").arg(config_file.path());
+        println!("Starting snapshot service: {:?}", command);
         Ok(SnapshotServiceController::new(
-            Command::new(self.path_to_bin)
-                .arg("--config")
-                .arg(config_file.path())
-                .spawn()?,
+            command.spawn()?,
             self.configuration,
         ))
     }

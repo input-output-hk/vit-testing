@@ -68,6 +68,7 @@ impl SnapshotServiceController {
 
 impl Drop for SnapshotServiceController {
     fn drop(&mut self) {
+        println!("shutting down snapshot service");
         // There's no kill like overkill
         let _ = self.child.kill();
         // FIXME: These should be better done in a test harness

@@ -184,7 +184,7 @@ pub fn read_config<P: AsRef<Path>>(config: P) -> Result<Configuration, Error> {
 pub fn write_config<P: AsRef<Path>>(config: Configuration, path: P) -> Result<(), Error> {
     use std::io::Write;
     let mut file = std::fs::File::create(&path)?;
-    file.write_all(serde_json::to_string(&config)?.as_bytes())
+    file.write_all(serde_json::to_string_pretty(&config)?.as_bytes())
         .map_err(Into::into)
 }
 
