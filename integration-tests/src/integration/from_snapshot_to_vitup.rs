@@ -23,7 +23,7 @@ use vitup::config::ConfigBuilder;
 use vitup::testing::vitup_setup;
 
 const DIRECT_VOTING_GROUP: &str = "direct";
-const REP_VOTING_GROUP: &str = "rep";
+const REP_VOTING_GROUP: &str = "dreps";
 
 #[test]
 pub fn cip36_mixed_delegation_should_appear_in_block0() {

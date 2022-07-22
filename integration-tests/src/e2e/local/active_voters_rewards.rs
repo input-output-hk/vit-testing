@@ -16,6 +16,7 @@ use mainnet_tools::voting_tools::VotingToolsMock;
 use snapshot_trigger_service::config::ConfigurationBuilder;
 use snapshot_trigger_service::config::JobParameters;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
+use vitup::config::Role;
 use vitup::config::VoteBlockchainTime;
 use vitup::config::{Block0Initials, ConfigBuilder};
 use vitup::testing::spawn_network;
@@ -99,17 +100,18 @@ pub fn voters_with_at_least_one_vote() {
     let mut alice = iapyx_from_mainnet(&alice_wallet, &wallet_proxy).unwrap();
     let mut bob = iapyx_from_mainnet(&bob_wallet, &wallet_proxy).unwrap();
 
-    let fund1_vote_plan = &controller.defined_vote_plans()[0];
+    let voteplan_alias = format!(
+        "{}-{}",
+        config.data.current_fund.fund_info.fund_name,
+        Role::Voter
+    );
+    let vote_plan = controller.defined_vote_plan(&voteplan_alias).unwrap();
 
-    alice
-        .vote_for(fund1_vote_plan.id(), 0, Vote::Yes as u8)
-        .unwrap();
+    alice.vote_for(vote_plan.id(), 0, Vote::Yes as u8).unwrap();
 
-    bob.vote_for(fund1_vote_plan.id(), 1, Vote::Yes as u8)
-        .unwrap();
+    bob.vote_for(vote_plan.id(), 1, Vote::Yes as u8).unwrap();
 
-    bob.vote_for(fund1_vote_plan.id(), 0, Vote::Yes as u8)
-        .unwrap();
+    bob.vote_for(vote_plan.id(), 0, Vote::Yes as u8).unwrap();
 
     let target_date = BlockDate {
         epoch: 1,
@@ -117,13 +119,33 @@ pub fn voters_with_at_least_one_vote() {
     };
     time::wait_for_date(target_date.into(), nodes[0].rest());
 
+    let account_votes_count = nodes[0]
+        .rest()
+        .account_votes_all()
+        .unwrap()
+        .iter()
+        .map(|(a, account_votes)| {
+            (
+                a.clone(),
+                account_votes
+                    .iter()
+                    .map(|av| av.votes.clone())
+                    .fold(0u64, |sum, votes| sum + votes.len() as u64),
+            )
+        })
+        .collect();
+
+    println!("{:?}", account_votes_count);
+
     let records = calc_voter_rewards(
-        nodes[0].rest().account_votes_count().unwrap(),
+        account_votes_count,
         1,
         snapshot.to_full_snapshot_info(),
         100u32.into(),
     )
     .unwrap();
+
+    println!("{:?}", records);
 
     assert_eq!(
         records

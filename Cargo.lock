@@ -2303,7 +2303,7 @@ dependencies = [
 [[package]]
 name = "hersir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#7320b83d3f93646dad31de2a1bbd3317091b0ef7"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -2851,7 +2851,7 @@ checksum = "112c678d4050afce233f4f2852bb2eb519230b3cf12f33585275537d7e41578d"
 [[package]]
 name = "jcli"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#7320b83d3f93646dad31de2a1bbd3317091b0ef7"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -2894,7 +2894,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-automation"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#7320b83d3f93646dad31de2a1bbd3317091b0ef7"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -2959,7 +2959,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-integration-tests"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#7320b83d3f93646dad31de2a1bbd3317091b0ef7"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -3011,7 +3011,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-lib"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#7320b83d3f93646dad31de2a1bbd3317091b0ef7"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -3263,7 +3263,7 @@ dependencies = [
 [[package]]
 name = "loki"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#7320b83d3f93646dad31de2a1bbd3317091b0ef7"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
 dependencies = [
  "chain-addr",
  "chain-core",
@@ -3498,7 +3498,7 @@ dependencies = [
 [[package]]
 name = "mjolnir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#7320b83d3f93646dad31de2a1bbd3317091b0ef7"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -4707,9 +4707,9 @@ dependencies = [
 
 [[package]]
 name = "regex"
-version = "1.5.6"
+version = "1.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d83f127d94bdbcda4c8cc2e50f6f84f4b611f69c902699ca385a39c3a75f9ff1"
+checksum = "4c4eb3267174b8c6c2f654116623910a0fef09c4753f8dd83db29c48a0df988b"
 dependencies = [
  "aho-corasick",
  "memchr",
@@ -4727,9 +4727,9 @@ dependencies = [
 
 [[package]]
 name = "regex-syntax"
-version = "0.6.26"
+version = "0.6.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "49b3de9ec5dc0a3417da371aab17d729997c15010e7fd24ff707773a33bddb64"
+checksum = "a3f87b73ce11b1619a3c6332f45341e0047173771e8b8b73f87bfeefb7b56244"
 
 [[package]]
 name = "registration-service"
@@ -5851,7 +5851,7 @@ dependencies = [
 [[package]]
 name = "thor"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#7320b83d3f93646dad31de2a1bbd3317091b0ef7"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
