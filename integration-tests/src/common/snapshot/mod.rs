@@ -32,4 +32,6 @@ pub enum Error {
     SnapshotClient(#[from] SnapshotClientError),
     #[error(transparent)]
     Config(#[from] snapshot_trigger_service::config::Error),
+    #[error("cannot bootstrap snapshot service on port {0}")]
+    Bootstrap(u16),
 }

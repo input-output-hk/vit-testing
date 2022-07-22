@@ -152,10 +152,8 @@ impl SnapshotRestClient {
     }
 
     pub fn is_up(&self) -> bool {
-        if let Ok(path) = self.get("api/health") {
-            if let Ok(response) = reqwest::blocking::get(&path) {
-                return response.status() == reqwest::StatusCode::OK;
-            }
+        if let Ok(response) = reqwest::blocking::get(&self.path("api/health")) {
+            return response.status() == reqwest::StatusCode::OK;
         }
         false
     }

@@ -46,12 +46,35 @@ impl SnapshotServiceStarter {
     pub fn start(self, temp_dir: &TempDir) -> Result<SnapshotServiceController, Error> {
         let config_file = temp_dir.child("snapshot_trigger_service_config.yaml");
         write_config(self.configuration.clone(), config_file.path())?;
-        let mut command = Command::new(self.path_to_bin);
+        let mut command = Command::new(self.path_to_bin.clone());
         command.arg("--config").arg(config_file.path());
         println!("Starting snapshot service: {:?}", command);
-        Ok(SnapshotServiceController::new(
-            command.spawn()?,
-            self.configuration,
-        ))
+        let snapshot_service_bootstrap =
+            SnapshotServiceController::new(command.spawn()?, self.configuration.clone());
+        self.wait_for_bootstrap(snapshot_service_bootstrap)
+    }
+
+    fn wait_for_bootstrap(
+        self,
+        controller: SnapshotServiceController,
+    ) -> Result<SnapshotServiceController, Error> {
+        let attempts = 5;
+        let mut current_attempt = 1;
+        loop {
+            if current_attempt > attempts {
+                return Err(Error::Bootstrap(self.configuration.port));
+            }
+
+            if controller.client().is_up() {
+                return Ok(controller);
+            }
+
+            println!(
+                "waiting for snapshot service bootstrap... {}/{}",
+                current_attempt, attempts
+            );
+            std::thread::sleep(std::time::Duration::from_secs(10));
+            current_attempt += 1;
+        }
     }
 }
