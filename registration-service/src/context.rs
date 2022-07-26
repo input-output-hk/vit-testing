@@ -1,9 +1,10 @@
 pub type ContextLock = Arc<Mutex<Context>>;
-use crate::cardano::CardanoCliExecutor;
+use crate::cardano::cli::CardanoCli;
 use crate::config::Configuration;
-use crate::job::{Error as JobError, JobOutputInfo};
+use crate::job::JobOutputInfo;
 use crate::request::Request;
 use crate::rest::ServerStopper;
+use crate::Error as JobError;
 use chrono::{NaiveDateTime, Utc};
 use serde::{Deserialize, Serialize};
 use std::fmt;
@@ -41,8 +42,8 @@ impl Context {
         &self.server_stopper
     }
 
-    pub fn cardano_cli_executor(&self) -> CardanoCliExecutor {
-        CardanoCliExecutor::new(self.config.clone())
+    pub fn cardano_cli_executor(&self) -> CardanoCli {
+        CardanoCli::new(self.config.cardano_cli.clone())
     }
 
     pub fn new_run(&mut self, request: Request) -> Result<Uuid, Error> {

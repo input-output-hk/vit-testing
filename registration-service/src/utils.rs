@@ -1,4 +1,6 @@
 use crate::config::NetworkType;
+use std::io::Write;
+use std::path::Path;
 use std::process::Command;
 
 pub trait CommandExt {
@@ -12,4 +14,10 @@ impl CommandExt for Command {
             NetworkType::Testnet(magic) => self.arg("--testnet-magic").arg(magic.to_string()),
         }
     }
+}
+
+pub fn write_content<P: AsRef<Path>>(content: &str, path: P) -> Result<(), std::io::Error> {
+    let mut file = std::fs::File::create(&path)?;
+    file.write_all(content.as_bytes())?;
+    Ok(())
 }
