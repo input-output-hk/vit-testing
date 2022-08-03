@@ -41,19 +41,22 @@ pub fn cip36_mixed_delegation() {
 
     alice_voter
         .send_direct_voting_registration()
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
     bob_voter
         .send_voting_registration(Delegations::New(vec![(
             david_representative.catalyst_public_key(),
             1,
         )]))
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
     clarice_voter
         .send_voting_registration(Delegations::New(vec![
             (david_representative.catalyst_public_key(), 1),
             (edgar_representative.catalyst_public_key(), 1),
         ]))
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
 
     let voting_tools =
         VotingToolsMock::default().connect_to_db_sync(&db_sync_instance, &testing_directory);
@@ -132,19 +135,22 @@ pub fn voting_power_cap_for_reps() {
             david_representative.catalyst_public_key(),
             1,
         )]))
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
     bob_voter
         .send_voting_registration(Delegations::New(vec![(
             edgar_representative.catalyst_public_key(),
             1,
         )]))
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
     clarice_voter
         .send_voting_registration(Delegations::New(vec![(
             fred_representative.catalyst_public_key(),
             1,
         )]))
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
 
     let voting_tools =
         VotingToolsMock::default().connect_to_db_sync(&db_sync_instance, &testing_directory);
@@ -195,13 +201,16 @@ pub fn voting_power_cap_for_direct() {
 
     alice_voter
         .send_direct_voting_registration()
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
     bob_voter
         .send_direct_voting_registration()
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
     clarice_voter
         .send_direct_voting_registration()
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
 
     let voting_tools =
         VotingToolsMock::default().connect_to_db_sync(&db_sync_instance, &testing_directory);
@@ -257,16 +266,19 @@ pub fn voting_power_cap_for_mix() {
 
     alice_voter
         .send_direct_voting_registration()
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
     bob_voter
         .send_direct_voting_registration()
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
     clarice_voter
         .send_voting_registration(Delegations::New(vec![(
             david_representative.catalyst_public_key(),
             1,
         )]))
-        .to(&mut mainnet_network);
+        .to(&mut mainnet_network)
+        .unwrap();
 
     let voting_tools =
         VotingToolsMock::default().connect_to_db_sync(&db_sync_instance, &testing_directory);

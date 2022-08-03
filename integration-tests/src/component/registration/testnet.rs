@@ -1,4 +1,4 @@
-use crate::common::registration::do_registration;
+use crate::common::registration::{do_registration, RegistrationResultAsserts};
 use assert_fs::TempDir;
 //RC001
 #[test]

@@ -1,5 +1,5 @@
 use crate::common::iapyx_from_qr;
-use crate::common::registration::do_registration;
+use crate::common::registration::{do_registration, RegistrationResultAsserts};
 use crate::common::snapshot::do_snapshot;
 use crate::common::snapshot::wait_for_db_sync;
 use crate::Vote;
