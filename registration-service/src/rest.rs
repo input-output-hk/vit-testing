@@ -184,7 +184,7 @@ pub async fn query_utxo_handler(
         .cardano_cli_executor()
         .query()
         .utxo(address, network))
-    .map(|r| warp::reply::json(&r))
+    .map(|r| warp::reply::json(&r.unwrap().get_total_funds()))
 }
 
 pub async fn submit_transaction_handler(

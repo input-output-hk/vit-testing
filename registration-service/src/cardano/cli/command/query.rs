@@ -22,13 +22,25 @@ impl QueryCommand {
             .arg("utxo")
             .arg_network(network)
             .arg("--address")
-            .arg(payment_address.into())
+            .arg(payment_address.into());
+        self
+    }
+
+    pub fn protocol_parameters<P: AsRef<Path>>(
+        mut self,
+        network: NetworkType,
+        out_file: P,
+    ) -> Self {
+        self.command
+            .arg("protocol-parameters")
+            .arg_network(network)
             .arg("--out-file")
-            .arg("/dev/stdout");
+            .arg(out_file.as_ref());
         self
     }
 
     pub fn build(self) -> Command {
+        println!("Cardano Cli - query utxo: {:?}", self.command);
         self.command
     }
 }

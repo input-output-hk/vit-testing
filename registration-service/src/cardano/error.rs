@@ -28,4 +28,6 @@ pub enum Error {
     Json(String),
     #[error("io error: {0}")]
     Io(String),
+    #[error("serialization: {0}")]
+    Serde(String),
 }

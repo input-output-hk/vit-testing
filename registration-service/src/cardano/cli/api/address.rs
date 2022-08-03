@@ -15,7 +15,7 @@ impl Address {
 
     pub fn build<P: AsRef<Path>, Q: AsRef<Path>>(
         self,
-        verification_key: P,
+        payment_verification_key: P,
         stake_verification_key: P,
         output: Q,
         network: NetworkType,
@@ -23,7 +23,7 @@ impl Address {
         let output = self
             .address_command
             .build()
-            .verification_key_file(verification_key.as_ref())
+            .payment_verification_key_file(payment_verification_key.as_ref())
             .stake_verification_key_file(stake_verification_key.as_ref())
             .out_file(output.as_ref())
             .network(network)

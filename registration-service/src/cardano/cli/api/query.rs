@@ -2,9 +2,11 @@ use crate::cardano::cli::command::QueryCommand;
 use crate::cardano::error::Error;
 use crate::config::NetworkType;
 use jortestkit::prelude::ProcessOutput;
+use mainnet_tools::cardano_cli::fake::Tip;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use std::io::Write;
+use std::path::Path;
+use std::process::ExitStatus;
 
 pub struct Query {
     query_command: QueryCommand,
@@ -15,30 +17,48 @@ impl Query {
         Self { query_command }
     }
 
-    pub fn tip(self, network: NetworkType) -> Result<String, Error> {
+    pub fn tip(self, network: NetworkType) -> Result<Tip, Error> {
         let mut command = self.query_command.tip(network).build();
-        let content = command
+        let output = command
             .output()
-            .map_err(|x| Error::CannotGetOutputFromCommand(x.to_string()))?
-            .as_lossy_string();
+            .map_err(|x| Error::CannotGetOutputFromCommand(x.to_string()))?;
 
-        println!("raw output of query tip: {}", content);
-        Ok(content)
+        println!("raw output of query tip: {}", output.as_lossy_string());
+        serde_json::from_str(&output.as_lossy_string()).map_err(|e| Error::Serde(e.to_string()))
     }
 
     pub fn utxo<S: Into<String>>(
         self,
         payment_address: S,
         network: NetworkType,
-    ) -> Result<String, Error> {
+    ) -> Result<Utxo, Error> {
         let mut command = self.query_command.utxo(network, payment_address).build();
-        let content = command
+        let output = command
             .output()
-            .map_err(|x| Error::CannotGetOutputFromCommand(x.to_string()))?
-            .as_lossy_string();
+            .map_err(|x| Error::CannotGetOutputFromCommand(x.to_string()))?;
 
-        println!("raw output of query utxo: {}", content);
-        Ok(content)
+        println!("raw output of query utxo: {}", output.as_lossy_string());
+        Ok(Utxo::from_string(output.as_multi_line()))
+    }
+
+    pub fn protocol_parameters<P: AsRef<Path>>(
+        self,
+        network: NetworkType,
+        out_file: P,
+    ) -> Result<ExitStatus, Error> {
+        let mut command = self
+            .query_command
+            .protocol_parameters(network, out_file)
+            .build();
+        let output = command
+            .output()
+            .map_err(|x| Error::CannotGetOutputFromCommand(x.to_string()))?;
+
+        println!(
+            "raw output of query protocol parameters: {}",
+            output.as_lossy_string()
+        );
+        Ok(output.status)
     }
 
     pub fn funds<S: Into<String>>(
@@ -46,42 +66,59 @@ impl Query {
         payment_address: S,
         network: NetworkType,
     ) -> Result<u64, Error> {
-        get_funds(self.utxo(payment_address, network)?).map_err(Into::into)
+        Ok(self.utxo(payment_address, network)?.get_total_funds())
     }
 }
 
+pub struct Utxo {
+    pub entries: Vec<UtxoEntry>,
+}
+
 /// Supported output
-/// {
-///     "bf810bff3f979e28441775077524d41741542d1f237b0b7d6a698164dcded29b#0": {
-///         "address": "addr_test1vqtsh379yx9hmn8ypedzx270q9ueea24suf3zu85p2mv2sgra46ef",
-///         "value": {
-///             "lovelace": 9643918
-///         }
-///     }
-/// }
-pub fn get_funds(output: String) -> Result<u64, Error> {
-    println!("get_funds: {}", output);
-    let response: FundsResponse =
-        serde_json::from_str(&output).map_err(|_| Error::CannotParseCardanoCliOutput(output))?;
-    Ok(response.get_first()?.value.lovelace)
+/// ------------------------------------------------------------------ ------ -------------------
+///  TxHash                                                           | TxIx | Amount
+///  61d47e568b1502064906e977aae848c7aec9a76f97e7d11ad5d752e95c438011 | 0    | 1379280 lovelace
+///  ac1d8802a4e100d90ce59fb4e4573f1c7884a65197ff39810a88eb0b07de3aa6 | 0    | 30000000 lovelace
+///  69818d49963ffafe8a287ec270d05ba89493de33ddf7b5b9bcb07e97802a0f28 | 0    | 5573009 lovelace
+///  fba1526c49684722199b102bffd5b4a66ea1d490605532753fa24e12af925722 | 0    | 5000000 lovelace
+/// ------------------------------------------------------------------ ------ -------------------
+impl Utxo {
+    fn from_string(output: Vec<String>) -> Self {
+        Self {
+            entries: output
+                .iter()
+                .filter_map(|row| {
+                    if row.contains("---") || row.contains("TxHash") {
+                        None
+                    } else {
+                        let items: Vec<&str> = row.split_whitespace().collect();
+
+                        Some(UtxoEntry {
+                            hash: items[0].to_string(),
+                            index: items[2].parse().unwrap(),
+                            amount: items[4].parse().unwrap(),
+                        })
+                    }
+                })
+                .collect(),
+        }
+    }
+
+    pub fn get_total_funds(&self) -> u64 {
+        self.entries.iter().map(|entry| entry.amount).sum()
+    }
+}
+
+pub struct UtxoEntry {
+    pub hash: String,
+    pub index: u32,
+    pub amount: u64,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize)]
 pub struct FundsResponse {
     #[serde(flatten)]
     content: HashMap<String, FundsEntry>,
-}
-
-impl FundsResponse {
-    pub fn get_first(&self) -> Result<FundsEntry, Error> {
-        Ok(self
-            .content
-            .iter()
-            .next()
-            .ok_or_else(|| Error::CannotParseCardanoCliOutput("empty response".to_string()))?
-            .1
-            .clone())
-    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize)]
@@ -95,53 +132,20 @@ pub struct FundsValue {
     lovelace: u64,
 }
 
-/// Supported output:
-/// Vote public key used        (hex): c6b6d184ea26781f00b9034ec0ba974f2f833788ce2e24cc37e9e8f41131e1fa
-/// Stake public key used       (hex): e542b6a0ced80e1ab5bda70311bf643b9011ee04411737f3e0136825ef47f2d8
-/// Rewards address used        (hex): 60170bc7c5218b7dcce40e5a232bcf01799cf55587131170f40ab6c541
-/// Slot registered:                   25398498
-/// Vote registration signature (hex): e5cc2e1a9344794cbad76bb65d485776aa560baca6133cdfe77827b15dd0e4c883c32e7177dc15d55e34f79df7ffaebca4d271271c6615b0dacc90e36fb22f03
-pub fn get_slot_no(output: Vec<String>) -> Result<u64, Error> {
-    output
-        .iter()
-        .find(|x| x.contains("Slot registered"))
-        .ok_or_else(|| Error::CannotParseVoterRegistrationOutput(output.clone()))?
-        .split_whitespace()
-        .nth(2)
-        .ok_or_else(|| Error::CannotParseVoterRegistrationOutput(output.clone()))?
-        .parse()
-        .map_err(|_| Error::CannotParseVoterRegistrationOutput(output.clone()))
-}
-
 #[cfg(test)]
 mod tests {
 
-    use super::{get_funds, get_slot_no};
-
-    #[test]
-    pub fn test_slot_no_extraction() {
-        let content = vec![
-            "Vote public key used        (hex): c6b6d184ea26781f00b9034ec0ba974f2f833788ce2e24cc37e9e8f41131e1fa".to_string(),
-            "Stake public key used       (hex): e542b6a0ced80e1ab5bda70311bf643b9011ee04411737f3e0136825ef47f2d8".to_string(),
-            "Rewards address used        (hex): 60170bc7c5218b7dcce40e5a232bcf01799cf55587131170f40ab6c541".to_string(),
-            "Slot registered:                   25398498".to_string(),
-            "Vote registration signature (hex): e5cc2e1a9344794cbad76bb65d485776aa560baca6133cdfe77827b15dd0e4c883c32e7177dc15d55e34f79df7ffaebca4d271271c6615b0dacc90e36fb22f03".to_string()
-        ];
-
-        assert_eq!(get_slot_no(content).unwrap(), 25398498);
-    }
+    use super::*;
 
     #[test]
     pub fn test_funds_extraction() {
-        let content = vec![
-        "{", 
-        "    \"bf810bff3f979e28441775077524d41741542d1f237b0b7d6a698164dcded29b#0\": {",
-        "        \"address\": \"addr_test1vqtsh379yx9hmn8ypedzx270q9ueea24suf3zu85p2mv2sgra46ef\",",
-        "        \"value\": {", 
-        "            \"lovelace\": 9643918", 
-        "        }", 
-        "    }", 
-        "}"];
-        assert_eq!(get_funds(content.join(" ")).unwrap(), 9643918);
+        let content =  vec!["------------------------------------------------------------------ ------ -------------------".to_string(),
+        "    TxHash                                                           | TxIx | Amount".to_string(),
+        "61d47e568b1502064906e977aae848c7aec9a76f97e7d11ad5d752e95c438011 | 0    | 1379280 lovelace".to_string(),
+        "ac1d8802a4e100d90ce59fb4e4573f1c7884a65197ff39810a88eb0b07de3aa6 | 0    | 30000000 lovelace".to_string(),
+        "69818d49963ffafe8a287ec270d05ba89493de33ddf7b5b9bcb07e97802a0f28 | 0    | 5573009 lovelace".to_string(),
+        "fba1526c49684722199b102bffd5b4a66ea1d490605532753fa24e12af925722 | 0    | 5000000 lovelace".to_string(),
+        "    ------------------------------------------------------------------ ------ -------------------".to_string()];
+        assert_eq!(Utxo::from_string(content).get_total_funds(), 41_952_289);
     }
 }

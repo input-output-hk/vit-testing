@@ -15,6 +15,30 @@ impl StakeAddress {
         }
     }
 
+    pub fn register_certificate<P: AsRef<Path>, Q: AsRef<Path>>(
+        self,
+        stake_verification_key_file: P,
+        output: Q,
+    ) -> Result<ExitStatus, Error> {
+        let output = self
+            .stake_address_command
+            .register_certificate()
+            .stake_verification_key_file(stake_verification_key_file.as_ref())
+            .out_file(output.as_ref())
+            .build()
+            .output()
+            .map_err(|e| Error::Io(e.to_string()))?;
+
+        std::io::stdout()
+            .write_all(&output.stdout)
+            .map_err(|e| Error::Io(e.to_string()))?;
+        std::io::stderr()
+            .write_all(&output.stderr)
+            .map_err(|e| Error::Io(e.to_string()))?;
+
+        Ok(output.status)
+    }
+
     pub fn build<P: AsRef<Path>, Q: AsRef<Path>>(
         self,
         stake_verification_key: P,

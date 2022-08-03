@@ -1,24 +1,13 @@
-use crate::config::NetworkType;
-use crate::utils::CommandExt;
 use std::path::Path;
 use std::process::Command;
-pub struct AddressBuildCommand {
+
+pub struct RegisterCertificateCommand {
     command: Command,
 }
 
-impl AddressBuildCommand {
+impl RegisterCertificateCommand {
     pub fn new(command: Command) -> Self {
         Self { command }
-    }
-
-    pub fn payment_verification_key_file<P: AsRef<Path>>(
-        mut self,
-        payment_verification_key: P,
-    ) -> Self {
-        self.command
-            .arg("--payment-verification-key-file")
-            .arg(payment_verification_key.as_ref());
-        self
     }
 
     pub fn stake_verification_key_file<P: AsRef<Path>>(
@@ -36,13 +25,11 @@ impl AddressBuildCommand {
         self
     }
 
-    pub fn network(mut self, network: NetworkType) -> Self {
-        self.command.arg_network(network);
-        self
-    }
-
     pub fn build(self) -> Command {
-        println!("Cardano Cli - address build: {:?}", self.command);
+        println!(
+            "Cardano Cli - stake address registration certificate: {:?}",
+            self.command
+        );
         self.command
     }
 }

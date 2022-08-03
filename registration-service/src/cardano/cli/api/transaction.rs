@@ -4,9 +4,10 @@ use crate::config::NetworkType;
 use jortestkit::prelude::ProcessOutput;
 use std::fs::File;
 use std::io::Write;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::process::ExitStatus;
 use uuid::Uuid;
+
 pub struct Transaction {
     transaction_command: TransactionCommand,
 }
@@ -98,5 +99,42 @@ impl Transaction {
             .write_all(&output.stderr)
             .map_err(|e| Error::Io(e.to_string()))?;
         Ok(output.as_lossy_string())
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    pub fn build(
+        self,
+        network: NetworkType,
+        tx_in: String,
+        change_address: String,
+        certificate_file: PathBuf,
+        protocol_params_file: PathBuf,
+        out_file: PathBuf,
+        witness_override: u32,
+    ) -> Result<ExitStatus, Error> {
+        let mut command = self
+            .transaction_command
+            .build()
+            .network(network)
+            .tx_in(tx_in)
+            .change_address(change_address)
+            .certificate_file(certificate_file)
+            .protocol_params_file(protocol_params_file)
+            .out_file(out_file)
+            .witness_override(witness_override)
+            .build();
+
+        let output = command
+            .output()
+            .map_err(|_| Error::CannotGetOutputFromCommand(format!("{:?}", command)))?;
+
+        std::io::stdout()
+            .write_all(&output.stdout)
+            .map_err(|e| Error::Io(e.to_string()))?;
+        std::io::stderr()
+            .write_all(&output.stderr)
+            .map_err(|e| Error::Io(e.to_string()))?;
+
+        Ok(output.status)
     }
 }

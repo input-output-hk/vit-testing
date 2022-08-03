@@ -1,5 +1,6 @@
 pub mod args;
 pub mod cardano;
+pub mod catalyst_toolbox;
 pub mod client;
 pub mod config;
 pub mod context;

@@ -1,13 +1,10 @@
 use crate::config::NetworkType;
 pub use info::JobOutputInfo;
-use std::collections::HashMap;
-use std::io::Write;
 use std::path::{Path, PathBuf};
-use thiserror::Error;
 
-const PIN: &str = "1234";
 use super::info;
 use crate::cardano::cli::CardanoCli;
+use crate::catalyst_toolbox::CatalystToolboxCli;
 use crate::config::Configuration;
 use crate::job::VoteRegistrationJob;
 use crate::VoterRegistrationCli;
@@ -16,6 +13,7 @@ pub struct VoteRegistrationJobBuilder {
     jcli: PathBuf,
     cardano_cli: CardanoCli,
     voter_registration: VoterRegistrationCli,
+    catalyst_toolbox: CatalystToolboxCli,
     network: NetworkType,
     working_dir: PathBuf,
 }
@@ -26,6 +24,7 @@ impl VoteRegistrationJobBuilder {
             jcli: config.jcli,
             cardano_cli: CardanoCli::new(config.cardano_cli),
             voter_registration: VoterRegistrationCli::new(config.voter_registration),
+            catalyst_toolbox: CatalystToolboxCli::new(config.catalyst_toolbox),
             network: NetworkType::Mainnet,
             working_dir: config.result_dir,
         }
@@ -49,6 +48,14 @@ impl VoteRegistrationJobBuilder {
         self
     }
 
+    pub fn with_catalyst_toolbox<P: AsRef<Path>>(
+        mut self,
+        catalyst_toolbox: CatalystToolboxCli,
+    ) -> Self {
+        self.catalyst_toolbox = catalyst_toolbox;
+        self
+    }
+
     pub fn with_network(mut self, network: NetworkType) -> Self {
         self.network = network;
         self
@@ -64,6 +71,7 @@ impl VoteRegistrationJobBuilder {
             jcli: self.jcli,
             cardano_cli: self.cardano_cli,
             voter_registration: self.voter_registration,
+            catalyst_toolbox: self.catalyst_toolbox,
             network: self.network,
             working_dir: self.working_dir,
         }

@@ -2,7 +2,6 @@ use crate::cardano::cli::api::{Address, Query, StakeAddress, Transaction};
 use crate::cardano::cli::command::CardanoCliCommand;
 use std::path::PathBuf;
 use std::process::Command;
-use uuid::Uuid;
 
 pub mod api;
 pub mod command;
