@@ -1,5 +1,7 @@
+mod key;
 mod sender;
 
+use crate::wallet::key::MainnetKey;
 use bech32::ToBase32;
 use catalyst_toolbox::snapshot::registration::{Delegations, VotingRegistration};
 use chain_addr::Discrimination;
@@ -12,6 +14,7 @@ pub struct MainnetWallet {
     catalyst: thor::Wallet,
     reward_address: String,
     stake_public_key: String,
+    key: key::MainnetKey,
     stake: u64,
 }
 
@@ -29,6 +32,7 @@ impl MainnetWallet {
                 + &SigningKey::generate_extended(&mut rng)
                     .identifier()
                     .to_hex(),
+            key: Default::default(),
         }
     }
 
@@ -67,11 +71,31 @@ impl MainnetWallet {
         })
     }
 
+    pub fn leak_key(&self) -> MainnetKey {
+        self.key.clone()
+    }
+
     pub fn send_direct_voting_registration(&self) -> RegistrationSender {
         self.send_voting_registration(Delegations::Legacy(self.catalyst.identifier().into()))
+    }
+
+    pub fn direct_voting_registration(&self) -> VotingRegistration {
+        VotingRegistration {
+            stake_public_key: self.stake_public_key(),
+            voting_power: self.stake.into(),
+            reward_address: self.reward_address(),
+            delegations: Delegations::Legacy(self.catalyst.identifier().into()),
+            voting_purpose: 0,
+        }
     }
 
     pub fn stake(&self) -> u64 {
         self.stake
     }
+}
+
+#[derive(thiserror::Error, Debug)]
+pub enum Error {
+    #[error("key not provided for registration signing")]
+    KeyNotProvided,
 }
