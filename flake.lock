@@ -226,20 +226,21 @@
           "voting-tools_",
           "cardano-db-sync",
           "haskellNix",
-          "nixpkgs-2111"
+          "nixpkgs-unstable"
         ],
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1645941037,
-        "narHash": "sha256-UpPS8L2/95IlWSJBeJAaJmRZHvoJ7FlDVPgIiuwkPCQ=",
+        "lastModified": 1644195760,
+        "narHash": "sha256-SXDF/IJZOoCow3qGaUrJSzu96BqI9nQDgj18gVR7hMk=",
         "owner": "input-output-hk",
         "repo": "cardano-db-sync",
-        "rev": "14228a5188dfc0c18b914e7d54b74ff30ec8c586",
+        "rev": "935e1fe5d5d11d694e9b6c54030a592b85742671",
         "type": "github"
       },
       "original": {
         "owner": "input-output-hk",
+        "ref": "refs/tags/12.0.2",
         "repo": "cardano-db-sync",
         "type": "github"
       }
@@ -1982,17 +1983,17 @@
         "utils": "utils_5"
       },
       "locked": {
-        "lastModified": 1646292887,
-        "narHash": "sha256-p3I7KjIMoGqOGy5s8s9GDWWW3JOnFd40NsqPQJAmLB8=",
+        "lastModified": 1654672783,
+        "narHash": "sha256-QfOK1QDUPpX5JflEG2ccRph9zInr5f8C4mo39L4DWNY=",
         "owner": "input-output-hk",
         "repo": "voting-tools",
-        "rev": "e0fc39e0d0920f5a8bdff5b5bbf31e41a1e2b896",
+        "rev": "6f0e9160531cfd6b84a61293c5ef546c9a49d2b3",
         "type": "github"
       },
       "original": {
         "owner": "input-output-hk",
         "repo": "voting-tools",
-        "rev": "e0fc39e0d0920f5a8bdff5b5bbf31e41a1e2b896",
+        "rev": "6f0e9160531cfd6b84a61293c5ef546c9a49d2b3",
         "type": "github"
       }
     }
