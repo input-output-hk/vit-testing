@@ -44,14 +44,14 @@ pub fn cip36_mixed_delegation() {
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_voting_registration(Delegations::New(vec![(
+        .send_delegated_voting_registration(Delegations::New(vec![(
             david_representative.catalyst_public_key(),
             1,
         )]))
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
-        .send_voting_registration(Delegations::New(vec![
+        .send_delegated_voting_registration(Delegations::New(vec![
             (david_representative.catalyst_public_key(), 1),
             (edgar_representative.catalyst_public_key(), 1),
         ]))
@@ -131,21 +131,21 @@ pub fn voting_power_cap_for_reps() {
     mainnet_network.sync_with(&mut db_sync_instance);
 
     alice_voter
-        .send_voting_registration(Delegations::New(vec![(
+        .send_delegated_voting_registration(Delegations::New(vec![(
             david_representative.catalyst_public_key(),
             1,
         )]))
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_voting_registration(Delegations::New(vec![(
+        .send_delegated_voting_registration(Delegations::New(vec![(
             edgar_representative.catalyst_public_key(),
             1,
         )]))
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
-        .send_voting_registration(Delegations::New(vec![(
+        .send_delegated_voting_registration(Delegations::New(vec![(
             fred_representative.catalyst_public_key(),
             1,
         )]))
@@ -273,7 +273,7 @@ pub fn voting_power_cap_for_mix() {
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
-        .send_voting_registration(Delegations::New(vec![(
+        .send_delegated_voting_registration(Delegations::New(vec![(
             david_representative.catalyst_public_key(),
             1,
         )]))

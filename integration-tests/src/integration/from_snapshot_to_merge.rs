@@ -59,14 +59,14 @@ pub fn cip36_and_voting_group_merge() {
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_voting_registration(Delegations::New(vec![(
+        .send_delegated_voting_registration(Delegations::New(vec![(
             david_representative.catalyst_public_key(),
             1,
         )]))
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
-        .send_voting_registration(Delegations::New(vec![
+        .send_delegated_voting_registration(Delegations::New(vec![
             (david_representative.catalyst_public_key(), 1),
             (edgar_representative.catalyst_public_key(), 1),
         ]))
