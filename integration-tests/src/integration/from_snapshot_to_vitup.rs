@@ -2,7 +2,6 @@ use crate::common::snapshot::SnapshotServiceStarter;
 use crate::common::MainnetWallet;
 use assert_fs::TempDir;
 use catalyst_toolbox::snapshot::voting_group::RepsVotersAssigner;
-use catalyst_toolbox::snapshot::Delegations;
 use chain_impl_mockchain::certificate::VotePlan;
 use fraction::Fraction;
 use hersir::builder::Settings;
@@ -54,17 +53,17 @@ pub fn cip36_mixed_delegation_should_appear_in_block0() {
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_delegated_voting_registration(Delegations::New(vec![(
+        .send_delegated_voting_registration(vec![(
             david_representative.catalyst_public_key(),
             1,
-        )]))
+        )])
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
-        .send_delegated_voting_registration(Delegations::New(vec![
+        .send_delegated_voting_registration(vec![
             (david_representative.catalyst_public_key(), 1),
             (edgar_representative.catalyst_public_key(), 1),
-        ]))
+        ])
         .to(&mut mainnet_network)
         .unwrap();
 

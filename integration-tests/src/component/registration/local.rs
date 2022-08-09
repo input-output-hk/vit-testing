@@ -1,13 +1,10 @@
 use crate::common::registration::RegistrationServiceStarter;
 use crate::common::MainnetWallet;
 use assert_fs::TempDir;
-use catalyst_toolbox::kedqr;
-use catalyst_toolbox::snapshot::Delegations;
-use chain_crypto::{Ed25519Extended, SecretKey};
 use mainnet_tools::cardano_cli::CardanoCliMock;
 use mainnet_tools::voter_registration::VoterRegistrationMock;
-use registration_service::client::RegistrationResult;
 use registration_service::config::{ConfigurationBuilder, NetworkType};
+use registration_service::utils::SecretKeyFromQrCode;
 
 #[test]
 pub fn direct_registration_flow() {
@@ -34,8 +31,9 @@ pub fn direct_registration_flow() {
     let direct_voting_registration = alice.direct_voting_registration();
     voter_registration_mock.with_response(direct_voting_registration, &testing_directory);
 
-    let registration_result = registration_service.register(&alice, &testing_directory);
-    let key_qr_code = get_secret_key_from_qr_code(registration_result);
+    let registration_result = registration_service.self_register(&alice, &testing_directory);
+
+    let key_qr_code = registration_result.as_legacy_registration().unwrap().qr_code.secret_key_from_qr_code();
 
     assert_eq!(
         alice.catalyst_secret_key().leak_secret().as_ref(),
@@ -45,7 +43,7 @@ pub fn direct_registration_flow() {
 
 
 #[test]
-pub fn delegated_registration_flow() {
+pub fn delegation_registration_flow() {
     let testing_directory = TempDir::new().unwrap().into_persistent();
     let stake = 10_000;
 
@@ -67,26 +65,19 @@ pub fn delegated_registration_flow() {
         .start_on_available_port(&testing_directory)
         .unwrap();
 
-    let delegation_voting_registration = alice.delegated_voting_registration(Delegations::New(vec![
-        (bob.catalyst_public_key(),1)
-    ]));
+    let delegations_dist = vec![
+        (bob.catalyst_public_key(),1u32)
+    ];
+
+    let delegation_voting_registration = alice.delegation_voting_registration(delegations_dist.clone());
     voter_registration_mock.with_response(delegation_voting_registration, &testing_directory);
 
-    let registration_result = registration_service.register(&alice, &testing_directory);
-    let key_qr_code = get_secret_key_from_qr_code(registration_result);
+    let registration_result = registration_service.delegated_register(&alice, delegations_dist.clone(), &testing_directory);
+    let info = registration_result.as_delegation_registration().unwrap();
 
+    info.status.assert_is_finished();
     assert_eq!(
-        alice.catalyst_secret_key().leak_secret().as_ref(),
-        key_qr_code.leak_secret().as_ref()
+        info.delegations,
+        delegations_dist.iter().map(|(id,weight)| (id.to_bech32_str(),*weight)).collect()
     );
-}
-
-fn get_secret_key_from_qr_code(
-    registration_result: RegistrationResult,
-) -> SecretKey<Ed25519Extended> {
-    let img = image::open(registration_result.qr_code()).unwrap();
-    //TODO: send pin to registration service or extract it from qr code filename
-    let secrets = kedqr::KeyQrCode::decode(img, &[1, 2, 3, 4]).unwrap();
-    let key_qr_code = secrets.get(0).unwrap().clone();
-    key_qr_code
 }

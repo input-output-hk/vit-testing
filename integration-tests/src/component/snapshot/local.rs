@@ -3,7 +3,6 @@ use crate::common::snapshot::SnapshotServiceStarter;
 use crate::common::MainnetWallet;
 use assert_fs::TempDir;
 use catalyst_toolbox::snapshot::voting_group::RepsVotersAssigner;
-use catalyst_toolbox::snapshot::Delegations;
 use fraction::Fraction;
 use mainnet_tools::db_sync::DbSyncInstance;
 use mainnet_tools::network::MainnetNetwork;
@@ -44,17 +43,17 @@ pub fn mixed_registration_transactions() {
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_delegated_voting_registration(Delegations::New(vec![(
+        .send_delegated_voting_registration(vec![(
             david_representative.catalyst_public_key(),
             1,
-        )]))
+        )])
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
-        .send_delegated_voting_registration(Delegations::New(vec![
+        .send_delegated_voting_registration(vec![
             (david_representative.catalyst_public_key(), 1),
             (edgar_representative.catalyst_public_key(), 1),
-        ]))
+        ])
         .to(&mut mainnet_network)
         .unwrap();
 

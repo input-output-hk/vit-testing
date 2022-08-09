@@ -4,8 +4,8 @@ use assert_fs::TempDir;
 #[test]
 pub fn full_registration_process() {
     let temp_dir = TempDir::new().unwrap();
-    let result = do_registration(&temp_dir);
+    let result = do_registration(&temp_dir).as_legacy_registration().unwrap();
 
-    result.assert_status_is_finished();
+    result.status().assert_is_finished();
     result.assert_qr_equals_to_sk();
 }

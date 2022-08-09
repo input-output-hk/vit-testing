@@ -4786,6 +4786,7 @@ dependencies = [
  "chain-crypto",
  "chrono",
  "futures",
+ "image",
  "jormungandr-automation",
  "jormungandr-integration-tests",
  "jormungandr-lib",

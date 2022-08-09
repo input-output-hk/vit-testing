@@ -28,14 +28,17 @@ pub fn do_registration(temp_dir: &TempDir) -> RegistrationResult {
         std::env::var("STAKE_SKEY").unwrap_or_else(|_| "STAKE_SKEY not defined".to_owned());
     let stake_vkey =
         std::env::var("STAKE_VKEY").unwrap_or_else(|_| "STAKE_VKEY not defined".to_owned());
-    let vote_skey = std::env::var("VOTE_SKEY").ok();
+    let legacy_skey = std::env::var("VOTE_SKEY").ok();
 
     let registration_request = Request {
         payment_skey,
         payment_vkey,
         stake_skey,
         stake_vkey,
-        vote_skey,
+        legacy_skey,
+        delegation_1: None,
+        delegation_2: None,
+        delegation_3: None,
     };
 
     let registration_client =

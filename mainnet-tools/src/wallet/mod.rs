@@ -65,7 +65,7 @@ impl MainnetWallet {
         RegistrationSender::new(voting_registration)
     }
 
-    pub fn send_delegated_voting_registration(&self, delegations: Delegations) -> RegistrationSender {
+    pub fn send_delegated_voting_registration(&self, delegations: Vec<(Identifier,u32)>) -> RegistrationSender {
         self.send_voting_registration(self.delegation_voting_registration(delegations))
     }
 
@@ -77,13 +77,12 @@ impl MainnetWallet {
         self.key.clone()
     }
 
-
-    pub fn delegation_voting_registration(&self, delegations: Delegations) -> VotingRegistration {
+    pub fn delegation_voting_registration(&self, delegations: Vec<(Identifier,u32)>) -> VotingRegistration {
         VotingRegistration {
             stake_public_key: self.stake_public_key(),
             voting_power: self.stake.into(),
             reward_address: self.reward_address(),
-            delegations,
+            delegations: Delegations::New(delegations),
             voting_purpose: 0,
         }
     }
