@@ -38,6 +38,8 @@ impl Configuration {
             .arg(&self.voting_tools.db)
             .arg("--db-user")
             .arg(&self.voting_tools.db_user)
+            .arg("--db-pass")
+            .arg(&self.voting_tools.db_pass)
             .arg("--db-host")
             .arg(&self.voting_tools.db_host)
             .arg("--out-file")
@@ -78,6 +80,9 @@ pub struct VotingToolsParams {
     #[serde(rename = "db-user")]
     /// db user
     pub db_user: String,
+    #[serde(rename = "db-pass")]
+    /// db pass
+    pub db_pass: String,
     /// db host
     #[serde(rename = "db-host")]
     pub db_host: String,
