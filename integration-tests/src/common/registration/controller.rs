@@ -2,10 +2,10 @@ use registration_service::{client::rest::RegistrationRestClient, config::Configu
 
 use crate::common::registration::remote::RemoteRegistrationServiceController;
 use assert_fs::TempDir;
+use jormungandr_lib::crypto::account::Identifier;
 use mainnet_tools::wallet::MainnetWallet;
 use registration_service::client::RegistrationResult;
 use std::process::Child;
-use jormungandr_lib::crypto::account::Identifier;
 
 pub struct RegistrationServiceController {
     child: Child,
@@ -36,8 +36,14 @@ impl RegistrationServiceController {
         self.remote_controller.self_register(wallet, temp_dir)
     }
 
-    pub fn delegated_register(&self, wallet: &MainnetWallet, delegations: Vec<(Identifier, u32)>, temp_dir: &TempDir) -> RegistrationResult {
-        self.remote_controller.register_with_delegation(wallet,delegations,temp_dir)
+    pub fn delegated_register(
+        &self,
+        wallet: &MainnetWallet,
+        delegations: Vec<(Identifier, u32)>,
+        temp_dir: &TempDir,
+    ) -> RegistrationResult {
+        self.remote_controller
+            .register_with_delegation(wallet, delegations, temp_dir)
     }
 }
 

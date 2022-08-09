@@ -4,8 +4,8 @@ use registration_service::{
 };
 
 use assert_fs::TempDir;
-use jormungandr_lib::crypto::account::Identifier;
 use iapyx::utils::qr::SecretFromQrCode;
+use jormungandr_lib::crypto::account::Identifier;
 use mainnet_tools::wallet::MainnetWallet;
 use registration_service::client::RegistrationResult;
 use registration_service::request::Request;
@@ -61,9 +61,7 @@ impl RemoteRegistrationServiceController {
 
         let key = wallet.leak_key();
 
-        fn parse_delegation(
-            input: &(Identifier, u32),
-        ) -> String {
+        fn parse_delegation(input: &(Identifier, u32)) -> String {
             format!("{},{}", input.0.clone().to_bech32_str(), input.1)
         }
 

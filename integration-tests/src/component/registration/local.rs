@@ -33,14 +33,17 @@ pub fn direct_registration_flow() {
 
     let registration_result = registration_service.self_register(&alice, &testing_directory);
 
-    let key_qr_code = registration_result.as_legacy_registration().unwrap().qr_code.secret_key_from_qr_code();
+    let key_qr_code = registration_result
+        .as_legacy_registration()
+        .unwrap()
+        .qr_code
+        .secret_key_from_qr_code();
 
     assert_eq!(
         alice.catalyst_secret_key().leak_secret().as_ref(),
         key_qr_code.leak_secret().as_ref()
     );
 }
-
 
 #[test]
 pub fn delegation_registration_flow() {
@@ -65,19 +68,25 @@ pub fn delegation_registration_flow() {
         .start_on_available_port(&testing_directory)
         .unwrap();
 
-    let delegations_dist = vec![
-        (bob.catalyst_public_key(),1u32)
-    ];
+    let delegations_dist = vec![(bob.catalyst_public_key(), 1u32)];
 
-    let delegation_voting_registration = alice.delegation_voting_registration(delegations_dist.clone());
+    let delegation_voting_registration =
+        alice.delegation_voting_registration(delegations_dist.clone());
     voter_registration_mock.with_response(delegation_voting_registration, &testing_directory);
 
-    let registration_result = registration_service.delegated_register(&alice, delegations_dist.clone(), &testing_directory);
+    let registration_result = registration_service.delegated_register(
+        &alice,
+        delegations_dist.clone(),
+        &testing_directory,
+    );
     let info = registration_result.as_delegation_registration().unwrap();
 
     info.status.assert_is_finished();
     assert_eq!(
         info.delegations,
-        delegations_dist.iter().map(|(id,weight)| (id.to_bech32_str(),*weight)).collect()
+        delegations_dist
+            .iter()
+            .map(|(id, weight)| (id.to_bech32_str(), *weight))
+            .collect()
     );
 }

@@ -90,7 +90,9 @@ impl VoteRegistrationJob {
         if request.is_legacy() {
             let jcli = JCli::new(self.jcli.clone());
 
-            let private_key = request.legacy_skey.unwrap_or_else(|| (jcli.key().generate_default()));
+            let private_key = request
+                .legacy_skey
+                .unwrap_or_else(|| (jcli.key().generate_default()));
 
             println!("saving catalyst-vote.skey...");
             let private_key_path = Path::new(&self.working_dir).join("catalyst-vote.skey");

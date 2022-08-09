@@ -58,10 +58,7 @@ pub fn cip36_and_voting_group_merge() {
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_delegated_voting_registration(vec![(
-            david_representative.catalyst_public_key(),
-            1,
-        )])
+        .send_delegated_voting_registration(vec![(david_representative.catalyst_public_key(), 1)])
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter

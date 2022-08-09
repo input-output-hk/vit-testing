@@ -53,10 +53,7 @@ pub fn cip36_mixed_delegation_should_appear_in_block0() {
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_delegated_voting_registration(vec![(
-            david_representative.catalyst_public_key(),
-            1,
-        )])
+        .send_delegated_voting_registration(vec![(david_representative.catalyst_public_key(), 1)])
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter

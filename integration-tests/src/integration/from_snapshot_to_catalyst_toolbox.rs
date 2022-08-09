@@ -43,10 +43,7 @@ pub fn cip36_mixed_delegation() {
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_delegated_voting_registration(vec![(
-            david_representative.catalyst_public_key(),
-            1,
-        )])
+        .send_delegated_voting_registration(vec![(david_representative.catalyst_public_key(), 1)])
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
@@ -130,24 +127,15 @@ pub fn voting_power_cap_for_reps() {
     mainnet_network.sync_with(&mut db_sync_instance);
 
     alice_voter
-        .send_delegated_voting_registration(vec![(
-            david_representative.catalyst_public_key(),
-            1,
-        )])
+        .send_delegated_voting_registration(vec![(david_representative.catalyst_public_key(), 1)])
         .to(&mut mainnet_network)
         .unwrap();
     bob_voter
-        .send_delegated_voting_registration(vec![(
-            edgar_representative.catalyst_public_key(),
-            1,
-        )])
+        .send_delegated_voting_registration(vec![(edgar_representative.catalyst_public_key(), 1)])
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
-        .send_delegated_voting_registration(vec![(
-            fred_representative.catalyst_public_key(),
-            1,
-        )])
+        .send_delegated_voting_registration(vec![(fred_representative.catalyst_public_key(), 1)])
         .to(&mut mainnet_network)
         .unwrap();
 
@@ -272,10 +260,7 @@ pub fn voting_power_cap_for_mix() {
         .to(&mut mainnet_network)
         .unwrap();
     clarice_voter
-        .send_delegated_voting_registration(vec![(
-            david_representative.catalyst_public_key(),
-            1,
-        )])
+        .send_delegated_voting_registration(vec![(david_representative.catalyst_public_key(), 1)])
         .to(&mut mainnet_network)
         .unwrap();
 

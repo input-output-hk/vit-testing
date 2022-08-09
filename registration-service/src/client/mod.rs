@@ -4,14 +4,14 @@ pub mod rest;
 use crate::{client::rest::RegistrationRestClient, context::State, request::Request};
 use assert_fs::fixture::PathChild;
 use assert_fs::TempDir;
+use jormungandr_automation::jcli::JCli;
+use jormungandr_lib::crypto::account::Identifier;
+use jormungandr_lib::interfaces::Value;
 use jortestkit::prelude::WaitBuilder;
 use math::round;
 use std::collections::HashMap;
 use std::path::PathBuf;
 use std::str::FromStr;
-use jormungandr_automation::jcli::JCli;
-use jormungandr_lib::crypto::account::Identifier;
-use jormungandr_lib::interfaces::Value;
 use thiserror::Error;
 
 pub fn do_registration(
@@ -38,35 +38,32 @@ pub fn do_registration(
         let voting_sk = registration_client
             .get_catalyst_sk(registration_job_id)
             .unwrap();
-        RegistrationResult::Legacy(
-            LegacyResultInfo{
+        RegistrationResult::Legacy(LegacyResultInfo {
             qr_code,
             voting_sk,
             status: registration_jobs_status,
         })
     } else {
-        RegistrationResult::Delegation(
-            DelegationResultInfo {
-                delegations: request.delegations(),
-                status: registration_jobs_status
-            }
-        )
+        RegistrationResult::Delegation(DelegationResultInfo {
+            delegations: request.delegations(),
+            status: registration_jobs_status,
+        })
     }
 }
 
 #[derive(Debug)]
 pub enum RegistrationResult {
-    Legacy (LegacyResultInfo),
-    Delegation (DelegationResultInfo)
+    Legacy(LegacyResultInfo),
+    Delegation(DelegationResultInfo),
 }
 
-#[derive(Clone,Debug)]
+#[derive(Clone, Debug)]
 pub struct DelegationResultInfo {
     pub delegations: HashMap<String, u32>,
-    pub status: State
+    pub status: State,
 }
 
-#[derive(Clone,Debug)]
+#[derive(Clone, Debug)]
 pub struct LegacyResultInfo {
     pub qr_code: PathBuf,
     voting_sk: String,
@@ -116,22 +113,20 @@ impl LegacyResultInfo {
             _ => Err(Error::CannotGetFundsFromRegistrationResult),
         }
     }
-
 }
-
 
 impl RegistrationResult {
     pub fn as_legacy_registration(&self) -> Option<LegacyResultInfo> {
         match &self {
             Self::Legacy(info) => Some(info.clone()),
-            Self::Delegation{..} => None
+            Self::Delegation { .. } => None,
         }
     }
 
     pub fn as_delegation_registration(&self) -> Option<DelegationResultInfo> {
         match &self {
             Self::Legacy(_info) => None,
-            Self::Delegation(info) => Some(info.clone())
+            Self::Delegation(info) => Some(info.clone()),
         }
     }
 }

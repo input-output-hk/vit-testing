@@ -199,7 +199,6 @@ impl State {
             _ => Err(Error::CannotGetSlotNoFromRegistrationResult),
         }
     }
-
 }
 
 use thiserror::Error;
@@ -217,7 +216,7 @@ pub enum Error {
     #[error("no job was run yet")]
     NoJobRun,
     #[error("cannot get slot no from registration state")]
-    CannotGetSlotNoFromRegistrationResult
+    CannotGetSlotNoFromRegistrationResult,
 }
 
 impl fmt::Display for State {
