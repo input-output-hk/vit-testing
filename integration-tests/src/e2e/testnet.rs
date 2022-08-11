@@ -4,6 +4,8 @@ use crate::common::snapshot::do_snapshot;
 use crate::common::snapshot::wait_for_db_sync;
 use crate::Vote;
 use assert_fs::TempDir;
+use catalyst_toolbox::snapshot::{RawSnapshot, Snapshot, VotingRegistration};
+use chain_addr::Discrimination;
 use chain_impl_mockchain::header::BlockDate;
 use jormungandr_automation::testing::asserts::VotePlanStatusAssert;
 use jormungandr_automation::testing::time;
@@ -23,11 +25,12 @@ const GRACE_PERIOD_FOR_SNAPSHOT: u64 = 300;
 pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
     let temp_dir = TempDir::new().unwrap().into_persistent();
     let result = do_registration(&temp_dir).as_legacy_registration().unwrap();
+    let voting_threshold = 1;
 
     result.status().assert_is_finished();
     result.assert_qr_equals_to_sk();
 
-    println!("Registraton Result: {:?}", result);
+    println!("Registration Result: {:?}", result);
 
     let job_param = JobParameters {
         slot_no: Some(result.status().slot_no().unwrap() + GRACE_PERIOD_FOR_SNAPSHOT),
@@ -40,7 +43,7 @@ pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
     println!("Snapshot: {:?}", snapshot_result);
 
     let entry = snapshot_result
-        .by_identifier(&result.identifier().unwrap())
+        .by_delegation_address(&result.address().unwrap().into())
         .unwrap();
 
     let vote_timing = VoteBlockchainTime {
@@ -55,9 +58,13 @@ pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
         .slot_duration_in_seconds(2)
         .vote_timing(vote_timing.into())
         .proposals_count(300)
-        .voting_power(1)
-        .block0_initials(Block0Initials::new_from_external(
-            snapshot_result.initials().to_vec(),
+        .voting_power(voting_threshold)
+        .block0_initials(Block0Initials::new_from_external_utxo(
+            Snapshot::from_raw_snapshot(
+                RawSnapshot::from(snapshot_result.registrations().to_vec()),
+                voting_threshold.into(),
+            )
+            .to_block0_initials(Discrimination::Production),
             chain_addr::Discrimination::Production,
         ))
         .private(false)

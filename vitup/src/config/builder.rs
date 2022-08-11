@@ -5,6 +5,7 @@ pub use crate::builders::{
 };
 use crate::config::date_format;
 use crate::config::Block0Initials;
+use crate::config::SnapshotInitials;
 use crate::config::{Config, Initials, VoteTime};
 use chain_addr::Discrimination;
 use chain_impl_mockchain::fee::LinearFee;
@@ -34,6 +35,11 @@ impl ConfigBuilder {
 
     pub fn block0_initials(mut self, initials: Block0Initials) -> Self {
         self.config.initials.block0 = initials;
+        self
+    }
+
+    pub fn snapshot_initials(mut self, initials: SnapshotInitials) -> Self {
+        self.config.initials.snapshot = Some(initials);
         self
     }
 
@@ -140,7 +146,7 @@ impl ConfigBuilder {
     }
 
     pub fn fund_id(mut self, id: i32) -> Self {
-        self.config.data.current_fund.fund_info.fund_id = id;
+        self.config.data.current_fund.fund_id = id;
         self
     }
 

@@ -6,6 +6,7 @@ use fake::faker::name::en::Name;
 use fake::Fake;
 use hersir::builder::wallet::template::builder::WalletTemplateBuilder;
 use hersir::builder::{ExternalWalletTemplate, WalletTemplate};
+use jormungandr_lib::interfaces::InitialUTxO;
 use jormungandr_lib::interfaces::TokenIdentifier;
 use rand::Rng;
 use serde::{Deserialize, Serialize};
@@ -77,6 +78,17 @@ impl Default for Initials {
     fn default() -> Self {
         Self(Vec::new())
     }
+}
+
+pub fn convert_to_external_utxo(initials: Vec<InitialUTxO>) -> Vec<Initial> {
+    initials
+        .into_iter()
+        .map(|utxo| Initial::External {
+            address: utxo.address.to_string(),
+            funds: utxo.value.into(),
+            role: Default::default(),
+        })
+        .collect()
 }
 
 impl Initials {

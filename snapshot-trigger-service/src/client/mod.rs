@@ -4,6 +4,9 @@ pub mod rest;
 use crate::client::rest::SnapshotRestClient;
 use crate::config::JobParameters;
 use crate::State;
+use catalyst_toolbox::snapshot::{Delegations, VotingRegistration};
+use chain_addr::Address;
+use chain_addr::AddressReadable;
 use jormungandr_lib::crypto::account::Identifier;
 use jortestkit::prelude::WaitBuilder;
 use thiserror::Error;
@@ -77,13 +80,13 @@ pub fn get_snapshot_from_history_by_id<Q: Into<String>, S: Into<String>, P: Into
 
 pub fn read_initials<S: Into<String>>(snapshot: S) -> Result<Vec<VoterHIR>, Error> {
     let snapshot = snapshot.into();
-    serde_json::from_str(&snapshot).map_err(|_| Error::CannotParseSnapshotContent(snapshot.clone()))
+    serde_json::from_str(&snapshot).map_err(Into::into)
 }
 
 #[derive(Debug)]
 pub struct SnapshotResult {
     status: State,
-    snapshot: Vec<VoterHIR>,
+    snapshot: Vec<VotingRegistration>,
 }
 
 impl SnapshotResult {
@@ -95,7 +98,7 @@ impl SnapshotResult {
         self.status.clone()
     }
 
-    pub fn initials(&self) -> &Vec<VoterHIR> {
+    pub fn initials(&self) -> &Vec<VotingRegistration> {
         &self.snapshot
     }
 
@@ -105,20 +108,43 @@ impl SnapshotResult {
             .cloned()
             .find(|x| x.voting_key == *identifier)
     }
+
+    pub fn by_delegation_address(
+        &self,
+        address: &Address,
+    ) -> Result<Option<VotingRegistration>, Error> {
+        let id: Identifier = address.public_key().unwrap().clone().into();
+        self.by_delegation(&id)
+    }
+
+    pub fn by_delegation(&self, id: &Identifier) -> Result<Option<VotingRegistration>, Error> {
+        Ok(self
+            .initials()
+            .iter()
+            .cloned()
+            .find(|reg| match &reg.delegations {
+                Delegations::Legacy(delegation) => delegation == id,
+                Delegations::New(delegations) => {
+                    delegations.iter().any(|(identifier, _)| identifier == id)
+                }
+            }))
+    }
+
+    pub fn contains_voting_key(&self, id: &Identifier) -> Result<bool, Error> {
+        Ok(self.by_delegation(id)?.is_some())
+    }
 }
 
 #[derive(Debug, Error)]
 pub enum Error {
-    #[error("cannot parse file {0}")]
-    CannotParseSnapshotContent(String),
+    #[error(transparent)]
+    SerdeError(#[from] serde_json::Error),
     #[error("rest error")]
     ContextError(#[from] crate::context::Error),
     #[error("context error")]
     RestError(#[from] crate::client::rest::Error),
     #[error("rest error")]
     ChainError(#[from] chain_addr::Error),
-    #[error("serialization error")]
-    SerdeError(#[from] serde_json::Error),
     #[error(transparent)]
     Config(#[from] crate::config::Error),
 }

@@ -41,7 +41,9 @@ pub fn multiple_registration() {
     snapshot_entries.assert_not_contain_voting_key(&overridden_identifier);
 }
 
-//SR002
+///
+///SR002
+/// Test for catalyst-toolbox filter which should remove entry from snapshot with too low funds
 #[test]
 pub fn wallet_has_less_than_threshold() {
     let temp_dir = TempDir::new().unwrap().into_persistent();
