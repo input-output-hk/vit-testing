@@ -65,7 +65,7 @@ impl MainnetWallet {
         &self,
         voting_registration: VotingRegistration,
     ) -> RegistrationSender {
-        RegistrationSender::new(voting_registration)
+        RegistrationSender::new(voting_registration).sign_with(self.key.clone())
     }
 
     pub fn send_delegated_voting_registration(
