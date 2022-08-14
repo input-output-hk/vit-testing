@@ -3,9 +3,9 @@ use chain_crypto::PublicKeyFromStrError;
 use hersir::builder::Wallet as WalletSettings;
 use jormungandr_lib::crypto::account::Identifier;
 use serde::{Deserialize, Serialize};
+use snapshot_lib::VoterHIR;
 use std::str::FromStr;
 use thor::{Wallet, WalletAlias};
-use voting_hir::VoterHIR;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Initials {

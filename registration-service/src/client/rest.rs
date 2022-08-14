@@ -119,6 +119,7 @@ impl RegistrationRestClient {
         &self,
         id: S,
     ) -> Result<Result<State, crate::context::Error>, Error> {
+        #[allow(clippy::single_char_pattern)]
         let content = self.get(format!("api/job/status/{}", id.into().replace("\"", "")))?;
         serde_yaml::from_str(&content).map_err(Into::into)
     }

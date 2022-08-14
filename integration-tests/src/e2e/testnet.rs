@@ -2,15 +2,15 @@ use crate::common::iapyx_from_qr;
 use crate::common::registration::{do_registration, RegistrationResultAsserts};
 use crate::common::snapshot::do_snapshot;
 use crate::common::snapshot::wait_for_db_sync;
+use crate::common::snapshot_filter::SnapshotFilterSource;
 use crate::Vote;
 use assert_fs::TempDir;
-use catalyst_toolbox::snapshot::{RawSnapshot, Snapshot, VotingRegistration};
-use chain_addr::Discrimination;
 use chain_impl_mockchain::header::BlockDate;
 use jormungandr_automation::testing::asserts::VotePlanStatusAssert;
 use jormungandr_automation::testing::time;
 use registration_service::utils::PinProvider;
 use snapshot_trigger_service::config::JobParameters;
+use std::collections::HashSet;
 use thor::FragmentSender;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vitup::config::Block0Initials;
@@ -37,13 +37,17 @@ pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
         tag: None,
     };
 
+    let reps = HashSet::new();
+
     wait_for_db_sync();
-    let snapshot_result = do_snapshot(job_param).unwrap();
+    let voter_hir = do_snapshot(job_param)
+        .unwrap()
+        .filter_default(&reps)
+        .to_voters_hirs();
 
-    println!("Snapshot: {:?}", snapshot_result);
-
-    let entry = snapshot_result
-        .by_delegation_address(&result.address().unwrap().into())
+    let entry = voter_hir
+        .iter()
+        .find(|x| x.voting_key == result.identifier().unwrap())
         .unwrap();
 
     let vote_timing = VoteBlockchainTime {
@@ -59,12 +63,8 @@ pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
         .vote_timing(vote_timing.into())
         .proposals_count(300)
         .voting_power(voting_threshold)
-        .block0_initials(Block0Initials::new_from_external_utxo(
-            Snapshot::from_raw_snapshot(
-                RawSnapshot::from(snapshot_result.registrations().to_vec()),
-                voting_threshold.into(),
-            )
-            .to_block0_initials(Discrimination::Production),
+        .block0_initials(Block0Initials::new_from_external(
+            voter_hir.clone(),
             chain_addr::Discrimination::Production,
         ))
         .private(false)

@@ -4,13 +4,9 @@ pub mod rest;
 use crate::client::rest::SnapshotRestClient;
 use crate::config::JobParameters;
 use crate::State;
-use catalyst_toolbox::snapshot::{Delegations, VotingRegistration};
-use chain_addr::Address;
-use chain_addr::AddressReadable;
 use jormungandr_lib::crypto::account::Identifier;
 use jortestkit::prelude::WaitBuilder;
-use thiserror::Error;
-use voting_hir::VoterHIR;
+use snapshot_lib::registration::{Delegations, VotingRegistration};
 
 pub fn do_snapshot<S: Into<String>, P: Into<String>>(
     job_params: JobParameters,
@@ -78,7 +74,7 @@ pub fn get_snapshot_from_history_by_id<Q: Into<String>, S: Into<String>, P: Into
     })
 }
 
-pub fn read_initials<S: Into<String>>(snapshot: S) -> Result<Vec<VoterHIR>, Error> {
+pub fn read_initials<S: Into<String>>(snapshot: S) -> Result<Vec<VotingRegistration>, Error> {
     let snapshot = snapshot.into();
     serde_json::from_str(&snapshot).map_err(Into::into)
 }
@@ -90,6 +86,10 @@ pub struct SnapshotResult {
 }
 
 impl SnapshotResult {
+    pub fn new(status: State, snapshot: Vec<VotingRegistration>) -> Self {
+        Self { status, snapshot }
+    }
+
     pub fn assert_status_is_finished(&self) {
         matches!(self.status, State::Finished { .. });
     }
@@ -98,28 +98,23 @@ impl SnapshotResult {
         self.status.clone()
     }
 
-    pub fn initials(&self) -> &Vec<VotingRegistration> {
+    pub fn registrations(&self) -> &Vec<VotingRegistration> {
         &self.snapshot
     }
 
-    pub fn by_identifier(&self, identifier: &Identifier) -> Option<VoterHIR> {
-        self.initials()
+    pub fn by_identifier(&self, identifier: &Identifier) -> Option<VotingRegistration> {
+        self.registrations()
             .iter()
             .cloned()
-            .find(|x| x.voting_key == *identifier)
-    }
-
-    pub fn by_delegation_address(
-        &self,
-        address: &Address,
-    ) -> Result<Option<VotingRegistration>, Error> {
-        let id: Identifier = address.public_key().unwrap().clone().into();
-        self.by_delegation(&id)
+            .find(|x| match &x.delegations {
+                Delegations::Legacy(id) => id == identifier,
+                Delegations::New(_dist) => false,
+            })
     }
 
     pub fn by_delegation(&self, id: &Identifier) -> Result<Option<VotingRegistration>, Error> {
         Ok(self
-            .initials()
+            .registrations()
             .iter()
             .cloned()
             .find(|reg| match &reg.delegations {
@@ -135,7 +130,7 @@ impl SnapshotResult {
     }
 }
 
-#[derive(Debug, Error)]
+#[derive(Debug, thiserror::Error)]
 pub enum Error {
     #[error(transparent)]
     SerdeError(#[from] serde_json::Error),

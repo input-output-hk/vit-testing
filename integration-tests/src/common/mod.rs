@@ -2,12 +2,15 @@ mod assert;
 pub mod load;
 pub mod mainnet_wallet_ext;
 pub mod registration;
+mod reps;
 mod rewards;
 pub mod snapshot;
-mod snapshot_filter;
+pub(crate) mod snapshot_filter;
 mod static_data;
 mod vote_plan_status;
 mod wallet;
+
+pub use reps::{empty_assigner, RepsVoterAssignerSource, DIRECT_VOTING_GROUP, REP_VOTING_GROUP};
 
 pub use assert::*;
 pub use mainnet_tools::wallet::MainnetWallet;

@@ -1,25 +1,17 @@
 use crate::common::snapshot::do_snapshot;
-use crate::common::SnapshotFilter;
-use crate::Vote;
+use crate::common::snapshot_filter::SnapshotFilterSource;
+use crate::common::RepsVoterAssignerSource;
 use assert_fs::TempDir;
 use chain_addr::Discrimination;
-use chain_impl_mockchain::block::BlockDate;
-use chain_impl_mockchain::key::Hash;
-use hersir::builder::VotePlanSettings;
-use jormungandr_automation::testing::asserts::VotePlanStatusAssert;
-use jormungandr_automation::testing::time;
+use fraction::Fraction;
 use snapshot_trigger_service::config::JobParameters;
-use std::path::Path;
-use std::str::FromStr;
-use thor::FragmentSender;
+use std::collections::HashSet;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
+use vitup::config::Block0Initials;
 use vitup::config::ConfigBuilder;
 use vitup::config::SnapshotInitials;
-use vitup::config::VoteBlockchainTime;
-use vitup::config::{Block0Initial, Block0Initials};
 use vitup::testing::spawn_network;
 use vitup::testing::vitup_setup;
-use voting_hir::VoterHIR;
 
 #[test]
 pub fn cip_36_support() {
@@ -33,19 +25,23 @@ pub fn cip_36_support() {
     };
 
     let snapshot_result = do_snapshot(job_param).unwrap();
-    let registrations = snapshot_result.registrations();
+    let reps = HashSet::new();
 
-    let snapshot_filter =
-        SnapshotFilter::from_snapshot_result(&snapshot_result, voting_threshold.into());
+    let snapshot_filter = snapshot_result.filter(
+        voting_threshold.into(),
+        Fraction::new(1u64, 3u64),
+        &reps.into_reps_voter_assigner(),
+    );
 
     let config = ConfigBuilder::default()
         .voting_power(voting_threshold)
-        .block0_initials(Block0Initials::new_from_external_utxo(
-            snapshot_filter.to_block0_initials(),
+        .block0_initials(Block0Initials::new_from_external(
+            snapshot_filter.to_voters_hirs(),
+            Discrimination::Production,
         ))
         .snapshot_initials(SnapshotInitials::from_voters_hir(
             snapshot_filter.to_voters_hirs(),
-            tag.unwrap_or("".to_string()),
+            tag.unwrap_or_else(|| "".to_string()),
         ))
         .build();
 
@@ -53,7 +49,7 @@ pub fn cip_36_support() {
 
     let (mut controller, vit_parameters, network_params) =
         vitup_setup(&config, testing_directory.path().to_path_buf()).unwrap();
-    let (nodes, _vit_station, wallet_proxy) = spawn_network(
+    let (_nodes, _vit_station, _wallet_proxy) = spawn_network(
         &mut controller,
         vit_parameters,
         network_params,

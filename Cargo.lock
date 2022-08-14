@@ -507,7 +507,7 @@ dependencies = [
 [[package]]
 name = "catalyst-toolbox"
 version = "0.3.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot#80e8f3004e8115761036660c12d329d33ce10a2e"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot#769d23a5243ec6ab84658c6fedb3459b2217b65f"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -548,6 +548,7 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_yaml",
+ "snapshot-lib 0.1.0 (git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot)",
  "sscanf",
  "structopt",
  "symmetric-cipher",
@@ -558,7 +559,6 @@ dependencies = [
  "url",
  "versionisator",
  "vit-servicing-station-lib",
- "voting-hir",
  "wallet",
 ]
 
@@ -622,9 +622,9 @@ dependencies = [
  "chain-core",
  "chain-crypto",
  "cryptoxide 0.4.2",
- "proptest",
+ "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
  "quickcheck",
- "test-strategy",
+ "test-strategy 0.1.2",
 ]
 
 [[package]]
@@ -647,13 +647,13 @@ dependencies = [
  "ed25519-dalek",
  "generic-array",
  "hex",
- "proptest",
+ "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
  "quickcheck",
  "rand 0.8.5",
  "rand_core 0.6.3",
  "rayon",
  "sha2 0.10.2",
- "test-strategy",
+ "test-strategy 0.1.2",
  "typed-bytes",
 ]
 
@@ -704,7 +704,7 @@ dependencies = [
  "hex",
  "imhamt",
  "lazy_static",
- "proptest",
+ "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
  "quickcheck",
  "quickcheck_macros",
  "rand 0.8.5",
@@ -713,7 +713,7 @@ dependencies = [
  "sparse-array",
  "strum 0.23.0",
  "strum_macros 0.23.1",
- "test-strategy",
+ "test-strategy 0.1.2",
  "thiserror",
  "typed-bytes",
 ]
@@ -737,7 +737,7 @@ dependencies = [
 [[package]]
 name = "chain-storage"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#135e49a572c7fd1460138c511bdd875c92100680"
+source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#4876be80441bed5c2796428d6b96739526b016a2"
 dependencies = [
  "criterion",
  "data-pile",
@@ -754,9 +754,9 @@ source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#48
 dependencies = [
  "chain-core",
  "chain-ser",
- "proptest",
+ "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
  "quickcheck",
- "test-strategy",
+ "test-strategy 0.1.2",
 ]
 
 [[package]]
@@ -832,9 +832,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "3.1.18"
+version = "3.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2dbdf4bdacb33466e854ce889eee8dfd5729abf7ccd7664d0a2d60cd384440b"
+checksum = "a3dbbb6653e7c55cc8595ad3e1f7be8f32aba4eb7ff7f0fd1163d4f3d137c0a9"
 dependencies = [
  "atty",
  "bitflags",
@@ -848,9 +848,9 @@ dependencies = [
 
 [[package]]
 name = "clap_lex"
-version = "0.2.0"
+version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a37c35f1112dad5e6e0b1adaff798507497a18fceeb30cceb3bae7d1427b9213"
+checksum = "2850f2f5a82cbf437dd5af4d49848fbdfc27c157c3d010345776f952765261c5"
 dependencies = [
  "os_str_bytes",
 ]
@@ -2314,7 +2314,7 @@ dependencies = [
 [[package]]
 name = "hersir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#f8cb3c3593096dd518560753ea347e70cc96ef49"
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -2662,9 +2662,9 @@ name = "imhamt"
 version = "0.1.0"
 source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#4876be80441bed5c2796428d6b96739526b016a2"
 dependencies = [
- "proptest",
+ "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
  "rustc_version",
- "test-strategy",
+ "test-strategy 0.1.2",
  "thiserror",
 ]
 
@@ -2805,6 +2805,7 @@ dependencies = [
  "registration-service",
  "serde",
  "serde_json",
+ "snapshot-lib 0.1.0 (git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot)",
  "snapshot-trigger-service",
  "thiserror",
  "thor",
@@ -2813,7 +2814,6 @@ dependencies = [
  "vit-servicing-station-lib",
  "vit-servicing-station-tests",
  "vitup",
- "voting-hir",
 ]
 
 [[package]]
@@ -2864,7 +2864,7 @@ checksum = "112c678d4050afce233f4f2852bb2eb519230b3cf12f33585275537d7e41578d"
 [[package]]
 name = "jcli"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#f8cb3c3593096dd518560753ea347e70cc96ef49"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -2876,7 +2876,7 @@ dependencies = [
  "chain-impl-mockchain",
  "chain-time",
  "chain-vote",
- "clap 3.1.18",
+ "clap 3.2.16",
  "ed25519-bip32 0.4.1",
  "gtmpl",
  "hex",
@@ -2907,7 +2907,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-automation"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#f8cb3c3593096dd518560753ea347e70cc96ef49"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -2972,7 +2972,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-integration-tests"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#f8cb3c3593096dd518560753ea347e70cc96ef49"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -3024,7 +3024,7 @@ dependencies = [
 [[package]]
 name = "jormungandr-lib"
 version = "0.13.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#5f51deb34dc86d5124c44d885025dcbbc5371cd1"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#f8cb3c3593096dd518560753ea347e70cc96ef49"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -3276,7 +3276,7 @@ dependencies = [
 [[package]]
 name = "loki"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#f8cb3c3593096dd518560753ea347e70cc96ef49"
 dependencies = [
  "chain-addr",
  "chain-core",
@@ -3333,6 +3333,7 @@ dependencies = [
  "serde",
  "serde_json",
  "signals-handler",
+ "snapshot-lib 0.1.0 (git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot)",
  "structopt",
  "tempdir",
  "thiserror",
@@ -3512,7 +3513,7 @@ dependencies = [
 [[package]]
 name = "mjolnir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#f8cb3c3593096dd518560753ea347e70cc96ef49"
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -4396,6 +4397,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c54b25569025b7fc9651de43004ae593a75ad88543b17178aa5e1b9c4f15f56f"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "proptest"
+version = "1.0.0"
+source = "git+https://github.com/input-output-hk/proptest?branch=master#38044d47b2e8eeab62408294aa9e78e393f13d6b"
+dependencies = [
+ "bit-set",
+ "bitflags",
+ "byteorder",
+ "lazy_static",
+ "num-traits",
+ "quick-error 2.0.1",
+ "rand 0.8.5",
+ "rand_chacha 0.3.1",
+ "rand_xorshift",
+ "rand_xoshiro",
+ "regex-syntax",
+ "rusty-fork",
+ "tempfile",
 ]
 
 [[package]]
@@ -5320,6 +5341,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_test"
+version = "1.0.143"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d4b5b007c1bccdc70f8d8b5804da305a64d4279f990f1ae9e3b06eaae46f42e0"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "serde_urlencoded"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5520,7 +5550,7 @@ checksum = "f2dd574626839106c320a323308629dcb1acfc96e32a8cba364ddc61ac23ee83"
 [[package]]
 name = "snapshot-lib"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=main#5748d638ab1f0cc3ba40eb7953caa2ae0e9fab78"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=main#d0bf935ab9e9d441084e6547fc24a0d5a693d22a"
 dependencies = [
  "bech32 0.8.1",
  "chain-crypto",
@@ -5536,6 +5566,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "snapshot-lib"
+version = "0.1.0"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot#769d23a5243ec6ab84658c6fedb3459b2217b65f"
+dependencies = [
+ "bech32 0.8.1",
+ "chain-addr",
+ "chain-crypto",
+ "fraction",
+ "graphql_client",
+ "hex",
+ "jormungandr-lib",
+ "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest?branch=master)",
+ "reqwest 0.11.10",
+ "rust_decimal",
+ "rust_decimal_macros",
+ "serde",
+ "serde_test",
+ "test-strategy 0.2.0",
+ "thiserror",
+]
+
+[[package]]
 name = "snapshot-service"
 version = "0.1.0"
 source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#f2ed338fd091b3bb4f8a3fb9c92186b15854c265"
@@ -5546,7 +5598,7 @@ dependencies = [
  "serde",
  "serde_json",
  "sled",
- "snapshot-lib",
+ "snapshot-lib 0.1.0 (git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=main)",
  "thiserror",
  "tokio 1.19.2",
  "tracing",
@@ -5570,11 +5622,11 @@ dependencies = [
  "serde_json",
  "serde_yaml",
  "signals-handler",
+ "snapshot-lib 0.1.0 (git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot)",
  "structopt",
  "thiserror",
  "tokio 1.19.2",
  "uuid",
- "voting-hir",
  "walkdir",
  "warp",
 ]
@@ -5906,6 +5958,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "test-strategy"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c18b325ca048e49683d5cb9166a50191fc862e36020706bbd7723c22a05d4ffa"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "structmeta",
+ "syn",
+]
+
+[[package]]
 name = "textwrap"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5946,7 +6010,7 @@ dependencies = [
 [[package]]
 name = "thor"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#20060fa0ed4c08ef1387bfa5834a1276c04f4431"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#f8cb3c3593096dd518560753ea347e70cc96ef49"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -6752,7 +6816,7 @@ dependencies = [
  "reqwest 0.11.10",
  "serde",
  "serde_json",
- "snapshot-lib",
+ "snapshot-lib 0.1.0 (git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=main)",
  "structopt",
  "tempfile",
  "thiserror",
@@ -6798,7 +6862,7 @@ dependencies = [
  "json",
  "lazy_static",
  "poldercast 0.14.0-dev",
- "proptest",
+ "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
  "quickcheck",
  "quickcheck_macros",
  "rand 0.8.5",
@@ -6811,6 +6875,7 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_yaml",
+ "snapshot-lib 0.1.0 (git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot)",
  "structopt",
  "strum 0.21.0",
  "strum_macros 0.23.1",
@@ -6828,7 +6893,6 @@ dependencies = [
  "valgrind",
  "vit-servicing-station-lib",
  "vit-servicing-station-tests",
- "voting-hir",
  "walkdir",
  "warp",
  "warp-reverse-proxy",
@@ -6840,15 +6904,6 @@ name = "void"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"
-
-[[package]]
-name = "voting-hir"
-version = "0.1.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot#80e8f3004e8115761036660c12d329d33ce10a2e"
-dependencies = [
- "jormungandr-lib",
- "serde",
-]
 
 [[package]]
 name = "wait-timeout"

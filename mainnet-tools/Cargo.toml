@@ -21,6 +21,7 @@ catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.
 chain-addr           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master", features = [ "property-test-api" ] }
 chain-crypto         = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "master", features = [ "property-test-api" ] }
 tempdir = "0.3.7"
+snapshot-lib = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "test_api_for_snapshot", features=["proptest"] }
 thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "master" }
 rand = "0.8"
 assert_fs = "1.0"

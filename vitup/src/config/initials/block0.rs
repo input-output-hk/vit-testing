@@ -10,9 +10,9 @@ use jormungandr_lib::interfaces::InitialUTxO;
 use jormungandr_lib::interfaces::TokenIdentifier;
 use rand::Rng;
 use serde::{Deserialize, Serialize};
+use snapshot_lib::VoterHIR;
 use std::collections::HashMap;
 use std::str::FromStr;
-use voting_hir::VoterHIR;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Initials(pub Vec<Initial>);
@@ -80,6 +80,7 @@ impl Default for Initials {
     }
 }
 
+#[allow(dead_code)]
 pub fn convert_to_external_utxo(initials: Vec<InitialUTxO>) -> Vec<Initial> {
     initials
         .into_iter()

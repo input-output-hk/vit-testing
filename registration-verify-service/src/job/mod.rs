@@ -8,6 +8,7 @@ use crate::job::info::RegistrationInfo;
 use crate::job::info::SnapshotInfo;
 use crate::request::{Request, Source};
 use catalyst_toolbox::kedqr::PinReadMode;
+use chain_addr::{AddressReadable, Discrimination};
 use chain_crypto::Ed25519;
 use iapyx::utils::qr::Secret;
 use iapyx::utils::qr::SecretFromQrCode;
@@ -203,8 +204,8 @@ impl RegistrationVerifyJob {
             }
         };
 
-        let entry = snapshot_result.by_delegation_address(&address)?;
-        let address_readable = AddressReadable::from_address("ca", &address);
+        let address_readable =
+            AddressReadable::from_address("ca", &identifier.to_address(Discrimination::Production));
 
         context
             .lock()

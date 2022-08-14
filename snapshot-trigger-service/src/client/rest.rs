@@ -168,6 +168,7 @@ pub trait StringExtension {
 
 impl StringExtension for String {
     fn remove_quotas(self) -> Self {
+        #[allow(clippy::single_char_pattern)]
         self.replace("\"", "")
     }
 }

@@ -11,8 +11,8 @@ use chain_addr::Discrimination;
 use chain_impl_mockchain::fee::LinearFee;
 use jormungandr_lib::interfaces::CommitteeIdDef;
 use jormungandr_lib::interfaces::ConsensusLeaderId;
+use snapshot_lib::VoterHIR;
 use time::OffsetDateTime;
-use voting_hir::VoterHIR;
 
 #[derive(Default)]
 pub struct ConfigBuilder {
@@ -146,7 +146,7 @@ impl ConfigBuilder {
     }
 
     pub fn fund_id(mut self, id: i32) -> Self {
-        self.config.data.current_fund.fund_id = id;
+        self.config.data.current_fund.fund_info.fund_id = id;
         self
     }
 
