@@ -51,7 +51,9 @@ impl Configuration {
             command.arg("--slot-no").arg(slot_no.to_string());
         }
 
-        println!("Running command: {:?} ", command);
+        let log_command = format!("{:?}",command);
+        println!("Running command: {} ", log_command.replace(&self.voting_tools.db_pass,"***"));
+
         command.spawn().map_err(Into::into)
     }
 
