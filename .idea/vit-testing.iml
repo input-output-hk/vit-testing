@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/iapyx/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/integration-tests/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mainnet-tools/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/registration-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/registration-verify-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/signals-handler/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/snapshot-trigger-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/snapshot-trigger-service/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/valgrind/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vitup/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vitup/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

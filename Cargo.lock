@@ -507,7 +507,7 @@ dependencies = [
 [[package]]
 name = "catalyst-toolbox"
 version = "0.3.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot#80e8f3004e8115761036660c12d329d33ce10a2e"
+source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=main#2a659e51cb7dc0fdd68b0afb3dc11b26a3b6987d"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -520,7 +520,6 @@ dependencies = [
  "chain-time",
  "color-eyre",
  "csv",
- "env_logger 0.9.0",
  "fraction",
  "futures",
  "gag",
@@ -534,7 +533,6 @@ dependencies = [
  "jormungandr-integration-tests",
  "jormungandr-lib",
  "jortestkit",
- "log",
  "once_cell",
  "qrcode",
  "quircs",
@@ -548,6 +546,7 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_yaml",
+ "snapshot-lib",
  "sscanf",
  "structopt",
  "symmetric-cipher",
@@ -555,10 +554,11 @@ dependencies = [
  "thor",
  "time 0.3.9",
  "tokio 1.19.2",
+ "tracing",
+ "tracing-subscriber 0.3.11",
  "url",
  "versionisator",
  "vit-servicing-station-lib",
- "voting-hir",
  "wallet",
 ]
 
@@ -1511,19 +1511,6 @@ checksum = "44533bbbb3bb3c1fa17d9f2e4e38bbbaf8396ba82193c4cb1b6445d711445d36"
 dependencies = [
  "log",
  "regex",
-]
-
-[[package]]
-name = "env_logger"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0b2cf0344971ee6c64c31be0d530793fba457d322dfec2810c453d0ef228f9c3"
-dependencies = [
- "atty",
- "humantime",
- "log",
- "regex",
- "termcolor",
 ]
 
 [[package]]
@@ -2813,7 +2800,6 @@ dependencies = [
  "vit-servicing-station-lib",
  "vit-servicing-station-tests",
  "vitup",
- "voting-hir",
 ]
 
 [[package]]
@@ -4499,7 +4485,7 @@ version = "0.9.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a44883e74aa97ad63db83c4bf8ca490f02b2fc02f92575e720c8551e843c945f"
 dependencies = [
- "env_logger 0.7.1",
+ "env_logger",
  "log",
  "rand 0.7.3",
  "rand_core 0.5.1",
@@ -5574,7 +5560,6 @@ dependencies = [
  "thiserror",
  "tokio 1.19.2",
  "uuid",
- "voting-hir",
  "walkdir",
  "warp",
 ]
@@ -6828,7 +6813,6 @@ dependencies = [
  "valgrind",
  "vit-servicing-station-lib",
  "vit-servicing-station-tests",
- "voting-hir",
  "walkdir",
  "warp",
  "warp-reverse-proxy",
@@ -6840,15 +6824,6 @@ name = "void"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"
-
-[[package]]
-name = "voting-hir"
-version = "0.1.0"
-source = "git+https://github.com/input-output-hk/catalyst-toolbox.git?branch=test_api_for_snapshot#80e8f3004e8115761036660c12d329d33ce10a2e"
-dependencies = [
- "jormungandr-lib",
- "serde",
-]
 
 [[package]]
 name = "wait-timeout"
