@@ -8,6 +8,7 @@ use crate::common::MainnetWallet;
 use crate::common::{iapyx_from_mainnet, DIRECT_VOTING_GROUP};
 use assert_fs::TempDir;
 use catalyst_toolbox::rewards::voters::calc_voter_rewards;
+use catalyst_toolbox::rewards::Threshold;
 use chain_impl_mockchain::block::BlockDate;
 use jormungandr_automation::testing::time;
 use jormungandr_lib::crypto::account::Identifier;
@@ -163,7 +164,7 @@ pub fn voters_with_at_least_one_vote() {
     let records = calc_voter_rewards(
         account_votes_count,
         snapshot.snapshot().to_full_snapshot_info(),
-        catalyst_toolbox::rewards::voters::Threshold::new(
+        Threshold::new(
             1_000_000,
             vit_station
                 .challenges()
