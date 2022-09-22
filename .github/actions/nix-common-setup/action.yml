@@ -16,3 +16,10 @@ runs:
       with:
         name: iog
         authToken: '${{ inputs.CACHIX_AUTH_TOKEN }}'
+
+    - name: Direnv setup
+      run: |
+        eval "$(nix run nixpkgs#direnv -- hook bash)"
+        nix run nixpkgs#direnv -- allow
+        nix run nixpkgs#direnv -- export gha >> "$GITHUB_ENV"
+
