@@ -18,6 +18,7 @@ runs:
         authToken: '${{ inputs.CACHIX_AUTH_TOKEN }}'
 
     - name: Direnv setup
+      shell: bash
       run: |
         eval "$(nix run nixpkgs#direnv -- hook bash)"
         nix run nixpkgs#direnv -- allow
