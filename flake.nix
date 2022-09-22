@@ -40,7 +40,7 @@
     vit-servicing-station,
     jormungandr_,
     catalyst_toolbox_,
-    cardano-node
+    cardano-node,
   }:
     flake-utils.lib.eachSystem
     [
