@@ -11,6 +11,9 @@ runs:
       uses: cachix/install-nix-action@v16
       with:
         nix_path: nixpkgs=channel:nixpkgs-unstable
+        extra_nix_config: |
+          keep-derivations = true
+          keep-outputs = true
 
     - uses: cachix/cachix-action@v10
       with:
@@ -20,7 +23,12 @@ runs:
     - name: Direnv setup
       shell: bash
       run: |
-        eval "$(nix run nixpkgs#direnv -- hook bash)"
-        nix run nixpkgs#direnv -- allow
-        nix run nixpkgs#direnv -- export gha >> "$GITHUB_ENV"
+        nix profile install nixpkgs#direnv
+        nix profile install nixpkgs#nix-direnv
+
+        eval "$(direnv hook bash)"
+        source $HOME/.nix-profile/share/nix-direnv/direnvrc
+
+        direnv allow
+        direnv export gha >> "$GITHUB_ENV"
 
