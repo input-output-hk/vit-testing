@@ -2,11 +2,11 @@
   description = "Incubator for catalyst related testing projects";
 
   nixConfig.extra-substituters = [
-    "https://vit.cachix.org"
+    "https://iog.cachix.org"
     "https://hydra.iohk.io"
   ];
   nixConfig.extra-trusted-public-keys = [
-    "vit.cachix.org-1:tuLYwbnzbxLzQHHN0fvZI2EMpVm/+R7AKUGqukc6eh8="
+    "iog.cachix.org-1:nYO0M9xTk/s5t1Bs9asZ/Sww/1Kt/hRhkLP0Hhv/ctY="
     "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
   ];
 
