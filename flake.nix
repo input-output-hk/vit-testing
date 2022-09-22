@@ -165,7 +165,7 @@
         packages =
           workspace
           // {
-            inherit voting-tools;
+            inherit voting-tools pre-commit;
             default = workspace.vitup;
           };
 
