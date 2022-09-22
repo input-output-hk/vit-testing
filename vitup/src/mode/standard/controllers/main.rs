@@ -169,13 +169,13 @@ impl VitController {
             .in_settings_file(&config_file)
             .db_url(db_file.to_str().unwrap())
             .service_version(version)
-            .block0_path(Some(
+            .block0_path(
                 self.hersir_controller
                     .block0_file()
-                    .as_path()
-                    .display()
+                    .to_str()
+                    .unwrap()
                     .to_string(),
-            ))
+            )
             .build();
 
         println!("Starting vit-servicing-station: {:?}", command);
