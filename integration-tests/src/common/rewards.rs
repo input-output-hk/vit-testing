@@ -123,23 +123,6 @@ impl ProposerRewards {
     }
 }
 
-// #[derive(Debug, Deserialize)]
-// pub struct ProposerReward {
-//     pub internal_id: u32,
-//     pub proposal_id: String,
-//     pub proposal: String,
-//     pub overall_score: f32,
-//     pub yes: u32,
-//     pub no: u32,
-//     pub result: u32,
-//     pub meets_approval_threshold: String,
-//     pub requested_dollars: u32,
-//     pub status: String,
-//     pub fund_depletion: u32,
-//     pub not_funded_reason: String,
-//     pub link_to_ideascale: String,
-// }
-
 pub type ProposerReward = Calculation;
 
 pub struct ProposerRewardsResult {
