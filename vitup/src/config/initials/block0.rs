@@ -4,14 +4,14 @@ use chain_addr::Discrimination;
 use chain_impl_mockchain::value::Value;
 use fake::faker::name::en::Name;
 use fake::Fake;
-use hersir::builder::wallet::template::builder::WalletTemplateBuilder;
-use hersir::builder::{ExternalWalletTemplate, WalletTemplate};
+use hersir::config::{WalletTemplate, WalletTemplateBuilder};
+use jormungandr_lib::interfaces::InitialUTxO;
 use jormungandr_lib::interfaces::TokenIdentifier;
 use rand::Rng;
 use serde::{Deserialize, Serialize};
+use snapshot_lib::VoterHIR;
 use std::collections::HashMap;
 use std::str::FromStr;
-use voting_hir::VoterHIR;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Initials(pub Vec<Initial>);
@@ -77,6 +77,18 @@ impl Default for Initials {
     fn default() -> Self {
         Self(Vec::new())
     }
+}
+
+#[allow(dead_code)]
+pub fn convert_to_external_utxo(initials: Vec<InitialUTxO>) -> Vec<Initial> {
+    initials
+        .into_iter()
+        .map(|utxo| Initial::External {
+            address: utxo.address.to_string(),
+            funds: utxo.value.into(),
+            role: Default::default(),
+        })
+        .collect()
 }
 
 impl Initials {
@@ -190,9 +202,9 @@ impl Initials {
     pub fn external_templates(
         &self,
         roles: impl Fn(&Role) -> TokenIdentifier,
-    ) -> Vec<ExternalWalletTemplate> {
+    ) -> Vec<WalletTemplate> {
         let mut templates = Vec::new();
-        for (index, initial) in self.0.iter().enumerate() {
+        for initial in self.0.iter() {
             if let Initial::External {
                 funds,
                 address,
@@ -204,10 +216,9 @@ impl Initials {
                 let mut tokens = HashMap::new();
                 tokens.insert(roles(role), funds);
 
-                templates.push(ExternalWalletTemplate::new(
-                    format!("wallet_{}", index + 1),
-                    Value(funds),
+                templates.push(WalletTemplate::new_external(
                     address.to_string(),
+                    Value(funds),
                     tokens,
                 ));
             }

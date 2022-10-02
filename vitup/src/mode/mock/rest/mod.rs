@@ -20,6 +20,7 @@ use jortestkit::web::api_token::TokenError;
 use jortestkit::web::api_token::{APIToken, APITokenManager, API_TOKEN_HEADER};
 use rustls::KeyLogFile;
 use serde::{Deserialize as SerdeDeserialize, Serialize as SerdeSerialize};
+use snapshot_lib::VoterHIR;
 use std::collections::HashMap;
 use std::convert::Infallible;
 use std::fs::{self, File};
@@ -38,11 +39,11 @@ use vit_servicing_station_lib::db::queries::funds::{FundNextInfo, FundWithNext};
 use vit_servicing_station_lib::v0::endpoints::proposals::ProposalsByVoteplanIdAndIndex;
 use vit_servicing_station_lib::v0::errors::HandleError;
 use vit_servicing_station_lib::v0::result::HandlerResult;
-use voting_hir::VoterHIR;
 use warp::http::header::{HeaderMap, HeaderValue};
 use warp::hyper::service::make_service_fn;
 use warp::{reject::Reject, Filter, Rejection, Reply};
-mod reject;
+pub mod reject;
+mod search;
 
 use reject::{report_invalid, ForcedErrorCode, GeneralException, InvalidBatch};
 
@@ -492,6 +493,12 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
             root.and(tags.or(voting_power).or(dump))
         };
 
+        let search = warp::path!("search")
+            .and(warp::post())
+            .and(warp::body::json())
+            .and(with_context.clone())
+            .and_then(search::search);
+
         root.and(
             proposals
                 .or(challenges)
@@ -504,7 +511,8 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
                 .or(fragment)
                 .or(votes)
                 .or(message)
-                .or(snapshot),
+                .or(snapshot)
+                .or(search),
         )
         .boxed()
     };
