@@ -15,6 +15,7 @@ use vitup::config::VoteBlockchainTime;
 use vitup::config::{Block0Initials, ConfigBuilder};
 use vitup::testing::spawn_network;
 use vitup::testing::vitup_setup;
+use snapshot_lib::VotingGroup;
 
 #[test]
 pub fn voters_with_at_least_one_vote() {
@@ -30,11 +31,14 @@ pub fn voters_with_at_least_one_vote() {
         clarice_wallet.as_voting_registration(),
     ];
 
+    let assigner = |_: &Identifier| VotingGroup::new();
+
     let snapshot = Snapshot::from_raw_snapshot(
         RawSnapshot::from(raw_snapshot),
         450.into(),
         1.into(),
         &|_: &Identifier| String::new(),
+        &assigner,
     )
     .unwrap();
     let testing_directory = TempDir::new().unwrap().into_persistent();
@@ -91,11 +95,19 @@ pub fn voters_with_at_least_one_vote() {
     };
     time::wait_for_date(target_date.into(), nodes[0].rest());
 
+<<<<<<< HEAD
+=======
+    let _block0 = &controller.settings().block0;
+>>>>>>> main
     let records = calc_voter_rewards(
         nodes[0].rest().account_votes_count().unwrap(),
         1,
         snapshot.to_full_snapshot_info(),
+<<<<<<< HEAD
         Rewards::ONE,
+=======
+        100u32.into(),
+>>>>>>> main
     )
     .unwrap();
 

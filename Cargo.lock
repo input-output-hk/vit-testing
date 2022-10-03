@@ -2419,7 +2419,7 @@ dependencies = [
 [[package]]
 name = "hersir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#42f0c2e43e33b07526f6f70c1a7aa253539de727"
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -2992,7 +2992,11 @@ checksum = "6c8af84674fe1f223a982c933a0ee1086ac4d4052aa0fb8060c12c6ad838e754"
 [[package]]
 name = "jcli"
 version = "0.13.0"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#42f0c2e43e33b07526f6f70c1a7aa253539de727"
+=======
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
+>>>>>>> main
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -3035,7 +3039,11 @@ dependencies = [
 [[package]]
 name = "jormungandr-automation"
 version = "0.13.0"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#42f0c2e43e33b07526f6f70c1a7aa253539de727"
+=======
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
+>>>>>>> main
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -3102,7 +3110,11 @@ dependencies = [
 [[package]]
 name = "jormungandr-integration-tests"
 version = "0.13.0"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#42f0c2e43e33b07526f6f70c1a7aa253539de727"
+=======
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
+>>>>>>> main
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -3154,7 +3166,11 @@ dependencies = [
 [[package]]
 name = "jormungandr-lib"
 version = "0.13.0"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#42f0c2e43e33b07526f6f70c1a7aa253539de727"
+=======
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
+>>>>>>> main
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -3412,7 +3428,11 @@ dependencies = [
 [[package]]
 name = "loki"
 version = "0.1.0"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#42f0c2e43e33b07526f6f70c1a7aa253539de727"
+=======
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
+>>>>>>> main
 dependencies = [
  "chain-addr",
  "chain-core",
@@ -3643,7 +3663,11 @@ dependencies = [
 [[package]]
 name = "mjolnir"
 version = "0.1.0"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#42f0c2e43e33b07526f6f70c1a7aa253539de727"
+=======
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
+>>>>>>> main
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -4226,6 +4250,12 @@ dependencies = [
  "rand_core 0.6.4",
  "subtle",
 ]
+
+[[package]]
+name = "path-slash"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1e91099d4268b0e11973f036e885d652fb0b21fedcf69738c627f94db6a44f42"
 
 [[package]]
 name = "pbkdf2"
@@ -6124,7 +6154,11 @@ dependencies = [
 [[package]]
 name = "thor"
 version = "0.1.0"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#42f0c2e43e33b07526f6f70c1a7aa253539de727"
+=======
+source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
+>>>>>>> main
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -6869,7 +6903,11 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-lib"
 version = "0.3.4-dev"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#a0583c7b348f194a28565b68ff39a49f04b0cf8e"
+=======
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#7f685606077b1a2faaa623cbad118c041b3b888c"
+>>>>>>> main
 dependencies = [
  "async-trait",
  "base64 0.12.3",
@@ -6902,7 +6940,11 @@ dependencies = [
 [[package]]
 name = "vit-servicing-station-tests"
 version = "0.3.4-dev"
+<<<<<<< HEAD
 source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#a0583c7b348f194a28565b68ff39a49f04b0cf8e"
+=======
+source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#7f685606077b1a2faaa623cbad118c041b3b888c"
+>>>>>>> main
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -6974,6 +7016,8 @@ dependencies = [
  "jortestkit",
  "json",
  "lazy_static",
+ "netstat2",
+ "path-slash",
  "poldercast 0.14.0-dev",
  "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
  "quickcheck",
