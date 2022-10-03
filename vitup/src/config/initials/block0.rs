@@ -1,14 +1,18 @@
 use crate::config::initials::Role;
+use chain_addr::AddressReadable;
 use chain_addr::Discrimination;
 use chain_impl_mockchain::value::Value;
 use fake::faker::name::en::Name;
 use fake::Fake;
 use hersir::builder::wallet::template::builder::WalletTemplateBuilder;
 use hersir::builder::{ExternalWalletTemplate, WalletTemplate};
+use jormungandr_lib::interfaces::InitialUTxO;
 use jormungandr_lib::interfaces::TokenIdentifier;
 use rand::Rng;
 use serde::{Deserialize, Serialize};
+use snapshot_lib::VoterHIR;
 use std::collections::HashMap;
+use std::str::FromStr;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Initials(pub Vec<Initial>);
@@ -76,6 +80,18 @@ impl Default for Initials {
     }
 }
 
+#[allow(dead_code)]
+pub fn convert_to_external_utxo(initials: Vec<InitialUTxO>) -> Vec<Initial> {
+    initials
+        .into_iter()
+        .map(|utxo| Initial::External {
+            address: utxo.address.to_string(),
+            funds: utxo.value.into(),
+            role: Default::default(),
+        })
+        .collect()
+}
+
 impl Initials {
     pub fn extend(&mut self, extend: Self) {
         for element in extend.0.into_iter() {
@@ -87,8 +103,12 @@ impl Initials {
         !self.0.is_empty()
     }
 
-    pub fn extend_from_external(&mut self, initials: Vec<jormungandr_lib::interfaces::Initial>) {
-        self.extend(Self::new_from_external(initials))
+    pub fn extend_from_external(
+        &mut self,
+        initials: Vec<VoterHIR>,
+        discrimination: Discrimination,
+    ) {
+        self.extend(Self::new_from_external(initials, discrimination))
     }
 
     pub fn zero_funds_count(&self) -> usize {
@@ -159,18 +179,23 @@ impl Initials {
         }])
     }
 
-    pub fn new_from_external(initials: Vec<jormungandr_lib::interfaces::Initial>) -> Self {
+    pub fn new_from_external(initials: Vec<VoterHIR>, discrimination: Discrimination) -> Self {
+        let prefix = match discrimination {
+            Discrimination::Production => "ca".to_string(),
+            Discrimination::Test => "ta".to_string(),
+        };
+
         let mut templates = Vec::new();
         for initial in initials.iter() {
-            if let jormungandr_lib::interfaces::Initial::Fund(initial_utxos) = initial {
-                for utxo in initial_utxos.iter() {
-                    templates.push(Initial::External {
-                        address: utxo.address.to_string(),
-                        funds: utxo.value.into(),
-                        role: Default::default(),
-                    });
-                }
-            }
+            templates.push(Initial::External {
+                address: AddressReadable::from_address(
+                    &prefix,
+                    &initial.voting_key.to_address(discrimination),
+                )
+                .to_string(),
+                funds: initial.voting_power.into(),
+                role: Role::from_str(&initial.voting_group).unwrap(),
+            });
         }
         Self(templates)
     }

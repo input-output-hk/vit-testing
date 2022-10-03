@@ -1,13 +1,16 @@
 use crate::common::iapyx_from_qr;
-use crate::common::registration::do_registration;
+use crate::common::registration::{do_registration, RegistrationResultAsserts};
 use crate::common::snapshot::do_snapshot;
 use crate::common::snapshot::wait_for_db_sync;
+use crate::common::snapshot_filter::SnapshotFilterSource;
 use crate::Vote;
 use assert_fs::TempDir;
 use chain_impl_mockchain::header::BlockDate;
 use jormungandr_automation::testing::asserts::VotePlanStatusAssert;
 use jormungandr_automation::testing::time;
+use registration_service::utils::PinProvider;
 use snapshot_trigger_service::config::JobParameters;
+use std::collections::HashSet;
 use thor::FragmentSender;
 use vit_servicing_station_tests::common::data::ArbitraryValidVotingTemplateGenerator;
 use vitup::config::Block0Initials;
@@ -21,26 +24,30 @@ const GRACE_PERIOD_FOR_SNAPSHOT: u64 = 300;
 #[test]
 pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
     let temp_dir = TempDir::new().unwrap().into_persistent();
-    let result = do_registration(&temp_dir);
+    let result = do_registration(&temp_dir).as_legacy_registration().unwrap();
+    let voting_threshold = 1;
 
-    result.assert_status_is_finished();
+    result.status().assert_is_finished();
     result.assert_qr_equals_to_sk();
 
-    println!("Registraton Result: {:?}", result);
+    println!("Registration Result: {:?}", result);
 
     let job_param = JobParameters {
-        slot_no: Some(result.slot_no().unwrap() + GRACE_PERIOD_FOR_SNAPSHOT),
+        slot_no: Some(result.status().slot_no().unwrap() + GRACE_PERIOD_FOR_SNAPSHOT),
         tag: None,
     };
 
+    let reps = HashSet::new();
+
     wait_for_db_sync();
-    let snapshot_result = do_snapshot(job_param).unwrap();
-
-    println!("Snapshot: {:?}", snapshot_result);
-
-    let entry = snapshot_result
-        .by_address(&result.address().unwrap().into())
+    let voter_hir = do_snapshot(job_param)
         .unwrap()
+        .filter_default(&reps)
+        .to_voters_hirs();
+
+    let entry = voter_hir
+        .iter()
+        .find(|x| x.voting_key == result.identifier().unwrap())
         .unwrap();
 
     let vote_timing = VoteBlockchainTime {
@@ -55,14 +62,13 @@ pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
         .slot_duration_in_seconds(2)
         .vote_timing(vote_timing.into())
         .proposals_count(300)
-        .voting_power(1)
+        .voting_power(voting_threshold)
         .block0_initials(Block0Initials::new_from_external(
-            snapshot_result.initials().to_vec(),
+            voter_hir.clone(),
+            chain_addr::Discrimination::Production,
         ))
         .private(false)
         .build();
-
-    println!("{:?}", testing_directory.path().to_path_buf());
 
     let mut template_generator = ArbitraryValidVotingTemplateGenerator::new();
     let (mut controller, vit_parameters, network_params) =
@@ -80,7 +86,7 @@ pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
     let mut committee = controller.wallet("committee_1").unwrap();
 
     // start wallets
-    let mut alice = iapyx_from_qr(&result.qr_code(), &result.pin(), &wallet_proxy).unwrap();
+    let mut alice = iapyx_from_qr(&result.qr_code, &result.qr_code.pin(), &wallet_proxy).unwrap();
 
     let fund1_vote_plan = &controller.defined_vote_plans()[0];
     let fund2_vote_plan = &controller.defined_vote_plans()[1];
@@ -112,6 +118,14 @@ pub fn e2e_flow_using_voter_registration_local_vitup_and_iapyx() {
     vote_timing.wait_for_tally_end(leader_1.rest());
 
     let vote_plans = leader_1.rest().vote_plan_statuses().unwrap();
-    vote_plans.assert_proposal_tally(fund1_vote_plan.id(), 0, vec![u64::from(entry.value), 0]);
-    vote_plans.assert_proposal_tally(fund2_vote_plan.id(), 0, vec![u64::from(entry.value), 0]);
+    vote_plans.assert_proposal_tally(
+        fund1_vote_plan.id(),
+        0,
+        vec![u64::from(entry.voting_power), 0],
+    );
+    vote_plans.assert_proposal_tally(
+        fund2_vote_plan.id(),
+        0,
+        vec![u64::from(entry.voting_power), 0],
+    );
 }

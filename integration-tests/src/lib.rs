@@ -1,11 +1,11 @@
+extern crate core;
 cfg_if::cfg_if! {
     if #[cfg(test)] {
         pub mod common;
-        pub mod backend;
+        pub mod component;
         pub mod non_functional;
-        pub mod registration;
+        pub mod integration;
         pub mod e2e;
-        pub mod snapshot;
     }
 }
 

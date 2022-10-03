@@ -277,7 +277,7 @@ impl LedgerState {
                 .into(),
             treasury_tax: params.treasury_params(),
             reward_params: params.reward_params(),
-            tx_max_expiry_epochs: self.ledger.settings().transaction_max_expiry_epochs,
+            tx_max_expiry_epochs: params.transaction_max_expiry_epochs,
         }
     }
 

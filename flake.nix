@@ -2,11 +2,11 @@
   description = "Incubator for catalyst related testing projects";
 
   nixConfig.extra-substituters = [
-    "https://vit.cachix.org"
+    "https://iog.cachix.org"
     "https://hydra.iohk.io"
   ];
   nixConfig.extra-trusted-public-keys = [
-    "vit.cachix.org-1:tuLYwbnzbxLzQHHN0fvZI2EMpVm/+R7AKUGqukc6eh8="
+    "iog.cachix.org-1:nYO0M9xTk/s5t1Bs9asZ/Sww/1Kt/hRhkLP0Hhv/ctY="
     "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
   ];
 
@@ -14,8 +14,6 @@
   inputs.flake-compat.url = "github:edolstra/flake-compat";
   inputs.flake-compat.flake = false;
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.gitignore.url = "github:hercules-ci/gitignore.nix";
-  inputs.gitignore.inputs.nixpkgs.follows = "nixpkgs";
   inputs.pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   inputs.pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
   inputs.pre-commit-hooks.inputs.flake-utils.follows = "flake-utils";
@@ -24,10 +22,10 @@
   inputs.rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   inputs.naersk.url = "github:nix-community/naersk";
   inputs.naersk.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.voting-tools_.url = "github:input-output-hk/voting-tools?rev=98a46754f822689b136ea8ae9049af535309bf87";
-  inputs.vit-kedqr.url = "github:input-output-hk/vit-kedqr";
+  inputs.voting-tools_.url = "github:input-output-hk/voting-tools?rev=c492a1853c4db060d598e740452a97c49618f0bd";
   inputs.vit-servicing-station.url = "github:input-output-hk/vit-servicing-station/master";
   inputs.jormungandr_.url = "github:input-output-hk/jormungandr/master";
+  inputs.catalyst_toolbox_.url = "github:input-output-hk/catalyst-toolbox/main";
   inputs.cardano-node.url = "github:input-output-hk/cardano-node/1.33.0";
 
   outputs = {
@@ -35,14 +33,13 @@
     nixpkgs,
     flake-compat,
     flake-utils,
-    gitignore,
     pre-commit-hooks,
     rust-overlay,
     naersk,
     voting-tools_,
-    vit-kedqr,
     vit-servicing-station,
     jormungandr_,
+    catalyst_toolbox_,
     cardano-node,
   }:
     flake-utils.lib.eachSystem
@@ -60,6 +57,7 @@
         };
 
         inherit (voting-tools_.packages.${system}) voting-tools voter-registration;
+        inherit (catalyst_toolbox_.packages.${system}) catalyst-toolbox;
         inherit (jormungandr_.packages.${system}) jormungandr jcli;
         inherit (vit-servicing-station.packages.${system}) vit-servicing-station-server;
         inherit (cardano-node.packages.${system}) cardano-cli;
@@ -105,7 +103,7 @@
           unwrapped = naersk-lib.buildPackage {
             inherit (pkgCargo.package) name version;
 
-            root = gitignore.lib.gitignoreSource self;
+            root = self;
 
             cargoBuildOptions = x: x ++ cargoOptions;
             cargoTestOptions = x: x ++ cargoOptions;
@@ -125,7 +123,7 @@
           };
           extraBinPath = {
             snapshot-trigger-service = [voting-tools];
-            registration-service = [vit-kedqr jcli cardano-cli];
+            registration-service = [catalyst-toolbox jcli cardano-cli voting-tools];
             registration-verify-service = [jcli];
           };
         in
@@ -167,7 +165,7 @@
         packages =
           workspace
           // {
-            inherit voting-tools;
+            inherit voting-tools pre-commit;
             default = workspace.vitup;
           };
 

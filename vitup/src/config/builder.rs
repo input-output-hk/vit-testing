@@ -5,11 +5,13 @@ pub use crate::builders::{
 };
 use crate::config::date_format;
 use crate::config::Block0Initials;
+use crate::config::SnapshotInitials;
 use crate::config::{Config, Initials, VoteTime};
+use chain_addr::Discrimination;
 use chain_impl_mockchain::fee::LinearFee;
 use jormungandr_lib::interfaces::CommitteeIdDef;
 use jormungandr_lib::interfaces::ConsensusLeaderId;
-pub use jormungandr_lib::interfaces::Initial;
+use snapshot_lib::VoterHIR;
 use time::OffsetDateTime;
 
 #[derive(Default)]
@@ -36,6 +38,11 @@ impl ConfigBuilder {
         self
     }
 
+    pub fn snapshot_initials(mut self, initials: SnapshotInitials) -> Self {
+        self.config.initials.snapshot = Some(initials);
+        self
+    }
+
     pub fn block_content_max_size(mut self, block_content_max_size: u32) -> Self {
         self.config.blockchain.block_content_max_size = block_content_max_size;
         self
@@ -45,8 +52,15 @@ impl ConfigBuilder {
         self.block0_initials(Block0Initials::new_above_threshold(initials_count, pin))
     }
 
-    pub fn extend_block0_initials(mut self, initials: Vec<Initial>) -> Self {
-        self.config.initials.block0.extend_from_external(initials);
+    pub fn extend_block0_initials(
+        mut self,
+        initials: Vec<VoterHIR>,
+        discrimination: Discrimination,
+    ) -> Self {
+        self.config
+            .initials
+            .block0
+            .extend_from_external(initials, discrimination);
         self
     }
 
