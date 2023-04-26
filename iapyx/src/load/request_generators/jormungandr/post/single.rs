@@ -79,20 +79,10 @@ impl WalletRequestGen {
                 });
         }
 
-        let counter = self.vote_cast_counter.advance_single(index).unwrap();
-
-        let proposal_index;
-        if self.proposals.len() == 0{
-            proposal_index = 1;
-        }
-        else{
-            proposal_index = counter.first().unwrap().first();
-        }
+        let _counter = self.vote_cast_counter.advance_single(index).unwrap();
 
         let proposal = self
-            .proposals
-            .get( proposal_index as usize)
-            .unwrap();
+            .proposals.first().unwrap();
 
         let choice = Choice::new(*self.options.choose(&mut self.rand).unwrap());
         self.multi_controller.vote(
