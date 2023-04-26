@@ -25,7 +25,7 @@ impl Default for CurrentFund {
             challenges: 9,
             reviews: 3,
             voting_power: 8000,
-            options: VoteOptions::parse_coma_separated_value("yes,no"),
+            options: VoteOptions::parse_coma_separated_value("yes,no,maybe"),
             dates: Default::default(),
             fund_info: 9i32.into(),
         }
