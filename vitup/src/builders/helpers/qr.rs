@@ -4,6 +4,7 @@ use chain_crypto::SecretKey;
 use chain_impl_mockchain::key::EitherEd25519SecretKey;
 use hersir::builder::WalletTemplate;
 use image::ImageError;
+use rayon::prelude::*;
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::Write;
@@ -28,25 +29,31 @@ pub fn generate_qr_and_hashes<P: AsRef<Path>>(
     let total = wallets.len();
     let folder = folder.as_ref();
 
-    for (idx, (alias, wallet)) in wallets.iter().enumerate() {
-        let pin = initials
-            .iter()
-            .find_map(|(template, pin)| {
-                if template.alias() == *alias {
-                    Some(pin)
-                } else {
-                    None
-                }
-            })
-            .unwrap();
-        let png = folder.join(format!("{}_{}.png", alias, pin));
-        println!("[{}/{}] Qr dumped to {:?}", idx + 1, total, png);
-        wallet.save_qr_code(png, &pin_to_bytes(pin));
+    wallets
+        .par_iter()
+        .enumerate()
+        .for_each(|(idx, (alias, wallet))| {
+            let initials = initials.clone();
+            let folder = folder.to_owned();
 
-        let hash = folder.join(format!("{}_{}.txt", alias, pin));
-        println!("[{}/{}] QR hash dumped to {:?}", idx + 1, total, hash);
-        wallet.save_qr_code_hash(hash, &pin_to_bytes(pin));
-    }
+            let pin = initials
+                .iter()
+                .find_map(|(template, pin)| {
+                    if template.alias() == *alias {
+                        Some(pin)
+                    } else {
+                        None
+                    }
+                })
+                .unwrap();
+            let png = folder.join(format!("{}_{}.png", alias, pin));
+            println!("[{}/{}] Qr dumped to {:?}", idx + 1, total, png);
+            wallet.save_qr_code(png, &pin_to_bytes(pin));
+
+            let hash = folder.join(format!("{}_{}", alias, pin));
+            println!("[{}/{}] QR hash dumped to {:?}", idx + 1, total, hash);
+            wallet.save_qr_code_hash(hash, &pin_to_bytes(pin));
+        });
 
     let zero_funds_initial_counts = parameters.initials.block0.zero_funds_count();
 
