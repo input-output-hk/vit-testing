@@ -81,10 +81,11 @@ impl WalletRequestGen {
 
         let counter = self.vote_cast_counter.advance_single(index).unwrap();
 
-        let proposal = self
-            .proposals
-            .get(counter.first().unwrap().first() as usize)
-            .unwrap();
+        let proposal_idx = counter
+            .first()
+            .ok_or(MultiControllerError::NoMoreProposals)?
+            .first();
+        let proposal = self.proposals.get(proposal_idx as usize).unwrap();
         let choice = Choice::new(*self.options.choose(&mut self.rand).unwrap());
         self.multi_controller.vote(
             index,
