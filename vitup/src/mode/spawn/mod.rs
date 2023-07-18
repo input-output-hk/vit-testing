@@ -83,6 +83,11 @@ impl NetworkSpawnParams {
             .leader()
             .persistence_mode(PersistenceMode::Persistent)
             .jormungandr(self.session_settings.jormungandr.clone())
+            .mempool(Mempool {
+                pool_max_entries: 1_000_000.into(),
+                log_max_entries: 1_000_000.into(),
+                ..Default::default()
+            })
     }
 
     fn passive_node(&self, alias: &str) -> SpawnParams {
@@ -93,6 +98,7 @@ impl NetworkSpawnParams {
             .jormungandr(self.session_settings.jormungandr.clone())
             .mempool(Mempool {
                 pool_max_entries: 1_000_000.into(),
+                log_max_entries: 1_000_000.into(),
                 ..Default::default()
             })
     }
