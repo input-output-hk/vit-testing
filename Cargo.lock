@@ -497,7 +497,6 @@ dependencies = [
 [[package]]
 name = "cardano-legacy-address"
 version = "0.1.1"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "cbor_event",
  "cryptoxide 0.4.2",
@@ -623,7 +622,6 @@ dependencies = [
 [[package]]
 name = "chain-addr"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "bech32 0.8.1",
  "chain-core",
@@ -637,7 +635,6 @@ dependencies = [
 [[package]]
 name = "chain-core"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "chain-ser",
 ]
@@ -645,7 +642,6 @@ dependencies = [
 [[package]]
 name = "chain-crypto"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "bech32 0.8.1",
  "cryptoxide 0.4.2",
@@ -667,7 +663,6 @@ dependencies = [
 [[package]]
 name = "chain-evm"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "aurora-bn",
  "base64 0.13.0",
@@ -696,7 +691,6 @@ dependencies = [
 [[package]]
 name = "chain-impl-mockchain"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "cardano-legacy-address",
  "chain-addr",
@@ -736,7 +730,6 @@ dependencies = [
 [[package]]
 name = "chain-ser"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "thiserror",
 ]
@@ -744,7 +737,6 @@ dependencies = [
 [[package]]
 name = "chain-storage"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "criterion",
  "data-pile",
@@ -757,7 +749,6 @@ dependencies = [
 [[package]]
 name = "chain-time"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "chain-core",
  "chain-ser",
@@ -769,9 +760,8 @@ dependencies = [
 [[package]]
 name = "chain-vote"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
- "cfg-if 1.0.0",
+ "cfg-if 0.1.10",
  "chain-core",
  "chain-crypto",
  "const_format",
@@ -2309,7 +2299,6 @@ dependencies = [
 [[package]]
 name = "hersir"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=catalyst-fund9#19eac361d1512747a76497cfa57c557588b2e923"
 dependencies = [
  "assert_fs",
  "chain-addr",
@@ -2654,7 +2643,6 @@ dependencies = [
 [[package]]
 name = "imhamt"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 dependencies = [
  "proptest",
  "rustc_version",
@@ -2851,7 +2839,6 @@ checksum = "112c678d4050afce233f4f2852bb2eb519230b3cf12f33585275537d7e41578d"
 [[package]]
 name = "jcli"
 version = "0.15.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=catalyst-fund9#19eac361d1512747a76497cfa57c557588b2e923"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -2894,7 +2881,6 @@ dependencies = [
 [[package]]
 name = "jormungandr-automation"
 version = "0.15.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=catalyst-fund9#19eac361d1512747a76497cfa57c557588b2e923"
 dependencies = [
  "assert_cmd 2.0.4",
  "assert_fs",
@@ -3010,7 +2996,6 @@ dependencies = [
 [[package]]
 name = "jormungandr-lib"
 version = "0.15.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=catalyst-fund9#19eac361d1512747a76497cfa57c557588b2e923"
 dependencies = [
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -3038,7 +3023,6 @@ dependencies = [
 [[package]]
 name = "jortestkit"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jortestkit.git?branch=master#4907ed1f3f0a341158ca4e53d967c78b86cd00fa"
 dependencies = [
  "assert_fs",
  "base64 0.13.0",
@@ -3054,6 +3038,7 @@ dependencies = [
  "humantime",
  "indicatif",
  "lazy_static",
+ "log",
  "os_info",
  "predicates",
  "rand 0.8.5",
@@ -3257,6 +3242,7 @@ checksum = "abb12e687cfb44aa40f41fc3978ef76448f9b6038cad6aef4259d3c095a2382e"
 dependencies = [
  "cfg-if 1.0.0",
  "serde",
+ "value-bag",
 ]
 
 [[package]]
@@ -5540,7 +5526,6 @@ dependencies = [
 [[package]]
 name = "sparse-array"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 
 [[package]]
 name = "spin"
@@ -5872,7 +5857,6 @@ dependencies = [
 [[package]]
 name = "thor"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/jormungandr.git?branch=catalyst-fund9#19eac361d1512747a76497cfa57c557588b2e923"
 dependencies = [
  "assert_fs",
  "bech32 0.8.1",
@@ -6418,7 +6402,6 @@ dependencies = [
 [[package]]
 name = "typed-bytes"
 version = "0.1.0"
-source = "git+https://github.com/input-output-hk/chain-libs.git?branch=catalyst-fund9#1b01f0dbf9282102f394727b4f8637fe4ce1728e"
 
 [[package]]
 name = "typenum"
@@ -6589,6 +6572,16 @@ name = "valuable"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "830b7e5d4d90034032940e4ace0d9a9a057e7a45cd94e6c007832e39edb82f6d"
+
+[[package]]
+name = "value-bag"
+version = "1.0.0-alpha.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2209b78d1249f7e6f3293657c9779fe31ced465df091bbd433a1cf88e916ec55"
+dependencies = [
+ "ctor",
+ "version_check",
+]
 
 [[package]]
 name = "vcpkg"
