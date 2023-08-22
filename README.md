@@ -1,3 +1,5 @@
+## This repo is unmaintained please refer to https://github.com/input-output-hk/catalyst-core/tree/main/src/vit-testing
+
 # vit-testing
 Incubator for catalyst related testing projects
 
