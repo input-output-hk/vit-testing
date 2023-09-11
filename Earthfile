@@ -3,7 +3,7 @@ VERSION 0.7
 FROM debian:stable-slim
 
 rust-toolchain:
-    FROM rust:1.65-slim-bullseye
+    FROM rust:1.71-slim-bullseye
     RUN rustup component add rustfmt
 
 # Installs Cargo chef
