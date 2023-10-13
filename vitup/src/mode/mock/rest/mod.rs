@@ -464,7 +464,7 @@ pub async fn start_rest_server(context: ContextLock) -> Result<(), Error> {
             .and(with_context.clone())
             .map(move |context: ContextLock| {
                 context.lock().unwrap().log("get_block0");
-                Ok(context.lock().unwrap().block0_bin())
+                context.lock().unwrap().block0_bin()
             })
             .with(warp::reply::with::headers(default_headers.clone()));
 
