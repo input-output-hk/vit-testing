@@ -62,6 +62,11 @@ async fn main() {
             server_stub.http_node_address(),
         ));
 
+        let stats = warp::path!("node" / "stats").and(reverse_proxy_filter(
+            "".to_string(),
+            server_stub.http_node_address(),
+        ));
+
         let vote = warp::path!("vote" / "active" / ..).and(reverse_proxy_filter(
             "".to_string(),
             server_stub.http_node_address(),
@@ -82,6 +87,7 @@ async fn main() {
                 .or(reviews)
                 .or(settings)
                 .or(explorer)
+                .or(stats)
                 .or(vote)
                 .or(block0),
         )
