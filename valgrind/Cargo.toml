@@ -6,8 +6,8 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
+jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
 wallet = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "catalyst-fund9" }
 wallet-core = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "catalyst-fund9" }
 hex = "0.4"
@@ -22,8 +22,8 @@ serde_json = "1.0"
 warp-reverse-proxy = "0.3.2"
 structopt = "0.3"
 jortestkit = { git = "https://github.com/input-output-hk/jortestkit.git", branch = "master" }
-vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "catalyst-fund9" }
-vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "catalyst-fund9" }
+vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", tag = "f10.0.0" }
+vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", tag = "f10.0.0" }
 chain-core           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
 chain-crypto         = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9", features = [ "property-test-api" ] }
 chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9", features = [ "property-test-api" ] }
@@ -37,4 +37,3 @@ url = "2.2.2"
 version = "0.10.10"
 default-features = false
 features = ["blocking", "rustls-tls", "json"]
-

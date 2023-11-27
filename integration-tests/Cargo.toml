@@ -7,21 +7,21 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-jormungandr-lib = { git ="https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-jormungandr-automation = { git ="https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-thor = { git ="https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-hersir = { git ="https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-jcli = { git ="https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "catalyst-fund9" }
-vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "catalyst-fund9" }
+jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+thor = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+hersir = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+jcli = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", tag = "f10.0.0" }
+vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", tag = "f10.0.0" }
 jortestkit = { git = "https://github.com/input-output-hk/jortestkit.git", branch="master" }
 chain-addr = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
 chain-core = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
 chain-ser = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
 chain-crypto = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
-vitup = { path = "../vitup"} 
-iapyx = { path = "../iapyx"} 
-valgrind = { path = "../valgrind"} 
+vitup = { path = "../vitup"}
+iapyx = { path = "../iapyx"}
+valgrind = { path = "../valgrind"}
 snapshot-trigger-service = { path = "../snapshot-trigger-service" }
 registration-service = { path = "../registration-service" }
 rand_chacha = "0.2"

@@ -22,13 +22,13 @@ chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.gi
 chain-time           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
 chain-vote           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
 proptest = { git = "https://github.com/input-output-hk/proptest.git" }
-jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
-hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
+jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+thor = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
+hersir = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
 jortestkit = { git = "https://github.com/input-output-hk/jortestkit.git", branch = "master" }
-vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "catalyst-fund9" }
-vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", branch = "catalyst-fund9" }
+vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", tag = "f10.0.0" }
+vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", tag = "f10.0.0" }
 catalyst-toolbox = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "catalyst-fund9"}
 voting-hir = { git = "https://github.com/input-output-hk/catalyst-toolbox.git", branch = "catalyst-fund9", features = ["serde"] }
 valgrind = { path = "../valgrind" }
@@ -36,7 +36,7 @@ poldercast = { git = "https://github.com/primetype/poldercast.git", rev = "8305f
 rand = "0.8"
 path-slash = "0.2.0"
 netstat2 = "0.9"
-time = { version = "0.3.7", features=["serde","serde-well-known","parsing"]} 
+time = { version = "0.3.7", features=["serde","serde-well-known","parsing"]}
 fake = { version = "2.2", features=['chrono','http']}
 strum = "0.21.0"
 strum_macros = "0.23.1"
