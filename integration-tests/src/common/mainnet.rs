@@ -43,8 +43,8 @@ impl MainnetWallet {
         CatalystRegistration {
             stake_public_key: self.stake_public_key(),
             voting_power: self.stake.into(),
-            reward_address: self.reward_address(),
-            voting_public_key: self.inner.identifier().into(),
+            rewards_address: self.reward_address(),
+            delegations:  self.inner.identifier().into(),
         }
     }
 
