@@ -15,12 +15,12 @@ ctrlc = "3.2.1"
 walkdir = "2.3.1"
 csv = "1.1"
 itertools = "0.10.3"
-chain-core           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
-chain-crypto         = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9", features = [ "property-test-api" ] }
-chain-addr           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9", features = [ "property-test-api" ] }
-chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9", features = [ "property-test-api" ] }
-chain-time           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
-chain-vote           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9" }
+chain-core           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9-gold" }
+chain-crypto         = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9-gold", features = [ "property-test-api" ] }
+chain-addr           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9-gold", features = [ "property-test-api" ] }
+chain-impl-mockchain = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9-gold", features = [ "property-test-api" ] }
+chain-time           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9-gold" }
+chain-vote           = { git = "https://github.com/input-output-hk/chain-libs.git", branch = "catalyst-fund9-gold" }
 proptest = { git = "https://github.com/input-output-hk/proptest.git" }
 jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
 jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", tag = "v0.15.0" }
