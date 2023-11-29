@@ -24,8 +24,8 @@ chain-vote           = { git = "https://github.com/input-output-hk/chain-libs.gi
 proptest = { git = "https://github.com/input-output-hk/proptest.git" }
 jormungandr-lib = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9-gold" }
 jormungandr-automation = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9-gold" }
-thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9-gold" }
-hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9-gold" }
+thor = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
+hersir = { git = "https://github.com/input-output-hk/jormungandr.git", branch = "catalyst-fund9" }
 jortestkit = { git = "https://github.com/input-output-hk/jortestkit.git", branch = "master" }
 vit-servicing-station-tests = { git = "https://github.com/input-output-hk/vit-servicing-station.git", tag = "f10.0.0" }
 vit-servicing-station-lib = { git = "https://github.com/input-output-hk/vit-servicing-station.git", tag = "f10.0.0" }
