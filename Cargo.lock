@@ -4932,7 +4932,7 @@ dependencies = [
  "percent-encoding",
  "pin-project-lite 0.2.9",
  "rustls 0.20.6",
- "rustls-pemfile 0.3.0",
+ "rustls-pemfile",
  "serde",
  "serde_json",
  "serde_urlencoded",
@@ -5107,15 +5107,6 @@ dependencies = [
  "ring",
  "sct 0.7.0",
  "webpki 0.22.0",
-]
-
-[[package]]
-name = "rustls-pemfile"
-version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5eebeaeb360c87bfb72e84abdb3447159c0eaececf1bef2aecd65a8be949d1c9"
-dependencies = [
- "base64 0.13.0",
 ]
 
 [[package]]
@@ -6839,7 +6830,7 @@ dependencies = [
  "regex",
  "reqwest 0.10.10",
  "rustls 0.20.6",
- "rustls-pemfile 0.2.1",
+ "rustls-pemfile",
  "serde",
  "serde_json",
  "serde_yaml",
