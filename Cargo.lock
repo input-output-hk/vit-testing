@@ -623,7 +623,7 @@ dependencies = [
  "chain-crypto",
  "cryptoxide 0.4.2",
  "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
- "quickcheck",
+ "quickcheck 0.9.2",
  "test-strategy 0.1.2",
 ]
 
@@ -648,7 +648,7 @@ dependencies = [
  "generic-array",
  "hex",
  "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
- "quickcheck",
+ "quickcheck 0.9.2",
  "rand 0.8.5",
  "rand_core 0.6.3",
  "rayon",
@@ -676,7 +676,7 @@ dependencies = [
  "imhamt",
  "libsecp256k1",
  "num 0.4.0",
- "quickcheck",
+ "quickcheck 0.9.2",
  "ripemd",
  "rlp",
  "secp256k1",
@@ -705,7 +705,7 @@ dependencies = [
  "imhamt",
  "lazy_static",
  "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
- "quickcheck",
+ "quickcheck 0.9.2",
  "quickcheck_macros",
  "rand 0.8.5",
  "rand_chacha 0.3.1",
@@ -755,7 +755,7 @@ dependencies = [
  "chain-core",
  "chain-ser",
  "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
- "quickcheck",
+ "quickcheck 0.9.2",
  "test-strategy 0.1.2",
 ]
 
@@ -1508,6 +1508,16 @@ name = "env_logger"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "44533bbbb3bb3c1fa17d9f2e4e38bbbaf8396ba82193c4cb1b6445d711445d36"
+dependencies = [
+ "log",
+ "regex",
+]
+
+[[package]]
+name = "env_logger"
+version = "0.8.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a19187fea3ac7e84da7dacf48de0c45d63c6a76f9490dae389aead16c243fce3"
 dependencies = [
  "log",
  "regex",
@@ -4520,10 +4530,21 @@ version = "0.9.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a44883e74aa97ad63db83c4bf8ca490f02b2fc02f92575e720c8551e843c945f"
 dependencies = [
- "env_logger",
+ "env_logger 0.7.1",
  "log",
  "rand 0.7.3",
  "rand_core 0.5.1",
+]
+
+[[package]]
+name = "quickcheck"
+version = "1.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "588f6378e4dd99458b60ec275b4477add41ce4fa9f64dcba6f15adccb19b50d6"
+dependencies = [
+ "env_logger 0.8.4",
+ "log",
+ "rand 0.8.5",
 ]
 
 [[package]]
@@ -6775,7 +6796,7 @@ dependencies = [
  "libsqlite3-sys",
  "predicates",
  "pretty_assertions",
- "quickcheck",
+ "quickcheck 0.9.2",
  "quickcheck_macros",
  "rand 0.7.3",
  "rand_core 0.5.1",
@@ -6831,7 +6852,7 @@ dependencies = [
  "path-slash",
  "poldercast 0.14.0-dev",
  "proptest 1.0.0 (git+https://github.com/input-output-hk/proptest.git)",
- "quickcheck",
+ "quickcheck 1.0.3",
  "quickcheck_macros",
  "rand 0.8.5",
  "rand_chacha 0.3.1",
