@@ -492,7 +492,7 @@ source = "git+https://github.com/input-output-hk/chain-libs.git?branch=master#48
 dependencies = [
  "cbor_event",
  "cryptoxide 0.4.2",
- "ed25519-bip32 0.4.1",
+ "ed25519-bip32",
 ]
 
 [[package]]
@@ -643,7 +643,7 @@ dependencies = [
  "bech32 0.8.1",
  "cryptoxide 0.4.2",
  "curve25519-dalek-ng",
- "ed25519-bip32 0.4.1",
+ "ed25519-bip32",
  "ed25519-dalek",
  "generic-array",
  "hex",
@@ -700,7 +700,7 @@ dependencies = [
  "chain-time",
  "chain-vote",
  "cryptoxide 0.4.2",
- "ed25519-bip32 0.4.1",
+ "ed25519-bip32",
  "hex",
  "imhamt",
  "lazy_static",
@@ -1448,15 +1448,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1e9c280362032ea4203659fc489832d0204ef09f247a0506f170dafcac08c369"
 dependencies = [
  "signature",
-]
-
-[[package]]
-name = "ed25519-bip32"
-version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8827180a2b511141fbe49141e50b31a8d542465e0fb572f81f36feea2addfe92"
-dependencies = [
- "cryptoxide 0.3.6",
 ]
 
 [[package]]
@@ -2251,7 +2242,7 @@ dependencies = [
  "chain-crypto",
  "chain-path-derivation",
  "cryptoxide 0.4.2",
- "ed25519-bip32 0.4.1",
+ "ed25519-bip32",
  "hex",
  "thiserror",
  "zeroize",
@@ -2561,7 +2552,7 @@ dependencies = [
  "dialoguer 0.10.1",
  "dirs 4.0.0",
  "eccoxide",
- "ed25519-bip32 0.3.2",
+ "ed25519-bip32",
  "hdkeygen",
  "hersir",
  "hex",
@@ -2868,7 +2859,7 @@ dependencies = [
  "chain-time",
  "chain-vote",
  "clap 3.2.16",
- "ed25519-bip32 0.4.1",
+ "ed25519-bip32",
  "gtmpl",
  "hex",
  "jormungandr-lib",
@@ -6907,7 +6898,7 @@ dependencies = [
  "chain-path-derivation",
  "chain-time",
  "cryptoxide 0.4.2",
- "ed25519-bip32 0.4.1",
+ "ed25519-bip32",
  "hashlink",
  "hdkeygen",
  "hex",
