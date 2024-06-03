@@ -7,7 +7,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bech32 = "0.8"
+bech32 = "0.9"
 wallet-core = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "master"}
 wallet = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "master"}
 hdkeygen = { git = "https://github.com/input-output-hk/chain-wallet-libs.git", branch = "master"}
