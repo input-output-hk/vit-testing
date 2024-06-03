@@ -128,20 +128,6 @@ checksum = "eab1c04a571841102f5345a8fc0f6bb3d31c315dec879b5c6e42e40ce7ffa34e"
 
 [[package]]
 name = "assert_cmd"
-version = "1.0.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c98233c6673d8601ab23e77eb38f999c51100d46c5703b17288c57fddf3a1ffe"
-dependencies = [
- "bstr",
- "doc-comment",
- "predicates",
- "predicates-core",
- "predicates-tree",
- "wait-timeout",
-]
-
-[[package]]
-name = "assert_cmd"
 version = "2.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "93ae1ddd39efd67689deb1979d80bad3bf7f2b09c6e6117c8d1f2443b5e2f83e"
@@ -2767,7 +2753,7 @@ dependencies = [
 name = "integration-tests"
 version = "0.1.0"
 dependencies = [
- "assert_cmd 1.0.8",
+ "assert_cmd",
  "assert_fs",
  "catalyst-toolbox",
  "cfg-if 1.0.0",
@@ -2900,7 +2886,7 @@ name = "jormungandr-automation"
 version = "0.13.0"
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
 dependencies = [
- "assert_cmd 2.0.4",
+ "assert_cmd",
  "assert_fs",
  "base64 0.13.0",
  "bech32 0.8.1",
@@ -2965,7 +2951,7 @@ name = "jormungandr-integration-tests"
 version = "0.13.0"
 source = "git+https://github.com/input-output-hk/jormungandr.git?branch=master#fd29e9fa5600f9ac3a407866edafc5ec8880a2f1"
 dependencies = [
- "assert_cmd 2.0.4",
+ "assert_cmd",
  "assert_fs",
  "base64 0.13.0",
  "bech32 0.7.3",
@@ -6757,7 +6743,7 @@ name = "vit-servicing-station-tests"
 version = "0.3.4-dev"
 source = "git+https://github.com/input-output-hk/vit-servicing-station.git?branch=master#7f685606077b1a2faaa623cbad118c041b3b888c"
 dependencies = [
- "assert_cmd 2.0.4",
+ "assert_cmd",
  "assert_fs",
  "base64 0.12.3",
  "cfg-if 0.1.10",
@@ -6796,7 +6782,7 @@ dependencies = [
 name = "vitup"
 version = "0.0.1"
 dependencies = [
- "assert_cmd 1.0.8",
+ "assert_cmd",
  "assert_fs",
  "base64 0.12.3",
  "catalyst-toolbox",
